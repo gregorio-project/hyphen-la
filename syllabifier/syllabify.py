@@ -35,6 +35,9 @@ import argparse
 import sys
 import re
 
+sys.stdout = open(sys.stdout.fileno(), mode='w', encoding=sys.getdefaultencoding(), buffering=1)
+sys.stdin = open(sys.stdin.fileno(), mode='r', encoding=sys.getdefaultencoding(), buffering=1)
+
 parser = argparse.ArgumentParser(
     				description='A script to "syllabify" (insert a character between all syllables) a file.',formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument('-t', '--text-type',
@@ -43,9 +46,9 @@ parser.add_argument('-t', '--text-type',
 parser.add_argument('-m', '--hyphen-mode',
                     help='Hyphenation mode (liturgical, phonetic or etymology)',
                     default='liturgical', dest='mode')
-parser.add_argument('-i', '--input', nargs='?', type = argparse.FileType('r'),
+parser.add_argument('-i', '--input', nargs='?', type = argparse.FileType('r',encoding=sys.getdefaultencoding()),
 					default=sys.stdin, dest='inputfile')
-parser.add_argument('-o', '--output-file', nargs='?', type=argparse.FileType('w'),
+parser.add_argument('-o', '--output-file', nargs='?', type=argparse.FileType('w',encoding=sys.getdefaultencoding()),
                     default=sys.stdout, dest='outputfile')
 parser.add_argument('-c', '--hyphen-char', nargs='?',
                     default='-', dest='hyphenchar')
