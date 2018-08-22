@@ -1655,6 +1655,7 @@ desquámo
 destináre
 destíllo
 destítuo
+desupérne
 desuspícere
 desuspício
 desérto
@@ -1662,6 +1663,7 @@ deuteronómii
 dexter
 dextrum
 deínde
+deínsuper
 diaspérmaton
 difficúlter
 dignoscére
@@ -1901,6 +1903,7 @@ déspuens
 déspuo
 déstino
 déstruo
+désuper
 déxtera
 díchoreus
 díei
@@ -1997,6 +2000,15 @@ exspólio
 exspúere
 exspúmo
 exspúto
+exsuperatórius
+exsuperántia
+Exsuperántius
+exsuperátio
+exsuperátus
+Exsupérius
+exsúpera
+exsúperans
+exsúpero
 extispícium
 extáre
 extíspex
@@ -2423,6 +2435,7 @@ indúxi
 indúximus
 indúxit
 inexspectátus
+inexsuperábilis
 inhospitális
 inhospitálitas
 inhospitáliter
@@ -2494,8 +2507,12 @@ instar
 instrúctio
 instínguo
 instítuo
+insuperabíliter
+insuperábilis
+insuperátus
 insuspicábilis
 insuspéctus
+insúpero
 inter
 interabámini
 interabámur
@@ -5303,6 +5320,7 @@ sub
 subblándior
 subcríspus
 subdo
+subductisupercilicárptor
 subdúco
 subflávus
 subiecísti
@@ -7441,6 +7459,7 @@ vívere
 éxscreo
 éxspuo
 éxsputo
+éxsuper
 ídeo
 índiges
 ínnova
@@ -7448,6 +7467,7 @@ vívere
 ínspuo
 ínstrepo
 ínstruam
+ínsuper
 íntera
 ínterans
 ínterant

@@ -1603,6 +1603,7 @@ de-i-tas
 de-iec-te
 de-ii-ci-o
 de-in-de
+de-in-su-per
 de-iu-gis
 de-mons-tra-re
 de-per-e-a-mus
@@ -1708,6 +1709,8 @@ de-squa-mo
 de-sti-tu-o
 de-stil-lo
 de-stru-o
+de-su-per
+de-su-per-ne
 de-su-spi-ce-re
 de-su-spi-ci-o
 de-us
@@ -2049,6 +2052,16 @@ ex-spu-ma-re
 ex-spu-mo
 ex-spu-o
 ex-spu-to
+ex-su-pe-ra
+ex-su-pe-ra-ti-o
+ex-su-pe-ra-to-ri-us
+ex-su-pe-ra-tus
+ex-su-pe-ran-ti-a
+Ex-su-pe-ran-ti-us
+ex-su-pe-rans
+Ex-su-pe-ri-us
+ex-su-pe-ro
+ex-su-per
 ex-ta-re
 ex-ti-spex
 ex-ti-spi-ci-um
@@ -2470,6 +2483,7 @@ in-duc-tus
 in-duc-tæ
 in-dul-gen-ti-am
 in-ex-spec-ta-tus
+in-ex-su-pe-ra-bi-lis
 in-hos-pi-ta-li-tas
 in-hos-pi-ta-li-ter
 in-hos-pi-ta-lis
@@ -2542,6 +2556,11 @@ in-stin-guo
 in-stre-po
 in-stru-am
 in-struc-ti-o
+in-su-pe-ra-bi-li-ter
+in-su-pe-ra-bi-lis
+in-su-pe-ra-tus
+in-su-pe-ro
+in-su-per
 in-su-spec-tus
 in-su-spi-ca-bi-lis
 in-te-ra
@@ -7173,6 +7192,7 @@ sub-do-le
 sub-do-lus
 sub-do-mo
 sub-du-co
+sub-duc-ti-su-per-ci-li-carp-tor
 sub-e-o
 sub-fla-vus
 sub-i-ci-o
