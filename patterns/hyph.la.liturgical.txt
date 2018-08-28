@@ -163,6 +163,7 @@
 .a5s2t
 .á5s2t
 .a5s4tern
+.a6sthm
 .a5s4tip
 .a5s4tr
 .a5s4tu
@@ -1273,6 +1274,7 @@ c2h
 2ch.
 ch4l
 4ch3m
+4ch3n
 cho3e
 ch4r
 4ch3t
@@ -1376,7 +1378,6 @@ g2r
 2gs
 1h
 2h.
-h3m
 2hp
 2ht
 hu2c5us
@@ -1535,6 +1536,7 @@ o3y
 p2h
 2ph.
 pha3el
+2phn
 2php
 ph3ph
 ph8r
@@ -1577,7 +1579,6 @@ r2æ.
 ræ3s4p
 2rb
 2rc
-r2chm
 2rd
 2rf
 2rg
@@ -1682,7 +1683,8 @@ su3is.
 2tg
 t2h4
 2th.
-th4m
+2th5m
+2th5n
 tho3s4t
 thó3s4t
 2th5p
