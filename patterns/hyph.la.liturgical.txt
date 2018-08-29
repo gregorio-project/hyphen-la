@@ -182,9 +182,11 @@
 .circumi2a
 .circumi2á
 .circumi2e
+.circumi2é
 .circumi2i
 .circumi2í
 .circumi2n3i4i
+.circumi2n3i4í
 .circumi2o
 .circumi2u
 .circumo2b3
@@ -668,6 +670,7 @@
 .pe3r4ínt
 .pe3r4io
 .pe3r4iod
+.pe3r4íod
 .pe3r4iód
 .peri3p2s
 .peri3p2t
@@ -701,6 +704,7 @@
 .pe4r5itote
 .pe4r5itóte
 .pe2r3i4u
+.pé2r3i4u
 .pe2r3i4ú
 .pe3r4i5un
 .pe3r4i5ún
@@ -983,6 +987,7 @@
 .subi4í
 .súbi4i
 .subi4u
+.súbi4u
 .subi4ú
 .subo2b3s2c
 .sub5s4cr
