@@ -61,7 +61,7 @@ parser.add_argument('-c', '--hyphen-char',
 parser.add_argument('-e', '--end-of-word',
                     help='Change whether the hyphen character is added to the end of each word too',
                     action='store_const', dest='endofword',
-                    const=not(config.getboolean('DEFAULT','endofword')),default=config.getboolean('DEFAULT','endofword'))
+                    const=(not config.getboolean('DEFAULT','endofword')),default=config.getboolean('DEFAULT','endofword'))
 parser.add_argument('-d','--store-defaults',
                     help='Do not syllabify.  Instead store the current options as the new defaults.  If given more than once, reset defaults to factory settings.  WARNING: User must have write access to %s for this option to work.' % dir_path,
                     action='count', default=argparse.SUPPRESS, dest='defaults')
@@ -156,18 +156,20 @@ if (args.type == 'chant'):
 
 hyphenator = pyphen.Pyphen(filename=dir_path+'/../patterns/hyph_la_'+args.mode+'.dic',left=lefthyphenmin,right=righthyphenmin)
 
-def hyphenate_one_word(word):
+def hyphenate_one_word(word,punctuation):
     global hyphenator,args
     r = hyphenator.inserted(word,args.hyphenchar)
+    r+=punctuation
     if args.endofword:
         r+=args.hyphenchar
     return r
 
-wordregex = re.compile(r'\b[^\W\d_]+\b')
+wordregex = re.compile(r'\b([^\W\d_]+)\b([\-‐‑‒–—)\]}〉»’”›!"\'*,.:;?†⁓⁕⁜~+✝✠]*)')
+
 
 for line in input:
     line = line.strip()
-    hyphenline = wordregex.sub(lambda match: hyphenate_one_word(match.group(0)), line)
+    hyphenline = wordregex.sub(lambda match: hyphenate_one_word(match.group(1),match.group(2)), line)
     output.write(hyphenline+'\n')
 
 input.close()
