@@ -451,7 +451,6 @@
 .ino2b3
 .inó2b3
 .inobi6ur
-.inob3s2c
 .inpe2r3iur
 .in3s4cr
 .in3s4p
@@ -550,7 +549,6 @@
 .o3b4rúss
 .o3b4ryz
 .o3b4rýz
-.ob3s2c
 .ob3s2q
 .ob5st
 .ób5st
@@ -710,8 +708,7 @@
 .pe3r4i5ún
 .pe4r3j
 .pé4r3j
-.pe2r1o2b3s2c
-.pe2r1o2bt
+.pe2r1o2b
 .pe2r1od
 .pe2r1of
 .pe2r1ol
@@ -989,7 +986,6 @@
 .subi4u
 .súbi4u
 .subi4ú
-.subo2b3s2c
 .sub5s4cr
 .sub3s4p
 .sub5s4t
@@ -1527,6 +1523,7 @@ nu3is.
 2nz
 o1
 ó1
+ob3s2c
 œ1
 œ́1
 oi2a
