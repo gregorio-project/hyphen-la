@@ -2205,7 +2205,7 @@ præ-cin-gun-tur
 præ-frin-gunt
 præ-frin-gun-tur
 præ-lon-gus
-præ-lon-guum
+præ-lon-gum
 præ-pin-gue
 præ-pin-guem
 præ-pin-gues
@@ -2866,10 +2866,6 @@ tri-lin-gui-us
 tri-lon-gum
 tri-lon-gus
 tu-i
-u-ia
-u-ie
-u-io
-u-iu
 un-guam
 un-gua-mi-ni
 un-gua-mur
