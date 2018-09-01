@@ -4,5 +4,4 @@ periens: per-i-ens/pe-ri-ens
 redire: re-di-re/red-i-re
 theseus: the-se-us/the-seus
 abscidi: ab-sci-di/abs-ci-di
-languere: lan-gu-e-re/lan-gue-re
 superes:su-pe-res/su-per-es
