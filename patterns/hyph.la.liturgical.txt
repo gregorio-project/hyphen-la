@@ -262,9 +262,8 @@
 .de5s2tít
 .de5s2til
 .de5s2tíl
-.de5s2tru
-.de5s2trú
-.dé5s2tru
+.de5s2tr
+.dé5s2tr
 .de4uter
 .dia3s4p
 .di3g2nosc
@@ -339,7 +338,7 @@
 .e5un
 .e5ún
 .e6unu
-.e6únu
+.e6unú
 .e5us.
 .e2x3
 .é2x3
@@ -490,6 +489,7 @@
 .inte3r4ius.
 .inté3r4ius.
 .inter3s4p
+.inter5s4t
 .intro3i3e
 .intro3i3é
 .inu2a
@@ -834,6 +834,7 @@
 .pseudó3s4p
 .qua2m3o2b3
 .quá2m3o2b3
+.quattuo2r3
 .que2m3a2d3m
 .que2m3á2d3m
 .quin2c3un
@@ -847,6 +848,8 @@
 .quo2t3li
 .r2
 .ra2y
+.reco2n3i2u
+.reco2n3i2ú
 .re2d1ac
 .re2d1ác
 .re2d1ad
@@ -1195,6 +1198,8 @@
 .tráns3i4i
 .tran3s4il
 .tran3s4íl
+.trans3i2u
+.trans3i2ú
 .trans1o2
 .trans1u2
 .tran3s2um
