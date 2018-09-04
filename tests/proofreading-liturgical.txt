@@ -3795,9 +3795,9 @@ li-no-stro-phon
 li-os-tra-cos
 li-os-tre-a
 li-thos-per-mon
-Li-thostro-tos
-li-thostro-tum
-li-thostro-tus
+Li-thos-tro-tos
+li-thos-tro-tum
+li-thos-tro-tus
 lo-cu-ples
 lon-gæ-vus
 lon-gin-quo
