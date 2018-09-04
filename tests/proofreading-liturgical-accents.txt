@@ -1079,7 +1079,7 @@ auspícium
 áuspico
 áuspicor
 austrális
-aústri
+austri
 áustrifer
 austrínus
 austroáfricus
@@ -1290,11 +1290,11 @@ Císpius
 Cisrhenánus
 citharístria
 citharœdórum
-claústra
+claustra
 claustrális
 claustrárius
 claustrítimus
-claústrum
+claustrum
 Cleóstrata
 Cleostrátus
 cloáca
@@ -2747,7 +2747,7 @@ ethnicális
 etsi
 euge
 eurhýthmia
-euroaústri
+euroáustri
 exǽstuant
 exálta
 exaltávit
@@ -3033,7 +3033,7 @@ haruspicína
 haruspicínus
 harúspicis
 haruspícium
-haústrum
+haustrum
 Hellespontíacus
 Hellespóntias
 Hellespónticus
@@ -5814,12 +5814,12 @@ pistrínum
 pistrínus
 pistris
 pistrix
-plaústra
+plaustra
 plaustrarátrum
 plaustrárius
 plaustrilúcus
-plaústrix
-plaústrum
+plaustrix
+plaustrum
 plostrárius
 plostror
 plostrum
