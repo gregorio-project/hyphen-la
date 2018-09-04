@@ -1086,8 +1086,8 @@ in-cin-gunt
 in-cin-gun-tur
 in-clan-gunt
 in-clan-gun-tur
-in-exstin-gui-bi-lis
-in-exstin-gui-bi-li-ter
+in-ex-stin-gui-bi-lis
+in-ex-stin-gui-bi-li-ter
 in-fin-gunt
 in-fin-gun-tur
 in-frin-gunt
