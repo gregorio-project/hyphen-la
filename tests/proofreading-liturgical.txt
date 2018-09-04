@@ -3067,7 +3067,7 @@ im-per-spi-ca-bi-lis
 im-per-spi-cu-us
 im-plas-tro
 im-pos-trix
-im-præs-tric-tus
+im-præ-stric-tus
 im-pro-spec-te
 im-pro-spec-tus
 im-pro-sper
