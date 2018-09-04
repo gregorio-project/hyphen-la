@@ -2131,8 +2131,8 @@ de-spu-ta-men-tum
 de-spu-tum
 de-squa-mo
 de-stil-lo
-des-ti-na-re
-des-ti-no
+de-sti-na-re
+de-sti-no
 de-sti-tu-o
 de-stran-gu-lo
 de-stra-rat
