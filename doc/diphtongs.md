@@ -1,6 +1,6 @@
 # Recognizing diphthongs
 
-This document gathers some rules about diphthongs desmabiguation. It is not exhaustive though, and in case of doubt, looking up the word in a dictionnary indicating diphthongs is necessary.
+This document gathers some rules about diphthongs desambiguation. It is not exhaustive though, and in case of doubt, looking up the word in a dictionnary indicating diphthongs is necessary.
 
 ## Introduction.
 
