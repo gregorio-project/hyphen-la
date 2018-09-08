@@ -17,11 +17,9 @@ A good hyphenation system should consider the following criteria:
 
 All these criteria conflict with each other, and a balance is difficult to find.
 
-## Hyphenation rules
-
-An attempt has been made to summarize the hyphenation rules in [liturgical-hyphenation.md](liturgical-hyphenation.md). See also [diphtongs.md](diphtongs.md) for considerations on diphtongs. [uncertains.md](uncertains.md) contains some words for which the hyphenation is not certain.
-
 ## Hyphenation in Liturgical texts
+
+An attempt has been made to summarize the liturgical hyphenation rules in [liturgical-hyphenation.md](liturgical-hyphenation.md), which gives also considerations on diphtongs, homographs and words for which the hyphenation is not certain.
 
 Until Vatian II council, the Vatican required texts to be hyphenated in the "medieval" (post-4th century CE) way, but after Vatican II this rule seems less strict, and Solesmes got an oral authorization to use the phonetical patterns, which were used before 4th century and are easier to read. Solesmes cautiously used the phonetical patterns in their recent books.
 
@@ -31,6 +29,6 @@ Until Vatian II council, the Vatican required texts to be hyphenated in the "med
 - *Hyphenation Patterns for Ancient Greek and Latin*, Yannis Haralambous, in TUGboat Volume 13.4 (1992), available on [tug.org](https://tug.org/TUGboat/tb13-4/tb37hara-hyfgl.pdf)
 - *Some Remarks on Typesetting Classical Latin*, Claudio Beccari, in TUGboat Volume 15.1 (1994), available on [tug.org](https://tug.org/TUGboat/tb15-1/tb42becc-ancient.pdf)
 - *Greek and Latin hyphenation – Recent advances*, Claudio Beccari, in ArsTEXnica N° 18, 2014, availble on [guitex.org](http://www.guitex.org/home/images/ArsTeXnica/AT018/GreekLatinHyphens.pdf)
-- *Phonétique historique du latin*, Max Niedermann, 1940, an extract is reproduced [here](Niedermann.md)
+- *Phonétique historique du latin*, Max Niedermann, 1940, an extract is reproduced [here](liturgical-hyphenation.md#Phonétique-historique-du-latin)
 - *Les mots latins*, François Martin, 1976
 - *Dictionnaire étymologique de la langue latine* by Ernout & Meillet, 1985
