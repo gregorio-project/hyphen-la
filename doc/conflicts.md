@@ -8,7 +8,7 @@ Sometimes different word forms are homographs. Several cases exist:
 - same accent, different hyphenation → choice for patterns
 - different accents, different hyphens → different patterns for the accented version, choice for the non-accented pattern
 
-## List of words
+## Liturgical patterns
 
 For each pair of conflicting words, the choice made for the patterns is indicated.
 
@@ -23,4 +23,19 @@ For each pair of conflicting words, the choice made for the patterns is indicate
 - `superi`: sú-pe-ri (superus) vs sú-per-i (supereo) → `su-pe-ri` and `sú-pe-ri`
 
 - `superis`: su-pé-ris (superus) vs su-pér-is (supereo) → `su-pe-ris` and `sú-pe-ris`
+
+
+## Homographs (to proofread and document more explicitly)
+
+perire: per-i-re/pe-ri-re
+
+perite,perito,peritis,peritus,peritum,peritur*: per-i-t*/pe-ri-t*
+
+periens: per-i-ens/pe-ri-ens
+
+redire: re-di-re/red-i-re
+
+theseus: the-se-us/the-seus
+
+abscidi: ab-sci-di/abs-ci-di
 

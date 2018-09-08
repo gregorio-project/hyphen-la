@@ -1,7 +1,0 @@
-perire: per-i-re/pe-ri-re
-perite,perito,peritis,peritus,peritum,peritur*: per-i-t*/pe-ri-t*
-periens: per-i-ens/pe-ri-ens
-redire: re-di-re/red-i-re
-theseus: the-se-us/the-seus
-abscidi: ab-sci-di/abs-ci-di
-superes:su-pe-res/su-per-es
