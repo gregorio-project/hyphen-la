@@ -2,7 +2,7 @@
 
 This repository aims at providing useful programs and resources for Latin hyphenation. It is based on the work by Claudio Beccari (who is also one of the main contributor to this repository), with the aim to spread his work and improve it through feedback of some Monasteries using the patterns for their liturgical books.
 
-See [this demo](http://gregorio-project.github.io/hyphen-la/) for tests!
+See [this demo](http://gregorio-project.github.io/hyphen-la/) for liturgical tests!
 
 See [patterns](patterns) directory for the different patterns.
 
