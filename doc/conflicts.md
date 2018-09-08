@@ -12,8 +12,6 @@ Sometimes different word forms are homographs. Several cases exist:
 
 For each pair of conflicting words, the choice made for the patterns is indicated.
 
-langueris: forme 2nde de la 2e pers indicatif présent passif de langueo vs 2e pers futur ant languesco. on préfère cette dernière
-
 - `languere`: lan-gu-é-re (languesco) vs lan-gué-re (langueo) → `lan-gue-re` and `lan-gué-re`
 
 - `langueris`: lan-gu-é-ris (languesco) vs lan-gué-ris (langueor) → `lan-gu-e-ris` and `lan-gu-é-ris`
