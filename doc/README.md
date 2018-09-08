@@ -31,6 +31,6 @@ Until Vatian II council, the Vatican required texts to be hyphenated in the "med
 - *Hyphenation Patterns for Ancient Greek and Latin*, Yannis Haralambous, in TUGboat Volume 13.4 (1992), available on [tug.org](https://tug.org/TUGboat/tb13-4/tb37hara-hyfgl.pdf)
 - *Some Remarks on Typesetting Classical Latin*, Claudio Beccari, in TUGboat Volume 15.1 (1994), available on [tug.org](https://tug.org/TUGboat/tb15-1/tb42becc-ancient.pdf)
 - *Greek and Latin hyphenation – Recent advances*, Claudio Beccari, in ArsTEXnica N° 18, 2014, availble on [guitex.org](http://www.guitex.org/home/images/ArsTeXnica/AT018/GreekLatinHyphens.pdf)
-- *Phonétique historique du latin*, Max Niedermann, 1940, an extract is reproduced [here](syllabisation.md)
+- *Phonétique historique du latin*, Max Niedermann, 1940, an extract is reproduced [here](Niedermann.md)
 - *Les mots latins*, François Martin, 1976
 - *Dictionnaire étymologique de la langue latine* by Ernout & Meillet, 1985
