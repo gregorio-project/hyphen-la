@@ -10,7 +10,7 @@ See [doc](doc) directory for some documentation.
 
 See [tests](tests) directory for some tests.
 
-See [syllabifier](syllabifier) for a small python script using the patterns to hyphenate a text in a very simple way.
+See [scripts](scripts) for small python scripts using the patterns to hyphenate a text in a very simple way, or to check the patterns.
 
 
 ### Thanks
