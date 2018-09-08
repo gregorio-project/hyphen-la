@@ -18,6 +18,8 @@ Run `make` in the main directory to do the conversion of patterns to libhyphen f
 
 Run `make check_all` to check the patterns files (see also the scripts [Readme](scripts/README.md) for more details).
 
+Run `make test` to test the patterns against word lists in the [tests](tests) directory.
+
 
 ### Thanks
 
