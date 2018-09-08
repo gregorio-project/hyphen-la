@@ -2,7 +2,7 @@
 
 ## Dependencies
 
-All those scripts depend on Python 3, and [pyphen](http://pyphen.org/). Note that you must have generated the patterns for libhyphen in order for the scripts to work. See [../patterns/README.md](documentation).
+All those scripts depend on Python 3, and [pyphen](http://pyphen.org/). Note that you must have generated the patterns for libhyphen in order for the scripts to work. See also [the specific documentation](../patterns/README.md).
 
 ## Installation
 
