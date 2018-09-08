@@ -14,7 +14,7 @@ A small Python script which tracks duplicated and invalid pattern in a pattern f
 
 #### Usage
 
-`python3 checkPatterns.py path/to/pattern/file.txt` show the errors.
+Type `python3 checkPatterns.py path/to/pattern/file.txt`, or, more simply, use `make check_x` in the main directory show the errors, wher `x` can be: `all`, `etymology`, `phonetic`, or `liturgical`.
 
 
 ### Syllabifier script

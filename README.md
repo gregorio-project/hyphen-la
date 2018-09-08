@@ -12,6 +12,12 @@ See [tests](tests) directory for some tests.
 
 See [scripts](scripts) for small python scripts using the patterns to hyphenate a text in a very simple way, or to check the patterns.
 
+## Makefile
+
+Run `make` in the main directory to do the conversion of patterns to libhyphen format (see the patterns [Readme](patterns/README.md) for more details).
+
+Run `make check_all` to check the patterns files (see also the scripts [Readme](scripts/README.md) for more details).
+
 
 ### Thanks
 

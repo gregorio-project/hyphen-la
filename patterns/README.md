@@ -45,7 +45,7 @@ The patterns can be converted to [libhyphen](https://github.com/hunspell/hyphen)
 
 ##### Converting to libhyphen format
 
-Run `make` in this directory to do the conversion. Note that you must have `perl` and `git` in order to do so.
+Run `make` in the main directory to do the conversion. Note that you must have `perl` and `git` in order to do so.
 
 ### Javascript
 
