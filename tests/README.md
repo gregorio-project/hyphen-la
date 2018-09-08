@@ -12,4 +12,4 @@ The file [orberg.txt](orberg.txt) contains a list of etymological hyphenation po
 
 ## Automatic testing
 
-The script `test.py` can automatically test the patterns in the `patterns` folder against the list of words in this folder. It uses [pyphen](http://pyphen.org/) to do so. Note that `pyphen` requires the patterns in the `libhyphen` format, so you must build them before running the tests.
+The script `test.py` in the `scripts` folder can automatically test the patterns in the `patterns` folder against the list of words in this folder. See the scripts [Readme.md](../scripts/README.md).

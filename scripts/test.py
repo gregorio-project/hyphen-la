@@ -4,7 +4,7 @@ import pyphen
 import sys
 import re
 
-hyphenator = pyphen.Pyphen(filename='../patterns/hyph_la_liturgical.dic',left=1,right=1)
+hyphenator = pyphen.Pyphen(filename='patterns/hyph_la_liturgical.dic',left=1,right=1)
 seenSegs = {}
 line = 0
 nbErrors = 0
@@ -67,9 +67,9 @@ def dotest_accents(filename):
 			if not resnoacc == deacc(resacc):
 				printError(resacc, resnoacc, baseacc)
 
-dotest('wordlist-liturgical.txt')
+dotest('tests/wordlist-liturgical.txt')
 print('\n')
-dotest_accents('wordlist-liturgical-accents.txt')
+dotest_accents('tests/wordlist-liturgical-accents.txt')
 print('\n')
 
 if nbErrors > 0:

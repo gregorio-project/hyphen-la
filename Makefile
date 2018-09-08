@@ -25,3 +25,6 @@ check_phonetic:
 
 check_liturgical:
 	python3 scripts/checkPatterns.py patterns/hyph.la.liturgical.txt
+
+test:
+	python3 scripts/test.py
