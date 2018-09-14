@@ -124,10 +124,12 @@ A sequence of two vowels is never a diphthong when the second one comes from a d
 
 *eu* is a case with many rules:
 
-- in pure Latin, *eu* can be a dipthongue only after *c*, *s* or *n*, and in the interjections *heu!* and *heus!*. It seems that gregorian chant considers *heu* as two vowels though (see for instance Aperiens Joannes sarcophagum, D-KA Aug. LX, 192r; CH-E611, 236r; A-Gu 30 278r; H326)
+- in pure Latin, *eu* can be a dipthong only after *c*, *s* or *n*, and in the interjections *heu!* and *heus!*. It seems that gregorian chant considers *heu* as two vowels though (see for instance Aperiens Joannes sarcophagum, D-KA Aug. LX, 192r; CH-E611, 236r; A-Gu 30 278r; H326)
 - *eu* is a diphthong in Greek words: *Europa*, *Orpheus*, *euge*, *eunuchus*
 
-These rules seem to transform well into the following: *eu* is always diphthong at the beginning of a word, after *th*, *ph*, *ch*, or in the words *seu*, *ceu*, *neu*, or when the word starts with *neut-* or *teut-*. One exception for these rules is *E-rech-the-um*.
+These rules seem to transform well into the following for liturgical patterns: *eu* is always diphthong inside a word (after *th*, *ph*, *ch*, …), but when there is a composition, the group is hyphenated as for *de-utor*. At the end of a word, the group *eus* and *eum* are considered as 2 syllabs: *ba-si-le-um*, *E-rech-the-um*.
+
+*eu* + vowel is considerated as *ev* in liturgical context, like in the word *evangelium* (*euangelium*).
 
 #### ei
 
@@ -160,6 +162,8 @@ Sometimes different word forms are homographs. Several cases exist:
 
 For each pair of conflicting words, the choice made for the patterns is indicated.
 
+- `deuteris`: déu-te-ris (deuter) vs de-ú-te-ris and de-u-té-ris (deutor) → `de-u-te-ris`, `déu-te-ris`, `de-ú-te-ris` and `de-u-té-ris`
+
 - `languere`: lan-gu-é-re (languesco) vs lan-gué-re (langueo) → `lan-gue-re` and `lan-gué-re`
 
 - `langueris`: lan-gu-é-ris (languesco) vs lan-gué-ris (langueor) → `lan-gu-e-ris` and `lan-gu-é-ris`
@@ -182,8 +186,6 @@ perite,perito,peritis,peritus,peritum,peritur*: per-i-t*/pe-ri-t*
 periens: per-i-ens/pe-ri-ens
 
 redire: re-di-re/red-i-re
-
-theseus: the-se-us/the-seus
 
 abscidi: ab-sci-di/abs-ci-di
 
