@@ -1,8 +1,8 @@
 # Latin hyphenation rules
 
-This document is the translation of a document transmitted by Solesmes, explaining the general rules of hyphenation they use, with some options and exceptions. The rules correspond to the pronunciated adopted in the Church quite recently (50-100 years), but should be easy to adapt to other pronunciations. See [below](#Phonétique-historique-du-latin) the extract of *Phonétique historique du latin* by Max Niedermann which gives some of the explanation of the change in the way of placing hyphenation.
+This document is the translation of a document transmitted by Solesmes, explaining the general rules of hyphenation they use, with some options and exceptions. The rules correspond to the pronunciation adopted in the Church quite recently (50-100 years), but should be easy to adapt to other pronunciations. See [below](#Phonétique-historique-du-latin) the extract of *Phonétique historique du latin* by Max Niedermann, which gives some of the explanation of the change in the way of placing hyphens.
 
-The document supposes that the diphtongues are clearly identified (see [below](#Diphthongs)). A *liquid group* is defined here as one of the following: *pr*, *tr*, *cr*, *br*, *dr*, *gr*, *fr*, *pl*, *tl*, *cl*, *bl*, *dl* or *gl*.
+The document supposes that the diphthongs are clearly identified (see [below](#Diphthongs)). A *liquid group* is defined here as one of the following: *pr*, *tr*, *cr*, *br*, *dr*, *gr*, *fr*, *pl*, *tl*, *cl*, *bl*, *dl* or *gl*.
 
 Almost each rule suffer exceptions due to etymology, the indicated list is not exhaustive.
 
@@ -10,31 +10,31 @@ Almost each rule suffer exceptions due to etymology, the indicated list is not e
 
 These rules explain how to find the hyphenation point after a syllable according to the letters following the vowel of a syllable:
 
-- **no consonnant:** the hyphenation point is after the vowel. 
+- **no consonant:** the hyphenation point is after the vowel. 
     - Ex: *e-i*, *e-æ*, *e-o-a*, *vi-a*,*di-e-i*, *a-vi-um*.
     - This rule seems to suffer no exception.
-- **one consonnant (including h):** the hyphenation point is after the vowel.
+- **one consonant (including h):** the hyphenation point is after the vowel.
     - Ex: *ca-do*, *ve-ho*, *a-go*, *o-lus*, *e-rat*, *cæ-cus*, *gau-de*, *ve-ho*, *tra-ho*.
     - Etymological exceptions: *ad-est*, *per-eo*, *sub-igo*, *ob-œdire*, *pot-ens*, *prod-it*, *red-emptor*.
-- **two consonnants, no liquid group:** hyphenation point is between the two consonnants.
+- **two consonants, no liquid group:** hyphenation point is between the two consonants.
     - Ex: *om-nis*, *prop-ter*, *ag-men*, *tec-tum*, *ad-do*, *pos-se*, *il-le*.
     - Etymological exceptions: *a-sperges*, *re-spice*, *re-stituto*, *haru-spex*, *lecti-sternium*.
-- **two consonnants forming a liquid group:** hyphenation point is after the vowel.
+- **two consonants forming a liquid group:** hyphenation point is after the vowel.
     - Ex: *du-plex*, *A-tlas*, *fe-bris*, *a-gro*, *a-trox*, *quadru-plum*.
     - Etymological exceptions: *ob-lino*, *ob-litus*, *sub-limis*, *ab-ripio*, *ob-ruo*.
-- **three consonnants, no liquid group:** hyphenation point is after the second consonnant.
+- **three consonants, no liquid group:** hyphenation point is after the second consonant.
     - Ex: *sanc-tus*, *temp-to*.
     - Etymological exceptions: *con-spicio*, *ab-scindo*.
-- **three consonnants ending with a liquid group:** hyphenation is after the first consonnant.
+- **three consonants ending with a liquid group:** hyphenation is after the first consonant.
 	- Ex: *sim-plex*, *tem-plum*, *mem-brum*, *cas-tra*, *spec-trum*.
 	- Etymological exceptions: *a-stringo*, *re-splendeo*, *de-struo*.
-- **four consonnants:** very rare case, etymology is applied.
+- **four consonants:** very rare case, etymology is applied.
 	- Ex: *con-stringo*, *ob-strepo*, *abs-traho*, *trans-trum*.
 
 
 ## Specific rules
 
-The following rules are about specific case that do not follow the general rules:
+The following rules are about specific cases that do not follow the general rules:
 
 - **ch, ph, th** are unbreakable blocks as they correspond to *χ*, *φ* and *θ*, hyphenation point is before this block.
 	- Ex: *ma-china*, *ele-phantus*, *epi-thalamus*, *es-chato*, *Erech-theum*.
@@ -44,15 +44,15 @@ The following rules are about specific case that do not follow the general rules
 	- There seems to be no exception to this rule.
 - **sc after a, o or u**: hyphenation point is between *s* and *c*.
 	- Ex: *nos-co*, *es-ca*.
-- **sc in other cases**: hyphenation is before *sc*. We do not apply etymological exceptions here when *sc* is a digraph for ʃ (as in Liturgical Latin), as this hyphenation would not make any sense from a phonological point of view.
+- **sc in other cases**: hyphenation is before *sc*. We do not apply etymological exceptions here when *sc* is a digraph for ʃ (as in liturgical Latin), as this hyphenation would not make any sense from a phonological point of view.
 	- Ex: *no-scit*, *no-sce*, *e-scis*, *e-scæ*, *a-scy-ron*, but *abs-ce-do*
 - **sch**: hyphenation between *s* and *ch*.
 	- Ex: *is-chi-as*.
-- **x, not followed by another consonnant:** hyphenation is before *x*.
+- **x, not followed by another consonant:** hyphenation is before *x*.
 	- Ex: *du-xi*.
-- **x, followed by another consonnant:** hyphenation is after *x*.
+- **x, followed by another consonant:** hyphenation is after *x*.
 	- Ex: *dex-ter*, *dex-trum*.
-- **gu and qu where u is a semi-vowel:** general rules are applied considering that *qu* or *gu* is one consonnant.
+- **gu and qu where u is a semi-vowel:** general rules are applied considering that *qu* or *gu* is one consonant.
 	- Ex: *e-qui*, *an-ti-quus*, *se-quun-tur*, *san-guis*, *lin-gua*, *lan-gue-o*, *lan-gues-co*.
 
 
@@ -80,20 +80,20 @@ Somes hyphenation rules are found in some liturgical books but are not kept by S
 
 ### Greek hyphenation
 
-Greek hyphenation can be applied to greek words. Ex: *a-po-sto-los*. (Solesmes keeps the general rules here: *a-pos-to-los*).
+Greek hyphenation can be applied to Greek words. Ex: *a-po-sto-los*. (Solesmes keeps the general rules here: *a-pos-to-los*).
 
 
 ## Diphthongs
 
-This section gathers some rules about diphthongs desambiguation. It is not exhaustive though, and in case of doubt, looking up the word in a dictionnary indicating diphthongs is necessary.
+This section gathers some rules about diphthongs desambiguation. It is not exhaustive though, and in case of doubt, looking up the word in a dictionary indicating diphthongs is necessary.
 
 This article is only relevant to the modern ecclesiastic (*roman*) pronunciation of the prose: some hymns contain diphthongs or even triphthongs for the sake of metrics, and some diphthongs disappeared with the pronunciation reform of the XIXth century. One common example of a diphthong transformation is *cui* which is usually bisyllabic but can be monosyllabic in some hymns. These exceptions are not treated here.
 
-The main sources for this document are the *Liber Usualis* by Solesmes, 1961, and *The Correct Pronunciation of Latin According to the Roman Usage* by Rev. Michael de Angelis, C.R.M., PhD., available on [arhive.org](https://archive.org/stream/correctpronuncia00dean#page/n7/mode/2up), which can be considered as the two main *primary* sources.
+The main sources for this document are the *Liber Usualis* by Solesmes, 1961, and *The Correct Pronunciation of Latin According to the Roman Usage* by Rev. Michael de Angelis, C.R.M., PhD., available on [archive.org](https://archive.org/stream/correctpronuncia00dean#page/n7/mode/2up), which can be considered as the two main *primary* sources.
 
-The usual explanation about diphthongs does not consider the semi-consonnant *u* after *g* or *q* to start diphthongs, for example *qui* is usually considered as consonant *qu* + vowel *i*, not consonant *q* + diphthong *ui*. This is a rather arbitrary choice, but we will follow it as it seems the be the most usual convention. The semi-consonnant *i* (*j*) is also not usually conceptualized as part of a diphthong (*iam*).
+The usual explanation about diphthongs does not consider the semi-consonant *u* after *g* or *q* to start diphthongs, for example *qui* is usually considered as consonant *qu* + vowel *i*, not consonant *q* + diphthong *ui*. This is a rather arbitrary choice, but we will follow it as it seems the be the most usual convention. The semi-consonant *i* (*j*) is also not usually conceptualized as part of a diphthong (*iam*).
 
-As we are mostly focused on Liturgical latin where diphthongs *ae* and *oe* are noted *æ* and *œ* and thus do not constitute ambiguities in liturgical texts, we will not consider them.
+As we are mostly focused on liturgical Latin where diphthongs *ae* and *oe* are noted *æ* and *œ* and thus do not constitute ambiguities in liturgical texts, we will not consider them.
 
 With this in mind, Latin has only few possible diphthongs:
 
@@ -110,7 +110,7 @@ A good starting point for the study of diphthongs in Latin is *Vox Latina* by W.
 
 ### General rules
 
-A sequence of two vowels is never a diphthong when the second one comes from a desinence: *me-us*, *e-unt*, *aure-us*, *om-ni-a*.
+A sequence of two vowels is never a diphthong when the second one comes from an ending: *me-us*, *e-unt*, *aure-us*, *om-ni-a*.
 
 #### ay
 
@@ -124,7 +124,7 @@ A sequence of two vowels is never a diphthong when the second one comes from a d
 
 *eu* is a case with many rules:
 
-- in pure Latin, *eu* can be a dipthong only after *c*, *s* or *n*, and in the interjections *heu!* and *heus!*. It seems that gregorian chant considers *heu* as two vowels though (see for instance Aperiens Joannes sarcophagum, D-KA Aug. LX, 192r; CH-E611, 236r; A-Gu 30 278r; H326)
+- in pure Latin, *eu* can be a dipthong only after *c*, *s* or *n*, and in the interjections *heu!* and *heus!*. It seems that Gregorian chant considers *heu* as two vowels though (see for instance Aperiens Joannes sarcophagum, D-KA Aug. LX, 192r; CH-E611, 236r; A-Gu 30 278r; H326)
 - *eu* is a diphthong in Greek words: *Europa*, *Orpheus*, *euge*, *eunuchus*
 
 These rules seem to transform well into the following for liturgical patterns: *eu* is always diphthong inside a word (after *th*, *ph*, *ch*, …), but when there is a composition, the group is hyphenated as for *de-utor*. At the end of a word, the group *eus* and *eum* are considered as 2 syllabs: *ba-si-le-um*, *E-rech-the-um*.
@@ -138,13 +138,13 @@ These rules seem to transform well into the following for liturgical patterns: *
 
 ### Disambiguation of sequences of vowels
 
-#### Desinences
+#### Endings
 
 The most difficult cases are those where *eu*, *ia*, *au* or *iu* are the last vowels of a word. In this case it seems safer to consider these as different syllables. Exemple: *me-us*, *om-ni-a*, *e-unt*. 
 
-#### Detecting semi-consonnant i
+#### Detecting semi-consonant i
 
-I is semi-consonnantic only in the following cases:
+I is semi-consonantic only in the following cases:
 
 - vowel+i+vowel (*cu-ius*) except qui+vowel and gui+vowel (*re-qui-em*)
 - word starts with (h,ab,ob,ad,per,sub,in,con,circum)+i+vowel (*hie-ro-ny-mus*) or just i+vowel (*iam*)

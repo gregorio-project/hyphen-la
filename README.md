@@ -23,7 +23,7 @@ Run `make test` to test the patterns against word lists in the [tests](tests) di
 
 ### Thanks
 
-This repository has been made possible throught the help of
+This repository has been made possible through the help of
  * Claudio Beccari, main author
  * [The Abbey of Solesmes (FR)](http://www.solesmes.com/)
  * [The Abbey of Flavigny (FR)](http://www.clairval.com)

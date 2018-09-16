@@ -4,7 +4,7 @@ This directory contains some documentation about Latin hyphenation.
 
 ## General considerations
 
-Several aspects of the Latin language make hyphenation consensus difficult to find. The main difficulty is that Latin has been written and pronunced in various ways in different times and places, and thus has been hyphenated in different ways.
+Several aspects of the Latin language make hyphenation consensus difficult to find. The main difficulty is that Latin has been written and pronounced in various ways in different times and places, and thus has been hyphenated in different ways.
 
 A good hyphenation system should consider the following criteria:
 
@@ -17,9 +17,9 @@ A good hyphenation system should consider the following criteria:
 
 All these criteria conflict with each other, and a balance is difficult to find.
 
-## Hyphenation in Liturgical texts
+## Hyphenation in liturgical texts
 
-An attempt has been made to summarize the liturgical hyphenation rules in [liturgical-hyphenation.md](liturgical-hyphenation.md), which gives also considerations on diphtongs, homographs and words for which the hyphenation is not certain.
+An attempt has been made to summarize the liturgical hyphenation rules in [liturgical-hyphenation.md](liturgical-hyphenation.md), which gives also considerations on diphthongs, homographs and words for which the hyphenation is not certain.
 
 Until Vatian II council, the Vatican required texts to be hyphenated in the "medieval" (post-4th century CE) way, but after Vatican II this rule seems less strict, and Solesmes got an oral authorization to use the phonetical patterns, which were used before 4th century and are easier to read. Solesmes cautiously used the phonetical patterns in their recent books.
 
