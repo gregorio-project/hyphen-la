@@ -162,6 +162,10 @@ Sometimes different word forms are homographs. Several cases exist:
 
 For each pair of conflicting words, the choice made for the patterns is indicated.
 
+- `ambi`: am-bi (the preposition) vs amb-i (ambio) → `amb-i`
+
+- `ambis`: am-bis (ambo) vs amb-is (ambio) → `amb-is`
+
 - `deuteris`: déu-te-ris (deuter) vs de-ú-te-ris and de-u-té-ris (deutor) → `de-u-te-ris`, `déu-te-ris`, `de-ú-te-ris` and `de-u-té-ris`
 
 - `languere`: lan-gu-é-re (languesco) vs lan-gué-re (langueo) → `lan-gue-re` and `lan-gué-re`
