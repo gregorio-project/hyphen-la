@@ -1358,6 +1358,7 @@ ac-cep-ta
 ac-cep-tam
 ac-cin-gunt
 ac-cin-gun-tur
+ac-cu-bu-is
 a-cer-ne-us
 A-che-ron-te-us
 a-chil-le-um
@@ -3146,6 +3147,7 @@ A-tlan-te-us
 A-tlas
 A-tre-us
 a-trox
+at-tri-bu-is
 auc-tor
 au-di-o
 au-di-re
@@ -3274,6 +3276,7 @@ Breu-ni
 Bri-a-re-us
 Bri-se-us
 bu-ble-um
+bu-is
 bul-ba-ce-us
 bu-leu-ta
 bu-leu-te-ri-on
@@ -3972,6 +3975,7 @@ con-fa-bu-lor
 con-far-re-a-ti-o
 con-far-re-o
 con-fec-tor
+con-fer-bu-is
 con-fe-ro
 con-fer-tus
 con-fes-si-o
@@ -4424,6 +4428,7 @@ co-u-tor
 cras-ti-na
 Cra-te-vas
 cre-a-re
+cre-bu-is
 cres-ca-mus
 Cres-phon-tes
 cre-ta-ce-us
@@ -4500,8 +4505,11 @@ Daph-nu-sa
 Da-re-us
 de-a
 de-am-bu-lo
+de-bu-is
 de-cem-mes-tris
+de-cu-bu-is
 de-fens-trix
+de-fer-bu-is
 de-frin-gunt
 de-frin-gun-tur
 de-frus-tror
@@ -4514,6 +4522,7 @@ de-i-tas
 de-iu-gis
 de-iun-gunt
 de-iun-gun-tur
+de-li-bu-is
 de-lin-gunt
 de-lin-gun-tur
 de-lus-tro
@@ -4701,6 +4710,7 @@ de-su-per
 de-su-per-ne
 de-su-spi-ce-re
 de-su-spi-ci-o
+de-tri-bu-is
 Deu-ca-li-des
 Deu-ca-li-on
 Deul-tum
@@ -5401,6 +5411,7 @@ dis-tra-xis-ti
 dis-tra-xis-tis
 dis-tra-xit
 dis-tri-bu-e-la
+dis-tri-bu-is
 dis-tri-bu-o
 dis-tri-bu-te
 dis-tri-bu-tim
@@ -5491,6 +5502,7 @@ e-cu-le-us
 e-den-ta-ne-us
 e-du-le-us
 e-e
+ef-fer-bu-is
 ef-fin-gunt
 ef-fin-gun-tur
 ef-frin-gunt
@@ -6324,6 +6336,7 @@ ex-su-pe-ra-to-ri-us
 ex-su-pe-ra-tus
 Ex-su-pe-ri-us
 ex-su-pe-ro
+ex-ta-bu-is
 ex-ta-re
 ex-tem-po-ra-ne-us
 ex-ter-ra-ne-us
@@ -6395,6 +6408,7 @@ fe-nes-tra
 fe-nes-tro
 fe-nes-tru-la
 fe-ne-us
+fer-bu-is
 fer-re
 fer-re-us
 fer-ru-gi-ne-us
@@ -6800,6 +6814,7 @@ il-lus-tri-us
 il-lus-tro
 i-ma-gi-ne-us
 Im-bre-us
+im-bu-is
 im-per-spi-ca-bi-lis
 im-per-spi-cu-us
 im-pin-gua
@@ -7026,6 +7041,7 @@ in-con-struc-tus
 in-con-stru-o
 in-cor-po-re-us
 in-cris-pa-ti-o
+in-cu-bu-is
 in-cur-vo
 in-de-mons-tra-bi-lis
 in-de-mons-tra-tus
@@ -7935,6 +7951,7 @@ in-tin-guor
 in-tin-guunt
 in-tin-guun-tur
 in-tra-ne-us
+in-tri-bu-is
 in-tro-e-o
 in-tro-i-e-rit
 in-tro-iu-gus
@@ -8063,6 +8080,7 @@ La-ge-us
 la-gœ-na-rum
 la-gœ-nas
 la-i-cus
+lam-bu-is
 la-nes-tris
 la-ne-us
 lan-gue
@@ -8459,6 +8477,7 @@ Leu-pi-tor-ga
 Leu-sa-ba
 Leu-si-ni-um
 li-a
+Li-bu-is
 li-gne-us
 li-gnum
 li-gus-trum
@@ -9993,6 +10012,7 @@ ob-vo-lu-ti-o
 ob-vo-lu-tor
 ob-vol-vo
 oc-ci-da-ne-us
+oc-cu-bu-is
 oc-cur-ro
 oc-tan-gu-lus
 oc-ta-teu-chus
@@ -10776,6 +10796,7 @@ per-su-a-de-o
 per-su-a-si-o
 per-su-as-trix
 per-sul-to
+per-ta-bu-is
 per-tæ-sus
 per-tan-gunt
 per-tan-gun-tur
@@ -11252,6 +11273,7 @@ po-tu-um
 præ-a-cu-o
 præ-am-bu-lo
 præ-au-di-o
+præ-bu-is
 præ-cau-ti-o
 præ-ci-da-ne-us
 præ-cin-gunt
@@ -11573,6 +11595,7 @@ pro-ce-leus-ma-ti-cus
 pro-ces-tri-a
 pro-cin-gunt
 pro-cin-gun-tur
+pro-cu-bu-is
 pro-cul
 pro-de-am-bu-lo
 prod-e-o
@@ -11847,6 +11870,7 @@ pto-che-um
 Pto-le-mæ-e-um
 pu-bli-co
 pu-bli-cus
+pu-bu-is
 pu-gna
 pu-gne-us
 pul-las-tra
@@ -12976,6 +13000,7 @@ ros-trans
 ros-tra-tus
 ros-trum
 ru-be-us
+ru-bu-is
 ru-pe-us
 ru-res-tris
 ru-sce-us
@@ -13181,6 +13206,7 @@ sol-vo
 som-ni-a
 som-num
 so-phis-tri-a
+sor-bu-is
 So-si-the-us
 sos-pes
 sos-pi-ta
@@ -15477,6 +15503,7 @@ Sy-mæ-the-us
 Sy-na-poth-nes-con-tes
 Sy-ro-phœ-nis-sa
 ta-be-scet
+ta-bu-is
 tam-en
 tam-et-si
 tan-gunt
@@ -15755,6 +15782,7 @@ tri-an-gu-la-ris
 tri-an-gu-la-ti-o
 tri-an-gu-lum
 tri-an-gu-lus
+tri-bu-is
 tri-lin-gue
 tri-lin-guem
 tri-lin-gues
@@ -15993,6 +16021,7 @@ vi-na-ce-us
 vin-ce-us
 vin-dex
 vi-ne-us
+vi-ni-bu-is
 vi-o-la-ce-um
 vi-o-la-ce-us
 vi-o-le-us

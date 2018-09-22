@@ -1379,6 +1379,7 @@ accépta
 accéptam
 accíngunt
 accingúntur
+accúbuis
 acérneus
 Acherontéus
 achilléum
@@ -3204,6 +3205,7 @@ Atlantéus
 Atlas
 Atréus
 atrox
+attríbuis
 auctor
 áudio
 audíre
@@ -3328,6 +3330,7 @@ Breuni
 Briaréus
 Briseus
 búbleum
+buis
 bulbáceus
 buléuta
 buleutérion
@@ -4034,6 +4037,7 @@ confábulor
 confarreátio
 confárreo
 conféctor
+conférbuis
 cónfero
 confértus
 conféssio
@@ -4488,6 +4492,7 @@ coútor
 crástina
 Cratévas
 creáre
+crébuis
 crescámus
 Cresphóntes
 cretáceus
@@ -4564,8 +4569,11 @@ Daphnúsa
 Dareus
 dea
 deámbulo
+débuis
 decemméstris
+decúbuis
 defénstrix
+deférbuis
 defríngunt
 defringúntur
 defrústror
@@ -4578,6 +4586,7 @@ déitas
 déiugis
 deiúngunt
 deiungúntur
+delíbuis
 delíngunt
 delingúntur
 delústro
@@ -4772,6 +4781,7 @@ désuper
 desupérne
 desuspícere
 desuspício
+detríbuis
 Deucálides
 Deucálion
 Déultum
@@ -5472,6 +5482,7 @@ distraxísti
 distraxístis
 distráxit
 distribuéla
+distríbuis
 distríbuo
 distribúte
 distribútim
@@ -5561,6 +5572,7 @@ ecchéuma
 ecúleus
 edentáneus
 edúleus
+efférbuis
 effíngunt
 effingúntur
 effríngunt
@@ -6394,6 +6406,7 @@ exsuperatórius
 exsuperátus
 Exsupérius
 exsúpero
+extábuis
 extáre
 extemporáneus
 exterráneus
@@ -6460,6 +6473,7 @@ fenéstra
 fenéstro
 fenéstrula
 féneus
+férbuis
 ferre
 férreus
 ferrugíneus
@@ -6855,6 +6869,7 @@ illústrius
 illústro
 imagíneus
 Imbreus
+ímbuis
 imperspicábilis
 imperspícuus
 impíngua
@@ -7082,6 +7097,7 @@ inconstrúctus
 incónstruo
 incorpóreus
 incrispátio
+incúbuis
 incúrvo
 indemonstrábilis
 indemonstrátus
@@ -7999,6 +8015,7 @@ intínguor
 intínguunt
 intinguúntur
 intráneus
+intríbuis
 intróeo
 introíerit
 intróiugus
@@ -8129,6 +8146,7 @@ Lagéus
 lagœnárum
 lagœ́nas
 láicus
+lámbuis
 lanéstris
 láneus
 langue
@@ -8381,6 +8399,7 @@ Leuni
 Leupitórga
 Léusaba
 Leusínium
+Líbuis
 lígneus
 lignum
 ligústrum
@@ -9914,6 +9933,7 @@ obvolútio
 obvolútor
 obvólvo
 occidáneus
+occúbuis
 occúrro
 octángulus
 octatéuchus
@@ -10703,6 +10723,7 @@ persuádeo
 persuásio
 persuástrix
 persúlto
+pertábuis
 pertǽsus
 pertángunt
 pertangúntur
@@ -11178,6 +11199,7 @@ pótuum
 præácuo
 præámbulo
 præaudio
+prǽbuis
 præcáutio
 præcidáneus
 præcíngunt
@@ -11502,6 +11524,7 @@ proceleusmáticus
 procéstria
 procíngunt
 procingúntur
+procúbuis
 procul
 prodeámbulo
 pródeo
@@ -11793,6 +11816,7 @@ Ptéleum
 ptochéum
 Ptolemæéum
 públicus
+púbuis
 pugna
 púgneus
 pullástra
@@ -12914,6 +12938,7 @@ rostrans
 rostrátus
 rostrum
 rúbeus
+rúbuis
 rúpeus
 ruréstris
 rúsceus
@@ -13118,6 +13143,7 @@ solvo
 sómnia
 somnum
 sophístria
+sorbuis
 Sosítheus
 sospes
 sóspita
@@ -15448,6 +15474,7 @@ Symæthéus
 Synapothnescóntes
 Syrophœníssa
 tabéscet
+tábuis
 tamen
 tamétsi
 tangunt
@@ -15723,6 +15750,7 @@ trianguláris
 triangulátio
 triángulum
 triángulus
+tríbuis
 trilíngue
 trilínguem
 trilíngues
@@ -15956,6 +15984,7 @@ vináceus
 vínceus
 vindex
 víneus
+viníbuis
 violáceum
 violáceus
 vióleus
