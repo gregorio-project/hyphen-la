@@ -45,7 +45,7 @@ The following rules are about specific cases that do not follow the general rule
 - **sc after a, o or u**: hyphenation point is between *s* and *c*.
 	- Ex: *nos-co*, *es-ca*.
 - **sc in other cases**: hyphenation is before *sc*. We do not apply etymological exceptions here when *sc* is a digraph for ʃ (as in liturgical Latin), as this hyphenation would not make any sense from a phonological point of view.
-	- Ex: *no-scit*, *no-sce*, *e-scis*, *e-scæ*, *a-scy-ron*, but *abs-ce-do*
+	- Ex: *no-scit*, *no-sce*, *e-scis*, *e-scæ*, *a-scy-ron*, *ab-sce-do*
 - **sch**: hyphenation between *s* and *ch*.
 	- Ex: *is-chi-as*.
 - **x, not followed by another consonant:** hyphenation is before *x*.
@@ -60,8 +60,8 @@ The following rules are about specific cases that do not follow the general rule
 
 These are not exceptions to the general rules, but cases to handle cautiously.
 
-- **gu with no n before, where u is a full vowel:** ar-gu-o, ar-gu-unt, e-gu-i, e-gu-e-runt.
-- **ngu where u is a full vowel:** *lan-gu-i*, *lan-gu-e-re*, *stran-gu-lo*, *fran-gun-tur*.
+- **gu with no n before, where u is a full vowel:** *ar-gu-o*, *ar-gu-unt*, *e-gu-i*, *e-gu-e-runt*.
+- **ngu where u is a full vowel:** *stran-gu-lo*, *fran-gun-tur*, at the end of a perfect stem: *lan-gu-i*, *lan-gu-e-runt* and its variant *lan-gu-e-re*.
 
 
 ## Understanding exceptions
@@ -127,7 +127,7 @@ A sequence of two vowels is never a diphthong when the second one comes from an 
 - in pure Latin, *eu* can be a dipthong only after *c*, *s* or *n*, and in the interjections *heu!* and *heus!*. It seems that Gregorian chant considers *heu* as two vowels though (see for instance Aperiens Joannes sarcophagum, D-KA Aug. LX, 192r; CH-E611, 236r; A-Gu 30 278r; H326)
 - *eu* is a diphthong in Greek words: *Europa*, *Orpheus*, *euge*, *eunuchus*
 
-These rules seem to transform well into the following for liturgical patterns: *eu* is always diphthong inside a word (after *th*, *ph*, *ch*, …), but when there is a composition, the group is hyphenated as for *de-utor*. At the end of a word, the group *eus* and *eum* are considered as 2 syllabs: *ba-si-le-um*, *E-rech-the-um*.
+These rules seem to transform well into the following for liturgical patterns: *eu* is always diphthong inside a word (after *th*, *ph*, *ch*, …), but when there is a composition, the group is hyphenated as for *de-utor*. At the end of a word, the group *eus* and *eum* are considered as two syllables: *ba-si-le-um*, *E-rech-the-um*.
 
 *eu* + vowel is considerated as *ev* in liturgical context, like in the word *evangelium* (*euangelium*).
 
