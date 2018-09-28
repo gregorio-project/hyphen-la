@@ -2,18 +2,21 @@
 
 This directory contains three sets of Latin hyphenation patterns:
 
-- `hyph.la.liturgical.txt` contains the patterns for hyphenation of liturgical Latin (used by recent Solesmes books), it is the most tested set of patterns
-- `hyph.la.etymology.txt` contains the patterns for medieval hyphenation considering etymology
-- `hyph.la.phonetic.txt` contains the patterns for "modern" (or ancient) hyphenation considering phonetic
+- `hyph.la.liturgical.txt` contains the patterns for hyphenation of liturgical
+  Latin (used by recent Solesmes books), it is the most tested set of patterns
+- `hyph.la.classical.txt` contains the patterns for classical Latin considering
+  etymology
+- `hyph.la.phonetic.txt` contains the patterns for medieval and modern Latin
+  considering the Italian pronunciation and Italian typographic rules
 
-See [doc](../doc/) folder for more on the differences, and how to choose between the three.
+See [doc](../doc/) folder for more on the respective hyphenation rules use.
 
 
 ## Patterns elaboration
 
-### Strings of caracters
+### Strings of characters
 
-The patterns developed on this repository are hyphenated patterns given to the machine concerning a string of characters, in order to mark where a hyphenation is possible in a word, in agreement with the rules of meaning, phonetic and etymology. They are case insensitive.
+The patterns developed on this repository are hyphenation patterns given to the machine concerning a string of characters, in order to mark where a hyphenation is possible in a word, in agreement with the rules of meaning, phonetic and etymology. They are case insensitive.
 
 A dot at the beginning of the pattern indicates that the string applies exclusively to the beginnings of words. A dot at the end of the pattern indicates that the string applies exclusively to the end of the words.
 
@@ -51,6 +54,6 @@ Run `make` in the main directory to do the conversion. Note that you must have `
 
 The patterns can be converted to the format used by [Hyphenator](http://mnater.github.io/Hyphenator/) and [hypher](https://github.com/bramstein/hypher) by using the [conversion page from Hyphenator](http://mnater.github.io/Hyphenator/compressor.html), after replacing new lines by space in the pattern files.
 
-## License
+## Licence
 
 The patterns used to be under the [LPPL](https://latex-project.org/lppl/), but the author allows their distribution under [MIT](https://opensource.org/licenses/MIT) licence, which is what we do here.
