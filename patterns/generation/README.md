@@ -1,7 +1,7 @@
 # Generation of Latin hyphenation patterns
 
 The patterns for liturgical Latin `hyph.la.liturgical.txt` have been written by
-hand. They are improved continously.
+hand. They are improved continuously.
 
 The patterns for classical Latin `hyph.la.classical.txt` and the Italian style
 patterns for medieval and modern Latin `hyph.la.phonetic.txt` have also been
@@ -12,21 +12,21 @@ improved patterns for classical Latin. The following workflow is planned:
 
 1. Create a list of about 1000 Latin words without inflected forms and without
 hyphenations, but containing information about the inflection class and hyphens
-in compound words. In this list, "j", "v", "æ" and "œ" should be used
+in compound words. In this list, *j*, *v*, *æ* and *œ* should be used
 consequently (this is important for step 3). The list could contain for example
-"laudo,1" (first conjugation) and "ab-scindo,3,ab-scidi,ab-scissum" (third
-conjugation with perfect and supine), "jam" (no inflected forms).
+`laudo,1` (first conjugation) and `ab-scindo,3,ab-scidi,ab-scissum` (third
+conjugation with perfect and supine), `jam` (no inflected forms).
 
 2. Run a script on this list, which creates all possible inflected forms, for
-example "laudo, laudas, laudat, ..., laudabo, ..., laudavi, ..., laudatus,
-laudata, laudatum, ...".
+example *laudo, laudas, laudat, ..., laudabo, ..., laudavi, ..., laudatus,
+laudata, laudatum, ...*.
 
 3. Run the script `divisio.lua` on the output of 2 to hyphenate all the forms
-according to the basic rules. This is easy as the input list uses "i" and "u"
-only as vowels. This would yield "lau-do, lau-das, ...".
+according to the basic rules. This is easy as the input list uses *i* and *u*
+only as vowels. This would yield *lau-do, lau-das, ...*.
 
-4. Create orthographic variants: "vi-vo"->"ui-uo", "jam"->"iam",
-"cæ-lum"->"cae-lum". It is crucial to do this after the hyphenation. Again,
+4. Create orthographic variants: *vi-vo* → *ui-uo*, *jam* → *iam*,
+*cæ-lum* → *cae-lum*. It is crucial to do this after the hyphenation. Again,
 this can be done by a script.
 
 5. Handle special cases like homographs.
@@ -41,8 +41,8 @@ putting the erroneously hyphenated word in the input list.
 ### `divisio.lua`
 
 This script hyphenates the words in the input list according to the basic
-hyphenation rules for classical Latin. It is intended to prepare a `patgen`
-input.
+hyphenation rules for classical Latin. It is intended to help to prepare a
+*patgen* input.
 
 #### Usage:
 	lua5.3 divisio.lua [options] [< inputfile] [> outputfile]
@@ -59,10 +59,10 @@ The input may contain the following characters:
 - digraphs: `Æ` (U+C6), `æ` (U+E6), `Œ` (U+152), `œ` (U+153)
 - hyphens if needed: `-`
 
-Hyphenation points are marked by hyphens. Sometimes, the output may also
-contain a middle dot `·` (U+B7), which marks a hyphenation point that is
-illegal as long as digraphs are used, but becomes legal when the digraphs are
-replaced by *ae* and *oe*: `æ·di-fi-ca-re`, `ob-œ·di-re`, `su·æ`.
+Hyphenation points are marked by hyphens in the output. Sometimes, the output
+may also contain a middle dot `·` (U+B7), which marks a hyphenation point that
+is illegal as long as digraphs are used, but becomes legal when the digraphs
+are replaced by *ae* and *oe*: `æ·di-fi-ca-re`, `ob-œ·di-re`, `su·æ`.
 
 #### Possible options:
 - `--chant`: hyphenate even single vowel syllables as needed for chant; this
@@ -85,12 +85,13 @@ replaced by *ae* and *oe*: `æ·di-fi-ca-re`, `ob-œ·di-re`, `su·æ`.
   syllable: *cres-cit*, *mag-nus*, *om-nis*, *ves-ter*, *unc-tio*. Muta cum
   liquida, *ch*, *ph*, *rh*, and *th* are not separated: *as-trum*,
   *so-bri-us*. An auxiliary hyphen may be required because of the morphology or
-  the Greek origin of the word: `ab-luo`, `ab-stare`, `sce-ptrum`.
+  the Greek origin of the word: `ab-luere`, `ab-stare`, `sce-ptrum`.
 - *qu* is considered as a single consonant, as well as *gu* preceded by *n* and
-  followed by a vowel: *se-que-re*, *san-guis*. An auxiliary hyphen is required
+  followed by a vowel: *se-qui*, *san-guis*. An auxiliary hyphen is required
   if *u* is a vowel after *ng*: `langu-i`, `langu-erunt`.
 - Single vowel syllables at the beginning or the end of a word are not
   separated: *odor*, *luo*. A single vowel syllable within a word is not
   separated from the preceding syllable: *spe-cio-sus*, *tue-ri*. An auxiliary
   hyphen may be required because of the morphology of the word: `in-itium`:
-  *in-iti-um*. This rule is ignored when using the `--chant` option.
+  *in-iti-um*, `ob-œdire`: *ob-œdi-re* or *ob-oe-di-re*. This rule is ignored
+  when using the `--chant` option.
