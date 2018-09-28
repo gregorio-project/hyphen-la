@@ -60,8 +60,9 @@ The following rules are about specific cases that do not follow the general rule
 
 These are not exceptions to the general rules, but cases to handle cautiously.
 
-- **gu with no n before, where u is a full vowel:** *ar-gu-o*, *ar-gu-unt*, *e-gu-i*, *e-gu-e-runt*.
-- **ngu where u is a full vowel:** *stran-gu-lo*, *fran-gun-tur*, at the end of a perfect stem: *lan-gu-i*, *lan-gu-e-runt* and its variant *lan-gu-e-re*.
+- **gu with no n before:** u is always a full vowel in this case, e.g. *ar-gu-o*, *ar-gu-unt*, *e-gu-i*, *e-gu-e-runt*.
+- **ngu followed by a vowel:** u is a full vowel at the end of a perfect stem, e.g. *lan-gu-i*, *lan-gu-e-runt* and its variant *lan-gu-e-re*; u is a semi-vowel in other cases, e.g. *san-guis*, *lin-gua*, *lan-gue-o*, *lan-gues-co*.
+- **ngu followed by a consonant:** u is a full vowel, e.g. *stran-gu-lo*, *fran-gun-tur*.
 
 
 ## Understanding exceptions
