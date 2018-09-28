@@ -1,4 +1,4 @@
-# Latin Hyphenation patterns
+# Latin hyphenation patterns
 
 This directory contains three sets of Latin hyphenation patterns:
 
@@ -9,7 +9,7 @@ This directory contains three sets of Latin hyphenation patterns:
 - `hyph.la.phonetic.txt` contains the patterns for medieval and modern Latin
   considering the Italian pronunciation and Italian typographic rules
 
-See [doc](../doc/) folder for more on the respective hyphenation rules use.
+See [doc](../doc/) folder for more on the respective hyphenation rules used.
 
 
 ## Patterns elaboration
