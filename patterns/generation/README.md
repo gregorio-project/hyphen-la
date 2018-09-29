@@ -8,26 +8,29 @@ patterns for medieval and modern Latin `hyph.la.phonetic.txt` have also been
 written by hand, but have been unmaintained for several years.
 
 Because of some deficiencies of the existing patterns, we are going to create
-improved patterns for classical Latin. The following workflow is planned:
+improved patterns for classical Latin. The new patterns shall support marks for
+long and short vowels (macrons and breves, e.g. *lĭnguă Lătīnă*), as long and
+short vowels are important for classical Latin. The following workflow is
+planned:
 
 1. Create a list of about 1000 Latin words without inflected forms and without
 hyphenations, but containing information about the inflection class and hyphens
-in compound words. In this list, *j*, *v*, *æ* and *œ* should be used
-consequently (this is important for step 3). The list could contain for example
-`laudo,1` (first conjugation) and `ab-scindo,3,ab-scidi,ab-scissum` (third
-conjugation with perfect and supine), `jam` (no inflected forms).
+in compound words. In this list, *j*, *v*, *æ* and *œ* as well as macrons for
+long vowels should be used consequently (this is important for step 3). Orthographic variants can easily be created later. The exact format of the word list is described below.
 
-2. Run a script on this list, which creates all possible inflected forms, for
-example *laudo, laudas, laudat, ..., laudabo, ..., laudavi, ..., laudatus,
-laudata, laudatum, ...*.
+2. Run the script `flexura.lua` on this list, which creates all possible
+inflected forms, for example *laudō, laudās, laudat, ..., laudābō, ...,
+laudāvī, ..., laudātus, laudāta, laudātum, ...* from input `laudō`.
 
-3. Run the script `divisio.lua` on the output of 2 to hyphenate all the forms
-according to the basic rules. This is easy as the input list uses *i* and *u*
-only as vowels. This would yield *lau-do, lau-das, ...*.
+3. Run the script `divisio.lua` on the output of step 2 to hyphenate all the
+forms according to the basic rules. This is easy as the input list uses *i* and
+*u* only as vowels. This yields *lau-dō, lau-dās, ...*.
 
-4. Create orthographic variants: *vi-vo* → *ui-uo*, *jam* → *iam*,
-*cæ-lum* → *cae-lum*. It is crucial to do this after the hyphenation. Again,
-this can be done by a script.
+4. Create orthographic variants: `vī-vō` → *vī-vō, vī-vo, vi-vō, vi-vo, uī-uō,
+uī-uo, ui-uō, ui-uo*; `jūs-tus` → *jūs-tus, jūs-tŭs, jus-tŭs, jus-tus, iūs-tus,
+iūs-tŭs, ius-tŭs, ius-tus*; `cæ-lum` → *cæ-lum, cǣ-lum, cæ-lŭm, cǣ-lŭm,
+cae-lum, cae-lŭm*. It is crucial to do this after the hyphenation. Again, this
+can be done by a script.
 
 5. Handle special cases like homographs.
 
@@ -36,7 +39,67 @@ this can be done by a script.
 7. Check the patterns using proofreading files. Every error can be corrected by
 putting the erroneously hyphenated word in the input list.
 
+## Format of the word list
+
+Every line of the word list may contain up to four fields divided by commas.
+
+The **first field** of an input line contains a Latin word as written in a
+dictionary (normally nominative singular for nouns, nominative singular
+masculine for adjectives, first person present indicative active for verbs).
+
+The **second field** contains the word type as described below. This field is
+empty for uninflectable words.
+
+The **third field** contains the first person perfect indicative active for
+active verbs and the nominative singular masculine of the perfect passive
+participle for deponent verbs, but only if this form is irregular.
+
+The **forth field** contains the supine for active verbs, but only if this form
+is irregular.
+
+### Possible word types
+
+- `1` – verb of the first conjugation; the first field has to end in `ō` or
+  `or` (for deponent verbs).
+- `2` – verb of the second conjugation; the first field has to end in `eō` or
+  `eor` (for deponent verbs).
+- `3` – verb of the third conjugation; the first field has to end in `ō` or
+  `or` (for deponent verbs).
+- `3M` – verb of the mixed third conjugation; the first field has to end in
+  `iō` or `ior` (for deponent verbs).
+- `4` – verb of the forth conjugation; the first field has to end in `iō` or
+  `ior` (for deponent verbs).
+
+### Examples
+
+	laudō,1
+	moneō,2,monuī,monitum
+	mittō,3,mīsī,missum
+	capiō,3M,cēpī,captum
+	audiō,4
+	hortor,1
+	vereor,2,veritus
+	ūtor,3,ūsus
+	patior,3M,passus
+	partior,4
+	ab-scindō,3,ab-scidī,ab-scissus
+	ex-audiō,4
+	jam
+
 ## Scripts
+
+### `flexura.lua`
+
+This script generates all inflected forms of Latin word, as long as these forms
+are regular. The script is still under development. Currently, only the present
+stem forms of Latin verbs can be generated.
+
+#### Usage:
+	lua5.3 flexura.lua [< inputfile] [> outputfile]
+
+The input file must have the word list format described above. If no input
+file is given, the standard input (terminal) is used for input; the input is
+terminated by `CTRL+D`.
 
 ### `divisio.lua`
 
@@ -71,10 +134,10 @@ are replaced by *ae* and *oe*: `æ·di-fi-cā-re` (*ædi-fi-cā-re* or *ae-di-fi
 - `--greek` – use Greek hyphenation for Greek words; hyphenation points that
   are not in accordance with the Latin rules have to be marked with `^` in the
   input: `sce^ptrum` → `sce-ptrum`, `rhy^thmus` → `rhy-thmus`; the `^`
-  character is ignored if this option is not used
+  character is ignored if this option is not used.
 - `--suppress-hiatus` – never divide consecutive vowels within a word: `suus` →
   `suus`, `voluit` → `vo-luit`, `me|us` → `meus`; but `dē-esse` → `dē-es-se`
-- `--trace-states`: debug option
+- `--trace-states` – debug option
 
 #### Hyphenation rules used:
 - Two vowels are separated: `meīs` → `me-īs`, `viam` → `vi-am`. *y* is
@@ -89,15 +152,15 @@ are replaced by *ae* and *oe*: `æ·di-fi-cā-re` (*ædi-fi-cā-re* or *ae-di-fi
   `anim-ad-ver-tō`.
 - The last of several consonants between two vowels is taken to the next
   syllable: `crēscit` → `crēs-cit`, `māgnus` → `māg-nus`, `omnis` → `om-nis`,
-  `ves-ter` → `ves-ter`, `ūnctiō` → `ūnc-tiō`. Stop consonants followed by
+  `vester` → `ves-ter`, `ūnctiō` → `ūnc-tiō`. Stop consonants followed by
   liquid consonants (*muta cum liquida*), *ch*, *ph*, *rh*, and *th* are not
   separated: `astrum` → `as-trum`, `sōbrius` → `sō-bri-us`. An auxiliary hyphen
   may be required because of the morphology of the word: `ab-luere` →
   `ab-lue-re`, `ab-stāre` → `ab-stā-re`.
 - *qu* is considered as a single consonant, as well as *gu* preceded by *n* and
   followed by a vowel: `sequī` → `se-quī`, `sanguis` → `san-guis`. A vertical
-  bar (U+7C) is required if *u* is a vowel after *ng*: `langu|it` →
-  `lan-gu-it`, `langu|ērunt` → `lan-gu-ērunt`.
+  bar (U+7C) is required if *u* is a vowel after *ng* before another vowel:
+  `langu|it` → `lan-gu-it`, `langu|ērunt` → `lan-gu-ērunt`.
 - Single vowel syllables at the beginning or the end of a word are not
   separated: `odium` → `odi-um`, `luō` → `luō`. A single vowel syllable within
   a word is not separated from the preceding syllable: `speciōsus` →
