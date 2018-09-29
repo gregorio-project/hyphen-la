@@ -90,7 +90,14 @@ function classicalHyphenation(word)
 			elseif consonants[c] == true then
 				store = c
 				state = "consonant"
-			elseif c == "-" then
+			elseif c == "|" then -- divide diphthong
+				state = "vowel"
+			elseif c == "^" then -- extraordinary hyphenation point for Greek words
+				if greek then
+					output = output.."-"
+					state = "beginning"
+				end -- the state stays the same if greek is false
+			elseif c == "-" then -- word boundary
 				output = output.."="
 				state = "beginning"
 			else
@@ -122,7 +129,12 @@ function classicalHyphenation(word)
 			elseif consonants[c] == true then
 				store = c
 				state = "consonant"
-			elseif c == "-" then
+			elseif c == "^" then -- extraordinary hyphenation point for Greek words
+				if greek then
+					output = output.."-"
+					state = "beginning"
+				end -- the state stays the same if greek is false
+			elseif c == "-" then -- word boundary
 				output = output.."="
 				state = "beginning"
 			else
@@ -350,6 +362,8 @@ function classicalHyphenation(word)
 				or c == "s" then
 				store = c
 				state = "consonant"
+			elseif c == "|" then -- u is a syllabic vowel
+				state = "vowel"
 			elseif c == "-" then
 				output = output.."="
 				state = "beginning"
@@ -386,7 +400,13 @@ function classicalHyphenation(word)
 				output = output..store
 				store = c
 				-- the state stays the same
-			elseif c == "-" then
+			elseif c == "^" then -- extraordinary hyphenation point for Greek words
+				if greek then
+					output = output..store.."-"
+					store = ""
+					state = "beginning"
+				end -- the state stays the same if greek is false
+			elseif c == "-" then -- word boundary
 				output = output..store.."="
 				store = ""
 				state = "beginning"
@@ -577,6 +597,8 @@ while arg[i] do
 		traceStates = true
 	elseif arg[i] == "--chant" then
 		chant = true
+	elseif arg[i] == "--greek" then
+		greek = true
 	elseif arg[i] == "--suppress-hiatus" then
 		suppressHiatus = true
 	else
