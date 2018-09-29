@@ -43,9 +43,9 @@ putting the erroneously hyphenated word in the input list.
 
 Every line of the word list may contain up to four fields divided by commas.
 
-The **first field** of an input line contains a Latin word as written in a
-dictionary (normally nominative singular for nouns, nominative singular
-masculine for adjectives, first person present indicative active for verbs).
+The **first field** contains a Latin word as written in a dictionary (normally
+nominative singular for nouns, nominative singular masculine for adjectives,
+first person present indicative active for verbs).
 
 The **second field** contains the word type as described below. This field is
 empty for uninflectable words.
@@ -54,8 +54,8 @@ The **third field** contains the first person perfect indicative active for
 active verbs and the nominative singular masculine of the perfect passive
 participle for deponent verbs, but only if this form is irregular.
 
-The **forth field** contains the supine for active verbs, but only if this form
-is irregular.
+The **fourth field** contains the supine for active verbs, but only if this
+form is irregular.
 
 ### Possible word types
 
@@ -67,7 +67,7 @@ is irregular.
   `or` (for deponent verbs).
 - `3M` – verb of the mixed third conjugation; the first field has to end in
   `iō` or `ior` (for deponent verbs).
-- `4` – verb of the forth conjugation; the first field has to end in `iō` or
+- `4` – verb of the fourth conjugation; the first field has to end in `iō` or
   `ior` (for deponent verbs).
 
 ### Examples
@@ -90,9 +90,9 @@ is irregular.
 
 ### `flexura.lua`
 
-This script generates all inflected forms of Latin word, as long as these forms
-are regular. The script is still under development. Currently, only the present
-stem forms of Latin verbs can be generated.
+This script generates all inflected forms of the Latin words in the input list,
+as long as these forms are regular. The script is still under development.
+Currently, only the present stem forms of Latin verbs can be generated.
 
 #### Usage:
 	lua5.3 flexura.lua [< inputfile] [> outputfile]
