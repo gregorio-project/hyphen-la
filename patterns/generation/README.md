@@ -15,8 +15,9 @@ planned:
 
 1. Create a list of about 1000 Latin words without inflected forms and without
 hyphenations, but containing information about the inflection class and hyphens
-in compound words. In this list, *j*, *v*, *æ* and *œ* as well as macrons for
-long vowels should be used consequently (this is important for step 3). Orthographic variants can easily be created later. The exact format of the word list is described below.
+in compound words and with special orthographic conventions. Orthographic
+variants can easily be created later. The exact format of the word list is
+described below.
 
 2. Run the script `flexura.lua` on this list, which creates all possible
 inflected forms, for example *laudō, laudās, laudat, ..., laudābō, ...,
@@ -57,6 +58,20 @@ participle for deponent verbs, but only if this form is irregular.
 The **fourth field** contains the supine for active verbs, but only if this
 form is irregular.
 
+### Orthographic conventions
+
+The orthographic conventions for the word list guarantee that all hyphenation
+points can be found correctly and that all other orthographic variants can be
+generated automatically.
+
+- mark long single vowels (but no digraphs and diphthongs) with macrons:
+  `sēditiō`, `ædificō`; do not mark short vowels
+- write *j* for every semivocalic *i*: `jam`, `jaciō`, `mājor`
+- write *v* for every semiconsonatic *u*: `vērus`, `laudāvī`
+- write *æ* and *œ* for the diphthongs *ae* and *oe*: `cælum`, `tragœdia`
+- use hyphens to mark compound words: `ab-scindō`, `ob-œdīō`, `anim-ad-vertō`,
+  `long-ævus`
+
 ### Possible word types
 
 - `1` – verb of the first conjugation; the first field has to end in `ō` or
@@ -92,7 +107,7 @@ form is irregular.
 
 This script generates all inflected forms of the Latin words in the input list,
 as long as these forms are regular. The script is still under development.
-Currently, only the present stem forms of Latin verbs can be generated.
+Currently, only the present stem forms of Latin verbs are generated.
 
 #### Usage:
 	lua5.3 flexura.lua [< inputfile] [> outputfile]
