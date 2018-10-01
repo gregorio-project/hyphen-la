@@ -3,6 +3,14 @@ function invalidField(field,linenumber)
 	error('Invalid field "'..field..'" in line '..linenumber)
 end
 
+function utf8substring(s,i,j)
+	if j then
+		return string.sub(s,utf8.offset(s,i),utf8.offset(s,j))
+	else
+		return string.sub(s,utf8.offset(s,i))
+	end
+end
+
 -- list of all generated forms
 outputlist = {}
 
@@ -24,6 +32,23 @@ presentStemEndingsPassive1 = {
 	"ārer","ārēris","ārētur","ārēmur","ārēminī","ārentur", -- imperfect subjunctive
 	"āre","ātor","antor", -- imperative
 	"ārī" --infinitive
+	}
+
+-- special forms for "dare" (the "a" is short except in "dās" and "dā")
+presentStemEndingsDare = {
+	"ō","ās","at","amus","atis","ant", -- present indicative active
+	"abam","abās","abat","abāmus","abātis","abant", -- imperfect indicative active
+	"abō","abis","abit","abimus","abitis","abunt", -- future active
+	"em","ēs","et","ēmus","ētis","ent", -- present subjunctive active
+	"arem","arēs","aret","arēmus","arētis","arent", -- imperfect subjunctive active
+	"ā","ate","atō","atōte","antō", -- imperative active
+	"or","aris","atur","amur","aminī","antur", -- present indicative passive
+	"abar","abāris","abātur","abāmur","abāminī","abantur", -- imperfect indicative passive
+	"abor","aberis","abitur","abimur","abiminī","abuntur", -- future passive
+	"er","ēris","ētur","ēmur","ēminī","entur", -- present subjunctive passive
+	"arer","arēris","arētur","arēmur","arēminī","arentur", -- imperfect subjunctive passive
+	"are","ator","antor", -- imperative passive
+	"arī" --infinitive passive
 	}
 
 -- endings of the second conjugation
@@ -53,8 +78,11 @@ presentStemEndingsActive3 = {
 	"am","ēs","et","ēmus","ētis","ent", -- future
 	"ās","at","āmus","ātis","ant", -- present subjunctive
 	"erem","erēs","eret","erēmus","erētis","erent", -- imperfect subjunctive
-	"e","ite","itō","itōte","untō" -- imperative
+	"ite","itō","itōte","untō" -- imperative
 	}
+--[[ the ending "e" of the second person singular of the imperative present is
+not taken into account here as there are irregular forms for "dīcere" and
+"dūcere" ]]
 
 presentStemEndingsPassive3 = {
 	"or","eris","itur","imur","iminī","untur", -- present indicative
@@ -73,7 +101,10 @@ presentStemEndingsActive3M = {
 	"iam","iēs","iet","iēmus","iētis","ient", -- future
 	"iās","iat","iāmus","iātis","iant", -- present subjunctive
 	"erem","erēs","eret","erēmus","erētis","erent", -- imperfect subjunctive
-	"e","ite","itō","itōte","iuntō" -- imperative
+	"ite","itō","itōte","iuntō" -- imperative
+--[[ the ending "e" of the second person singular of the imperative present is
+not taken into account here as there are irregular forms for "facere" and
+"calefacere" ]]
 	}
 
 presentStemEndingsPassive3M = {
@@ -150,8 +181,14 @@ for line in io.lines() do
 	elseif secondField == "1" then
 		if utf8.len(firstField) < 2 then
 			invalidField(firstField,linecount)
-		elseif string.sub(firstField,utf8.offset(firstField,-1)) == "ō" then
-			root = string.sub(firstField,1,utf8.offset(firstField,-2))
+		elseif firstField == "dō" or utf8.len(firstField) > 3
+			and utf8substring(firstField,-3) == "-dō" then
+			root = utf8substring(firstField,1,-2)
+			for _,ending in pairs(presentStemEndingsDare) do
+				table.insert(outputlist,root..ending)
+			end
+		elseif utf8substring(firstField,-1) == "ō" then
+			root = utf8substring(firstField,1,-2)
 			for _,ending in pairs(presentStemEndingsActive1) do
 				table.insert(outputlist,root..ending)
 			end
@@ -171,8 +208,8 @@ for line in io.lines() do
 	elseif secondField == "2" then
 		if utf8.len(firstField) < 3 then
 			invalidField(firstField,linecount)
-		elseif string.sub(firstField,utf8.offset(firstField,-2)) == "eō" then
-			root = string.sub(firstField,1,utf8.offset(firstField,-3))
+		elseif utf8substring(firstField,-2) == "eō" then
+			root = utf8substring(firstField,1,-3)
 			for _,ending in pairs(presentStemEndingsActive2) do
 				table.insert(outputlist,root..ending)
 			end
@@ -192,11 +229,23 @@ for line in io.lines() do
 	elseif secondField == "3" then
 		if utf8.len(firstField) < 2 then
 			invalidField(firstField,linecount)
-		elseif string.sub(firstField,utf8.offset(firstField,-1)) == "ō" then
-			root = string.sub(firstField,1,utf8.offset(firstField,-2))
+		elseif utf8substring(firstField,-1) == "ō" then
+			root = utf8substring(firstField,1,-2)
+			-- active forms
 			for _,ending in pairs(presentStemEndingsActive3) do
 				table.insert(outputlist,root..ending)
 			end
+			-- second person singular of the imperative present
+			if firstField == "dīcō" or firstField == "dūcō" or
+				utf8.len(firstField) > 5 and
+					(utf8substring(firstField,-5) == "-dīcō"
+						or utf8substring(firstField,-5) == "-dūcō")
+				then
+				table.insert(outputlist,root) -- "dīc"/"dūc"
+			else
+				table.insert(outputlist,root.."e") -- e.g. "mitte"
+			end
+			-- passive forms
 			for _,ending in pairs(presentStemEndingsPassive3) do
 				table.insert(outputlist,root..ending)
 			end
@@ -213,10 +262,20 @@ for line in io.lines() do
 	elseif secondField == "3M" then
 		if utf8.len(firstField) < 3 then
 			invalidField(firstField,linecount)
-		elseif string.sub(firstField,utf8.offset(firstField,-2)) == "iō" then
-			root = string.sub(firstField,1,utf8.offset(firstField,-3))
+		elseif utf8substring(firstField,-2) == "iō" then
+			root = utf8substring(firstField,1,-3)
+			-- active forms
 			for _,ending in pairs(presentStemEndingsActive3M) do
 				table.insert(outputlist,root..ending)
+			end
+			-- second person singular of the imperative present
+			if firstField == "cale-faciō" then
+				table.insert(outputlist,"cal-face")
+			elseif firstField == "faciō" or utf8.len(firstField) > 6 and
+				utf8substring(firstField,-6) == "-faciō" then
+				table.insert(outputlist,root) -- "fac"
+			else
+				table.insert(outputlist,root.."e") -- e.g. "cape"
 			end
 			for _,ending in pairs(presentStemEndingsPassive3M) do
 				table.insert(outputlist,root..ending)
@@ -234,8 +293,8 @@ for line in io.lines() do
 	elseif secondField == "4" then
 		if utf8.len(firstField) < 3 then
 			invalidField(firstField,linecount)
-		elseif string.sub(firstField,utf8.offset(firstField,-2)) == "iō" then
-			root = string.sub(firstField,1,utf8.offset(firstField,-3))
+		elseif utf8substring(firstField,-2) == "iō" then
+			root = utf8substring(firstField,1,-3)
 			for _,ending in pairs(presentStemEndingsActive4) do
 				table.insert(outputlist,root..ending)
 			end

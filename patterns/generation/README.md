@@ -67,10 +67,14 @@ generated automatically.
 - mark long single vowels (but no digraphs and diphthongs) with macrons:
   `sēditiō`, `ædificō`; do not mark short vowels
 - write *j* for every semivocalic *i*: `jam`, `jaciō`, `mājor`
-- write *v* for every semiconsonatic *u*: `vērus`, `laudāvī`
+- write *v* for every semivocalic *u*: `vērus`, `laudāvī`; write *U* for every
+  vocalic *V*: `Ūrania`
 - write *æ* and *œ* for the diphthongs *ae* and *oe*: `cælum`, `tragœdia`
 - use hyphens to mark compound words: `ab-scindō`, `ob-œdīō`, `anim-ad-vertō`,
   `long-ævus`
+
+There is no prescription concerning case. You may use lowercase and uppercase
+letters as you like.
 
 ### Possible word types
 
@@ -115,6 +119,14 @@ Currently, only the present stem forms of Latin verbs are generated.
 The input file must have the word list format described above. If no input
 file is given, the standard input (terminal) is used for input; the input is
 terminated by `CTRL+D`.
+
+#### Irregular forms:
+
+The following irregular forms are taken into account:
+- the short *a* in *dare* and its compounds
+- the irregular imperatives *dīc*, *dūc*, *fac* of *dīcere*, *dūcere*, *facere*
+  and their compounds
+- the irregular imperative *calface* of *calefacere*
 
 ### `divisio.lua`
 
