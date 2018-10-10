@@ -1,4 +1,3 @@
-1-1
 .a2b1ali
 .a2b1auu
 .a2b1er2
@@ -15,7 +14,6 @@
 .a2d1er2
 .a2d1es2
 .a2dfu
-.a2th3
 .a3g2nas
 .a3s2c
 .a3s2p
@@ -84,7 +82,6 @@
 .h2
 .hu1i2u
 .i2a
-.i2d1
 .i2dci
 .i2e
 .i2i
@@ -123,7 +120,6 @@
 .iuu2i
 .iuu2o
 .l2
-.lon2g1
 .m2
 .n2
 .o2b1
@@ -210,7 +206,6 @@
 .pro2d1eo
 .pro2d1es3s
 .pro2d1eun
-.pro2d1fu2
 .pro2d1ib
 .pro2d1ier
 .pro2d1ig
@@ -646,6 +641,7 @@ i1ue
 i1ui
 i1uo
 i1uu
+i2l3ua
 i2l3ue
 i2l3ui
 i2l3uo
