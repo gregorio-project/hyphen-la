@@ -9,7 +9,7 @@ written by hand, but have been unmaintained for several years.
 
 Because of some deficiencies of the existing patterns, we are going to create
 improved patterns for classical Latin. The new patterns shall support marks for
-long and short vowels (macrons and breves, e.g. *lĭnguă Lătīnă*), as long and
+long and short vowels (macrons and breves, e.g. *lĭnguă Lătīnă*) as long and
 short vowels are important for classical Latin. The following workflow is
 planned:
 
@@ -67,17 +67,37 @@ generated automatically.
 - mark long single vowels (but no digraphs and diphthongs) with macrons:
   `sēditiō`, `ædificō`; do not mark short vowels
 - write *j* for every semivocalic *i*: `jam`, `jaciō`, `mājor`
-- write *v* for every semivocalic *u*: `vērus`, `laudāvī`; write *U* for every
-  vocalic *V*: `Ūrania`
+- use *u* and *v* according to the modern conventions: `vērus`, `laudāvī`,
+  `Ūrania`
 - write *æ* and *œ* for the diphthongs *ae* and *oe*: `cælum`, `tragœdia`
 - use hyphens to mark compound words: `ab-scindō`, `ob-œdīō`, `anim-ad-vertō`,
   `long-ævus`
-
-There is no prescription concerning case. You may use lowercase and uppercase
-letters as you like.
+- use lowercase letters; proper nouns and their derivatives may begin with an
+  uppercase letter
 
 ### Possible word types
 
+#### Adjectives
+
+- `AC3`/`AI3` – comparable/incomparable adjectives with three endings; the
+  first field contains the masculine form; when the masculine form does not end
+  in *-us*, the third field contains the feminine form.
+- `AC2`/`AI2` – comparable/incomparable adjectives with two endings; the first
+  field contains the masculine/feminine form.
+- `AC1`/`AI1` – comparable/incomparable adjectives with one ending; the first
+  field contains the nominative; when the nominative does not end in *-āns* or
+  *-ēns*, the third field contains the genitive.
+
+Examples:
+    longus,AC3
+	 ācer,AC3,ācris
+	 ūnicus,AI3
+	 brevis,AC2
+	 prior,AC2
+	 prūdēns,AC1
+	 vetus,AC1,veteris
+
+#### Verbs
 - `1` – verb of the first conjugation; the first field has to end in `ō` or
   `or` (for deponent verbs).
 - `2` – verb of the second conjugation; the first field has to end in `eō` or
@@ -89,8 +109,7 @@ letters as you like.
 - `4` – verb of the fourth conjugation; the first field has to end in `iō` or
   `ior` (for deponent verbs).
 
-### Examples
-
+Examples:
 	laudō,1
 	moneō,2,monuī,monitum
 	mittō,3,mīsī,missum
@@ -103,7 +122,6 @@ letters as you like.
 	partior,4
 	ab-scindō,3,ab-scidī,ab-scissus
 	ex-audiō,4
-	jam
 
 ## Scripts
 
@@ -111,7 +129,8 @@ letters as you like.
 
 This script generates all inflected forms of the Latin words in the input list,
 as long as these forms are regular. The script is still under development.
-Currently, only the present stem forms of Latin verbs are generated.
+Currently, only declensed adjective forms (including comparatives, superlatives
+and adverbs) and the present stem forms of Latin verbs are generated.
 
 #### Usage:
 	lua5.3 flexura.lua [< inputfile] [> outputfile]
@@ -123,10 +142,15 @@ terminated by `CTRL+D`.
 #### Irregular forms:
 
 The following irregular forms are taken into account:
+- the comparatives and superlatives of *bonus*, *māgnus*, *malus*, *multus*,
+  *vetus*
+- the adverbs *audācter* (beside *audāciter*), *bene*, *difficulter*,
+  *magis/mage*, *parum*, *postrēmō*, *rārenter*, *sollerter* of *audāx*,
+  *bonus*, *difficilis*, *māgnus*, *parvus*, *posterus*, *rārus*, *sollers*
 - the short *a* in *dare* and its compounds
-- the irregular imperatives *dīc*, *dūc*, *fac* of *dīcere*, *dūcere*, *facere*
-  and their compounds
-- the irregular imperative *calface* of *calefacere*
+- the imperatives *dīc*, *dūc*, *fac* of *dīcere*, *dūcere*, *facere* and their
+  compounds
+- the imperative *calface* of *calefacere*
 
 ### `divisio.lua`
 
