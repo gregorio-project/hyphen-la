@@ -89,6 +89,7 @@ generated automatically.
   *-ēns*, the third field contains the genitive.
 
 Examples:
+
     longus,AC3
 	 ācer,AC3,ācris
 	 ūnicus,AI3
@@ -110,6 +111,7 @@ Examples:
   `ior` (for deponent verbs).
 
 Examples:
+
 	laudō,1
 	moneō,2,monuī,monitum
 	mittō,3,mīsī,missum
