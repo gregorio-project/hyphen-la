@@ -465,6 +465,7 @@
 .éx5s2t
 .f2
 .g2
+.gai4
 .h2
 .he3i.
 .hi2e
@@ -942,6 +943,8 @@
 .pseudo3s4
 .pseudó3s4
 .p4t
+.pulei4
+.puléi4
 .qua2m3o2b3
 .quá2m3o2b3
 .quattuo2r3
