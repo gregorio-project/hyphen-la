@@ -6611,6 +6611,9 @@ fun-gus
 fur-fu-ra-ce-us
 fur-fu-re-us
 fur-na-ce-us
+Ga-ia
+Ga-ia-nus
+Ga-ius
 gal-ba-ne-us
 gal-bi-ne-us
 gal-li-na-ce-us
@@ -11873,6 +11876,9 @@ pu-bli-cus
 pu-bu-is
 pu-gna
 pu-gne-us
+pu-le-ia-tum
+pu-le-ia-tus
+pu-le-ium
 pul-las-tra
 pul-le-ia-ce-us
 pul-men-ta

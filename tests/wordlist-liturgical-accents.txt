@@ -6675,6 +6675,9 @@ fungus
 furfuráceus
 furfúreus
 furnáceus
+Gaia
+Gaiánus
+Gaius
 galbáneus
 galbíneus
 gallináceus
@@ -11819,6 +11822,9 @@ públicus
 púbuis
 pugna
 púgneus
+puleiátum
+puleiátus
+puléium
 pullástra
 pulleiáceus
 pulménta
