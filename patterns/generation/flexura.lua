@@ -10,7 +10,11 @@ end
 
 function utf8substring(s,i,j)
    if j then
-      return string.sub(s,utf8.offset(s,i),utf8.offset(s,j))
+		if j == -1 then
+			return string.sub(s,utf8.offset(s,i))
+		else
+	      return string.sub(s,utf8.offset(s,i),utf8.offset(s,j+1)-1)
+		end
    else
       return string.sub(s,utf8.offset(s,i))
    end
@@ -27,25 +31,25 @@ end
 -- list of all generated forms
 outputlist = {}
 
-function attachEndings(root,endings)
-   for _,ending in pairs(endings) do
-      table.insert(outputlist,root..ending)
-   end
-end
-
 -- digraphs with macrons are not needed, as diphthongs are always long
 vowels = createSet{"A","a","Ā","ā","E","e","Ē","ē","I","i","Ī","ī","O","o","Ō",
    "ō","U","u","Ū","ū","Y","y","Ȳ","ȳ","Æ","æ","Œ","œ"}
+
+-- possible diphthongs are "au" and "eu", macrons are not used
+firstVowelsOfDiphthongs = createSet{"A", "a", "E", "e"}
 
 -- q is intentionally left out here
 consonants = createSet{"B","b","C","c","D","d","F","f","G","g","H","h","J","j",
    "K","k","L","l","M","m","N","n","P","p","R","r","S","s","T","t","V","v","W",
    "w","X","x","Z","z"}
 
+-- neuter nouns of the second declension not ending in "-um"
+neuterNouns2 = createSet{"vīrus","volgus","vulgus"}
+
 -- adjectives with consonantic declension
 adjectivesConsonanticDeclension = createSet{"compos","com-pos","dīves",
-   "particeps","parti-ceps","pauper","princeps","prin-ceps","sōspes",
-   "superstes","super-stes","vetus"}
+   "particeps","parti-ceps","pauper","prīnceps","prīn-ceps","sōspes",
+   "super-stes","vetus"}
 
 -- adjectives with abl. sing. ending in "-ī", but gen. pl. ending in "-um"
 adjectives_i_um = createSet{"in-ops","memor","vigil"}
@@ -53,6 +57,45 @@ adjectives_i_um = createSet{"in-ops","memor","vigil"}
 -- adjectives with superlative ending in "-limus"
 adjectivesSuperlative_limus = createSet{"difficilis","dif-ficilis","dissimilis",
    "dis-similis","facilis","gracilis","humilis","similis"}
+
+-- adjectives using declensed forms as adverb instead of a regular adverb
+adjectivesWithDeclensedFormAdverb = createSet{"cēterus","crēber","malus",
+	"meritus","multus","necessārius","nimius","paullus","paulus","perpetuus",
+	"per-petuus","plērus","plērusque","plērus-que","plūrimus","plūrumus",
+	"postrēmus","potissimus","rārus","sēcrētus","sērus","sōlus","subitus",
+	"sub-itus","tantus","tūtus"}
+	-- the adverb of "malus" is "male" with short e (= vocative)
+
+-- pronominal adjectives
+pronominalAdjectives = createSet{"sōlus"}
+
+function attachEndings(root,endings)
+   for _,ending in pairs(endings) do
+		if firstVowelsOfDiphthongs[string.sub(root,-1)]
+		and string.sub(ending,1,1) == "u" then
+      	table.insert(outputlist,root.."|"..ending)
+		else
+	      table.insert(outputlist,root..ending)
+		end
+   end
+end
+
+-- endings of the nouns of the first declension
+nounEndings1 = { "a","æ","am","ā","ārum","īs","ās" }
+nounEndings1_ae_arum = { "æ","ārum","īs","ās" }
+
+-- endings of the nouns of the second declension
+nounEndings2_us = { "us","ī","ō","um","e","ōrum","īs","ōs" }
+nounEndings2_ius = { "ius","iī","ī","iō","ium","iōrum","iīs","iōs" }
+nounEndings2_jus = { "jus","jī","ī","jō","jum","jōrum","jīs","jōs" }
+nounEndings2_us_neuter = { "us","ī","ō","a","ōrum","īs" }
+nounEndings2_um = { "um","ī","ō","a","ōrum","īs" }
+nounEndings2_ium = { "ium","iī","ī","iō","ia","iōrum","iīs" }
+nounEndings2_jum = { "jum","jī","ī","jō","ja","jōrum","jīs" }
+nounEndings2_r_ri = { "r","rī","rō","rum","rōrum","rīs","rōs" }
+nounEndings2_er_ri = { "er","rī","rō","rum","rōrum","rīs","rōs" }
+nounEndings2_i_orum = { "ī","ōrum","īs","ōs" }
+nounEndings2_a_orum = { "a","ōrum","īs" }
 
 -- endings of the adjectives of the first and second declension
 adjectiveEndings_us_a_um = { -- e.g. "bonus"
@@ -63,6 +106,9 @@ adjectiveEndings_r_ra_rum = { -- e.g. "liber", "satur"
 
 adjectiveEndings_er_ra_rum = { -- e.g. "pulcher"
    "er","ra","rum","rī","ræ","rō","ram","rā","rōrum","rārum","rīs","rōs","rās"}
+
+pronominalAdjectiveEndings_us_a_um = { -- e.g. "sōlus"
+   "us","a","um","īus","ī","am","ō","ā","e","æ","ōrum","ārum","īs","ōs","ās"}
 
 -- endings of the adjectives of the third declension
 adjectiveEndings_er_ris_re = { -- e.g. "acer"
@@ -243,7 +289,11 @@ function generatePositiveForms3(masculine,feminine)
    if string.len(masculine) > 2 and string.sub(masculine,-2) == "us"
    and feminine == nil then
       root = string.sub(masculine,1,-3)
-      attachEndings(root,adjectiveEndings_us_a_um)
+		if pronominalAdjectives[masculine] then
+	      attachEndings(root,pronominalAdjectiveEndings_us_a_um)
+		else
+	      attachEndings(root,adjectiveEndings_us_a_um)
+		end
 
    -- plērusque
    elseif (masculine == "plērusque" or masculine == "plērus-que")
@@ -312,8 +362,15 @@ function generateComparativeAndSuperlative3(masculine,feminine)
       attachEndings("plūrum",adjectiveEndings_us_a_um) -- superlative
       -- adverb is "plūrimum" (= accusative)
 
+   elseif masculine == "posterus" then
+      attachEndings("poster",adjectiveEndings_ior_ius) -- comparative
+      attachEndings("postrēm",adjectiveEndings_us_a_um) -- first superlative
+      attachEndings("postum",adjectiveEndings_us_a_um) -- second superlative
+      generateAdverb3("postrēmus") -- adverb of first superlative
+      generateAdverb3("postumus") -- adverb of second superlative
+
    -- adjectives ending in "dicus"
-   elseif string.len(masculine) > 5   and string.sub(masculine,-5) == "dicus" then
+   elseif string.len(masculine) > 5 and string.sub(masculine,-5) == "dicus" then
       root = string.sub(masculine,1,-5).."īcent"
       attachEndings(root,adjectiveEndings_ior_ius) -- comparative
       attachEndings(root.."issim",adjectiveEndings_us_a_um) -- superlative
@@ -393,57 +450,20 @@ end
 function generateAdverb3(masculine,feminine)
    if masculine == "bonus" then
       table.insert(outputlist,"bene")
-   elseif masculine == "cēterus" then
-      -- adverb is "cēterum" (= accusative)
    elseif masculine == "citus" then
       table.insert(outputlist,"cito") -- short o
-   elseif masculine == "crēber" then
-      -- adverb is "crēbrō" (= ablative)
    elseif masculine == "māgnus" then
       table.insert(outputlist,"magis")
       table.insert(outputlist,"mage")
-   elseif masculine == "malus" then
-      -- adverb is "male" with short e (= vocative)
-   elseif masculine == "meritus" then
-      -- adverb is "meritō" (= ablative)
-   elseif masculine == "multus" then
-      -- adverbs are "multum" (= accusative) and "multō" (= ablative)
-   elseif masculine == "necessārius" then
-      -- adverb is "necessāriō" (= ablative)
-   elseif masculine == "nimius" then
-      -- adverb is "nimium" (= accusative)
    elseif masculine == "parvus" then
       table.insert(outputlist,"parum")
-   elseif masculine == "paulus" or masculine == "paullus" then
-      -- adverbs are "paul(l)um" (= accusative) and "paul(l)ō" (= ablative)
-   elseif masculine == "perpetuus" then
-      -- adverb is "perpetuō" (= ablative)
    elseif masculine == "plērissimusque" or masculine == "plērissimus-que" then
       table.insert(outputlist,"plērissimēque")
-   elseif masculine == "plērus" or masculine == "plērusque"
-   or masculine == "plērus-que" then
-      -- adverb is "plērumque" (= accusative)
-   elseif masculine == "plūrimus" or masculine == "plūrumus" then
-      -- adverb is "plūrimum" (= accusative)
-   elseif masculine == "posterus" then
-      table.insert(outputlist,"postrēmō")
-   elseif masculine == "potissiumus" then
-      -- adverb is "potissimum" (= accusative)
-   elseif masculine == "prīmus" then
-      -- adverbs are "primum" (= accusative) and "prīmō" (= ablative)
    elseif masculine == "rārus" then
       -- adverbs are "rārō" (= ablative) and "rārenter"
       table.insert(outputlist,"rārenter")
-   elseif masculine == "sēcrētus" then
-      -- adverb is "sēcrētō" (= ablative)
-   elseif masculine == "sērus" then
-      -- adverb is "sērō" (= ablative)
-   elseif masculine == "sub-itus" or masculine == "subitus" then
-      -- adverb is "sub-itō"/"subitō" (= ablative)
-   elseif masculine == "tantus" then
-      -- adverbs are "tantum" (= acc.) / "tanti" (= gen.) / "tantō" (= abl.)
-   elseif masculine == "tūtus" then
-      -- adverb is "tūtō" (= ablative)
+   elseif adjectivesWithDeclensedFormAdverb[masculine] then
+      -- no additional form required
    elseif string.sub(masculine,-1) == "r" then
       if string.sub(feminine,-2) == "ra" then
          table.insert(outputlist,string.sub(feminine,1,-2).."ē")
@@ -459,7 +479,7 @@ end
 
 -- generate positive forms of adjectives with two endings
 function generatePositiveForms2(adjective)
-   if adjective == "complūrēs" then
+   if adjective == "complūrēs" or adjective == "com-plūrēs" then
       table.insert(outputlist,"complūrēs") -- nominative/accusative
       table.insert(outputlist,"complūra") -- neuter
       table.insert(outputlist,"complūrium") -- genitive
@@ -505,15 +525,13 @@ end
 
 -- generate adverb of adjectives with two endings
 function generateAdverb2(adjective)
-   if adjective == "difficilis" then
+   if adjective == "difficilis" or adjective == "dif-ficilis" then
       table.insert(outputlist,"difficulter")
-   elseif adjective == "dif-ficilis" then
-      table.insert(outputlist,"dif-ficulter")
    elseif adjective == "facilis" then
       -- adverb is "facile" (= neuter)
-   elseif string.sub(adjective,-3,-1) == "ior" then
+   elseif string.sub(adjective,-3) == "ior" then
       -- adverb ends in "-ius" (= neuter)
-   else
+   elseif string.sub(adjective,-2) == "is" then
       table.insert(outputlist,string.sub(adjective,1,-2).."ter")
    end
 end
@@ -815,6 +833,119 @@ for line in io.lines() do
       else
          invalidField(firstField)
       end
+
+	-- noun of the first declension
+	elseif secondField == "D1" then
+		if thirdField or fourthField then
+			invalidLine()
+		elseif string.len(firstField) > 1
+		and string.sub(firstField,-1,-1) == "a" then
+			root = string.sub(firstField,1,-2)
+			attachEndings(root,nounEndings1)
+			if firstField == "dea" then
+				table.insert(outputlist,"deābus") -- alternative genitive plural
+			elseif firstField == "fīlia" then
+				table.insert(outputlist,"fīliābus") -- alternative genitive plural
+			end
+		elseif utf8substring(firstField,-1) == "æ" then -- plurale tantum
+			if thirdField then
+				invalidLine()
+			else
+				root = utf8substring(firstField,1,-2)
+				attachEndings(root,nounEndings1_ae_arum)
+			end
+		else
+			invalidField(firstField)
+		end
+
+	-- noun of the second declension
+	elseif secondField == "D2" then
+		if string.len(firstField) < 3 or fourthField then
+			invalidLine()
+		elseif string.sub(firstField,-2,-1) == "us" then
+			if thirdField then
+				invalidLine()
+			elseif firstField == "deus" then
+				table.insert(outputlist,"de|us") -- nominative/vocative sg.
+				table.insert(outputlist,"deī") -- genitive sg./nominative pl.
+				table.insert(outputlist,"deō") -- dative/ablative sg.
+				table.insert(outputlist,"de|um") -- accusative sg.
+				table.insert(outputlist,"diī") -- nominative pl.
+				table.insert(outputlist,"dī") -- nominative pl.
+				table.insert(outputlist,"deōrum") -- genitive pl.
+				table.insert(outputlist,"deīs") -- dative/ablative pl.
+				table.insert(outputlist,"diīs") -- dative/ablative pl.
+				table.insert(outputlist,"dīs") -- dative/ablative pl.
+				table.insert(outputlist,"deōs") -- accusative pl.
+			elseif neuterNouns2[firstField] then
+				root = string.sub(firstField,1,-3)
+				attachEndings(root,nounEndings2_us_neuter)
+				if firstField == "vulgus" then
+					table.insert(outputlist,"vulgum") -- alternative accusative sg.
+				elseif firstField == "volgus" then
+					table.insert(outputlist,"volgum") -- alternative accusative sg.
+				end
+			elseif string.len(firstField) > 4
+			and utf8substring(firstField,-3) == "ius" then
+				root = string.sub(firstField,1,-4)
+				attachEndings(root,nounEndings2_ius)
+			elseif string.len(firstField) > 4
+			and utf8substring(firstField,-3) == "jus" then
+				root = string.sub(firstField,1,-4)
+				attachEndings(root,nounEndings2_jus)
+			else
+				root = string.sub(firstField,1,-3)
+				attachEndings(root,nounEndings2_us)
+				if firstField == "locus" then
+					table.insert(outputlist,"loca") -- alternative nom./acc. pl.
+				end
+			end
+		elseif string.sub(firstField,-2,-1) == "um" then
+			if thirdField then
+				invalidLine()
+			elseif string.len(firstField) > 4
+			and utf8substring(firstField,-3) == "ium" then
+				root = string.sub(firstField,1,-4)
+				attachEndings(root,nounEndings2_ium)
+			elseif string.len(firstField) > 4
+			and utf8substring(firstField,-3) == "jum" then
+				root = string.sub(firstField,1,-4)
+				attachEndings(root,nounEndings2_jum)
+			else
+				root = string.sub(firstField,1,-3)
+				attachEndings(root,nounEndings2_um)
+			end
+		elseif string.sub(firstField,-1,-1) == "r" then
+			if thirdField and utf8.len(thirdField) == utf8.len(firstField) + 1
+			and utf8substring(thirdField,1,-2) == firstField
+			and utf8substring(thirdField,-1,-1) == "ī" then -- e.g. "puer"
+				root = string.sub(firstField,1,-2)
+				attachEndings(root,nounEndings2_r_ri)
+			elseif thirdField and utf8.len(thirdField) == utf8.len(firstField)
+			and utf8substring(thirdField,1,-3) == utf8substring(firstField,1,-3)
+			and utf8substring(thirdField,-2,-1) == "rī" then -- e.g. "ager"
+				root = string.sub(firstField,1,-3)
+				attachEndings(root,nounEndings2_er_ri)
+			else
+				invalidLine()
+			end
+		elseif utf8substring(firstField,-1) == "ī" then -- plurale tantum
+			if thirdField then
+				invalidLine()
+			else
+				root = utf8substring(firstField,1,-2)
+				attachEndings(root,nounEndings2_i_orum)
+			end
+		elseif string.sub(firstField,-1) == "a" then -- plurale tantum (neuter)
+			if thirdField then
+				invalidLine()
+			else
+				root = string.sub(firstField,1,-2)
+				attachEndings(root,nounEndings2_a_orum)
+			end
+		else
+			invalidField(firstField)
+		end
 
    -- adjective with three endings with comparison
    elseif secondField == "AC3" then

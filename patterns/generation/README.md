@@ -13,11 +13,13 @@ long and short vowels (macrons and breves, e.g. *lĭnguă Lătīnă*) as long an
 short vowels are important for classical Latin. The following workflow is
 planned:
 
-1. Create a list of about 1000 Latin words without inflected forms and without
-hyphenations, but containing information about the inflection class and hyphens
-in compound words and with special orthographic conventions. Orthographic
-variants can easily be created later. The exact format of the word list is
-described below.
+## Generation of hyphenation patterns for classical Latin
+
+1. Create a list `index_verborum` of about 1000 Latin words without inflected
+forms and without hyphenations, but containing information about the inflection
+class and hyphens in compound words and with special orthographic conventions.
+Orthographic variants can easily be created later. The exact format of the word
+list is described below.
 
 2. Run the script `flexura.lua` on this list, which creates all possible
 inflected forms, for example *laudō, laudās, laudat, ..., laudābō, ...,
@@ -40,7 +42,7 @@ can be done by a script.
 7. Check the patterns using proofreading files. Every error can be corrected by
 putting the erroneously hyphenated word in the input list.
 
-## Format of the word list
+## Format of the word list `index_verborum`
 
 Every line of the word list may contain up to four fields divided by commas.
 
@@ -72,10 +74,27 @@ generated automatically.
 - write *æ* and *œ* for the diphthongs *ae* and *oe*: `cælum`, `tragœdia`
 - use hyphens to mark compound words: `ab-scindō`, `ob-œdīō`, `anim-ad-vertō`,
   `long-ævus`
-- use lowercase letters; proper nouns and their derivatives may begin with an
-  uppercase letter
+- only use lowercase letters except at the beginning of proper nouns and their
+  derivatives
 
 ### Possible word types
+
+#### Nouns
+
+- `D1` – nouns of the first declension
+- `D2` – nouns of the second declension; if the nominative ends in *-r*, the
+  third field contains the genitive
+
+Examples:
+
+	pēcunia,D1
+	angustiæ,D1
+	lectus,D2
+	puer,D2,puerī
+	ager,D2,agrī
+	vir,D2,virī
+	dōnum,D2
+	arma,D2
 
 #### Adjectives
 
@@ -90,13 +109,13 @@ generated automatically.
 
 Examples:
 
-    longus,AC3
-	 ācer,AC3,ācris
-	 ūnicus,AI3
-	 brevis,AC2
-	 prior,AC2
-	 prūdēns,AC1
-	 vetus,AC1,veteris
+	longus,AC3
+	ācer,AC3,ācris
+	ūnicus,AI3
+	brevis,AC2
+	prior,AC2
+	prūdēns,AC1
+	vetus,AC1,veteris
 
 #### Verbs
 - `1` – verb of the first conjugation; the first field has to end in `ō` or
@@ -129,10 +148,10 @@ Examples:
 
 ### `flexura.lua`
 
-This script generates all inflected forms of the Latin words in the input list,
-as long as these forms are regular. The script is still under development.
-Currently, only declensed adjective forms (including comparatives, superlatives
-and adverbs) and the present stem forms of Latin verbs are generated.
+This script generates all inflected forms of the Latin words in the input list.
+The script is still under development. Currently, only declensed adjective
+forms (including comparatives, superlatives and adverbs) and the present stem
+forms of Latin verbs are generated.
 
 #### Usage:
 	lua5.3 flexura.lua [< inputfile] [> outputfile]
@@ -144,11 +163,17 @@ terminated by `CTRL+D`.
 #### Irregular forms:
 
 The following irregular forms are taken into account:
+- the genitive plural forms *deābus* and *fīliābus* (besides *deīs* and
+  *fīliīs*) of *dea* and *fīlia*
+- the plural forms *diī/dī* (besides *deī*) and *diīs/dīs* (besides *deīs*) of
+  *deus*
+- the accusative form *vulgum/volgum* of the neuter noun *vulgus/volgus*
+- the plural form *loca* (besides *locī*) of *locus*
 - the comparatives and superlatives of *bonus*, *māgnus*, *malus*, *multus*,
-  *vetus*
-- the adverbs *audācter* (beside *audāciter*), *bene*, *difficulter*,
-  *magis/mage*, *parum*, *postrēmō*, *rārenter*, *sollerter* of *audāx*,
-  *bonus*, *difficilis*, *māgnus*, *parvus*, *posterus*, *rārus*, *sollers*
+  *posterus*, *vetus*
+- the adverbs *audācter* (besides *audāciter*), *bene*, *cito*, *difficulter*,
+  *magis/mage*, *parum*, *rārenter*, *sollerter* of *audāx*, *bonus*, *citus*,
+  *difficilis*, *māgnus*, *parvus*, *rārus*, *sollers*
 - the short *a* in *dare* and its compounds
 - the imperatives *dīc*, *dūc*, *fac* of *dīcere*, *dūcere*, *facere* and their
   compounds
