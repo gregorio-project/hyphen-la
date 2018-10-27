@@ -10,17 +10,17 @@ end
 
 function utf8substring(s,i,j)
    if j then
-		if j == -1 then
-			return string.sub(s,utf8.offset(s,i))
-		else
-	      return string.sub(s,utf8.offset(s,i),utf8.offset(s,j+1)-1)
-		end
+      if j == -1 then
+         return string.sub(s,utf8.offset(s,i))
+      else
+         return string.sub(s,utf8.offset(s,i),utf8.offset(s,j+1)-1)
+      end
    else
       return string.sub(s,utf8.offset(s,i))
    end
 end
 
-function createSet (list)
+function createSet(list)
    local set = {}
    for _,l in ipairs(list) do
       set[l] = true
@@ -43,11 +43,45 @@ consonants = createSet{"B","b","C","c","D","d","F","f","G","g","H","h","J","j",
    "K","k","L","l","M","m","N","n","P","p","R","r","S","s","T","t","V","v","W",
    "w","X","x","Z","z"}
 
--- neuter nouns of the second declension not ending in "-um"
-neuterNouns2 = createSet{"vīrus","volgus","vulgus"}
+-- stop consonants, called "(litterae) mutae" in Latin
+mutae = createSet{"B", "b", "P", "p", "D", "d", "T", "t", "G", "g", "C", "c",
+   "K", "k"}
 
--- adjectives with consonantic declension
-adjectivesConsonanticDeclension = createSet{"compos","com-pos","dīves",
+-- liquid consonants, called "(litterae) liquidae" in Latin
+liquidae = createSet{"L", "l", "R", "r"}
+
+
+function endsInTwoConsonants(word)
+   if consonants[utf8substring(word,-1,-1)]
+   and consonants[utf8substring(word,-2,-2)]
+   and (consonants[utf8substring(word,-3,-3)]
+   or not mutae[utf8substring(word,-2,-2)]
+   or not liquidae[utf8substring(word,-1,-1)]) then
+      return true
+   else
+      return false
+   end
+end
+
+function endsIn(word,ending)
+   if string.len(word) > string.len(ending)
+   and string.sub(word,-string.len(ending)) == ending then
+      return true
+   else
+      return false
+   end
+end
+
+function beginWithSameLetter(wordA,wordB)
+	if utf8substring(wordA,1,1) == utf8substring(wordB,1,1) then
+		return true
+	else
+		return false
+	end
+end
+
+-- adjectives with consonantal declension
+adjectivesConsonantalDeclension = createSet{"compos","com-pos","dīves",
    "particeps","parti-ceps","pauper","prīnceps","prīn-ceps","sōspes",
    "super-stes","vetus"}
 
@@ -60,23 +94,23 @@ adjectivesSuperlative_limus = createSet{"difficilis","dif-ficilis","dissimilis",
 
 -- adjectives using declensed forms as adverb instead of a regular adverb
 adjectivesWithDeclensedFormAdverb = createSet{"cēterus","crēber","malus",
-	"meritus","multus","necessārius","nimius","paullus","paulus","perpetuus",
-	"per-petuus","plērus","plērusque","plērus-que","plūrimus","plūrumus",
-	"postrēmus","potissimus","rārus","sēcrētus","sērus","sōlus","subitus",
-	"sub-itus","tantus","tūtus"}
-	-- the adverb of "malus" is "male" with short e (= vocative)
+   "meritus","multus","necessārius","nimius","paullus","paulus","perpetuus",
+   "per-petuus","plērus","plērusque","plērus-que","plūrimus","plūrumus",
+   "postrēmus","potissimus","rārus","sēcrētus","sērus","sōlus","subitus",
+   "sub-itus","tantus","tūtus"}
+   -- the adverb of "malus" is "male" with short e (= vocative)
 
 -- pronominal adjectives
 pronominalAdjectives = createSet{"sōlus"}
 
 function attachEndings(root,endings)
    for _,ending in pairs(endings) do
-		if firstVowelsOfDiphthongs[string.sub(root,-1)]
-		and string.sub(ending,1,1) == "u" then
-      	table.insert(outputlist,root.."|"..ending)
-		else
-	      table.insert(outputlist,root..ending)
-		end
+      if firstVowelsOfDiphthongs[string.sub(root,-1)]
+      and string.sub(ending,1,1) == "u" then
+         table.insert(outputlist,root.."|"..ending)
+      else
+         table.insert(outputlist,root..ending)
+      end
    end
 end
 
@@ -96,6 +130,44 @@ nounEndings2_r_ri = { "r","rī","rō","rum","rōrum","rīs","rōs" }
 nounEndings2_er_ri = { "er","rī","rō","rum","rōrum","rīs","rōs" }
 nounEndings2_i_orum = { "ī","ōrum","īs","ōs" }
 nounEndings2_a_orum = { "a","ōrum","īs" }
+
+-- endings of the nouns of the third declension
+nounEndings3_i = { -- e.g. "turris"
+   "is","ī","im","ēs","ium","ibus","īs"}
+nounEndings3_i_neuter = { -- e.g. "mare", nom./acc. sing. is left out
+   "is","ī","ia","ium","ibus"}
+nounEndings3_i_plural = { -- e.g. "penātēs"
+   "ēs","ium","ibus","īs"}
+nounEndings3_i_neuter_plural = { -- e.g. "mœnia"
+   "ia","ium","ibus"}
+nounEndings3_mixed = { -- e.g. "pars", nom. sing. is left out
+   "is","ī","em","e","ēs","ium","ibus","īs"}
+nounEndings3_mixed_neuter = { -- e.g. "os", nom./acc. sing. is left out
+   "is","ī","e","a","ium","ibus"}
+nounEndings3_consonantal = { -- e.g. "cōnsul", nom. sing. is left out
+   "is","ī","em","e","ēs","um","ibus"}
+nounEndings3_consonantal_neuter = { -- e.g. "mūnus", nom./acc. sing. is left out
+   "is","ī","e","a","um","ibus"}
+nounEndings3_consonantal_plural = { -- e.g. "majōrēs"
+   "ēs","um","ibus"}
+nounEndings3_mixedAndConsonantal = { -- e.g. "parēns", nom. sing. is left out
+   "is","ī","em","e","ēs","ium","um","ibus","īs"}
+
+-- endings of the nouns of the fourth declension
+nounEndings4_us = { -- e.g. "currus"
+   "us","ūs","uī","um","ū","ūs","uum","ibus"}
+nounEndings4_us_ubus = { -- e.g. "arcus"
+   "us","ūs","uī","um","ū","ūs","uum","ubus"}
+nounEndings4_us_plural = { -- e.g. "Īdūs"
+   "ūs","uum","ibus"}
+nounEndings4_u = { -- e.g. "cornū"
+   "ū","ūs","ua","uum","ibus"}
+
+-- endings of the nouns of the fifth declension
+nounEndings5 = { -- e.g. "rēs"
+   "ēs","eī","em","ē","ērum","ēbus"}
+nounEndings5_afterVowel = { -- e.g. "diēs"
+   "ēs","ēī","em","ē","ērum","ēbus"} -- long e in the genitive/dative sg.
 
 -- endings of the adjectives of the first and second declension
 adjectiveEndings_us_a_um = { -- e.g. "bonus"
@@ -137,7 +209,7 @@ adjectiveEndings_ens_entis = { -- e.g. "vehemēns"
    "ēns","entis","entī","entem","entēs","entia","entium","entibus","entīs"}
    -- "entīs" is a variant of "entēs" for the accusative plural
 
-adjectiveEndings_i_ium = { -- e.g. "atrōx, nom. sing. is left out
+adjectiveEndings_i_ium = { -- e.g. "atrōx", nom. sing. is left out
    "is","ī","em","ēs","ia","ium","ibus","īs"}
    -- "īs" is a variant of "ēs" for the accusative plural
 
@@ -286,14 +358,13 @@ presentStemEndingsPassive4 = {
 -- generate positive forms of adjectives with three endings
 function generatePositiveForms3(masculine,feminine)
    -- adjectives of the first and second declension ending in "us/a/um"
-   if string.len(masculine) > 2 and string.sub(masculine,-2) == "us"
-   and feminine == nil then
+   if endsIn(masculine,"us") and feminine == nil then
       root = string.sub(masculine,1,-3)
-		if pronominalAdjectives[masculine] then
-	      attachEndings(root,pronominalAdjectiveEndings_us_a_um)
-		else
-	      attachEndings(root,adjectiveEndings_us_a_um)
-		end
+      if pronominalAdjectives[masculine] then
+         attachEndings(root,pronominalAdjectiveEndings_us_a_um)
+      else
+         attachEndings(root,adjectiveEndings_us_a_um)
+      end
 
    -- plērusque
    elseif (masculine == "plērusque" or masculine == "plērus-que")
@@ -303,34 +374,34 @@ function generatePositiveForms3(masculine,feminine)
       end
 
    -- adjectives of the first and second declension ending in "r/ra/rum"
-   elseif string.len(masculine) > 1 and string.sub(masculine,-1) == "r"
+   elseif string.len(masculine) > 1 and endsIn(masculine,"r")
    and feminine and string.len(feminine) == string.len(masculine) + 1
    and string.sub(feminine,1,-3) == string.sub(masculine,1,-2)
-   and string.sub(feminine,-2) == "ra" then
+   and endsIn(feminine,"ra") then
       root = string.sub(masculine,1,-2)
       attachEndings(root,adjectiveEndings_r_ra_rum)
 
    -- adjectives of the first and second declension ending in "er/ra/rum"
-   elseif string.len(masculine) > 2 and string.sub(masculine,-2) == "er"
+   elseif string.len(masculine) > 2 and endsIn(masculine,"er")
    and feminine and string.len(feminine) == string.len(masculine)
    and string.sub(feminine,1,-3) == string.sub(masculine,1,-3)
-   and string.sub(feminine,-2) == "ra" then
+   and endsIn(feminine,"ra") then
       root = string.sub(masculine,1,-3)
       attachEndings(root,adjectiveEndings_er_ra_rum)
 
    -- adjectives of the third declension ending in "er/ris/re"
-   elseif string.len(masculine) > 2 and string.sub(masculine,-2) == "er"
+   elseif string.len(masculine) > 2 and endsIn(masculine,"er")
    and feminine and string.len(feminine) == string.len(masculine) + 1
    and string.sub(feminine,1,-4) == string.sub(masculine,1,-3)
-   and string.sub(feminine,-3) == "ris" then
+   and endsIn(feminine,"ris") then
       root = string.sub(masculine,1,-3)
       attachEndings(root,adjectiveEndings_er_ris_re)
 
    -- adjectives of the third declension ending in "r/ris/re" ("celer")
-   elseif string.len(masculine) > 1 and string.sub(masculine,-1) == "r"
+   elseif string.len(masculine) > 1 and endsIn(masculine,"r")
    and feminine and string.len(feminine) == string.len(masculine) + 2
    and string.sub(feminine,1,-4) == string.sub(masculine,1,-2)
-   and string.sub(feminine,-3) == "ris" then
+   and endsIn(feminine,"ris") then
       root = string.sub(masculine,1,-2)
       attachEndings(root,adjectiveEndings_r_ris_re)
 
@@ -370,22 +441,21 @@ function generateComparativeAndSuperlative3(masculine,feminine)
       generateAdverb3("postumus") -- adverb of second superlative
 
    -- adjectives ending in "dicus"
-   elseif string.len(masculine) > 5 and string.sub(masculine,-5) == "dicus" then
+   elseif endsIn(masculine,"dicus") then
       root = string.sub(masculine,1,-5).."īcent"
       attachEndings(root,adjectiveEndings_ior_ius) -- comparative
       attachEndings(root.."issim",adjectiveEndings_us_a_um) -- superlative
       generateAdverb3(root.."issimus") -- adverb of superlative
 
    -- adjectives ending in "ficus"/"volus"
-   elseif string.len(masculine) > 5 and (string.sub(masculine,-5) == "ficus"
-   or string.sub(masculine,-5) == "volus") then
+   elseif endsIn(masculine,"ficus") or endsIn(masculine,"volus") then
       root = string.sub(masculine,1,-3).."ent"
       attachEndings(root,adjectiveEndings_ior_ius) -- comparative
       attachEndings(root.."issim",adjectiveEndings_us_a_um) -- superlative
       generateAdverb3(root.."issimus") -- adverb of superlative
 
    -- adjectives of the first and second declension ending in "us/a/um"
-   elseif string.len(masculine) > 2 and string.sub(masculine,-2) == "us" then
+   elseif endsIn(masculine,"us") then
       if string.len(masculine) > 3 and vowels[utf8substring(masculine,-3,-3)]
       and string.sub(masculine,-4) ~= "quus" then
          -- adjectives ending in vowel+"us" are not comparable
@@ -407,39 +477,39 @@ function generateComparativeAndSuperlative3(masculine,feminine)
       generateAdverb3("plērissimusque") -- adverb of superlative
 
    -- adjectives of the first and second declension ending in "r/ra/rum"
-   elseif string.len(masculine) > 1 and string.sub(masculine,-1) == "r"
+   elseif string.len(masculine) > 1 and endsIn(masculine,"r")
    and feminine and string.len(feminine) == string.len(masculine) + 1
    and string.sub(feminine,1,-3) == string.sub(masculine,1,-2)
-   and string.sub(feminine,-2) == "ra" then
+   and endsIn(feminine,"ra") then
       attachEndings(masculine,adjectiveEndings_ior_ius) -- comparative
       attachEndings(masculine.."rim",adjectiveEndings_us_a_um) -- superlative
       generateAdverb3(masculine.."rimus") -- adverb of superlative
 
    -- adjectives of the first and second declension ending in "er/ra/rum"
-   elseif string.len(masculine) > 2 and string.sub(masculine,-2) == "er"
+   elseif string.len(masculine) > 2 and endsIn(masculine,"er")
    and feminine and string.len(feminine) == string.len(masculine)
    and string.sub(feminine,1,-3) == string.sub(masculine,1,-3)
-   and string.sub(feminine,-2) == "ra" then
+   and endsIn(feminine,"ra") then
       root = string.sub(feminine,1,-2)
       attachEndings(root,adjectiveEndings_ior_ius) -- comparative
       attachEndings(masculine.."rim",adjectiveEndings_us_a_um) -- superlative
       generateAdverb3(masculine.."rimus") -- adverb of superlative
 
    -- adjectives of the third declension ending in "er/ris/re"
-   elseif string.len(masculine) > 2 and string.sub(masculine,-2) == "er"
+   elseif string.len(masculine) > 2 and endsIn(masculine,"er")
    and feminine and string.len(feminine) == string.len(masculine) + 1
    and string.sub(feminine,1,-4) == string.sub(masculine,1,-3)
-   and string.sub(feminine,-3) == "ris" then
+   and endsIn(feminine,"ris") then
       root = string.sub(feminine,1,-3)
       attachEndings(root,adjectiveEndings_ior_ius) -- comparative
       attachEndings(masculine.."rim",adjectiveEndings_us_a_um) -- superlative
       generateAdverb3(masculine.."rimus") -- adverb of superlative
 
    -- adjectives of the third declension ending in "r/ris/re" ("celer")
-   elseif string.len(masculine) > 1 and string.sub(masculine,-1) == "r"
+   elseif string.len(masculine) > 1 and endsIn(masculine,"r")
    and feminine and string.len(feminine) == string.len(masculine) + 2
    and string.sub(feminine,1,-4) == string.sub(masculine,1,-2)
-   and string.sub(feminine,-3) == "ris" then
+   and endsIn(feminine,"ris") then
       attachEndings(masculine,adjectiveEndings_ior_ius) -- comparative
       attachEndings(masculine.."rim",adjectiveEndings_us_a_um) -- superlative
       generateAdverb3(masculine.."rimus") -- adverb of superlative
@@ -464,8 +534,8 @@ function generateAdverb3(masculine,feminine)
       table.insert(outputlist,"rārenter")
    elseif adjectivesWithDeclensedFormAdverb[masculine] then
       -- no additional form required
-   elseif string.sub(masculine,-1) == "r" then
-      if string.sub(feminine,-2) == "ra" then
+   elseif endsIn(masculine,"r") then
+      if endsIn(feminine,"ra") then
          table.insert(outputlist,string.sub(feminine,1,-2).."ē")
          -- e.g. "miserē"/"pulchrē"
       else
@@ -487,12 +557,12 @@ function generatePositiveForms2(adjective)
       table.insert(outputlist,"complūrīs") -- alternative accusative
 
    -- adjectives of the third declension ending in "is/e"
-   elseif string.len(adjective) > 2 and string.sub(adjective,-2) == "is" then
+   elseif string.len(adjective) > 2 and endsIn(adjective,"is") then
       root = string.sub(adjective,1,-3)
       attachEndings(root,adjectiveEndings_is_e)
 
    -- adjectives of the third declension ending in "ior/ius"
-   elseif string.len(adjective) > 3 and string.sub(adjective,-3) == "ior" then
+   elseif string.len(adjective) > 3 and endsIn(adjective,"ior") then
       root = string.sub(adjective,1,-4)
       attachEndings(root,adjectiveEndings_ior_ius)
 
@@ -504,7 +574,7 @@ end
 -- generate comparative and superlative forms of adjectives with two endings
 function generateComparativeAndSuperlative2(adjective)
    -- adjectives of the third declension ending in "is/e"
-   if string.len(adjective) > 2 and string.sub(adjective,-2) == "is" then
+   if string.len(adjective) > 2 and endsIn(adjective,"is") then
       root = string.sub(adjective,1,-3)
       attachEndings(root,adjectiveEndings_ior_ius) -- comparative
       if adjectivesSuperlative_limus[adjective] then
@@ -516,7 +586,7 @@ function generateComparativeAndSuperlative2(adjective)
       end
 
    -- comparatives of the third declension ending in "ior/ius"
-   elseif string.len(adjective) > 3 and string.sub(adjective,-3) == "ior" then
+   elseif string.len(adjective) > 3 and endsIn(adjective,"ior") then
       root = string.sub(adjective,1,-4)
       attachEndings(root.."issim",adjectiveEndings_us_a_um) -- superlative
       generateAdverb3(root.."issimus") -- adverb of superlative
@@ -529,9 +599,9 @@ function generateAdverb2(adjective)
       table.insert(outputlist,"difficulter")
    elseif adjective == "facilis" then
       -- adverb is "facile" (= neuter)
-   elseif string.sub(adjective,-3) == "ior" then
+   elseif endsIn(adjective,"ior") then
       -- adverb ends in "-ius" (= neuter)
-   elseif string.sub(adjective,-2) == "is" then
+   elseif endsIn(adjective,"is") then
       table.insert(outputlist,string.sub(adjective,1,-2).."ter")
    end
 end
@@ -539,7 +609,7 @@ end
 -- generate positive forms of adjectives with one ending
 function generatePositiveForms1(nominative,genitive)
    -- adjectives of the third declension ending in "āns"
-   if utf8.len(nominative) > 3 and utf8substring(nominative,-3) == "āns" then
+   if endsIn(nominative,"āns") then
       if genitive == nil then
          root = utf8substring(nominative,1,-4)
          attachEndings(root,adjectiveEndings_ans_antis)
@@ -548,8 +618,7 @@ function generatePositiveForms1(nominative,genitive)
       end
 
    -- adjectives of the third declension ending in "ēns"
-   elseif utf8.len(nominative) > 3
-      and utf8substring(nominative,-3) == "ēns" then
+   elseif endsIn(nominative,"ēns") then
       if genitive == nil then
          root = utf8substring(nominative,1,-4)
          attachEndings(root,adjectiveEndings_ens_entis)
@@ -557,10 +626,10 @@ function generatePositiveForms1(nominative,genitive)
          invalidLine()
       end
 
-   -- adjectives with consonantic declension
-   elseif adjectivesConsonanticDeclension[nominative] == true then
-      if genitive and utf8.len(genitive) > utf8.len(nominative)
-         and string.sub(genitive,-2,-1) == "is" then
+   -- adjectives with consonantal declension
+   elseif adjectivesConsonantalDeclension[nominative] == true then
+      if genitive and beginWithSameLetter(nominative,genitive)
+         and endsIn(genitive,"is") then
          table.insert(outputlist,nominative)
          root = string.sub(genitive,1,-3)
          attachEndings(root,adjectiveEndings_e_um)
@@ -581,8 +650,9 @@ function generatePositiveForms1(nominative,genitive)
 
    -- adjectives with abl. sing. ending in "-ī", but gen. pl. ending in "-um"
    elseif adjectives_i_um[nominative] == true then
-      if genitive and utf8.len(genitive) > utf8.len(nominative)
-         and string.sub(genitive,-2,-1) == "is" then
+      if genitive and utf8.len(genitive) >= utf8.len(nominative)
+      and beginWithSameLetter(nominative,genitive)
+      and endsIn(genitive,"is") then
          table.insert(outputlist,nominative)
          root = string.sub(genitive,1,-3)
          attachEndings(root,adjectiveEndings_i_um)
@@ -593,7 +663,8 @@ function generatePositiveForms1(nominative,genitive)
    -- adjectives with ī declension
    else
       if genitive and utf8.len(genitive) >= utf8.len(nominative)
-         and string.sub(genitive,-2,-1) == "is" then
+		and beginWithSameLetter(nominative,genitive)
+		and endsIn(genitive,"is") then
          table.insert(outputlist,nominative)
          root = string.sub(genitive,1,-3)
          attachEndings(root,adjectiveEndings_i_ium)
@@ -611,16 +682,14 @@ function generateComparativeAndSuperlative1(nominative,genitive)
       generateAdverb3("veterrimus") -- adverb of superlative
 
    -- adjectives of the third declension ending in "āns"
-   elseif utf8.len(nominative) > 3
-   and utf8substring(nominative,-3) == "āns" then
+   elseif utf8.len(nominative) > 3 and endsIn(nominative,"āns") then
       root = utf8substring(nominative,1,-4).."ant"
       attachEndings(root,adjectiveEndings_ior_ius) -- comparative
       attachEndings(root.."issim",adjectiveEndings_us_a_um) -- superlative
       generateAdverb3(root.."issimus") -- adverb of superlative
 
    -- adjectives of the third declension ending in "ēns"
-   elseif utf8.len(nominative) > 3
-   and utf8substring(nominative,-3) == "ēns" then
+   elseif utf8.len(nominative) > 3 and endsIn(nominative,"ēns") then
       root = utf8substring(nominative,1,-4).."ent"
       attachEndings(root,adjectiveEndings_ior_ius) -- comparative
       attachEndings(root.."issim",adjectiveEndings_us_a_um) -- superlative
@@ -634,7 +703,7 @@ function generateComparativeAndSuperlative1(nominative,genitive)
 
    -- regular adjectives with genitive ending in "is"
    else
-      root = utf8substring(genitive,1,-3)
+      root = string.sub(genitive,1,-3)
       attachEndings(root,adjectiveEndings_ior_ius) -- comparative
       attachEndings(root.."issim",adjectiveEndings_us_a_um) -- superlative
       generateAdverb3(root.."issimus") -- adverb of superlative
@@ -649,11 +718,9 @@ function generateAdverb1(nominative,genitive)
       table.insert(outputlist,"audācter")
    elseif nominative == "sollers" then
       table.insert(outputlist,"sollerter")
-   elseif utf8.len(nominative) > 3
-   and utf8substring(nominative,-3,-1) == "āns" then
+   elseif utf8.len(nominative) > 3 and endsIn(nominative,"āns") then
       table.insert(outputlist,utf8substring(nominative,1,-4).."anter")
-   elseif utf8.len(nominative) > 3
-   and utf8substring(nominative,-3,-1) == "ēns" then
+   elseif utf8.len(nominative) > 3 and endsIn(nominative,"ēns") then
       table.insert(outputlist,utf8substring(nominative,1,-4).."enter")
    else
       table.insert(outputlist,string.sub(genitive,1,-2).."ter")
@@ -834,114 +901,415 @@ for line in io.lines() do
          invalidField(firstField)
       end
 
-	-- noun of the first declension
-	elseif secondField == "D1" then
-		if thirdField or fourthField then
-			invalidLine()
-		elseif string.len(firstField) > 1
-		and string.sub(firstField,-1,-1) == "a" then
-			root = string.sub(firstField,1,-2)
-			attachEndings(root,nounEndings1)
-			if firstField == "dea" then
-				table.insert(outputlist,"deābus") -- alternative genitive plural
-			elseif firstField == "fīlia" then
-				table.insert(outputlist,"fīliābus") -- alternative genitive plural
-			end
-		elseif utf8substring(firstField,-1) == "æ" then -- plurale tantum
-			if thirdField then
-				invalidLine()
-			else
-				root = utf8substring(firstField,1,-2)
-				attachEndings(root,nounEndings1_ae_arum)
-			end
-		else
-			invalidField(firstField)
-		end
+   -- noun of the first declension
+   elseif secondField == "D1" then
+      if thirdField or fourthField then
+         invalidLine()
+      elseif endsIn(firstField,"a") then
+         root = string.sub(firstField,1,-2)
+         attachEndings(root,nounEndings1)
+         if firstField == "dea" then
+            table.insert(outputlist,"deābus") -- alternative genitive plural
+         elseif firstField == "fīlia" then
+            table.insert(outputlist,"fīliābus") -- alternative genitive plural
+         end
+      elseif endsIn(firstField,"æ") then -- plurale tantum
+         if thirdField then
+            invalidLine()
+         else
+            root = utf8substring(firstField,1,-2)
+            attachEndings(root,nounEndings1_ae_arum)
+         end
+      else
+         invalidField(firstField)
+      end
 
-	-- noun of the second declension
-	elseif secondField == "D2" then
-		if string.len(firstField) < 3 or fourthField then
-			invalidLine()
-		elseif string.sub(firstField,-2,-1) == "us" then
-			if thirdField then
-				invalidLine()
-			elseif firstField == "deus" then
-				table.insert(outputlist,"de|us") -- nominative/vocative sg.
-				table.insert(outputlist,"deī") -- genitive sg./nominative pl.
-				table.insert(outputlist,"deō") -- dative/ablative sg.
-				table.insert(outputlist,"de|um") -- accusative sg.
-				table.insert(outputlist,"diī") -- nominative pl.
-				table.insert(outputlist,"dī") -- nominative pl.
-				table.insert(outputlist,"deōrum") -- genitive pl.
-				table.insert(outputlist,"deīs") -- dative/ablative pl.
-				table.insert(outputlist,"diīs") -- dative/ablative pl.
-				table.insert(outputlist,"dīs") -- dative/ablative pl.
-				table.insert(outputlist,"deōs") -- accusative pl.
-			elseif neuterNouns2[firstField] then
-				root = string.sub(firstField,1,-3)
-				attachEndings(root,nounEndings2_us_neuter)
-				if firstField == "vulgus" then
-					table.insert(outputlist,"vulgum") -- alternative accusative sg.
-				elseif firstField == "volgus" then
-					table.insert(outputlist,"volgum") -- alternative accusative sg.
-				end
-			elseif string.len(firstField) > 4
-			and utf8substring(firstField,-3) == "ius" then
-				root = string.sub(firstField,1,-4)
-				attachEndings(root,nounEndings2_ius)
-			elseif string.len(firstField) > 4
-			and utf8substring(firstField,-3) == "jus" then
-				root = string.sub(firstField,1,-4)
-				attachEndings(root,nounEndings2_jus)
-			else
-				root = string.sub(firstField,1,-3)
-				attachEndings(root,nounEndings2_us)
-				if firstField == "locus" then
-					table.insert(outputlist,"loca") -- alternative nom./acc. pl.
-				end
+   -- masculine/feminine noun of the second declension
+   elseif secondField == "D2" then
+      if fourthField then
+         invalidLine()
+      elseif endsIn(firstField,"us") then
+         if thirdField then
+            invalidLine()
+         elseif firstField == "deus" then
+            table.insert(outputlist,"de|us") -- nominative/vocative sg.
+            table.insert(outputlist,"deī") -- genitive sg./nominative pl.
+            table.insert(outputlist,"deō") -- dative/ablative sg.
+            table.insert(outputlist,"de|um") -- accusative sg.
+            table.insert(outputlist,"diī") -- nominative pl.
+            table.insert(outputlist,"dī") -- nominative pl.
+            table.insert(outputlist,"deōrum") -- genitive pl.
+            table.insert(outputlist,"deīs") -- dative/ablative pl.
+            table.insert(outputlist,"diīs") -- dative/ablative pl.
+            table.insert(outputlist,"dīs") -- dative/ablative pl.
+            table.insert(outputlist,"deōs") -- accusative pl.
+         elseif endsIn(firstField,"ius") then
+            root = string.sub(firstField,1,-4)
+            attachEndings(root,nounEndings2_ius)
+         elseif endsIn(firstField,"jus") then
+            root = string.sub(firstField,1,-4)
+            attachEndings(root,nounEndings2_jus)
+         else
+            root = string.sub(firstField,1,-3)
+            attachEndings(root,nounEndings2_us)
+            if firstField == "locus" then
+               table.insert(outputlist,"loca") -- alternative nom./acc. pl.
+            end
+         end
+      elseif endsIn(firstField,"r") then
+         if thirdField and utf8substring(thirdField,1,-2) == firstField
+         and endsIn(thirdField,"ī") then -- e.g. "puer"
+            root = string.sub(firstField,1,-2)
+            attachEndings(root,nounEndings2_r_ri)
+            if firstField == "vesper" then
+               table.insert(outputlist,"vespere") -- alternative abl. sg.
+            end
+         elseif thirdField
+         and utf8substring(thirdField,1,-3) == utf8substring(firstField,1,-3)
+         and endsIn(thirdField,"rī") then -- e.g. "ager"
+            root = string.sub(firstField,1,-3)
+            attachEndings(root,nounEndings2_er_ri)
+         else
+            invalidLine()
+         end
+      elseif endsIn(firstField,"ī") then -- plurale tantum
+         if thirdField then
+            invalidLine()
+         else
+            root = utf8substring(firstField,1,-2)
+            attachEndings(root,nounEndings2_i_orum)
+         end
+      else
+         invalidField(firstField)
+      end
+
+   -- neuter noun of the second declension
+   elseif secondField == "D2N" then
+      if thirdField or fourthField then
+         invalidLine()
+      elseif endsIn(firstField,"um") then
+         if endsIn(firstField,"ium") then
+            root = string.sub(firstField,1,-4)
+            attachEndings(root,nounEndings2_ium)
+         elseif endsIn(firstField,"jum") then
+            root = string.sub(firstField,1,-4)
+            attachEndings(root,nounEndings2_jum)
+         else
+            root = string.sub(firstField,1,-3)
+            attachEndings(root,nounEndings2_um)
+         end
+      elseif endsIn(firstField,"us") then
+         root = string.sub(firstField,1,-3)
+         attachEndings(root,nounEndings2_us_neuter)
+         if firstField == "vulgus" then
+            table.insert(outputlist,"vulgum") -- alternative accusative sg.
+         elseif firstField == "volgus" then
+            table.insert(outputlist,"volgum") -- alternative accusative sg.
+         end
+      elseif endsIn(firstField,"a") then -- plurale tantum (neuter)
+         root = string.sub(firstField,1,-2)
+         attachEndings(root,nounEndings2_a_orum)
+      end
+
+   -- masculine/feminine noun of the third declension
+   elseif secondField == "D3" then
+      if string.len(firstField) < 2 or fourthField then
+         invalidLine()
+      -- noun ending in "-is" (with short i)
+      elseif endsIn(firstField,"is") then
+         if thirdField then
+            -- i declension
+            if string.sub(thirdField,1,-2) == string.sub(firstField,1,-2)
+            and endsIn(thirdField,"im") then
+               root = string.sub(firstField,1,-3)
+               attachEndings(root,nounEndings3_i)
+            -- consonantal declension
+            elseif beginWithSameLetter(firstField,thirdField)
+            and endsIn(thirdField,"is") then
+               root = string.sub(thirdField,1,-3)
+               attachEndings(root,nounEndings3_consonantal)
+            else
+               invalidField(thirdField)
+            end
+         -- consonantal declension
+         elseif firstField == "canis" or firstField == "juvenis" then
+            root = string.sub(firstField,1,-3)
+            attachEndings(root,nounEndings3_consonantal)
+         -- mixed or consonantal declension
+         elseif firstField == "mēnsis" then
+            root = string.sub(firstField,1,-3)
+            attachEndings(root,nounEndings3_mixedAndConsonantal)
+         -- mixed declension
+         else
+            root = string.sub(firstField,1,-3)
+            attachEndings(root,nounEndings3_mixed)
+         end
+      -- noun ending in "-īs" (with long i)
+      elseif endsIn(firstField,"īs") then
+         -- vīs/vim/vī/vīrēs
+         if firstField == "vīs" and thirdField == "vim" then
+            table.insert(outputlist,"vīs") -- nominative sg.
+            table.insert(outputlist,"vim") -- genitive sg.
+            table.insert(outputlist,"vī") -- ablative sg.
+            root = "vīr"
+            attachEndings(root,nounEndings3_i_plural)
+         elseif not thirdField or utf8.len(thirdField) < 5 then
+            invalidLine()
+         -- "-īs/-ītis": mixed declension
+         elseif utf8substring(thirdField,1,-5) == utf8substring(firstField,1,-3)
+         and endsIn(thirdField,"ītis") then -- e.g. "Samnīs"
+            root = utf8substring(thirdField,1,-3)
+            table.insert(outputlist,firstField) -- nominative sg.
+            attachEndings(root,nounEndings3_mixed)
+         else
+            invalidField(thirdField)
+         end
+      -- noun ending in "-ēs"
+      elseif endsIn(firstField,"ēs") then
+         if not thirdField or utf8.len(thirdField) < 3 then
+            invalidLine()
+         -- singular
+         elseif utf8substring(thirdField,1,-3) == utf8substring(firstField,1,-3)
+         and endsIn(thirdField,"is") then
+            -- consonantal declension
+            if firstField == "sēdēs" then
+               root = utf8substring(firstField,1,-3)
+               attachEndings(root,nounEndings3_consonantal)
+            -- mixed or consonantal declension
+            elseif firstField == "vātēs" then
+               root = utf8substring(firstField,1,-3)
+               attachEndings(root,nounEndings3_mixedAndConsonantal)
+            -- mixed declension
+            else
+               root = utf8substring(firstField,1,-3)
+               attachEndings(root,nounEndings3_mixed)
+            end
+         -- plural ending in "-ium" (i declension)
+         elseif utf8substring(thirdField,1,-4) == utf8substring(firstField,1,-3)
+         and endsIn(thirdField,"ium") then
+            root = utf8substring(firstField,1,-3)
+            attachEndings(root,nounEndings3_i_plural)
+         -- plural ending in "-um" (consonantal declension)
+         elseif utf8substring(thirdField,1,-3) == utf8substring(firstField,1,-3)
+         and endsIn(thirdField,"um") then
+            root = utf8substring(firstField,1,-3)
+            attachEndings(root,nounEndings3_consonantal_plural)
+         else
+            invalidField(thirdField)
+         end
+      -- noun ending in "-dō" or "-gō"
+      elseif endsIn(firstField,"dō") or endsIn(firstField,"gō") then
+         if thirdField then
+            invalidLine()
+         else
+            root = utf8substring(firstField,1,-2).."in"
+            table.insert(outputlist,firstField) -- nominative sg.
+            attachEndings(root,nounEndings3_consonantal)
+         end
+      -- noun ending in "-ēns"
+      elseif endsIn(firstField,"ēns") then
+         if thirdField then
+            invalidLine()
+         elseif firstField == "parēns" then -- mixed or consonantal declension
+            root = "parent"
+            table.insert(outputlist,firstField) -- nominative sg.
+            attachEndings(root,nounEndings3_mixedAndConsonantal)
+         else -- mixed declension
+            root = utf8substring(firstField,1,-4).."ent"
+            table.insert(outputlist,firstField) -- nominative sg.
+            attachEndings(root,nounEndings3_mixed)
+         end
+      -- noun ending in "-iō"
+      elseif endsIn(firstField,"iō") then
+         if thirdField then
+            invalidLine()
+         else
+            root = firstField.."n"
+            table.insert(outputlist,firstField) -- nominative sg.
+            attachEndings(root,nounEndings3_consonantal)
+         end
+      -- noun ending in "-or"
+      elseif endsIn(firstField,"or") then
+         if thirdField then
+            invalidLine()
+         else
+            root = string.sub(firstField,1,-3).."ōr"
+            table.insert(outputlist,firstField) -- nominative sg.
+            attachEndings(root,nounEndings3_consonantal)
+         end
+      -- noun ending in "-tās"
+      elseif endsIn(firstField,"tās") then
+         if thirdField then
+            invalidLine()
+         else
+            root = utf8substring(firstField,1,-2).."t"
+            table.insert(outputlist,firstField) -- nominative sg.
+            attachEndings(root,nounEndings3_consonantal)
+         end
+      elseif not thirdField or utf8.len(thirdField) < 4 then
+         invalidLine()
+      -- singular
+      elseif endsIn(thirdField,"is") then
+         root = string.sub(thirdField,1,-3)
+         if firstField == "bōs" and thirdField == "bovis" then
+            table.insert(outputlist,"bōs") -- nominative sg.
+            table.insert(outputlist,"bovis") -- genitive sg.
+            table.insert(outputlist,"bovī") -- dative sg.
+            table.insert(outputlist,"bovem") -- accusative sg.
+            table.insert(outputlist,"bove") -- ablative sg.
+            table.insert(outputlist,"bovēs") -- nominative/accusative pl.
+            table.insert(outputlist,"bovum") -- genitive pl.
+            table.insert(outputlist,"boum") -- genitive pl.
+            table.insert(outputlist,"bōbus") -- dative/ablative pl.
+            table.insert(outputlist,"būbus") -- dative/ablative pl.
+         -- mixed declension
+         elseif (firstField == "faux" and thirdField == "faucis")
+         or (firstField == "līs" and thirdField == "lītis")
+         or (firstField == "nix" and thirdField == "nivis")
+         or endsInTwoConsonants(root) then
+            table.insert(outputlist,firstField) -- nominative sg.
+            attachEndings(root,nounEndings3_mixed)
+         -- mixed or consonantal declension
+         elseif (firstField == "fraus" and thirdField == "fraudis")
+         or (firstField == "mūs" and thirdField == "mūris")
+         or (firstField == "optimās" and thirdField == "optimātis") then
+            table.insert(outputlist,firstField) -- nominative sg.
+            attachEndings(root,nounEndings3_mixedAndConsonantal)
+         -- consonantal declension
+         else
+            table.insert(outputlist,firstField) -- nominative sg.
+            attachEndings(root,nounEndings3_consonantal)
+         end
+      else
+         invalidLine()
+      end
+
+   -- neuter noun of the third declension
+   elseif secondField == "D3N" then
+      if string.len(firstField) < 2 or fourthField then
+         invalidLine()
+      -- pār
+      elseif firstField == "pār" and thirdField == "paris" then
+         root = "par"
+         table.insert(outputlist,firstField) -- nominative/accusative sg.
+         attachEndings(root,nounEndings3_i_neuter)
+      -- neuter noun ending in "-e"
+      elseif endsIn(firstField,"e") and thirdField
+      and utf8.len(thirdField) == utf8.len(firstField) + 1
+      and string.sub(thirdField,1,-3) == string.sub(firstField,1,-2)
+      and endsIn(thirdField,"is") then
+         root = string.sub(firstField,1,-2)
+         table.insert(outputlist,firstField) -- nominative/accusative
+         attachEndings(root,nounEndings3_i_neuter)
+      -- neuter noun ending in "-al"
+      elseif endsIn(firstField,"al") and thirdField
+      and utf8.len(thirdField) == utf8.len(firstField) + 2
+      and utf8substring(thirdField,1,-5) == string.sub(firstField,1,-3)
+      and endsIn(thirdField,"ālis") then
+         root = string.sub(thirdField,1,-3)
+         table.insert(outputlist,firstField) -- nominative/accusative
+         attachEndings(root,nounEndings3_i_neuter)
+      -- neuter noun ending in "-ar"
+      elseif endsIn(firstField,"ar") and thirdField
+      and utf8.len(thirdField) == utf8.len(firstField) + 2
+      and utf8substring(thirdField,1,-5) == string.sub(firstField,1,-3)
+      and endsIn(thirdField,"āris") then
+         root = string.sub(thirdField,1,-3)
+         table.insert(outputlist,firstField) -- nominative/accusative
+         attachEndings(root,nounEndings3_i_neuter)
+      -- plurale tantum ending in "-ia"
+      elseif endsIn(firstField,"ia") and thirdField
+      and utf8.len(thirdField) == utf8.len(firstField) + 1
+      and utf8substring(thirdField,1,-4) == string.sub(firstField,1,-3)
+		and endsIn(thirdField,"ium") then
+         root = string.sub(firstField,1,-3)
+         attachEndings(root,nounEndings3_i_neuter_plural)
+      -- neuter noun ending in "-men"
+      elseif endsIn(firstField,"men") then
+         if thirdField then
+            invalidLine()
+         else
+            root = utf8substring(firstField,1,-3).."in"
+            table.insert(outputlist,firstField) -- nominative sg.
+            attachEndings(root,nounEndings3_consonantal)
+         end
+      elseif not thirdField or utf8.len(thirdField) < 5 then
+         invalidLine()
+      -- singular
+      elseif endsIn(thirdField,"is") then
+         root = string.sub(thirdField,1,-3)
+         if firstField == "vās" and thirdField == "vāsis" then
+            table.insert(outputlist,"vās") -- nominative/accusative sg.
+            table.insert(outputlist,"vāsis") -- genitive sg.
+            table.insert(outputlist,"vāsī") -- dative sg.
+            table.insert(outputlist,"vāse") -- ablative sg.
+            table.insert(outputlist,"vāsa") -- nominative/accusative pl.
+            table.insert(outputlist,"vāsōrum") -- genitive pl.
+            table.insert(outputlist,"vāsīs") -- dative/ablative pl.
+         -- root ending in two or more consonants: mixed declension
+         elseif endsInTwoConsonants(root) then
+            table.insert(outputlist,firstField) -- nominative/accusative sg.
+            attachEndings(root,nounEndings3_mixed_neuter)
+         -- consonantal declension
+         else
+            table.insert(outputlist,firstField) -- nominative/accusative sg.
+            attachEndings(root,nounEndings3_consonantal_neuter)
+         end
+      else
+         invalidLine()
+      end
+
+   -- masculine/feminine noun of the fourth declension
+   elseif secondField == "D4" then
+      if thirdField or fourthField then
+         invalidLine()
+      elseif endsIn(firstField,"us") then
+         root = string.sub(firstField,1,-3)
+			if firstField == "domus" then
+            table.insert(outputlist,"domus") -- nominative sg.
+            table.insert(outputlist,"domūs") -- gen. sg./nom. pl./acc. pl.
+            table.insert(outputlist,"domuī") -- dative sg.
+            table.insert(outputlist,"domum") -- accusative sg.
+            table.insert(outputlist,"domō") -- ablative sg.
+            table.insert(outputlist,"domī") -- locative sg.
+            table.insert(outputlist,"domōrum") -- genitive pl.
+            table.insert(outputlist,"domuum") -- genitive pl.
+            table.insert(outputlist,"domibus") -- dative/ablative pl.
+            table.insert(outputlist,"domōs") -- accusative pl.
+         elseif firstField == "arcus" or firstField == "artus"
+         or firstField == "tribus" then
+            attachEndings(root,nounEndings4_us_ubus)
+         else
+            attachEndings(root,nounEndings4_us)
 			end
-		elseif string.sub(firstField,-2,-1) == "um" then
-			if thirdField then
-				invalidLine()
-			elseif string.len(firstField) > 4
-			and utf8substring(firstField,-3) == "ium" then
-				root = string.sub(firstField,1,-4)
-				attachEndings(root,nounEndings2_ium)
-			elseif string.len(firstField) > 4
-			and utf8substring(firstField,-3) == "jum" then
-				root = string.sub(firstField,1,-4)
-				attachEndings(root,nounEndings2_jum)
+      elseif endsIn(firstField,"ūs") then -- plurale tantum
+         root = utf8substring(firstField,1,-3)
+         attachEndings(root,nounEndings4_us_plural)
+      else
+         invalidField(firstField)
+      end
+
+   -- neuter noun of the fourth declension
+   elseif secondField == "D4N" then
+      if thirdField or fourthField then
+         invalidLine()
+      elseif endsIn(firstField,"ū") then
+         root = string.sub(firstField,1,-3)
+         attachEndings(root,nounEndings4_u)
+      else
+         invalidField(firstField)
+      end
+
+   -- masculine/feminine noun of the fifth declension
+   elseif secondField == "D5" then
+      if utf8.len(firstField) < 3 or thirdField or fourthField then
+         invalidLine()
+      elseif endsIn(firstField,"ēs") then
+         root = utf8substring(firstField,1,-3)
+			if vowels[utf8substring(firstField,-3,-3)] then
+				attachEndings(root,nounEndings5_afterVowel)
 			else
-				root = string.sub(firstField,1,-3)
-				attachEndings(root,nounEndings2_um)
-			end
-		elseif string.sub(firstField,-1,-1) == "r" then
-			if thirdField and utf8.len(thirdField) == utf8.len(firstField) + 1
-			and utf8substring(thirdField,1,-2) == firstField
-			and utf8substring(thirdField,-1,-1) == "ī" then -- e.g. "puer"
-				root = string.sub(firstField,1,-2)
-				attachEndings(root,nounEndings2_r_ri)
-			elseif thirdField and utf8.len(thirdField) == utf8.len(firstField)
-			and utf8substring(thirdField,1,-3) == utf8substring(firstField,1,-3)
-			and utf8substring(thirdField,-2,-1) == "rī" then -- e.g. "ager"
-				root = string.sub(firstField,1,-3)
-				attachEndings(root,nounEndings2_er_ri)
-			else
-				invalidLine()
-			end
-		elseif utf8substring(firstField,-1) == "ī" then -- plurale tantum
-			if thirdField then
-				invalidLine()
-			else
-				root = utf8substring(firstField,1,-2)
-				attachEndings(root,nounEndings2_i_orum)
-			end
-		elseif string.sub(firstField,-1) == "a" then -- plurale tantum (neuter)
-			if thirdField then
-				invalidLine()
-			else
-				root = string.sub(firstField,1,-2)
-				attachEndings(root,nounEndings2_a_orum)
+				attachEndings(root,nounEndings5)
 			end
 		else
 			invalidField(firstField)

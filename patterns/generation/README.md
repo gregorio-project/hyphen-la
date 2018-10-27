@@ -23,7 +23,8 @@ list is described below.
 
 2. Run the script `flexura.lua` on this list, which creates all possible
 inflected forms, for example *laudō, laudās, laudat, ..., laudābō, ...,
-laudāvī, ..., laudātus, laudāta, laudātum, ...* from input `laudō`.
+laudāvī, ..., laudātus, laudāta, laudātum, ...* from input `laudō`. These forms
+are stored in `index_formarum`.
 
 3. Run the script `divisio.lua` on the output of step 2 to hyphenate all the
 forms according to the basic rules. This is easy as the input list uses *i* and
@@ -81,30 +82,48 @@ generated automatically.
 
 #### Nouns
 
-- `D1` – nouns of the first declension
-- `D2` – nouns of the second declension; if the nominative ends in *-r*, the
-  third field contains the genitive
+- `D1` – masculine/feminine noun of the first declension
+- `D2` – masculine/feminine noun of the second declension; if the nominative
+  ends in *-r*, the third field contains the genitive.
+- `D2N` – neuter noun of the second declension
+- `D3` – masculine/feminine noun of the third declension; the third field
+  contains the genitive; the genitive is left out for nouns ending in
+  *-dō/-dinis*, *gō/-ginis*, *-ēns/-entis*, *-iō/-iōnis*, *-is/-is*,
+  *-or/-ōris*, *-tās/-tātis*; the third field contains the accusative if this
+  ends in *-im*.
+- `D3N` – neuter noun of the third declension; the third field contains the
+  genitive; the genitive is left out for nouns endings in *-men/-minis*.
+- `D4` – masculine/feminine noun of the fourth declension
+- `D4N` – masculine/feminine noun of the fourth declension
+- `D5` – masculine/feminine noun of the fifth declension
 
 Examples:
 
 	pēcunia,D1
 	angustiæ,D1
 	lectus,D2
-	puer,D2,puerī
 	ager,D2,agrī
 	vir,D2,virī
-	dōnum,D2
-	arma,D2
+	dōnum,D2N
+	arma,D2N
+	canis,D3
+	carō,D3,carnis
+	turris,D3,turrim
+	agmen,D3N
+	animal,D3N,animālis
+	currus,D4
+	cornū,D4N
+	diēs,D5
 
 #### Adjectives
 
-- `AC3`/`AI3` – comparable/incomparable adjectives with three endings; the
-  first field contains the masculine form; when the masculine form does not end
-  in *-us*, the third field contains the feminine form.
-- `AC2`/`AI2` – comparable/incomparable adjectives with two endings; the first
+- `AC3`/`AI3` – comparable/incomparable adjective with three endings; the first
+  field contains the masculine form; if the masculine form does not end in
+  *-us*, the third field contains the feminine form.
+- `AC2`/`AI2` – comparable/incomparable adjective with two endings; the first
   field contains the masculine/feminine form.
-- `AC1`/`AI1` – comparable/incomparable adjectives with one ending; the first
-  field contains the nominative; when the nominative does not end in *-āns* or
+- `AC1`/`AI1` – comparable/incomparable adjective with one ending; the first
+  field contains the nominative; if the nominative does not end in *-āns* or
   *-ēns*, the third field contains the genitive.
 
 Examples:
@@ -118,16 +137,11 @@ Examples:
 	vetus,AC1,veteris
 
 #### Verbs
-- `1` – verb of the first conjugation; the first field has to end in `ō` or
-  `or` (for deponent verbs).
-- `2` – verb of the second conjugation; the first field has to end in `eō` or
-  `eor` (for deponent verbs).
-- `3` – verb of the third conjugation; the first field has to end in `ō` or
-  `or` (for deponent verbs).
-- `3M` – verb of the mixed third conjugation; the first field has to end in
-  `iō` or `ior` (for deponent verbs).
-- `4` – verb of the fourth conjugation; the first field has to end in `iō` or
-  `ior` (for deponent verbs).
+- `1` – verb of the first conjugation
+- `2` – verb of the second conjugation
+- `3` – verb of the third conjugation
+- `3M` – verb of the mixed third conjugation
+- `4` – verb of the fourth conjugation
 
 Examples:
 
@@ -149,9 +163,9 @@ Examples:
 ### `flexura.lua`
 
 This script generates all inflected forms of the Latin words in the input list.
-The script is still under development. Currently, only declensed adjective
-forms (including comparatives, superlatives and adverbs) and the present stem
-forms of Latin verbs are generated.
+The script is still under development. Currently, only declensed noun forms,
+declensed adjective forms (including comparatives, superlatives and adverbs),
+and the present stem forms of Latin verbs are generated.
 
 #### Usage:
 	lua5.3 flexura.lua [< inputfile] [> outputfile]
@@ -167,8 +181,17 @@ The following irregular forms are taken into account:
   *fīliīs*) of *dea* and *fīlia*
 - the plural forms *diī/dī* (besides *deī*) and *diīs/dīs* (besides *deīs*) of
   *deus*
+- the ablative form *vespere* (besides *vesperō*) of *vesper*
 - the accusative form *vulgum/volgum* of the neuter noun *vulgus/volgus*
 - the plural form *loca* (besides *locī*) of *locus*
+- the defective forms of *vīs* (plural *vīrēs*)
+- the genitive plural form *boum* (besides *bovum*) and the dative/ablative
+  plural forms *bōbus* and *būbus* of *bōs*
+- the genitve plural form *vāsōrum* and the dative/ablative plural form *vāsīs*
+  of *vās*
+- the dative/ablative plural form ending in *-ubus* of *arcus*, *artus*, and
+  *tribus*
+- the declensed forms of *domus*
 - the comparatives and superlatives of *bonus*, *māgnus*, *malus*, *multus*,
   *posterus*, *vetus*
 - the adverbs *audācter* (besides *audāciter*), *bene*, *cito*, *difficulter*,
