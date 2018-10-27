@@ -94,7 +94,7 @@ generated automatically.
 - `D3N` – neuter noun of the third declension; the third field contains the
   genitive; the genitive is left out for nouns endings in *-men/-minis*.
 - `D4` – masculine/feminine noun of the fourth declension
-- `D4N` – masculine/feminine noun of the fourth declension
+- `D4N` – neuter noun of the fourth declension
 - `D5` – masculine/feminine noun of the fifth declension
 
 Examples:

@@ -73,11 +73,11 @@ function endsIn(word,ending)
 end
 
 function beginWithSameLetter(wordA,wordB)
-	if utf8substring(wordA,1,1) == utf8substring(wordB,1,1) then
-		return true
-	else
-		return false
-	end
+   if utf8substring(wordA,1,1) == utf8substring(wordB,1,1) then
+      return true
+   else
+      return false
+   end
 end
 
 -- adjectives with consonantal declension
@@ -663,8 +663,8 @@ function generatePositiveForms1(nominative,genitive)
    -- adjectives with ī declension
    else
       if genitive and utf8.len(genitive) >= utf8.len(nominative)
-		and beginWithSameLetter(nominative,genitive)
-		and endsIn(genitive,"is") then
+      and beginWithSameLetter(nominative,genitive)
+      and endsIn(genitive,"is") then
          table.insert(outputlist,nominative)
          root = string.sub(genitive,1,-3)
          attachEndings(root,adjectiveEndings_i_ium)
@@ -1221,7 +1221,7 @@ for line in io.lines() do
       elseif endsIn(firstField,"ia") and thirdField
       and utf8.len(thirdField) == utf8.len(firstField) + 1
       and utf8substring(thirdField,1,-4) == string.sub(firstField,1,-3)
-		and endsIn(thirdField,"ium") then
+      and endsIn(thirdField,"ium") then
          root = string.sub(firstField,1,-3)
          attachEndings(root,nounEndings3_i_neuter_plural)
       -- neuter noun ending in "-men"
@@ -1265,7 +1265,7 @@ for line in io.lines() do
          invalidLine()
       elseif endsIn(firstField,"us") then
          root = string.sub(firstField,1,-3)
-			if firstField == "domus" then
+         if firstField == "domus" then
             table.insert(outputlist,"domus") -- nominative sg.
             table.insert(outputlist,"domūs") -- gen. sg./nom. pl./acc. pl.
             table.insert(outputlist,"domuī") -- dative sg.
@@ -1281,7 +1281,7 @@ for line in io.lines() do
             attachEndings(root,nounEndings4_us_ubus)
          else
             attachEndings(root,nounEndings4_us)
-			end
+         end
       elseif endsIn(firstField,"ūs") then -- plurale tantum
          root = utf8substring(firstField,1,-3)
          attachEndings(root,nounEndings4_us_plural)
@@ -1306,14 +1306,14 @@ for line in io.lines() do
          invalidLine()
       elseif endsIn(firstField,"ēs") then
          root = utf8substring(firstField,1,-3)
-			if vowels[utf8substring(firstField,-3,-3)] then
-				attachEndings(root,nounEndings5_afterVowel)
-			else
-				attachEndings(root,nounEndings5)
-			end
-		else
-			invalidField(firstField)
-		end
+         if vowels[utf8substring(firstField,-3,-3)] then
+            attachEndings(root,nounEndings5_afterVowel)
+         else
+            attachEndings(root,nounEndings5)
+         end
+      else
+         invalidField(firstField)
+      end
 
    -- adjective with three endings with comparison
    elseif secondField == "AC3" then
