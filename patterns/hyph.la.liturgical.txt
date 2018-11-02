@@ -610,6 +610,16 @@
 .i2ó
 .i4u
 .i4ú
+.i5ul
+.i5úl
+.i6uli
+.i6úli
+.i7uli.
+.i7úli.
+.i7ulid
+.i7úlid
+.i7ulis.
+.i7úlis.
 .iu2s3i2ur
 .j2
 .l2
