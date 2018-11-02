@@ -8126,7 +8126,7 @@ ista
 isthmíacus
 isthmus
 Isthmus
-Iule
+Iúle
 Iuléa
 Iuléæ
 Iuléam
@@ -8140,7 +8140,7 @@ Iuleórum
 Iuléos
 Iuléum
 Iuléus
-Iuli
+Iúli
 Iúlia
 Iúliæ
 Iúliam
@@ -8166,12 +8166,12 @@ Iúliis
 Iúlio
 Iuliórum
 Iúlios
-Iulis
+Iúlis
 Iúlium
 Iúlius
-Iulo
-Iulum
-Iulus
+Iúlo
+Iúlum
+Iúlus
 iúnceus
 iungunt
 iungúntur
