@@ -80,6 +80,28 @@ generated automatically.
 
 ### Possible word types
 
+#### Verbs
+- `1` – verb of the first conjugation
+- `2` – verb of the second conjugation
+- `3` – verb of the third conjugation
+- `3M` – verb of the mixed third conjugation
+- `4` – verb of the fourth conjugation
+
+Examples:
+
+	laudō,1
+	moneō,2,monuī,monitum
+	mittō,3,mīsī,missum
+	capiō,3M,cēpī,captum
+	audiō,4
+	hortor,1
+	vereor,2,veritus
+	ūtor,3,ūsus
+	patior,3M,passus
+	partior,4
+	ab-scindō,3,ab-scidī,ab-scissus
+	ex-audiō,4
+
 #### Nouns
 
 - `D1` – masculine/feminine noun of the first declension
@@ -143,28 +165,6 @@ Examples:
 	ūnus,N
 	prīmus,N
 	bīnī,N
-
-#### Verbs
-- `1` – verb of the first conjugation
-- `2` – verb of the second conjugation
-- `3` – verb of the third conjugation
-- `3M` – verb of the mixed third conjugation
-- `4` – verb of the fourth conjugation
-
-Examples:
-
-	laudō,1
-	moneō,2,monuī,monitum
-	mittō,3,mīsī,missum
-	capiō,3M,cēpī,captum
-	audiō,4
-	hortor,1
-	vereor,2,veritus
-	ūtor,3,ūsus
-	patior,3M,passus
-	partior,4
-	ab-scindō,3,ab-scidī,ab-scissus
-	ex-audiō,4
 
 ## Scripts
 
@@ -270,9 +270,10 @@ are replaced by *ae* and *oe*: `æ·di-fi-cā-re` (*ædi-fi-cā-re* or *ae-di-fi
   may be required because of the morphology of the word: `ab-luere` →
   `ab-lue-re`, `ab-stāre` → `ab-stā-re`.
 - *qu* is considered as a single consonant, as well as *gu* preceded by *n* and
-  followed by a vowel: `sequī` → `se-quī`, `sanguis` → `san-guis`. A vertical
-  bar (U+7C) is required if *u* is a vowel after *ng* before another vowel:
-  `langu|it` → `lan-gu-it`, `langu|ērunt` → `lan-gu-ērunt`.
+  followed by a vowel and *su* followed by a vowel: `sequī` → `se-quī`,
+  `sanguis` → `san-guis`, `suāvis` → `suā-vis`. A vertical bar (U+7C) is
+  required if *u* is a vowel after *ng* or *s* before another vowel: `langu|it`
+  → `lan-gu-it`, `langu|ērunt` → `lan-gu-ērunt`.
 - Single vowel syllables at the beginning or the end of a word are not
   separated: `odium` → `odi-um`, `luō` → `luō`. A single vowel syllable within
   a word is not separated from the preceding syllable: `speciōsus` →
