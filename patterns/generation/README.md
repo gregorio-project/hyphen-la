@@ -115,7 +115,11 @@ Examples:
 	cornū,D4N
 	diēs,D5
 
-#### Adjectives
+#### Adjectives und declinable numerals
+
+Adjectives are either comparable (*longus, longior, longissimus*) or
+incomparable (*ūnicus*). Declinable numerals and incomparable adjectives are
+similar, but numerals do not have adverbs.
 
 - `AC3`/`AI3` – comparable/incomparable adjective with three endings; the first
   field contains the masculine form; if the masculine form does not end in
@@ -125,6 +129,7 @@ Examples:
 - `AC1`/`AI1` – comparable/incomparable adjective with one ending; the first
   field contains the nominative; if the nominative does not end in *-āns* or
   *-ēns*, the third field contains the genitive.
+- `N` – declinable numeral (cardinal, ordinal, or distributive)
 
 Examples:
 
@@ -135,6 +140,9 @@ Examples:
 	prior,AC2
 	prūdēns,AC1
 	vetus,AC1,veteris
+	ūnus,N
+	prīmus,N
+	bīnī,N
 
 #### Verbs
 - `1` – verb of the first conjugation
@@ -192,8 +200,11 @@ The following irregular forms are taken into account:
 - the dative/ablative plural form ending in *-ubus* of *arcus*, *artus*, and
   *tribus*
 - the declensed forms of *domus*
-- the comparatives and superlatives of *bonus*, *māgnus*, *malus*, *multus*,
-  *posterus*, *vetus*
+- the comparatives *melior*, *mājor*, *pējor*, *plūs*, *vetustior* of *bonus*,
+  *māgnus*, *malus*, *multus*, *vetus*
+- the superlatives *optimus*, *maximus*, *pessimus*, *plūrimus/plūrumus*,
+  *postrēmus/postumus*, *suprēmus*, *veterrimus* of *bonus*, *māgnus*, *malus*,
+  *multus*, *posterus*, *superus*, *vetus*
 - the adverbs *audācter* (besides *audāciter*), *bene*, *cito*, *difficulter*,
   *magis/mage*, *parum*, *rārenter*, *sollerter* of *audāx*, *bonus*, *citus*,
   *difficilis*, *māgnus*, *parvus*, *rārus*, *sollers*
