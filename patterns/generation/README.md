@@ -139,8 +139,8 @@ Examples:
 
 #### Adjectives und declinable numerals
 
-Adjectives are either comparable (*longus, longior, longissimus*) or
-incomparable (*ūnicus*). Declinable numerals and incomparable adjectives are
+Adjectives are either comparable (e.g. *longus, longior, longissimus*) or
+incomparable (e.g. *ūnicus*). Declinable numerals and incomparable adjectives are
 similar, but numerals do not have adverbs.
 
 - `AC3`/`AI3` – comparable/incomparable adjective with three endings; the first
@@ -185,6 +185,16 @@ terminated by `CTRL+D`.
 #### Irregular forms:
 
 The following irregular forms are taken into account:
+
+##### Verbs
+
+- the short *a* in *dare* and its compounds
+- the imperatives *dīc*, *dūc*, *fac* of *dīcere*, *dūcere*, *facere* and their
+  compounds
+- the imperative *calface* of *calefacere*
+
+##### Nouns
+
 - the genitive plural forms *deābus* and *fīliābus* (besides *deīs* and
   *fīliīs*) of *dea* and *fīlia*
 - the plural forms *diī/dī* (besides *deī*) and *diīs/dīs* (besides *deīs*) of
@@ -200,18 +210,19 @@ The following irregular forms are taken into account:
 - the dative/ablative plural form ending in *-ubus* of *arcus*, *artus*, and
   *tribus*
 - the declensed forms of *domus*
-- the comparatives *melior*, *mājor*, *pējor*, *plūs*, *vetustior* of *bonus*,
-  *māgnus*, *malus*, *multus*, *vetus*
-- the superlatives *optimus*, *maximus*, *pessimus*, *plūrimus/plūrumus*,
-  *postrēmus/postumus*, *suprēmus*, *veterrimus* of *bonus*, *māgnus*, *malus*,
-  *multus*, *posterus*, *superus*, *vetus*
+
+##### Adjectives
+
+- the comparatives *jūnior* (besides *juvenior*), *melior*, *mājor*, *pējor*,
+  *plūs*, *vetustior* of *juvenis*, *bonus*, *māgnus*, *malus*, *multus*, *vetus*
+- the superlatives *citimus*, *dēterrimus*, *extrēmus*, *īnfimus/īmus*,
+  *maximus*, *optimus*, *pessimus*, *plūrimus/plūrumus*, *postrēmus/postumus*,
+  *proximus*, *suprēmus*, *veterrimus* of *citer*, *dēterior*, *exter/exterus*,
+  *īnferus*, *māgnus*, *bonus*, *malus*, *multus*, *posterus*, *propior*,
+  *superus*, *vetus*
 - the adverbs *audācter* (besides *audāciter*), *bene*, *cito*, *difficulter*,
   *magis/mage*, *parum*, *rārenter*, *sollerter* of *audāx*, *bonus*, *citus*,
   *difficilis*, *māgnus*, *parvus*, *rārus*, *sollers*
-- the short *a* in *dare* and its compounds
-- the imperatives *dīc*, *dūc*, *fac* of *dīcere*, *dūcere*, *facere* and their
-  compounds
-- the imperative *calface* of *calefacere*
 
 ### `divisio.lua`
 

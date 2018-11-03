@@ -425,6 +425,11 @@ function generateComparativeAndSuperlative3(masculine,feminine)
       attachEndings("optim",adjectiveEndings_us_a_um) -- superlative (optimus)
       generateAdverb3("optimus") -- adverb of superlative
 
+   elseif masculine == "citer" then
+      attachEndings("citer",adjectiveEndings_ior_ius) -- comparative
+      attachEndings("citim",adjectiveEndings_us_a_um) -- superlative
+      generateAdverb3("citimus") -- adverb of superlative
+
    elseif masculine == "māgnus" then
       attachEndings("mā",adjectiveEndings_jor_jus) -- comparative (mājor)
       attachEndings("maxim",adjectiveEndings_us_a_um) -- superlative (maximus)
@@ -440,18 +445,6 @@ function generateComparativeAndSuperlative3(masculine,feminine)
       attachEndings("plūrim",adjectiveEndings_us_a_um) -- superlative
       attachEndings("plūrum",adjectiveEndings_us_a_um) -- superlative
       -- adverb is "plūrimum" (= accusative)
-
-   elseif masculine == "posterus" then
-      attachEndings("poster",adjectiveEndings_ior_ius) -- comparative
-      attachEndings("postrēm",adjectiveEndings_us_a_um) -- first superlative
-      attachEndings("postum",adjectiveEndings_us_a_um) -- second superlative
-      generateAdverb3("postrēmus") -- adverb of first superlative
-      generateAdverb3("postumus") -- adverb of second superlative
-
-   elseif masculine == "superus" then
-      attachEndings("super",adjectiveEndings_ior_ius) -- comparative
-      attachEndings("suprēm",adjectiveEndings_us_a_um) -- superlative
-      generateAdverb3("suprēmus") -- adverb of superlative
 
    elseif endsIn(masculine,"dicus") then
       root = string.sub(masculine,1,-5).."īcent"
@@ -473,8 +466,27 @@ function generateComparativeAndSuperlative3(masculine,feminine)
       else
          root = string.sub(masculine,1,-3)
          attachEndings(root,adjectiveEndings_ior_ius) -- comparative
-         attachEndings(root.."issim",adjectiveEndings_us_a_um) -- superlative
-         generateAdverb3(root.."issimus") -- adverb of superlative
+
+         if masculine == "exterus" then
+            attachEndings("extrēm",adjectiveEndings_us_a_um) -- superlative
+            generateAdverb3("extrēmus") -- adverb of superlative
+         elseif masculine == "īnferus" then
+            attachEndings("īnfim",adjectiveEndings_us_a_um) -- first superlative
+            attachEndings("īm",adjectiveEndings_us_a_um) -- second superlative
+            generateAdverb3("īnfimus") -- adverb of first superlative
+            generateAdverb3("īmus") -- adverb of second superlative
+         elseif masculine == "posterus" then
+            attachEndings("postrēm",adjectiveEndings_us_a_um) -- first superlative
+            attachEndings("postum",adjectiveEndings_us_a_um) -- second superlative
+            generateAdverb3("postrēmus") -- adverb of first superlative
+            generateAdverb3("postumus") -- adverb of second superlative
+         elseif masculine == "superus" then
+            attachEndings("suprēm",adjectiveEndings_us_a_um) -- superlative
+            generateAdverb3("suprēmus") -- adverb of superlative
+         else
+            attachEndings(root.."issim",adjectiveEndings_us_a_um) -- superlative
+              generateAdverb3(root.."issimus") -- adverb of superlative
+         end
       end
 
    -- plērusque
@@ -493,8 +505,13 @@ function generateComparativeAndSuperlative3(masculine,feminine)
    and string.sub(feminine,1,-3) == string.sub(masculine,1,-2)
    and endsIn(feminine,"ra") then
       attachEndings(masculine,adjectiveEndings_ior_ius) -- comparative
-      attachEndings(masculine.."rim",adjectiveEndings_us_a_um) -- superlative
-      generateAdverb3(masculine.."rimus") -- adverb of superlative
+      if masculine == "exter" then
+         attachEndings("extrēm",adjectiveEndings_us_a_um) -- superlative
+         generateAdverb3("extrēmus") -- adverb of superlative
+      else
+         attachEndings(masculine.."rim",adjectiveEndings_us_a_um) -- superlative
+         generateAdverb3(masculine.."rimus") -- adverb of superlative
+      end
 
    -- adjectives of the first and second declension ending in "er/ra/rum"
    elseif string.len(masculine) > 2 and endsIn(masculine,"er")
@@ -598,9 +615,19 @@ function generateComparativeAndSuperlative2(adjective)
 
    -- comparatives of the third declension ending in "ior/ius"
    elseif string.len(adjective) > 3 and endsIn(adjective,"ior") then
-      root = string.sub(adjective,1,-4)
-      attachEndings(root.."issim",adjectiveEndings_us_a_um) -- superlative
-      generateAdverb3(root.."issimus") -- adverb of superlative
+      if adjective == "dēterior" then
+         attachEndings("dēterrim",adjectiveEndings_us_a_um) -- superlative
+         generateAdverb3("dēterrimus") -- adverb of superlative
+      elseif adjective == "propior" then
+         attachEndings("proxim",adjectiveEndings_us_a_um) -- first superlative
+         attachEndings("proxum",adjectiveEndings_us_a_um) -- second superlative
+         generateAdverb3("proximus") -- adverb of first superlative
+         generateAdverb3("proxumus") -- adverb of second superlative
+      else
+         root = string.sub(adjective,1,-4)
+         attachEndings(root.."issim",adjectiveEndings_us_a_um) -- superlative
+         generateAdverb3(root.."issimus") -- adverb of superlative
+      end
    end
 end
 
@@ -711,6 +738,9 @@ function generateComparativeAndSuperlative1(nominative,genitive)
       attachEndings(root,adjectiveEndings_ior_ius) -- comparative
       attachEndings(root.."issim",adjectiveEndings_us_a_um) -- superlative
       generateAdverb3(root.."issimus") -- adverb of superlative
+      if nominative == "juvenis" and genitive == nominative then
+         attachEndings("jūn",adjectiveEndings_ior_ius) -- second comparative
+      end
    end
 end
 
