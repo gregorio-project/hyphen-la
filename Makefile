@@ -15,7 +15,7 @@ hyph_la_liturgical.dic: hyphen/substrings.pl patterns/hyph.la.liturgical.txt
 clean:
 	rm patterns/hyph_la_classical.dic patterns/hyph_la_phonetic.dic patterns/hyph_la_liturgical.dic
 
-check_all: check_classical_patterns check_phonetic_patterns check_liturgical_patterns
+check_all: check_classical check_phonetic check_liturgical
 
 check_classical:
 	python3 scripts/checkPatterns.py patterns/hyph.la.classical.txt

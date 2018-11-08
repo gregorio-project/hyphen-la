@@ -10,11 +10,11 @@ Fetch the entire repository (`git clone https://github.com/gregorio-project/hyph
 
 ## Check patterns
 
-A small Python script which tracks duplicated and invalid pattern in a pattern file.
+A small Python script which tracks duplicated and invalid patterns in a pattern file.
 
 #### Usage
 
-Type `python3 checkPatterns.py path/to/pattern/file.txt`, or, more simply, use `make check_x` in the main directory show the errors, where `x` can be: `all`, `etymology`, `phonetic`, or `liturgical`.
+Type `python3 checkPatterns.py path/to/pattern/file.txt`, or, more simply, use `make check_x` in the main directory show the errors, where `x` can be: `all`, `classical`, `phonetic`, or `liturgical`.
 
 
 ## Syllabifier script
