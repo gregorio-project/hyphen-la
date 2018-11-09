@@ -182,6 +182,20 @@ For each pair of conflicting words, the choice made for the patterns is indicate
 
 - `superis`: su-pé-ris (superus) vs su-pér-is (supereo) → `su-pe-ris` and `sú-pe-ris`
 
+- `transere`: trans-é-re (transeo) vs trán-se-re (transero) →  accented patterns are different and correct both, the non-accented word give `trans-e-re`
+
+- `transeremini`: trans-e-ré-mi-ni (transeo) vs tran-se-ré-mi-ni (transero) → `trans-é-re-mi-ni` and `trans-e-re-mi-ni`
+
+- `transeremur`: trans-e-ré-mur (transeo) vs tran-se-ré-mur (transero) → `trans-e-ré-mur` and `trans-e-re-mur`
+
+- `transerentur`: trans-e-rén-tur (transeo) vs tran-se-rén-tur (transero) → `trans-e-rén-tur` and `trans-e-ren-tur`
+
+- `transerere`: trans-e-ré-re (transeo) vs tran-sé-re-re and tran-se-ré-re (transero) →  accented patterns are partialy different and correct both, so: `trans-e-ré-re`, `tran-sé-re-re` and `tran-se-re-re`
+
+- `transereris`: trans-e-ré-ris (transeo) vs tran-sé-re-ris and tran-se-ré-ris (transero) →  accented patterns are partialy different and correct both, so: `trans-e-ré-ris`, `tran-sé-re-ris` and `tran-se-re-ris`
+
+- `transeris`: trans-é-ris (transeo) vs trán-se-ris (transero) → accented patterns are different and correct both, the non-accented word give `tran-se-ris`
+
 
 ### Other homographs to proofread and document more explicitly (to do…)
 
