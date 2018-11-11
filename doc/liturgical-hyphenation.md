@@ -77,8 +77,7 @@ There is obviously no strict rule for etymological exceptions, but these rules w
 - **epenthesis:** hyphenation is usually done after the epenthesis: *prod-eo*.
 - **enclitic:** words ending with an enclitic should be hyphenated before the
   enclitic (to be confirmed!). Exceptions are made for *-ce* and *-pte* for
-  phonetic reasons: *hu-iu-sce* (from *huius* + *-ce*), *su-op-te* (from *suo*
-  + *-pte*).
+  phonetic reasons: *hu-iu-sce* (from *huius* + *-ce*), *su-op-te* (from *suo* + *-pte*).
 
 
 ## Optional rules
