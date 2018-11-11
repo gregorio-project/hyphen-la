@@ -70,10 +70,15 @@ These are not exceptions to the general rules, but cases to handle cautiously.
 
 There is obviously no strict rule for etymological exceptions, but these rules will certainly help:
 
-- **preverbs:** when a preverb is present, the hyphenation point is after the preverb in simple cases: *ab-scindo*.
-- **fused preverbs:** when a preverb is fused with the radix, the priority is given to the radix, ex: *trans+scribo* = *tran-scribo*.
+- **preverbs:** when a preverb is present, the hyphenation point is after the
+  preverb in simple cases: *ab-scindo*.
+- **fused preverbs:** when a preverb is fused with the radix, the priority is
+  given to the radix, ex: *trans+scribo* = *tran-scribo*.
 - **epenthesis:** hyphenation is usually done after the epenthesis: *prod-eo*.
-- **enclitic:** words ending with an enclitic should be hyphenated before the enclitic (to be confirmed!).
+- **enclitic:** words ending with an enclitic should be hyphenated before the
+  enclitic (to be confirmed!). Exceptions are made for *-ce* and *-pte* for
+  phonetic reasons: *hu-iu-sce* (from *huius* + *-ce*), *su-op-te* (from *suo*
+  + *-pte*).
 
 
 ## Optional rules
