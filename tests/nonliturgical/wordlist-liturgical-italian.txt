@@ -1,8 +1,11 @@
 ab-sce-de-re
 ab-sce-do
+ab-sces-su-rus
 ab-sces-sus
 ab-sci-de-re
 ab-sci-do
+ab-sci-se
+ab-sci-sus
 ad-pu-gno
 ad-si-gno
 ca-ta-sce-va
@@ -252,6 +255,8 @@ ob-scœ-nus
 ob-si-gna-tor
 ob-si-gno
 ob-tæ-de-scit
+per-in-si-gnis
+pe-ri-sce-lis
 per-ma-gnus
 per-ti-me-scen-dus
 pi-gnus
@@ -330,9 +335,14 @@ re-sta-gno
 Reu-di-gni
 si-gnum
 sta-gnum
+sub-ob-scœ-nus
+su-per-sta-gno
 su-scep-tor
 su-scep-tus
 su-sci-pe
 su-sci-tans
 su-sci-to
 ta-be-scet
+tran-scen-do
+tran-scen-sus
+tran-sci-do
