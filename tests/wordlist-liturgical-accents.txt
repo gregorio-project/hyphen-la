@@ -3424,7 +3424,6 @@ castrénsis
 castriánus
 castriciánus
 castrícius
-Castrícius
 Castrimœniénses
 castro
 castrum
@@ -4559,7 +4558,6 @@ Cythnos
 Dædáleus
 daímon
 daphne
-Daphne
 dáphnea
 Daphnis
 daphnoídes
@@ -8895,7 +8893,6 @@ Nyctéus
 nyctostratégus
 Nymféum
 nymphéum
-Nymphéum
 Nyséus
 Oænéum
 ob
@@ -11187,7 +11184,6 @@ pœnam
 pœnárum
 pœnas
 pœníceus
-Pœníceus
 pœnis
 poética
 Poetnéum
@@ -16725,7 +16721,6 @@ transnominátio
 transnómino
 transnúbo
 transnúmero
-Transpadáneus
 transpadáneus
 transpadánus
 Tránspadum

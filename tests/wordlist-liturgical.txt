@@ -2526,7 +2526,6 @@ an-gu-lo
 an-gu-lo-sus
 An-gu-lum
 an-gu-lus
-An-gu-lus
 an-gunt
 an-gun-tur
 an-gus-ta-tus
@@ -3370,7 +3369,6 @@ cas-tren-sis
 cas-tri-a-nus
 cas-tri-ci-a-nus
 cas-tri-ci-us
-Cas-tri-ci-us
 Cas-tri-mœ-ni-en-ses
 cas-tro
 cas-trum
@@ -4495,7 +4493,6 @@ Cyth-nos
 Dæ-da-le-us
 da-i-mon
 daph-ne
-Daph-ne
 daph-ne-a
 Daph-nis
 daph-no-i-des
@@ -5855,7 +5852,6 @@ Eu-bu-ri-a-tes
 Eu-car-pe-ni
 Eu-cha-di-a
 eu-cha-ris
-Eu-cha-ris-ti-a
 eu-cha-ris-ti-a
 eu-cha-ris-ti-con
 Eu-cha-tæ
@@ -8986,7 +8982,6 @@ Nyc-te-us
 nyc-tos-tra-te-gus
 Nym-fe-um
 nym-phe-um
-Nym-phe-um
 Ny-se-us
 o-a
 O-æ-ne-um
@@ -11261,7 +11256,6 @@ pœ-nam
 pœ-na-rum
 pœ-nas
 pœ-ni-ce-us
-Pœ-ni-ce-us
 pœ-nis
 po-e-ti-ca
 Pœt-ne-um
