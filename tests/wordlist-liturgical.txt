@@ -1459,7 +1459,7 @@ ad-iec-ti-vus
 ad-iec-to
 ad-iec-tus
 ad-i-ens
-ad-i-e-un-tis
+ad-i-en-tis
 ad-i-go
 ad-ii-ci-o
 ad-i-mo
@@ -4464,7 +4464,6 @@ cul-mus
 cul-pa
 cum
 cum-me-us
-cum-scri-bil-lo
 cunc-tus
 cu-ne-us
 Cu-pi-di-ne-us
@@ -4991,7 +4990,7 @@ dis-co-lor
 dis-cor-di-a
 dis-cor-do
 dis-cors
-dis-cre-pen-ti-a
+dis-cre-pan-ti-a
 dis-cre-pi-to
 dis-cre-po
 dis-cre-tim
@@ -5096,7 +5095,6 @@ dis-pli-ci-tus
 dis-pli-co
 dis-plo-de-re
 dis-plo-do
-dis-plu-vi-a
 dis-plu-vi-a-tus
 di-spo-li-a-re
 di-spo-li-o
@@ -5801,7 +5799,7 @@ E-pi-me-the-us
 e-pis-tra-te-gi-a
 e-pis-tra-te-gus
 e-pi-stro-phe
-e-pi-tha-la-mus
+e-pi-tha-la-mi-on
 e-pi-zeu-xis
 e-plo-ce-us
 E-po-pe-us
@@ -5827,7 +5825,7 @@ e-ru-bes-cam
 e-ruc-ta-vit
 es-ca
 e-scæ
-es-cha-to
+es-cha-to-col-li-on
 e-scis
 es-se
 es-to
@@ -8637,7 +8635,7 @@ lo-ge-um
 lo-li-a-ce-us
 lon-gæ-vus
 lon-gin-quo
-lon-gi-vus
+lon-gi-vi-vax
 Lon-gu-la
 Lon-gu-la-nus
 lon-gu-le
@@ -9073,7 +9071,6 @@ ob-e-un-ti-bus
 ob-e-un-tis
 ob-e-un-ti-um
 ob-ex
-ob-fi-di-re
 ob-fu-e-ram
 ob-fu-e-ra-mus
 ob-fu-e-rant
@@ -12980,7 +12977,6 @@ re-spi-ra-re
 re-spi-ra-ti-o
 re-spi-ra-to-ri-us
 re-spi-ra-tus
-re-spi-re
 re-spi-ro
 re-splen-den-ti-a
 re-splen-de-o
@@ -13645,6 +13641,7 @@ sub-ro-go
 sub-ro-ve-us
 sub-ru-be-us
 sub-ru-o
+sub-scri-be-re
 sub-scri-bo
 sub-sel-li-um
 sub-se-quor
@@ -15736,7 +15733,6 @@ su-sci-pe
 su-sci-pi-o
 su-sci-tans
 su-sci-to
-su-scri-be-re
 su-spec-ta-re
 su-spec-ti-o
 su-spec-ti-vus

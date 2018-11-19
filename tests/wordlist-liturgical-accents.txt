@@ -463,7 +463,6 @@ abstérgito
 abstérgitor
 abstergitóte
 abstérgitur
-abstergo
 abstérgo
 abstérgor
 abstérgunt
@@ -1480,7 +1479,7 @@ adiectívus
 adiécto
 adiéctus
 ádiens
-adieuntis
+adiéntis
 ádigo
 adiício
 ádimo
@@ -1848,7 +1847,7 @@ alterórum
 álteros
 altérplex
 alterplícitas
-altertra
+altértra
 altérum
 álterum
 altéruter
@@ -2952,8 +2951,8 @@ astássent
 astásses
 astásset
 astassétis
-astasti
-astastis
+astásti
+astástis
 astat
 astáta
 astátæ
@@ -3900,7 +3899,7 @@ compinguéscent
 compinguéscere
 compinguescérem
 compinguescerémus
-compinguescerent
+compinguéscerent
 compinguescéres
 compinguescéret
 compinguescerétis
@@ -4530,7 +4529,6 @@ culmus
 culpa
 cum
 cúmmeus
-cumscribillo
 cunctus
 cúneus
 Cupidíneus
@@ -5065,7 +5063,7 @@ díscolor
 discórdia
 discórdo
 discors
-discrepentia
+discrepántia
 discrépito
 díscrepo
 discrétim
@@ -5182,7 +5180,6 @@ dísplico
 displodére
 displódere
 displódo
-displuvia
 displuviátus
 dispoliáre
 dispólio
@@ -5528,9 +5525,9 @@ distrivíssent
 distrivísses
 distrivísset
 distrivissétis
+distrivísti
+distrivístis
 distrívit
-distrivsti
-distrivstis
 distrúnco
 disturbátio
 distúrbo
@@ -5597,7 +5594,7 @@ elangúerit
 elanguéritis
 elangúero
 elanguérunt
-elanguescam
+elanguéscam
 elanguescámus
 elanguéscant
 elanguéscas
@@ -5626,7 +5623,7 @@ elanguescéntium
 elanguéscere
 elanguescérem
 elanguescerémus
-elanguescerent
+elanguéscerent
 elanguescéres
 elanguescéret
 elanguescerétis
@@ -5866,7 +5863,7 @@ Epimethéus
 epistrategía
 epistratégus
 epístrophe
-epithalamus
+epithalámion
 epizéuxis
 eplóceus
 Epopéus
@@ -5893,7 +5890,7 @@ erubéscam
 eructávit
 esca
 escæ
-eschato
+eschatocóllion
 escis
 esse
 esto
@@ -5959,7 +5956,7 @@ Eugrámmus
 Euhan
 euhans
 Euhémerus
-euhias
+éuhias
 Euhíppe
 Euhíppia
 Euhius
@@ -6228,7 +6225,7 @@ exsanguéscent
 exsanguéscere
 exsanguescérem
 exsanguescerémus
-exsanguescerent
+exsanguéscerent
 exsanguescéres
 exsanguescéret
 exsanguescerétis
@@ -6797,7 +6794,7 @@ homœoteléuton
 hordeáceus
 hórdeum
 hórreum
-horreus
+hórreus
 hospes
 hospitalárius
 hospitális
@@ -7004,13 +7001,13 @@ impinguéscent
 impinguéscere
 impinguescérem
 impinguescerémus
-impinguescerent
+impinguéscerent
 impinguescéres
 impinguescéret
 impinguescerétis
 impinguésces
 impinguéscet
-impinguescetis
+impinguescétis
 impinguéscimus
 impinguéscis
 impinguéscit
@@ -7274,8 +7271,8 @@ induxístis
 indúxit
 ineúndus
 inexspectátus
-inexstinguibilis
-inexstinguibiliter
+inexstinguíbilis
+inexstinguibíliter
 inexsuperábilis
 infíngunt
 infingúntur
@@ -7789,7 +7786,7 @@ interstínguam
 interstinguámini
 interstinguámur
 interstinguámus
-interstinguant
+interstínguant
 interstinguántur
 interstínguar
 interstinguáre
@@ -8318,7 +8315,7 @@ languescéntium
 languéscere
 languescérem
 languescerémus
-languescerent
+languéscerent
 languescéres
 languescéret
 languescerétis
@@ -8364,7 +8361,7 @@ languórem
 languóres
 languóri
 languóribus
-languoris
+languóris
 languórum
 langúria
 langúrium
@@ -8475,7 +8472,7 @@ linguaciórem
 linguacióres
 linguacióri
 linguacióribus
-linguacioris
+linguacióris
 linguaciórum
 linguácis
 linguacíssima
@@ -8522,7 +8519,7 @@ linguosiórem
 linguosióres
 linguosióri
 linguosióribus
-linguosioris
+linguosióris
 linguosiórum
 linguósis
 linguosíssima
@@ -8562,7 +8559,7 @@ loliáceus
 longǽvus
 longínquo
 lónginquo
-longivus
+longivívax
 Lóngula
 Longulánus
 lóngule
@@ -8983,7 +8980,6 @@ obeúntibus
 obeúntis
 obeúntium
 obex
-obfidire
 obfúeram
 obfuerámus
 obfúerant
@@ -10941,7 +10937,7 @@ perunguérem
 perunguerémini
 perunguerémur
 perunguerémus
-perunguerent
+perúnguerent
 perungueréntur
 perunguérer
 perunguerére
@@ -11075,7 +11071,7 @@ pinguéscent
 pinguéscere
 pinguescérem
 pinguescerémus
-pinguescerent
+pinguéscerent
 pinguescéres
 pinguescéret
 pinguescerétis
@@ -11347,7 +11343,7 @@ potus
 pótuum
 præácuo
 præámbulo
-præaudio
+præáudio
 prǽbuis
 præcáutio
 præcidáneus
@@ -11383,7 +11379,7 @@ præiáceo
 præiácio
 præiácto
 præiectívus
-præiens
+prǽiens
 præiício
 præínstruo
 præiudicátus
@@ -11399,7 +11395,6 @@ præmonstrátio
 præmonstrátor
 præmónstro
 præmóstro
-præobturans
 præobtúrans
 præpíngue
 præpínguem
@@ -11642,7 +11637,6 @@ præstructiónis
 præstrúctum
 præstructúra
 præstrúctus
-præstruo
 prǽstruo
 præstrúxi
 præstupésco
@@ -12856,7 +12850,7 @@ relanguescéntium
 relanguéscere
 relanguescérem
 relanguescerémus
-relanguescerent
+relanguéscerent
 relanguescéres
 relanguescéret
 relanguescerétis
@@ -12930,7 +12924,6 @@ respiráre
 respirátio
 respiratórius
 respirátus
-respire
 respíro
 resplendéntia
 respléndeo
@@ -13190,7 +13183,7 @@ sanguínibus
 sánguinis
 sánguino
 sanguinoléntia
-sanguinolentus
+sanguinoléntus
 sanguinósus
 sánguinum
 sanguis
@@ -13198,7 +13191,7 @@ sanguisúga
 sapíneus
 satagére
 satágere
-satisaccipere
+satisaccípere
 Saul
 Saulus
 sáxeus
@@ -13249,7 +13242,7 @@ seménstris
 seménstrum
 seméstris
 seméstrium
-semetipsum
+semetípsum
 semiambústus
 semicíngunt
 semicingúntur
@@ -13351,7 +13344,7 @@ solvo
 sómnia
 somnum
 sophístria
-sorbuis
+sórbuis
 Sosítheus
 sospes
 sóspita
@@ -13595,6 +13588,7 @@ súbrogo
 subróveus
 subrúbeus
 súbruo
+subscríbere
 subscríbo
 subséllium
 súbsequor
@@ -13677,7 +13671,7 @@ substínguite
 substínguitis
 substínguito
 substinguitóte
-substinguitur
+substínguitur
 substínguo
 substínguor
 substínguunt
@@ -14507,7 +14501,7 @@ superésæ
 superésam
 superesárum
 superésas
-superescit
+superéscit
 superése
 superési
 superésis
@@ -14685,7 +14679,6 @@ superílligo
 superillínio
 superíllino
 superimmíneo
-superimpedens
 superímpedens
 superimpéndo
 superimplétor
@@ -15718,7 +15711,6 @@ súscipe
 suscípio
 súscitans
 súscito
-suscribere
 suspectáre
 suspéctio
 suspectívus

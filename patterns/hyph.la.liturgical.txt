@@ -101,7 +101,8 @@
 .a3d4i3áb
 .adi2e
 .adi2é
-.adi3e3u
+.adi3en
+.adi3én
 .ad3i2i
 .ad3i2í
 .adi2o
@@ -147,6 +148,7 @@
 .alte4rp
 .alté4rp
 .alte4rt
+.alté4rt
 .alte4r3ut
 .alté4r3ut
 .alte4r3út
@@ -330,7 +332,6 @@
 .cre3u
 .cu4ll
 .cu4mm
-.cu4m5s4cr
 .cu4sp
 .cú4sp
 .de1í
