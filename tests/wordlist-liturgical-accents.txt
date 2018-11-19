@@ -16114,6 +16114,7 @@ tránseras
 tránserat
 transerátis
 transerátur
+tránsere
 transerébam
 transerebámini
 transerebámur
@@ -16138,6 +16139,7 @@ tránserens
 tránserent
 transeréntur
 tránserer
+transérere
 transérerem
 transererémini
 transererémur
@@ -16151,6 +16153,8 @@ transéreres
 transéreret
 transererétis
 transererétur
+transeréris
+transéreris
 tránseres
 tránseret
 transerétis
@@ -16159,6 +16163,7 @@ tránseri
 transerímini
 transérimur
 transérimus
+tránseris
 tránserit
 transérite
 transéritis
@@ -16524,11 +16529,14 @@ transíre
 transírem
 transirémus
 transírent
+transirére
+transiréris
 transíres
 transíret
 transirétis
 transirétur
 transíri
+transíris
 transis
 transísse
 transístis

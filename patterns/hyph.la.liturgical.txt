@@ -1319,8 +1319,6 @@
 .tran3s2er
 .trán3s2er
 .tran3s2ér
-.tran4s3ere.
-.tran4s3ére.
 .tran4s3eremini.
 .tran4s3erémini.
 .tran4s3eremur.
@@ -1329,10 +1327,6 @@
 .tran4s3eréntur.
 .tran4s3erer.
 .trán4s3erer.
-.tran4s3erére.
-.tran4s3eréris.
-.tran4s3eris.
-.tran4s3éris.
 .tran3s2il
 .trán3s2il
 .tran3s2íl

@@ -16138,9 +16138,7 @@ tran-se-ras
 tran-se-rat
 tran-se-ra-tis
 tran-se-ra-tur
-trans-e-re
-trans-é-re
-trán-se-re
+tran-se-re
 tran-se-re-bam
 tran-se-re-ba-mi-ni
 tran-se-re-ba-mur
@@ -16166,8 +16164,6 @@ tran-se-rent
 trans-e-ren-tur
 trans-e-rer
 tran-se-re-re
-trans-e-ré-re
-tran-sé-re-re
 tran-se-re-rem
 tran-se-re-re-mi-ni
 tran-se-re-re-mur
@@ -16182,8 +16178,6 @@ tran-se-re-ret
 tran-se-re-re-tis
 tran-se-re-re-tur
 tran-se-re-ris
-trans-e-ré-ris
-tran-sé-re-ris
 tran-se-res
 tran-se-ret
 tran-se-re-tis
@@ -16192,9 +16186,7 @@ tran-se-ri
 tran-se-ri-mi-ni
 tran-se-ri-mur
 tran-se-ri-mus
-trans-e-ris
-trans-é-ris
-trán-se-ris
+tran-se-ris
 tran-se-rit
 tran-se-ri-te
 tran-se-ri-tis
@@ -16558,11 +16550,14 @@ trans-i-re
 trans-i-rem
 trans-i-re-mus
 trans-i-rent
+trans-i-re-re
+trans-i-re-ris
 trans-i-res
 trans-i-ret
 trans-i-re-tis
 trans-i-re-tur
 trans-i-ri
+trans-i-ris
 trans-is
 trans-is-se
 trans-is-tis
