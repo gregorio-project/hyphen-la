@@ -22,7 +22,7 @@ end
 
 function createSet(list)
    local set = {}
-   for _,l in ipairs(list) do
+   for _, l in ipairs(list) do
       set[l] = true
    end
    return set
@@ -36,7 +36,7 @@ vowels = createSet{"A","a","Ā","ā","E","e","Ē","ē","I","i","Ī","ī","O","o"
    "ō","U","u","Ū","ū","Y","y","Ȳ","ȳ","Æ","æ","Œ","œ"}
 
 -- possible diphthongs are "au" and "eu", macrons are not used
-firstVowelsOfDiphthongs = createSet{"A", "a", "E", "e"}
+firstVowelsOfDiphthongs = createSet{"A","a","E","e"}
 
 -- q is intentionally left out here
 consonants = createSet{"B","b","C","c","D","d","F","f","G","g","H","h","J","j",
@@ -44,11 +44,10 @@ consonants = createSet{"B","b","C","c","D","d","F","f","G","g","H","h","J","j",
    "w","X","x","Z","z"}
 
 -- stop consonants, called "(litterae) mutae" in Latin
-mutae = createSet{"B", "b", "P", "p", "D", "d", "T", "t", "G", "g", "C", "c",
-   "K", "k"}
+mutae = createSet{"B","b","P","p","D","d","T","t","G","g","C","c","K","k"}
 
 -- liquid consonants, called "(litterae) liquidae" in Latin
-liquidae = createSet{"L", "l", "R", "r"}
+liquidae = createSet{"L","l","R","r"}
 
 
 function endsInTwoConsonants(word)
@@ -92,19 +91,34 @@ adjectivesSuperlative_limus = createSet{"difficilis","dif-ficilis","dissimilis",
 -- adjectives using declensed forms as adverb instead of a regular adverb
 adjectivesWithDeclensedFormAdverb = createSet{"cēterus","crēber","malus",
    "meritus","multus","necessārius","nimius","paullus","paulus","perpetuus",
-   "per-petuus","plērus","plērusque","plērus-que","plūrimus","plūrumus",
+   "per-petuus","plērus","plērus-que","plūrimus","plūrumus",
    "postrēmus","potissimus","rārus","sēcrētus","sērus","sōlus","subitus",
    "sub-itus","tantus","tūtus"}
    -- the adverb of "malus" is "male" with short e (= vocative)
 
 
 function attachEndings(root,endings)
-   for _,ending in pairs(endings) do
-      if firstVowelsOfDiphthongs[string.sub(root,-1)]
-      and string.sub(ending,1,1) == "u" then
+   for _, ending in pairs(endings) do
+      if (firstVowelsOfDiphthongs[string.sub(root,-1)]
+      and string.sub(ending,1,1) == "u")
+      or ((string.sub(root,-2,-1) == "su" or string.sub(root,-2,-1) == "Su")
+      and vowels[utf8substring(ending,1,1)]) then
          table.insert(outputlist,root.."|"..ending)
       else
          table.insert(outputlist,root..ending)
+      end
+   end
+end
+
+function attachEndingsEnclitic(root,endings,enclitic)
+   for _, ending in pairs(endings) do
+      if (firstVowelsOfDiphthongs[string.sub(root,-1)]
+      and string.sub(ending,1,1) == "u")
+      or ((string.sub(root,-2,-1) == "su" or string.sub(root,-2,-1) == "Su")
+      and vowels[utf8substring(ending,1,1)]) then
+         table.insert(outputlist,root.."|"..ending.."-"..enclitic)
+      else
+         table.insert(outputlist,root..ending.."-"..enclitic)
       end
    end
 end
@@ -133,17 +147,17 @@ nounEndings3_i_neuter = { -- e.g. "mare", nom./acc. sing. is left out
    "is","ī","ia","ium","ibus"}
 nounEndings3_i_plural = { -- e.g. "penātēs"
    "ēs","ium","ibus","īs"}
-nounEndings3_i_neuter_plural = { -- e.g. "mœnia"
+nounEndings3_i_neuterPlural = { -- e.g. "mœnia"
    "ia","ium","ibus"}
 nounEndings3_mixed = { -- e.g. "pars", nom. sing. is left out
    "is","ī","em","e","ēs","ium","ibus","īs"}
-nounEndings3_mixed_neuter = { -- e.g. "os", nom./acc. sing. is left out
+nounEndings3_mixedNeuter = { -- e.g. "os", nom./acc. sing. is left out
    "is","ī","e","a","ium","ibus"}
 nounEndings3_consonantal = { -- e.g. "cōnsul", nom. sing. is left out
    "is","ī","em","e","ēs","um","ibus"}
-nounEndings3_consonantal_neuter = { -- e.g. "mūnus", nom./acc. sing. is left out
+nounEndings3_consonantalNeuter = { -- e.g. "mūnus", nom./acc. sing. is left out
    "is","ī","e","a","um","ibus"}
-nounEndings3_consonantal_plural = { -- e.g. "majōrēs"
+nounEndings3_consonantalPlural = { -- e.g. "majōrēs"
    "ēs","um","ibus"}
 nounEndings3_mixedAndConsonantal = { -- e.g. "parēns", nom. sing. is left out
    "is","ī","em","e","ēs","ium","um","ibus","īs"}
@@ -168,6 +182,9 @@ nounEndings5_afterVowel = { -- e.g. "diēs"
 adjectiveEndings_us_a_um = { -- e.g. "bonus"
    "us","a","um","ī","æ","ō","am","ā","e","ōrum","ārum","īs","ōs","ās"}
 
+adjectiveEndings_us_a_um_withoutVocative = { -- e.g. "meus"
+   "us","a","um","ī","æ","ō","am","ā","ōrum","ārum","īs","ōs","ās"}
+
 adjectiveEndings_i_ae_a = { -- plural
    "ī","æ","a","ōrum","ārum","īs","ōs","ās"}
 
@@ -177,11 +194,19 @@ adjectiveEndings_r_ra_rum = { -- e.g. "liber", "satur"
 adjectiveEndings_er_ra_rum = { -- e.g. "pulcher"
    "er","ra","rum","rī","ræ","rō","ram","rā","rōrum","rārum","rīs","rōs","rās"}
 
-pronominalAdjectiveEndings = { -- e.g. "sōlus"
-   "us","a","um","īus","ī","am","ō","ā","e","æ","ōrum","ārum","īs","ōs","ās"}
+pronominalAdjectiveEndings = { -- e.g. "sōlus", "ūllus"
+   "us","a","um","īus","ī","am","ō","ā","æ","ōrum","ārum","īs","ōs","ās"}
 
-pronominalAdjectiveEndingsSingular = {
-   "us","a","um","īus","ī","am","ō","ā","e"}
+pronounEndings_e_a_ud = { -- e.g. "ille"
+   "e","a","ud","īus","ī","um","am","ō","ā","æ","ōrum","ārum","īs","ōs","ās"}
+
+pronounForms_qui_quae_quod = {"quī","quæ","quod","cujus","cui","quem","quam",
+   "quō","quā","quōrum","quārum","quibus","quōs","quās"}
+
+pronounForms_quis_quid = {"quis","quid","cujus","cui","quem","quō"}
+
+pronounForms_uter_utra_utrum = {"uter","utra","utrum","utrīus","utrī","utram",
+   "utrō","utrā","utræ","utrōrum","utrārum","utrīs","utrōs","utrās"}
 
 endings_o_ae = { -- "duo" and "ambō", nominative ending in "o"/"ō" is left out
    "æ","ōrum","ārum","ōbus","ābus","ōs","ās"}
@@ -362,6 +387,7 @@ presentStemEndingsPassive4 = {
    "īrī" --infinitive
    }
 
+imperfectEndings_ba = {"bam","bās","bat","bāmus","bātis","bant"}
 
 -- generate positive forms of adjectives with three endings
 function generatePositiveForms3(masculine,feminine)
@@ -375,11 +401,8 @@ function generatePositiveForms3(masculine,feminine)
       end
 
    -- plērusque
-   elseif (masculine == "plērusque" or masculine == "plērus-que")
-   and feminine == nil then
-      for _,ending in pairs(adjectiveEndings_us_a_um) do
-         table.insert(outputlist,"plēr"..ending.."que")
-      end
+   elseif masculine == "plērus-que" and feminine == nil then
+      attachEndingsEnclitic("plēr",adjectiveEndings_us_a_um,"que")
 
    -- adjectives of the first and second declension ending in "r/ra/rum"
    elseif string.len(masculine) > 1 and endsIn(masculine,"r")
@@ -489,16 +512,6 @@ function generateComparativeAndSuperlative3(masculine,feminine)
          end
       end
 
-   -- plērusque
-   elseif (masculine == "plērusque" or masculine == "plērus-que") then
-      for _,ending in pairs(adjectiveEndings_ior_ius) do
-         table.insert(outputlist,"plēr"..ending.."que") -- comparative
-      end
-      for _,ending in pairs(adjectiveEndings_us_a_um) do
-         table.insert(outputlist,"plērissim"..ending.."que") -- superlative
-      end
-      generateAdverb3("plērissimusque") -- adverb of superlative
-
    -- adjectives of the first and second declension ending in "r/ra/rum"
    elseif string.len(masculine) > 1 and endsIn(masculine,"r")
    and feminine and string.len(feminine) == string.len(masculine) + 1
@@ -555,8 +568,6 @@ function generateAdverb3(masculine,feminine)
       table.insert(outputlist,"mage")
    elseif masculine == "parvus" then
       table.insert(outputlist,"parum")
-   elseif masculine == "plērissimusque" or masculine == "plērissimus-que" then
-      table.insert(outputlist,"plērissimēque")
    elseif masculine == "rārus" then
       -- adverbs are "rārō" (= ablative) and "rārenter"
       table.insert(outputlist,"rārenter")
@@ -578,11 +589,8 @@ end
 -- generate positive forms of adjectives with two endings
 function generatePositiveForms2(adjective)
    if adjective == "complūrēs" or adjective == "com-plūrēs" then
-      table.insert(outputlist,"complūrēs") -- nominative/accusative
-      table.insert(outputlist,"complūra") -- neuter
-      table.insert(outputlist,"complūrium") -- genitive
-      table.insert(outputlist,"complūribus") -- dative/ablative
-      table.insert(outputlist,"complūrīs") -- alternative accusative
+      attachEndings("complūr",adjectiveEndings_es_ium)
+      table.insert(outputlist,"complūra") -- alternative neuter plural
 
    -- adjectives of the third declension ending in "is/e"
    elseif string.len(adjective) > 2 and endsIn(adjective,"is") then
@@ -935,6 +943,30 @@ for line in io.lines() do
          invalidField(firstField)
       end
 
+   -- irregular verb
+   elseif secondField == "VI" then
+      if firstField == "ājō" then
+         table.insert(outputlist,"ājō") -- 1st person sg. indicative present
+         table.insert(outputlist,"aīs") -- 2nd person sg. indicative present
+         table.insert(outputlist,"aīn") -- < "aīs" + "ne"
+         table.insert(outputlist,"ait") -- 3rd person sg. indicative present
+         table.insert(outputlist,"ājunt") -- 3rd person pl. indicative present
+         attachEndings("ājē",imperfectEndings_ba) -- imperfect indicative
+         table.insert(outputlist,"aības") -- 2nd person sg. ind. imperfect
+         table.insert(outputlist,"aībat") -- 3rd person sg. ind. imperfect
+         table.insert(outputlist,"ājās") -- 2nd person sg. subjunctive present
+         table.insert(outputlist,"ājat") -- 3rd person sg. subjunctive present
+         table.insert(outputlist,"ājant") -- 3rd person pl. subjunctive present
+         table.insert(outputlist,"ājeret") -- 3rd person sg. subj. imperfect
+         table.insert(outputlist,"ai") -- imperfect present
+         table.insert(outputlist,"ājere") -- infinitive present
+         table.insert(outputlist,"aistī") -- 2nd person sg. ind. perfect
+         table.insert(outputlist,"ājērunt") -- 3rd person pl. ind. perfect
+         attachEndings("āj",participlePresentActiveEndingsE) -- participle
+      else
+         invalidLine()
+      end
+
    -- noun of the first declension
    elseif secondField == "D1" then
       if thirdField or fourthField then
@@ -1127,7 +1159,7 @@ for line in io.lines() do
          elseif utf8substring(thirdField,1,-3) == utf8substring(firstField,1,-3)
          and endsIn(thirdField,"um") then
             root = utf8substring(firstField,1,-3)
-            attachEndings(root,nounEndings3_consonantal_plural)
+            attachEndings(root,nounEndings3_consonantalPlural)
          else
             invalidField(thirdField)
          end
@@ -1257,7 +1289,7 @@ for line in io.lines() do
       and utf8substring(thirdField,1,-4) == string.sub(firstField,1,-3)
       and endsIn(thirdField,"ium") then
          root = string.sub(firstField,1,-3)
-         attachEndings(root,nounEndings3_i_neuter_plural)
+         attachEndings(root,nounEndings3_i_neuterPlural)
       -- neuter noun ending in "-men"
       elseif endsIn(firstField,"men") then
          if thirdField then
@@ -1267,7 +1299,7 @@ for line in io.lines() do
             table.insert(outputlist,firstField) -- nominative sg.
             attachEndings(root,nounEndings3_consonantal)
          end
-      elseif not thirdField or utf8.len(thirdField) < 5 then
+      elseif not thirdField or utf8.len(thirdField) < 4 then
          invalidLine()
       -- singular
       elseif endsIn(thirdField,"is") then
@@ -1283,11 +1315,11 @@ for line in io.lines() do
          -- root ending in two or more consonants: mixed declension
          elseif endsInTwoConsonants(root) then
             table.insert(outputlist,firstField) -- nominative/accusative sg.
-            attachEndings(root,nounEndings3_mixed_neuter)
+            attachEndings(root,nounEndings3_mixedNeuter)
          -- consonantal declension
          else
             table.insert(outputlist,firstField) -- nominative/accusative sg.
-            attachEndings(root,nounEndings3_consonantal_neuter)
+            attachEndings(root,nounEndings3_consonantalNeuter)
          end
       else
          invalidLine()
@@ -1406,6 +1438,276 @@ for line in io.lines() do
          generateAdverb1(firstField,thirdField)
       end
 
+   -- pronoun
+   elseif secondField == "P" then
+      if thirdField or fourthField then
+         invalidLine()
+      elseif firstField == "ali-quī" then
+         attachEndings("ali-",pronounForms_qui_quae_quod)
+         table.insert(outputlist,"qua") -- nominative sg. fem./nom./acc. pl. neuter
+      elseif firstField == "ali-quis" then
+         attachEndings("ali-",pronounForms_quis_quid)
+      elseif firstField == "ego" then
+         table.insert(outputlist,"ego") -- nominative
+         table.insert(outputlist,"egomet") -- nominative
+         table.insert(outputlist,"egō") -- nominative
+         table.insert(outputlist,"egōmet") -- nominative
+         table.insert(outputlist,"meī") -- genitive
+         table.insert(outputlist,"mihī") -- dative
+         table.insert(outputlist,"mihīmet") -- dative
+         table.insert(outputlist,"mihīpte") -- dative
+         table.insert(outputlist,"mihi") -- dative
+         table.insert(outputlist,"mihimet") -- dative
+         table.insert(outputlist,"mihipte") -- dative
+         table.insert(outputlist,"mē") -- accusative/ablative
+         table.insert(outputlist,"mēd") -- accusative/ablative
+         table.insert(outputlist,"mēmet") -- accusative/ablative
+         table.insert(outputlist,"mēpte") -- accusative/ablative
+         table.insert(outputlist,"mēcum") -- "cum" + ablative
+      elseif firstField == "hic" then
+         table.insert(outputlist,"hic") -- nominative sg.
+         table.insert(outputlist,"hæc") -- nominative sg./nom./acc. pl.
+         table.insert(outputlist,"hoc") -- nom./acc. sg.
+         table.insert(outputlist,"hujus") -- genitive sg.
+         table.insert(outputlist,"hujusce") -- genitive sg.
+         table.insert(outputlist,"huic") -- dative sg.
+         table.insert(outputlist,"hunc") -- accusative sg.
+         table.insert(outputlist,"hanc") -- accusative sg.
+         table.insert(outputlist,"hōc") -- ablative sg.
+         table.insert(outputlist,"hāc") -- ablative sg.
+         table.insert(outputlist,"hī") -- nominative pl.
+         table.insert(outputlist,"hæ") -- nominative pl.
+         table.insert(outputlist,"hōrum") -- genitive pl.
+         table.insert(outputlist,"hārum") -- genitive pl.
+         table.insert(outputlist,"hīs") -- dative/ablative pl.
+         table.insert(outputlist,"hīsce") -- dative/ablative pl.
+         table.insert(outputlist,"hōs") -- accusative pl.
+         table.insert(outputlist,"hōsce") -- accusative pl.
+         table.insert(outputlist,"hās") -- accusative pl.
+         table.insert(outputlist,"hāsce") -- accusative pl.
+      elseif firstField == "īdem" then
+         table.insert(outputlist,"īdem") -- nominative sg./pl.
+         table.insert(outputlist,"eadem") -- nominative sg./pl./acc. pl.
+         table.insert(outputlist,"idem") -- nominative/accusative sg.
+         table.insert(outputlist,"ejusdem") -- genitive sg.
+         table.insert(outputlist,"eīdem") -- dative sg.
+         table.insert(outputlist,"eundem") -- accusative sg.
+         table.insert(outputlist,"eandem") -- accusative sg.
+         table.insert(outputlist,"eōdem") -- ablative sg.
+         table.insert(outputlist,"eādem") -- ablative sg.
+         table.insert(outputlist,"iīdem") -- nominative pl.
+         table.insert(outputlist,"eædem") -- nominative pl.
+         table.insert(outputlist,"eōrundem") -- genitive pl.
+         table.insert(outputlist,"eārundem") -- genitive pl.
+         table.insert(outputlist,"eīsdem") -- dative/ablative pl.
+         table.insert(outputlist,"iīsdem") -- dative/ablative pl.
+         table.insert(outputlist,"īsdem") -- dative/ablative pl.
+         table.insert(outputlist,"eōsdem") -- accusative pl.
+         table.insert(outputlist,"eāsdem") -- accusative pl.
+      elseif firstField == "ille" then
+         attachEndings("ill",pronounEndings_e_a_ud)
+         table.insert(outputlist,"illic") -- nominative sg.
+         table.insert(outputlist,"illuc") -- nom./acc. sg.
+         table.insert(outputlist,"illunc") -- accusative sg.
+         table.insert(outputlist,"illæc") -- nominative pl.
+         table.insert(outputlist,"illīsce") -- dative/ablative pl.
+         table.insert(outputlist,"illāc") -- adverb
+         table.insert(outputlist,"illīc") -- adverb
+         table.insert(outputlist,"illim") -- adverb
+         table.insert(outputlist,"illinc") -- adverb
+         table.insert(outputlist,"illōc") -- adverb
+         table.insert(outputlist,"illūc") -- adverb
+      elseif firstField == "ipse" then
+         attachEndings("ips",adjectiveEndings_i_ae_a) -- plural
+         table.insert(outputlist,"ipse") -- nominative sg.
+         table.insert(outputlist,"ipsum") -- nominative/accusative sg.
+         table.insert(outputlist,"ipsīus") -- genitive sg.
+         table.insert(outputlist,"ipsam") -- accusative sg.
+         table.insert(outputlist,"ipsō") -- ablative sg.
+         table.insert(outputlist,"ipsā") -- ablative sg.
+      elseif firstField == "is" then
+         attachEndings("e",adjectiveEndings_i_ae_a) -- plural
+         table.insert(outputlist,"is") -- nominative sg.
+         table.insert(outputlist,"id") -- nominative sg.
+         table.insert(outputlist,"ejus") -- genitive sg.
+         table.insert(outputlist,"ei") -- dative sg. (besides "eī")
+         table.insert(outputlist,"eum") -- accusative sg.
+         table.insert(outputlist,"eam") -- accusative sg.
+         table.insert(outputlist,"eō") -- ablative sg.
+         table.insert(outputlist,"eā") -- ablative sg.
+         table.insert(outputlist,"iī") -- nominative pl.
+         table.insert(outputlist,"ī") -- nominative pl.
+         table.insert(outputlist,"iīs") -- dative/ablative pl.
+         table.insert(outputlist,"īs") -- dative/ablative pl.
+      elseif firstField == "iste" then
+         attachEndings("ist",pronounEndings_e_a_ud)
+         table.insert(outputlist,"istic") -- nominative sg.
+         table.insert(outputlist,"istuc") -- nom./acc. sg.
+         table.insert(outputlist,"istucine") -- nom./acc. sg.
+         table.insert(outputlist,"istunc") -- accusative sg.
+         table.insert(outputlist,"istanc") -- accusative sg.
+         table.insert(outputlist,"istōc") -- ablative sg.
+         table.insert(outputlist,"istāc") -- ablative sg.
+         table.insert(outputlist,"istāce") -- ablative sg.
+         table.insert(outputlist,"istācine") -- ablative sg.
+         table.insert(outputlist,"istæc") -- nominative pl.
+         table.insert(outputlist,"istæce") -- nominative pl.
+         table.insert(outputlist,"istius") -- genitive pl. (besides "istīus")
+         table.insert(outputlist,"istōscine") -- accusative pl.
+         table.insert(outputlist,"istīsce") -- ablative pl.
+         table.insert(outputlist,"istīc") -- adverb
+         table.insert(outputlist,"istim") -- adverb
+         table.insert(outputlist,"istinc") -- adverb
+         table.insert(outputlist,"istūc") -- adverb
+      elseif firstField == "meus" then
+         attachEndings("me",adjectiveEndings_us_a_um_withoutVocative)
+         table.insert(outputlist,"mī") -- vocative masc.
+         table.insert(outputlist,"meōpte") -- ablative sg.
+         table.insert(outputlist,"meāpte") -- ablative sg.
+         table.insert(outputlist,"meāmet") -- ablative sg.
+         table.insert(outputlist,"mīs") -- dative pl.
+      elseif firstField == "ne-uter" then
+         attachEndings("ne-",pronounForms_uter_utra_utrum)
+      elseif firstField == "nōs" then
+         table.insert(outputlist,"nōs") -- nominative/accusative
+         table.insert(outputlist,"nōs-met") -- nominative/accusative
+         table.insert(outputlist,"nostrī") -- genitive
+         table.insert(outputlist,"nostrum") -- genitive
+         table.insert(outputlist,"nōbīs") -- dative/ablative
+         table.insert(outputlist,"nōbīs-cum") -- "cum" + ablative
+      elseif firstField == "noster" then
+         attachEndings("nost",adjectiveEndings_er_ra_rum)
+         table.insert(outputlist,"nostrāpte") -- ablative sg.
+      elseif firstField == "quī" then
+         attachEndings("",pronounForms_qui_quae_quod)
+         table.insert(outputlist,"qua") -- variant of "quæ" when used as indefinite pronoun
+         table.insert(outputlist,"quōcum") -- "cum" + ablative
+         table.insert(outputlist,"quācum") -- "cum" + ablative
+         table.insert(outputlist,"quīcum") -- "cum" + (old) ablative
+         table.insert(outputlist,"quibus-cum") -- "cum" + ablative
+      elseif firstField == "quī-cum-que" then
+         attachEndingsEnclitic("",pronounForms_qui_quae_quod,"cum-que")
+      elseif firstField == "quī-dam" then
+         table.insert(outputlist,"quī-dam") -- nominative sg./pl.
+         table.insert(outputlist,"quæ-dam") -- nominative sg./pl./acc. pl.
+         table.insert(outputlist,"quid-dam") -- nom./acc. sg.
+         table.insert(outputlist,"quod-dam") -- nom./acc. sg.
+         table.insert(outputlist,"cujus-dam") -- genitive sg.
+         table.insert(outputlist,"cui-dam") -- dative sg.
+         table.insert(outputlist,"quen-dam") -- accusative sg.
+         table.insert(outputlist,"quan-dam") -- accusative sg.
+         table.insert(outputlist,"quō-dam") -- ablative sg.
+         table.insert(outputlist,"quā-dam") -- ablative sg.
+         table.insert(outputlist,"quōrun-dam") -- genitive pl.
+         table.insert(outputlist,"quārun-dam") -- genitive pl.
+         table.insert(outputlist,"quibus-dam") -- dative/ablative pl.
+         table.insert(outputlist,"quōs-dam") -- accusative pl.
+         table.insert(outputlist,"quās-dam") -- accusative pl.
+      elseif firstField == "quī-libet" then
+         attachEndingsEnclitic("",pronounForms_qui_quae_quod,"libet")
+         table.insert(outputlist,"quid-libet")
+      elseif firstField == "quis" then
+         attachEndings("",pronounForms_quis_quid)
+         table.insert(outputlist,"quōcum") -- "cum" + ablative
+      elseif firstField == "quis-piam" then
+         attachEndingsEnclitic("",pronounForms_qui_quae_quod,"piam")
+         table.insert(outputlist,"quis-piam")
+         table.insert(outputlist,"quid-piam")
+         table.insert(outputlist,"quippiam")
+      elseif firstField == "quis-quam" then
+         attachEndingsEnclitic("",pronounForms_quis_quid,"quam")
+         table.insert(outputlist,"quic-quam")
+      elseif firstField == "quis-que" then
+         attachEndingsEnclitic("",pronounForms_qui_quae_quod,"que")
+         table.insert(outputlist,"quis-que")
+         table.insert(outputlist,"quid-que")
+      elseif firstField == "quis-quis" then
+         table.insert(outputlist,"quis-quis")
+         table.insert(outputlist,"quid-quid")
+         table.insert(outputlist,"quic-quid")
+         table.insert(outputlist,"quō-quō")
+      elseif firstField == "quī-vīs" then
+         attachEndingsEnclitic("",pronounForms_qui_quae_quod,"vīs")
+         table.insert(outputlist,"quid-vīs")
+      elseif firstField == "suī" then -- reflexive pronoun
+         table.insert(outputlist,"su|ī") -- genitive
+         table.insert(outputlist,"sibī") -- dative
+         table.insert(outputlist,"sibīmet") -- dative
+         table.insert(outputlist,"sibi") -- dative
+         table.insert(outputlist,"sibimet") -- dative
+         table.insert(outputlist,"sē") -- accusative/ablative
+         table.insert(outputlist,"sēsē") -- accusative/ablative
+         table.insert(outputlist,"sēmet") -- accusative/ablative
+         table.insert(outputlist,"sēpse") -- accusative/ablative
+         table.insert(outputlist,"sēcum") -- "cum" + ablative
+      elseif firstField == "suus" then
+         attachEndings("su",adjectiveEndings_us_a_um)
+         table.insert(outputlist,"su|amet") -- nominative sg./accusative pl.
+         table.insert(outputlist,"su|apte") -- nominative sg./accusative pl.
+         table.insert(outputlist,"su|īmet") -- genitive sg.
+         table.insert(outputlist,"su|ompte") -- accusative sg.
+         table.insert(outputlist,"su|ōmet") -- ablative sg.
+         table.insert(outputlist,"su|āmet") -- ablative sg.
+         table.insert(outputlist,"su|ōpte") -- ablative sg.
+         table.insert(outputlist,"su|āpte") -- ablative sg.
+         table.insert(outputlist,"su|īs-met") -- ablative pl.
+      elseif firstField == "tū" then
+         table.insert(outputlist,"tū") -- nominative
+         table.insert(outputlist,"tūte") -- nominative
+         table.insert(outputlist,"tūtemet") -- nominative
+         table.insert(outputlist,"tūtimet") -- nominative
+         table.insert(outputlist,"tūtin") -- nominative
+         table.insert(outputlist,"tuī") -- genitive
+         table.insert(outputlist,"tuīmet") -- genitive
+         table.insert(outputlist,"tibī") -- dative
+         table.insert(outputlist,"tibīmet") -- dative
+         table.insert(outputlist,"tibi") -- dative
+         table.insert(outputlist,"tibimet") -- dative
+         table.insert(outputlist,"tē") -- accusative/ablative
+         table.insert(outputlist,"tēmet") -- accusative/ablative
+         table.insert(outputlist,"tēte") -- accusative/ablative
+         table.insert(outputlist,"tēcum") -- "cum" + ablative
+      elseif firstField == "tuus" then
+         attachEndings("tu",adjectiveEndings_us_a_um_withoutVocative)
+         table.insert(outputlist,"tuīpte") -- genitive sg.
+         table.insert(outputlist,"tuom") -- accusative sg.
+         table.insert(outputlist,"tuōpte") -- ablative sg.
+         table.insert(outputlist,"tuāpte") -- ablative sg.
+      elseif firstField == "ūllus" then
+         attachEndings("ūll",pronominalAdjectiveEndings)
+      elseif firstField == "ūnus-quis-que" then
+         table.insert(outputlist,"ūnus-quis-que") -- nominative sg.
+         table.insert(outputlist,"ūna-quæ-que") -- nominative sg.
+         table.insert(outputlist,"ūnum-quid-que") -- nom./acc. sg.
+         table.insert(outputlist,"ūnum-quod-que") -- nom./acc. sg.
+         table.insert(outputlist,"ūnīus-cujus-que") -- genitive sg.
+         table.insert(outputlist,"ūnī-cui-que") -- dative sg.
+         table.insert(outputlist,"ūnum-quem-que") -- accusative sg.
+         table.insert(outputlist,"ūnam-quam-que") -- accusative sg.
+         table.insert(outputlist,"ūnō-quō-que") -- ablative sg.
+         table.insert(outputlist,"ūnā-quā-que") -- ablative sg.
+      elseif firstField == "uter" then
+         attachEndings("",pronounForms_uter_utra_utrum)
+      elseif firstField == "uter-que" then
+         attachEndingsEnclitic("",pronounForms_uter_utra_utrum,"que")
+         table.insert(outputlist,"utrim-que") -- adverb
+      elseif firstField == "vester" then
+         attachEndings("vest",adjectiveEndings_er_ra_rum)
+         table.insert(outputlist,"vestrāpte") -- ablative sg.
+      elseif firstField == "vōs" then
+         table.insert(outputlist,"vōs") -- nominative/accusative
+         table.insert(outputlist,"vōs-met") -- nominative/accusative
+         table.insert(outputlist,"vestrī") -- genitive
+         table.insert(outputlist,"vestrum") -- genitive
+         table.insert(outputlist,"vōbīs") -- dative/ablative
+         table.insert(outputlist,"vōbīs-met") -- dative/ablative
+         table.insert(outputlist,"vōbīs-cum") -- "cum" + ablative
+      elseif firstField == "voster" then
+         attachEndings("vost",adjectiveEndings_er_ra_rum)
+      else
+         invalidField(firstField)
+      end
+
    -- numeral
    elseif secondField == "N" then
       if thirdField or fourthField then
@@ -1439,6 +1741,6 @@ for line in io.lines() do
    end
 end
 
-for _,word in pairs(outputlist) do
+for _, word in pairs(outputlist) do
    print(word)
 end

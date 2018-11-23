@@ -1,35 +1,35 @@
 function createSet (list)
    local set = {}
-   for _,l in ipairs(list) do
+   for _, l in ipairs(list) do
       set[l] = true
    end
    return set
 end
 
 -- digraphs with macrons are not needed, as diphthongs are always long
-vowels = createSet{"A", "a", "Ā", "ā", "E", "e", "Ē", "ē", "I", "i", "Ī", "ī",
-   "O", "o", "Ō", "ō", "U", "u", "Ū", "ū", "Y", "y", "Ȳ", "ȳ", "Æ", "æ", "Œ",
+vowels = createSet{"A","a","Ā","ā","E","e","Ē","ē","I","i","Ī","ī",
+   "O","o","Ō","ō","U","u","Ū","ū","Y","y","Ȳ","ȳ","Æ","æ","Œ",
    "œ"}
 
-digraphs = createSet{"Æ", "æ", "Œ", "œ"}
+digraphs = createSet{"Æ","æ","Œ","œ"}
 
 -- possible diphthongs are "au" and "eu", macrons are not used
-firstVowelsOfDiphthongs = createSet{"A", "a", "E", "e"}
+firstVowelsOfDiphthongs = createSet{"A","a","E","e"}
 
 -- q is intentionally left out here
-consonants = createSet{"B", "b", "C", "c", "D", "d", "F", "f", "G", "g", "H",
-   "h", "J", "j", "K", "k", "L", "l", "M", "m", "N", "n", "P", "p", "R", "r",
-   "S", "s", "T", "t", "V", "v", "W", "w", "X", "x", "Z", "z"}
+consonants = createSet{"B","b","C","c","D","d","F","f","G","g","H",
+   "h","J","j","K","k","L","l","M","m","N","n","P","p","R","r",
+   "S","s","T","t","V","v","W","w","X","x","Z","z"}
 
 -- stop consonants, called "(litterae) mutae" in Latin
-mutae = createSet{"B", "b", "P", "p", "D", "d", "T", "t", "G", "g", "C", "c",
-   "K", "k"}
+mutae = createSet{"B","b","P","p","D","d","T","t","G","g","C","c",
+   "K","k"}
 
 -- the voiceless stop consonants are aspirated when h follows
-voicelessStops = createSet{"P", "p", "T", "t", "C", "c"}
+voicelessStops = createSet{"P","p","T","t","C","c"}
 
 -- liquid consonants, called "(litterae) liquidae" in Latin
-liquidae = createSet{"L", "l", "R", "r"}
+liquidae = createSet{"L","l","R","r"}
 
 function invalidWord(word)
    error('Invalid word "'..word..'" in line '..linecount)
@@ -320,6 +320,10 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             state = "consonant"
+         elseif c == "-" then
+            output = output..store.."="
+            store = ""
+            state = "beginning"
          else
             invalidWord(word)
          end
@@ -451,16 +455,35 @@ function classicalHyphenation(word)
          if vowels[c] == true then
             output = output..c
             state = "vowel"
+         elseif c == "Q" or c == "q" then
+            output = output.."-"..c
+            state = "potential qu"
+         elseif c == "S" or c == "s" then
+            store = c
+            state = "potential su"
          elseif c == "N" or c == "n" then
             store = c
             state = "potential ng"
-         elseif liquidae[c] == true or c == "M" or c == "m" or c == "S"
-            or c == "s" then
+         elseif c == "R" or c == "r" then
+            store = c
+            state = "potential rh"
+         elseif voicelessStops[c] == true then
+            store = c
+            state = "potential aspirate"
+         elseif mutae[c] == true then
+            store = c
+            state = "potential muta cum liquida"
+         elseif consonants[c] == true then
             store = c
             state = "consonant"
+         elseif c == "^" then -- extraordinary hyphenation point for Greek words
+            if greek then
+               output = output.."-"
+               state = "beginning"
+            end -- the state stays the same if greek is false
          elseif c == "|" then -- u is a syllabic vowel
             state = "vowel"
-         elseif c == "-" then
+         elseif c == "-" then -- word boundary
             output = output.."="
             state = "beginning"
          else
@@ -681,6 +704,8 @@ function removeUnwantedHyphens(input)
 
    if state == "potential single vowel" then
       output = output..store
+   elseif state == "potential single digraph" then
+      output = output.."·"..store
    end
 
    if traceStates then

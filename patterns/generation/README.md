@@ -140,11 +140,11 @@ Examples:
 	cornū,D4N
 	diēs,D5
 
-#### Adjectives und declinable numerals
+#### Adjectives, pronouns, and declinable numerals
 
 Adjectives are either comparable (e.g. *longus, longior, longissimus*) or
-incomparable (e.g. *ūnicus*). Declinable numerals and incomparable adjectives are
-similar, but numerals do not have adverbs.
+incomparable (e.g. *ūnicus*). Pronouns, declinable numerals and incomparable
+adjectives are similar, but pronouns and numerals do not have adverbs.
 
 - `AC3`/`AI3` – comparable/incomparable adjective with three endings; if the
   masculine form does not end in *-us*, the third field contains the feminine
@@ -153,6 +153,7 @@ similar, but numerals do not have adverbs.
 - `AC1`/`AI1` – comparable/incomparable adjective with one ending; if the
   nominative does not end in *-āns* or *-ēns*, the third field contains the
   genitive.
+- `P` – pronoun
 - `N` – declinable numeral (cardinal, ordinal, or distributive)
 
 Examples:
@@ -164,6 +165,8 @@ Examples:
 	prior,AC2
 	prūdēns,AC1
 	vetus,AC1,veteris
+	ego,P
+	ille,P
 	ūnus,N
 	prīmus,N
 	bīnī,N
@@ -174,9 +177,8 @@ Examples:
 
 This script generates all inflected forms of the Latin words in the input list.
 The script is still under development. Currently, only the present stem forms
-of Latin verbs, declensed noun forms, declensed adjective forms (including
-comparatives, superlatives and adverbs), and declensed numeral forms are
-generated.
+of regular Latin verbs and declensed forms of nouns, adjectives (including
+comparatives, superlatives and adverbs), pronouns and numerals are generated.
 
 #### Usage
 	lua5.3 flexura.lua [< inputfile] [> outputfile]
@@ -305,8 +307,8 @@ or *su-ae*).
 
 ### `variatio.lua`
 
-This script creates orthographic variants an already hyphenated word. The input
-has to follow the same conventions as the output of `divisio.lua`.
+This script creates orthographic variants of an already hyphenated word. The
+input has to follow the same conventions as the output of `divisio.lua`.
 
 #### Usage
 	lua5.3 variatio.lua [options] [< inputfile] [> outputfile]
@@ -332,18 +334,18 @@ Orthogonally to this, the following variants are created:
 *lau-dan-dæ*, *lau-dan-dae*, *Um-bria*.
 2. For words containing long single vowels: A variant with macrons on all long
 single vowels: *cī-vi-tās*, *ædī-lis*, *ae-dī-lis*, *Ūra-nia*, *V̄ra-nia*. As
-the Unicode Standard does not provide a macron variant of `V`, the combining
-macron (U+304) us used where `V` represents a long vowel.
+the Unicode Standard does not provide a macron variant of `V`, the *combining
+macron* (U+304) us used where `V` represents a long vowel.
 3. For words containing digraphs: A variant with macrons on all long single
 vowels and digraphs: *ǣdī-lis*, *lau-dan-dǣ*. The Unicode Standard provides
-macron variants only for `Æ` and `æ` (U+1E2 and U+1E3). The combining macron
+macron variants only for `Æ` and `æ` (U+1E2 and U+1E3). The *combining macron*
 (U+304) us used for `Œ` and `œ`.
 4. For words containing diphthongs: A variant with macrons on all long single
 vowels, digraphs and diphthongs: *a͞e-dī-lis*, *la͞u-dan-dǣ*, *la͞u-dan-da͞e*. The
 *combining double macron* (U+35E) is used for diphthongs.
 5. For words containing short vowels: A variant with macrons on all long single
 vowels and with breves on all short vowels: *cī-vĭ-tās*, *ædī-lĭs*,
-*ae-dī-lĭs*, *Ūră-nĭă*, *V̄ră-nĭă*, *Ŭm-brĭă*, *V̆m-brĭă*. The combining breve
+*ae-dī-lĭs*, *Ūră-nĭă*, *V̄ră-nĭă*, *Ŭm-brĭă*, *V̆m-brĭă*. The *combining breve*
 (U+306) is used for `V`, `Y`, and `y`.
 6. For words containing short vowels and digraphs: A variant with macrons on
 all long single vowels and digraphs and with breves on short vowels: *ǣdī-lĭs*,
