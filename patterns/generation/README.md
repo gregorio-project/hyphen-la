@@ -36,9 +36,11 @@ ius-tus, iūs-tus, iūs-tŭs*; `cæ-lum` → *cæ-lum, cǣ-lum, cæ-lŭm, cǣ-l�
 cae-lum, ca͞e-lum, cae-lŭm, ca͞e-lŭm*. It is crucial to do this after the
 hyphenation.
 
-5. Handle special cases like homographs.
+5. Handle special cases like homographs (still in preparation).
 
-6. Create patterns using patgen.
+6. Create patterns using *patgen*. The shell script `generate-patgen-input.sh`
+generates a list of hyphenated words as needed by *patgen* by means of the word
+list and the script mentioned above.
 
 7. Check the patterns using test files in the
 [tests/nonliturgical](../../tests/nonliturgical) directory. Every error can be
@@ -307,8 +309,7 @@ or *su-ae*).
 
 ### `variatio.lua`
 
-This script creates orthographic variants of an already hyphenated word. The
-input has to follow the same conventions as the output of `divisio.lua`.
+This script creates orthographic variants of already hyphenated words.
 
 #### Usage
 	lua5.3 variatio.lua [options] [< inputfile] [> outputfile]
@@ -365,3 +366,14 @@ vowels: *a͞e-dī-lĭs*, *la͞u-dăn-dǣ*, *la͞u-dăn-da͞e*.
   and without diacritical marks, e.g. *ci-vi-tas*, *ci-vi-tās*, *ci-vĭ-tas*,
   *ci-vĭ-tās*, *cī-vi-tas*, *cī-vi-tās*, *cī-vĭ-tas*, *cī-vĭ-tās* from input
   `cī-vi-tās`. Expect very long output when using this option!
+
+### `generate-patgen-input.sh`
+
+This script generates a list of hyphenated words as needed by patgen.
+
+#### Usage
+	./generate-patgen-input
+
+The generated file is named `patgen_input_classical`. Use this as *dictionary
+file* for *patgen*; use the file `patgen_translate_classical` as *translate
+file* for *patgen*.
