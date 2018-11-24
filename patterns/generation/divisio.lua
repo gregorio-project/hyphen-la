@@ -7,9 +7,8 @@ function createSet (list)
 end
 
 -- digraphs with macrons are not needed, as diphthongs are always long
-vowels = createSet{"A","a","Ā","ā","E","e","Ē","ē","I","i","Ī","ī",
-   "O","o","Ō","ō","U","u","Ū","ū","Y","y","Ȳ","ȳ","Æ","æ","Œ",
-   "œ"}
+vowels = createSet{"A","a","Ā","ā","E","e","Ē","ē","I","i","Ī","ī","O","o","Ō",
+   "ō","U","u","Ū","ū","Y","y","Ȳ","ȳ","Æ","æ","Œ","œ"}
 
 digraphs = createSet{"Æ","æ","Œ","œ"}
 
@@ -17,13 +16,12 @@ digraphs = createSet{"Æ","æ","Œ","œ"}
 firstVowelsOfDiphthongs = createSet{"A","a","E","e"}
 
 -- q is intentionally left out here
-consonants = createSet{"B","b","C","c","D","d","F","f","G","g","H",
-   "h","J","j","K","k","L","l","M","m","N","n","P","p","R","r",
-   "S","s","T","t","V","v","W","w","X","x","Z","z"}
+consonants = createSet{"B","b","C","c","D","d","F","f","G","g","H","h","J","j",
+   "K","k","L","l","M","m","N","n","P","p","R","r","S","s","T","t","V","v","W",
+   "w","X","x","Z","z"}
 
 -- stop consonants, called "(litterae) mutae" in Latin
-mutae = createSet{"B","b","P","p","D","d","T","t","G","g","C","c",
-   "K","k"}
+mutae = createSet{"B","b","P","p","D","d","T","t","G","g","C","c","K","k"}
 
 -- the voiceless stop consonants are aspirated when h follows
 voicelessStops = createSet{"P","p","T","t","C","c"}

@@ -1463,7 +1463,7 @@ for line in io.lines() do
          table.insert(outputlist,"mēd") -- accusative/ablative
          table.insert(outputlist,"mēmet") -- accusative/ablative
          table.insert(outputlist,"mēpte") -- accusative/ablative
-         table.insert(outputlist,"mēcum") -- "cum" + ablative
+         table.insert(outputlist,"mē-cum") -- "cum" + ablative
       elseif firstField == "hic" then
          table.insert(outputlist,"hic") -- nominative sg.
          table.insert(outputlist,"hæc") -- nominative sg./nom./acc. pl.
@@ -1566,6 +1566,13 @@ for line in io.lines() do
          table.insert(outputlist,"meāpte") -- ablative sg.
          table.insert(outputlist,"meāmet") -- ablative sg.
          table.insert(outputlist,"mīs") -- dative pl.
+      elseif firstField == "nēmō" then
+         table.insert(outputlist,"nēmō") -- nominative sg.
+         table.insert(outputlist,"nēmo") -- nominative sg.
+         table.insert(outputlist,"nēminis") -- genitive sg.
+         table.insert(outputlist,"nēminī") -- dative sg.
+         table.insert(outputlist,"nēminem") -- accusative sg.
+         table.insert(outputlist,"nēmine") -- ablative sg.
       elseif firstField == "ne-uter" then
          attachEndings("ne-",pronounForms_uter_utra_utrum)
       elseif firstField == "nōs" then
@@ -1578,12 +1585,14 @@ for line in io.lines() do
       elseif firstField == "noster" then
          attachEndings("nost",adjectiveEndings_er_ra_rum)
          table.insert(outputlist,"nostrāpte") -- ablative sg.
+      elseif firstField == "nūllus" then
+         attachEndings("nūll",pronominalAdjectiveEndings)
       elseif firstField == "quī" then
          attachEndings("",pronounForms_qui_quae_quod)
          table.insert(outputlist,"qua") -- variant of "quæ" when used as indefinite pronoun
-         table.insert(outputlist,"quōcum") -- "cum" + ablative
-         table.insert(outputlist,"quācum") -- "cum" + ablative
-         table.insert(outputlist,"quīcum") -- "cum" + (old) ablative
+         table.insert(outputlist,"quō-cum") -- "cum" + ablative
+         table.insert(outputlist,"quā-cum") -- "cum" + ablative
+         table.insert(outputlist,"quī-cum") -- "cum" + (old) ablative
          table.insert(outputlist,"quibus-cum") -- "cum" + ablative
       elseif firstField == "quī-cum-que" then
          attachEndingsEnclitic("",pronounForms_qui_quae_quod,"cum-que")
@@ -1608,7 +1617,7 @@ for line in io.lines() do
          table.insert(outputlist,"quid-libet")
       elseif firstField == "quis" then
          attachEndings("",pronounForms_quis_quid)
-         table.insert(outputlist,"quōcum") -- "cum" + ablative
+         table.insert(outputlist,"quō-cum") -- "cum" + ablative
       elseif firstField == "quis-piam" then
          attachEndingsEnclitic("",pronounForms_qui_quae_quod,"piam")
          table.insert(outputlist,"quis-piam")
@@ -1639,7 +1648,7 @@ for line in io.lines() do
          table.insert(outputlist,"sēsē") -- accusative/ablative
          table.insert(outputlist,"sēmet") -- accusative/ablative
          table.insert(outputlist,"sēpse") -- accusative/ablative
-         table.insert(outputlist,"sēcum") -- "cum" + ablative
+         table.insert(outputlist,"sē-cum") -- "cum" + ablative
       elseif firstField == "suus" then
          attachEndings("su",adjectiveEndings_us_a_um)
          table.insert(outputlist,"su|amet") -- nominative sg./accusative pl.
@@ -1666,7 +1675,7 @@ for line in io.lines() do
          table.insert(outputlist,"tē") -- accusative/ablative
          table.insert(outputlist,"tēmet") -- accusative/ablative
          table.insert(outputlist,"tēte") -- accusative/ablative
-         table.insert(outputlist,"tēcum") -- "cum" + ablative
+         table.insert(outputlist,"tē-cum") -- "cum" + ablative
       elseif firstField == "tuus" then
          attachEndings("tu",adjectiveEndings_us_a_um_withoutVocative)
          table.insert(outputlist,"tuīpte") -- genitive sg.
