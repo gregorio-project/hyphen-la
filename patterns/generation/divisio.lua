@@ -50,13 +50,13 @@ function classicalHyphenation(word)
          elseif c == "S" or c == "s" then
             output = output..c
             state = "potential su at beginning"
-         elseif firstVowelsOfDiphthongs[c] == true then
+         elseif firstVowelsOfDiphthongs[c] then
             output = output..c
             state = "potential diphthong"
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             output = output..c
             state = "vowel"
-         elseif consonants[c] == true then
+         elseif consonants[c] then
             output = output..c
             -- the state stays the same
          else
@@ -70,13 +70,13 @@ function classicalHyphenation(word)
          elseif c == "Q" or c == "q" then
             output = output..c
             state = "potential qu"
-         elseif firstVowelsOfDiphthongs[c] == true then
+         elseif firstVowelsOfDiphthongs[c] then
             output = output..c
             state = "potential diphthong"
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             output = output..c
             state = "vowel"
-         elseif consonants[c] == true then
+         elseif consonants[c] then
             output = output..c
             state = "beginning"
          else
@@ -87,10 +87,10 @@ function classicalHyphenation(word)
          if c == "U" or c == "u" then
             output = output..c
             state = "vowel"
-         elseif firstVowelsOfDiphthongs[c] == true then
+         elseif firstVowelsOfDiphthongs[c] then
             output = output.."-"..c
             -- the state stays the same
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             output = output.."-"..c
             state = "vowel"
          elseif c == "Q" or c == "q" then
@@ -105,13 +105,13 @@ function classicalHyphenation(word)
          elseif c == "R" or c == "r" then
             store = c
             state = "potential rh"
-         elseif voicelessStops[c] == true then
+         elseif voicelessStops[c] then
             store = c
             state = "potential aspirate"
-         elseif mutae[c] == true then
+         elseif mutae[c] then
             store = c
             state = "potential muta cum liquida"
-         elseif consonants[c] == true then
+         elseif consonants[c] then
             store = c
             state = "consonant"
          elseif c == "|" then -- divide diphthong
@@ -138,22 +138,22 @@ function classicalHyphenation(word)
          elseif c == "N" or c == "n" then
             store = c
             state = "potential ng"
-         elseif firstVowelsOfDiphthongs[c] == true then
+         elseif firstVowelsOfDiphthongs[c] then
             output = output.."-"..c
             state = "potential diphthong"
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             output = output.."-"..c
             -- the state stays the same
          elseif c == "R" or c == "r" then
             store = c
             state = "potential rh"
-         elseif voicelessStops[c] == true then
+         elseif voicelessStops[c] then
             store = c
             state = "potential aspirate"
-         elseif mutae[c] == true then
+         elseif mutae[c] then
             store = c
             state = "potential muta cum liquida"
-         elseif consonants[c] == true then
+         elseif consonants[c] then
             store = c
             state = "consonant"
          elseif c == "^" then -- extraordinary hyphenation point for Greek words
@@ -189,11 +189,11 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             -- the state stays the same
-         elseif firstVowelsOfDiphthongs[c] == true then
+         elseif firstVowelsOfDiphthongs[c] then
             output = output.."-"..store..c
             store = ""
             state = "potential diphthong"
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             output = output.."-"..store..c
             store = ""
             state = "vowel"
@@ -201,15 +201,15 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             state = "potential rh"
-         elseif voicelessStops[c] == true then
+         elseif voicelessStops[c] then
             output = output..store
             store = c
             state = "potential aspirate"
-         elseif mutae[c] == true then
+         elseif mutae[c] then
             output = output..store
             store = c
             state = "potential muta cum liquida"
-         elseif consonants[c] == true then
+         elseif consonants[c] then
             output = output..store
             store = c
             state = "consonant"
@@ -228,10 +228,10 @@ function classicalHyphenation(word)
          end
       -- read qu; vowel has to follow
       elseif state == "qu" then
-         if firstVowelsOfDiphthongs[c] == true then
+         if firstVowelsOfDiphthongs[c] then
             output = output..c
             state = "potential diphthong"
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             output = output..c
             state = "vowel"
          else
@@ -250,11 +250,11 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             state = "potential su"
-         elseif firstVowelsOfDiphthongs[c] == true then
+         elseif firstVowelsOfDiphthongs[c] then
             output = output.."-"..store..c
             store = ""
             state = "potential diphthong"
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             output = output.."-"..store..c
             store = ""
             state = "vowel"
@@ -262,15 +262,15 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             -- the state stays the same
-         elseif voicelessStops[c] == true then
+         elseif voicelessStops[c] then
             output = output..store
             store = c
             state = "potential aspirate"
-         elseif mutae[c] == true then
+         elseif mutae[c] then
             output = output..store
             store = c
             state = "potential muta cum liquida"
-         elseif consonants[c] == true then
+         elseif consonants[c] then
             output = output..store
             store = c
             state = "consonant"
@@ -286,7 +286,7 @@ function classicalHyphenation(word)
          if c == "H" or c == "h" then
             store = store..c
             state = "potential muta cum liquida"
-         elseif liquidae[c] == true then
+         elseif liquidae[c] then
             output = output.."-"..store..c
             store = ""
             state = "muta cum liquida"
@@ -298,23 +298,23 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             state = "potential su"
-         elseif firstVowelsOfDiphthongs[c] == true then
+         elseif firstVowelsOfDiphthongs[c] then
             output = output.."-"..store..c
             store = ""
             state = "potential diphthong"
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             output = output.."-"..store..c
             store = ""
             state = "vowel"
-         elseif voicelessStops[c] == true then
+         elseif voicelessStops[c] then
             output = output..store
             store = c
             -- the state stays the same
-         elseif mutae[c] == true then
+         elseif mutae[c] then
             output = output..store
             store = c
             state = "potential muta cum liquida"
-         elseif consonants[c] == true then
+         elseif consonants[c] then
             output = output..store
             store = c
             state = "consonant"
@@ -327,7 +327,7 @@ function classicalHyphenation(word)
          end
       -- read muta; liquida may follow
       elseif state == "potential muta cum liquida" then
-         if liquidae[c] == true then
+         if liquidae[c] then
             output = output.."-"..store..c
             store = ""
             state = "muta cum liquida"
@@ -339,23 +339,23 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             state = "potential su"
-         elseif firstVowelsOfDiphthongs[c] == true then
+         elseif firstVowelsOfDiphthongs[c] then
             output = output.."-"..store..c
             store = ""
             state = "potential diphthong"
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             output = output.."-"..store..c
             store = ""
             state = "vowel"
-         elseif voicelessStops[c] == true then
+         elseif voicelessStops[c] then
             output = output..store
             store = c
             state = "potential aspirate"
-         elseif mutae[c] == true then
+         elseif mutae[c] then
             output = output..store
             store = c
             -- the state stays the same
-         elseif consonants[c] == true then
+         elseif consonants[c] then
             output = output..store
             store = c
             state = "consonant"
@@ -368,10 +368,10 @@ function classicalHyphenation(word)
          end
       -- read muta cum liquida
       elseif state == "muta cum liquida" then
-         if firstVowelsOfDiphthongs[c] == true then
+         if firstVowelsOfDiphthongs[c] then
             output = output..c
             state = "potential diphthong"
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             output = output..c
             state = "vowel"
          else
@@ -384,11 +384,11 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             state = "potential ngu"
-         elseif firstVowelsOfDiphthongs[c] == true then
+         elseif firstVowelsOfDiphthongs[c] then
             output = output.."-"..store..c
             store = ""
             state = "potential diphthong"
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             output = output.."-"..store..c
             store = ""
             state = "vowel"
@@ -404,15 +404,15 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             state = "potential rh"
-         elseif voicelessStops[c] == true then
+         elseif voicelessStops[c] then
             output = output..store
             store = c
             state = "potential aspirate"
-         elseif mutae[c] == true then
+         elseif mutae[c] then
             output = output..store
             store = c
             state = "potential muta cum liquida"
-         elseif consonants[c] == true then
+         elseif consonants[c] then
             output = output..store
             store = c
             state = "consonant"
@@ -429,15 +429,15 @@ function classicalHyphenation(word)
             output = output.."-"..store..c
             store = ""
             state = "potential nonsyllabic u"
-         elseif firstVowelsOfDiphthongs[c] == true then
+         elseif firstVowelsOfDiphthongs[c] then
             output = output.."-"..store..c
             store = ""
             state = "potential diphthong"
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             output = output.."-"..store..c
             store = ""
             state = "vowel"
-         elseif liquidae[c] == true then
+         elseif liquidae[c] then
             output = output.."-"..store..c
             store = ""
             state = "muta cum liquida"
@@ -450,7 +450,7 @@ function classicalHyphenation(word)
          end
       -- read "ngu" or "su"; vowel may follow and lead to a nonsyllabic u
       elseif state == "potential nonsyllabic u" then
-         if vowels[c] == true then
+         if vowels[c] then
             output = output..c
             state = "vowel"
          elseif c == "Q" or c == "q" then
@@ -465,13 +465,13 @@ function classicalHyphenation(word)
          elseif c == "R" or c == "r" then
             store = c
             state = "potential rh"
-         elseif voicelessStops[c] == true then
+         elseif voicelessStops[c] then
             store = c
             state = "potential aspirate"
-         elseif mutae[c] == true then
+         elseif mutae[c] then
             store = c
             state = "potential muta cum liquida"
-         elseif consonants[c] == true then
+         elseif consonants[c] then
             store = c
             state = "consonant"
          elseif c == "^" then -- extraordinary hyphenation point for Greek words
@@ -497,11 +497,11 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             state = "potential su"
-         elseif firstVowelsOfDiphthongs[c] == true then
+         elseif firstVowelsOfDiphthongs[c] then
             output = output.."-"..store..c
             store = ""
             state = "potential diphthong"
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             output = output.."-"..store..c
             store = ""
             state = "vowel"
@@ -509,15 +509,15 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             state = "potential rh"
-         elseif voicelessStops[c] == true then
+         elseif voicelessStops[c] then
             output = output..store
             store = c
             state = "potential aspirate"
-         elseif mutae[c] == true then
+         elseif mutae[c] then
             output = output..store
             store = c
             state = "potential muta cum liquida"
-         elseif consonants[c] == true then
+         elseif consonants[c] then
             output = output..store
             store = c
             -- the state stays the same
@@ -568,14 +568,14 @@ function removeUnwantedHyphens(input)
    local store = ""
    local output = ""
 
-   for i, code in utf8.codes(input) do
+   for _, code in utf8.codes(input) do
       local c = utf8.char(code)
 
       if state == "beginning" then
-         if digraphs[c] == true then
+         if digraphs[c] then
             output = output..c
             state = "digraph at beginning"
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             output = output..c
             state = "vowel at beginning"
          else
@@ -591,10 +591,10 @@ function removeUnwantedHyphens(input)
          end
       elseif state == "vowel at beginning" then
          if c == "-" then
-            -- suppress hyphen
+            output = output.."."
             state = "normal"
          elseif c == "=" then
-            -- suppress hyphen
+            output = output.."."
             state = "beginning"
          else
             output = output..c
@@ -606,7 +606,7 @@ function removeUnwantedHyphens(input)
             state = "beginning"
          elseif c == "-" then
             state = "hyphen after vowel"
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             output = output..c
             -- the state stays the same
          else
@@ -622,7 +622,7 @@ function removeUnwantedHyphens(input)
             output = output.."·"..store
             store = ""
             state = "hyphen after vowel"
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             output = output.."-"..store..c
             store = ""
             state = "vowel"
@@ -640,7 +640,7 @@ function removeUnwantedHyphens(input)
             output = output..store
             store = ""
             state = "hyphen after vowel"
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             output = output.."-"..store..c
             store = ""
             state = "vowel"
@@ -650,7 +650,7 @@ function removeUnwantedHyphens(input)
             state = "normal"
          end
       elseif state == "hyphen after digraph at beginning" then
-         if vowels[c] == true then
+         if vowels[c] then
             output = output..c
             state = "vowel"
          else
@@ -658,17 +658,17 @@ function removeUnwantedHyphens(input)
             state = "normal"
          end
       elseif state == "hyphen after vowel" then
-         if digraphs[c] == true then
+         if digraphs[c] then
             if suppressHiatus then
-               output = output..c
+               output = output.."."..c
                state = "vowel"
             else
                store = c
                state = "potential single digraph"
             end
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             if suppressHiatus then
-               output = output..c
+               output = output.."."..c
                state = "vowel"
             else
                store = c
@@ -682,7 +682,7 @@ function removeUnwantedHyphens(input)
          if c == "=" then
             output = output.."-"
             state = "beginning"
-         elseif vowels[c] == true then
+         elseif vowels[c] then
             output = output..c
             state = "vowel"
          else

@@ -40,7 +40,7 @@ hyphenation.
 
 6. Create patterns using *patgen*. The shell script `generate-patgen-input.sh`
 generates a list of hyphenated words as needed by *patgen* by means of the word
-list and the script mentioned above.
+list and the scripts mentioned above.
 
 7. Check the patterns using test files in the
 [tests/nonliturgical](../../tests/nonliturgical) directory. Every error can be
@@ -258,12 +258,13 @@ The input may contain the following characters:
 - digraphs: `Æ` (U+C6), `æ` (U+E6), `Œ` (U+152), `œ` (U+153)
 - auxiliary symbols as described below: `-`, `|`, and `^`
 
-Hyphenation points are marked by hyphens in the output. Sometimes, the output
-may also contain a middle dot `·` (U+B7), which marks a hyphenation point that
-is illegal as long as digraphs are used, but becomes legal when the digraphs
-are replaced by *ae* and *oe*: `æ·di-fi-cā-re` (*ædi-fi-cā-re* or
-*ae-di-fi-cā-re*), `ob-œ·dī-re` (*ob-œdī-re* or *ob-oe-dī-re*), `su·æ` (*suæ*
-or *su-ae*).
+The output will contain three types of syllable boundary markers:
+- a hyphen `-` for a regular hyphenation point
+- a middle dot `·` (U+B7) for a hyphenation point that is illegal as long as
+  digraphs are used, but becomes legal when the digraphs are replaced by *ae*
+  and *oe*: `æ·di-fi-cā-re` (*ædi-fi-cā-re* or *ae-di-fi-cā-re*), `ob-œ·dī-re`
+  (*ob-œdī-re* or *ob-oe-dī-re*), `su·æ` (*suæ* or *su-ae*)
+- a baseline dot `.` for a syllable boundary that is not a hyphenation point
 
 #### Options
 - `--chant` – hyphenate even single vowel syllables as needed for chant:
@@ -273,8 +274,9 @@ or *su-ae*).
   are not in accordance with the Latin rules have to be marked with `^` in the
   input: `sce^ptrum` → `sce-ptrum`, `rhy^thmus` → `rhy-thmus`; the `^`
   character is ignored if this option is not used.
-- `--suppress-hiatus` – never divide consecutive vowels within a word: `suus` →
-  `suus`, `voluit` → `vo-luit`, `me|us` → `meus`; but `dē-esse` → `dē-es-se`
+- `--suppress-hiatus` – never divide consecutive vowels within a word: `su|us`
+  → `su.us`, `voluit` → `vo-lu.it`, `me|us` → `me.us`; but `dē-esse` →
+  `dē-es-se`
 - `--trace-states` – debug option
 
 #### Hyphenation rules used
@@ -301,11 +303,11 @@ or *su-ae*).
   required if *u* is a vowel after *ng* or *s* before another vowel: `langu|it`
   → `lan-gu-it`, `langu|ērunt` → `lan-gu-ērunt`.
 - Single vowel syllables at the beginning or the end of a word are not
-  separated: `odium` → `odi-um`, `luō` → `luō`. A single vowel syllable within
-  a word is not separated from the preceding syllable: `speciōsus` →
-  `spe-ciō-sus`, `tuērī` → `tuē-rī`. An auxiliary hyphen may be required
-  because of the morphology of the word: `in-itium` → `in-iti-um`, `ob-œdīre` →
-  `ob-œ·dī-re`. This rule is ignored when using the `--chant` option.
+  separated: `odium` → `o.di-um`, `luō` → `lu.ō`. A single vowel syllable
+  within a word is not separated from the preceding syllable: `speciōsus` →
+  `spe-ci.ō-sus`, `tuērī` → `tu.ē-rī`. An auxiliary hyphen may be required
+  because of the morphology of the word: `in-itium` → `in-i.ti-um`, `ob-œdīre`
+  → `ob-œ·dī-re`. This rule is ignored when using the `--chant` option.
 
 ### `variatio.lua`
 
@@ -332,28 +334,38 @@ digraphs: `æ·dī-lis` → *ædī-lis*, *ae-dī-lis*; `cœ-tus` → *cœ-tus*, 
 
 Orthogonally to this, the following variants are created:
 1. A variant without diacritical marks: *ci-vi-tas*, *ædi-lis*, *ae-di-lis*,
-*lau-dan-dæ*, *lau-dan-dae*, *Um-bria*.
-2. For words containing long single vowels: A variant with macrons on all long
-single vowels: *cī-vi-tās*, *ædī-lis*, *ae-dī-lis*, *Ūra-nia*, *V̄ra-nia*. As
-the Unicode Standard does not provide a macron variant of `V`, the *combining
-macron* (U+304) us used where `V` represents a long vowel.
-3. For words containing digraphs: A variant with macrons on all long single
-vowels and digraphs: *ǣdī-lis*, *lau-dan-dǣ*. The Unicode Standard provides
-macron variants only for `Æ` and `æ` (U+1E2 and U+1E3). The *combining macron*
-(U+304) us used for `Œ` and `œ`.
-4. For words containing diphthongs: A variant with macrons on all long single
-vowels, digraphs and diphthongs: *a͞e-dī-lis*, *la͞u-dan-dǣ*, *la͞u-dan-da͞e*. The
-*combining double macron* (U+35E) is used for diphthongs.
-5. For words containing short vowels: A variant with macrons on all long single
+*lau-dan-dæ*, *lau-dan-dae*, *ob-œdi-re*, *ob-oe-di-re*, *Um-bria*.
+2. For words containing diphthongs: A variant with ties on all diphthongs:
+*a͡e-di-lis*, *la͡u-dan-dæ*, *la͡u-dan-da͡e*, ob-o͡e-di-re. The *combining double
+inverted breve* (U+361) is used.
+3. For words containing long single vowels: A variant with macrons on all long
+single vowels: *cī-vi-tās*, *ædī-lis*, *ae-dī-lis*, *ob-œdī-re*, *ob-oe-dī-re*,
+*Ūra-nia*, *V̄ra-nia*. As the Unicode Standard does not provide a macron variant
+of `V`, the *combining macron* (U+304) us used where `V` represents a long
+vowel.
+4. For words containing long single vowels and diphthongs: A variant with
+macrons on all long single vowels and ties on all diphthongs: *a͡e-dī-lis*,
+*ob-o͡e-dī-re*.
+5. For words containing digraphs: A variant with macrons on all long single
+vowels and digraphs: *ǣdī-lis*, *lau-dan-dǣ*, *ob-œ̄dī-re*. The Unicode Standard
+provides macron variants only for `Æ` and `æ` (U+1E2 and U+1E3). The *combining
+macron* (U+304) us used for `Œ` and `œ`.
+6. For words containing diphthongs: A variant with macrons on all long single
+vowels, digraphs and diphthongs: *a͞e-dī-lis*, *la͞u-dan-dǣ*, *la͞u-dan-da͞e*,
+*ob-o͞e-dī-re*. The *combining double macron* (U+35E) is used for diphthongs.
+7. For words containing short vowels: A variant with macrons on all long single
 vowels and with breves on all short vowels: *cī-vĭ-tās*, *ædī-lĭs*,
-*ae-dī-lĭs*, *Ūră-nĭă*, *V̄ră-nĭă*, *Ŭm-brĭă*, *V̆m-brĭă*. The *combining breve*
-(U+306) is used for `V`, `Y`, and `y`.
-6. For words containing short vowels and digraphs: A variant with macrons on
+*ae-dī-lĭs*, *ŏb-œdī-rĕ*, *ŏb-oe-dī-rĕ*, *Ūră-nĭă*, *V̄ră-nĭă*, *Ŭm-brĭă*,
+*V̆m-brĭă*. The *combining breve* (U+306) is used for `V`, `Y`, and `y`.
+8. For words containing short vowels and diphthongs: A variant with macrons on
+all long single vowels, with breves on all short vowels, and with ties on all
+diphthongs: *a͡e-dī-lĭs*, *la͡u-dăn-dæ*, *la͡u-dăn-da͡e*, *ŏb-o͡e-dī-rĕ*.
+9. For words containing short vowels and digraphs: A variant with macrons on
 all long single vowels and digraphs and with breves on short vowels: *ǣdī-lĭs*,
-*lau-dăn-dǣ*.
-7. For words containing short vowels and diphthongs: A variant with macrons on
+*lau-dăn-dǣ*, *ŏb-œ̄dī-rĕ*.
+10. For words containing short vowels and diphthongs: A variant with macrons on
 all long single vowels, digraphs, and diphthongs and with breves on short
-vowels: *a͞e-dī-lĭs*, *la͞u-dăn-dǣ*, *la͞u-dăn-da͞e*.
+vowels: *a͞e-dī-lĭs*, *la͞u-dăn-dǣ*, *la͞u-dăn-da͞e*, *ŏb-o͞e-dī-rĕ*.
 
 #### Options
 - `--no-j` – suppress all orthographic variants containing *J* or *j*.
@@ -362,6 +374,7 @@ vowels: *a͞e-dī-lĭs*, *la͞u-dăn-dǣ*, *la͞u-dăn-da͞e*.
   *Œ*, or *œ*.
 - `--no-macrons` – suppress all orthographic variants containing macrons.
 - `--no-breves` – suppress all orthographic variants containing breves.
+- `--no-ties` – suppress all orthographic variants containing ties.
 - `--mixed` – generate variants with all possible combinations of vowels with
   and without diacritical marks, e.g. *ci-vi-tas*, *ci-vi-tās*, *ci-vĭ-tas*,
   *ci-vĭ-tās*, *cī-vi-tas*, *cī-vi-tās*, *cī-vĭ-tas*, *cī-vĭ-tās* from input
@@ -369,7 +382,7 @@ vowels: *a͞e-dī-lĭs*, *la͞u-dăn-dǣ*, *la͞u-dăn-da͞e*.
 
 ### `generate-patgen-input.sh`
 
-This script generates a list of hyphenated words as needed by patgen.
+This script generates a list of hyphenated words as needed by *patgen*.
 
 #### Usage
 	./generate-patgen-input
