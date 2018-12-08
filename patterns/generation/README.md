@@ -326,7 +326,7 @@ If no options are given, the following orthographic variants are generated.
 Some of them may be suppressed by options as explained below.
 
 1. A variant with *j* and a variant with *i* for words containing *j*:
-`jē-jū-nium` → *jē-jū-nium*, *iē-iū-nium*.
+`jē-jū-ni.um` → *jē-jū-nium*, *iē-iū-nium*.
 2. A variant with *U/v* and a variant with *V/u* for words containing *U/v*:
 `vī-vō` → *vī-vō*, *uī-uō*; `Ūra-nia` → *Ūra-nia*, *V̄ra-nia*.
 3. A variant with *æ/œ* and a variant with *ae/oe* for words containing
@@ -385,8 +385,20 @@ vowels: *a͞e-dī-lĭs*, *la͞u-dăn-dǣ*, *la͞u-dăn-da͞e*, *ŏb-o͞e-dī-rĕ
 This script generates a list of hyphenated words as needed by *patgen*.
 
 #### Usage
-	./generate-patgen-input
+	./generate-patgen-input.sh
 
 The generated file is named `patgen_input_classical`. Use this as *dictionary
-file* for *patgen*; use the file `patgen_translate_classical` as *translate
 file* for *patgen*.
+
+### `generate-patterns.sh`
+
+This script generates hyphenation patterns for classical Latin by means of
+*patgen*.
+
+#### Usage
+	./generate-patterns.sh
+
+The script invokes the `generate-patgen-input` script first. It then runs
+*patgen* four times using `patgen_translate_classical` as *translate file* and
+writes the resulting patterns to the files `patterns_classical.[1-4]`. The
+*patgen* log data is written to `patterns_classical.log`.

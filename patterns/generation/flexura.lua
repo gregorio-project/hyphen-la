@@ -626,10 +626,10 @@ function generateComparativeAndSuperlative2(adjective)
    if string.len(adjective) > 4 and endsIn(adjective,"is") then
       root = string.sub(adjective,1,-3)
       if vowels[string.sub(root,-1)] and string.sub(root,-2) ~= "qu" and string.sub(root,-3) ~= "ngu" then
-      	attachEndings(root,adjectiveEndings_jor_jus) -- comparative (e.g. "tenujor")
-		else
-      	attachEndings(root,adjectiveEndings_ior_ius) -- comparative
-		end
+         attachEndings(root,adjectiveEndings_jor_jus) -- comparative (e.g. "tenujor")
+      else
+         attachEndings(root,adjectiveEndings_ior_ius) -- comparative
+      end
       if adjectivesSuperlative_limus[adjective] then
          attachEndings(root.."lim",adjectiveEndings_us_a_um) -- superlative
          generateAdverb3(root.."limus") -- adverb of superlative
@@ -1531,11 +1531,11 @@ for line in io.lines() do
          addForm("hanc") -- accusative sg.
          addForm("hōc") -- ablative sg.
          addForm("hāc") -- ablative sg.
-			addForm("hīc") -- locative
-			addForm("heic") -- locative
-			addForm("hīce") -- locative
-			addForm("hinc") -- adverb
-			addForm("hūc") -- adverb
+         addForm("hīc") -- locative
+         addForm("heic") -- locative
+         addForm("hīce") -- locative
+         addForm("hinc") -- adverb
+         addForm("hūc") -- adverb
          addForm("hī") -- nominative pl.
          addForm("hæ") -- nominative pl.
          addForm("hōrum") -- genitive pl.
