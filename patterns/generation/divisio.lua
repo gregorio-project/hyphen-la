@@ -29,6 +29,10 @@ voicelessStops = createSet{"P","p","T","t","C","c"}
 -- liquid consonants, called "(litterae) liquidae" in Latin
 liquidae = createSet{"L","l","R","r"}
 
+function addHyphenation(hyphenatedWord)
+   print(hyphenatedWord)
+end
+
 function invalidWord(word)
    error('Invalid word "'..word..'" in line '..linecount)
 end
@@ -742,5 +746,5 @@ for word in io.lines() do
       hyphenatedWord = removeUnwantedHyphens(hyphenatedWord)
    end
 
-   print(hyphenatedWord)
+   addHyphenation(hyphenatedWord)
 end
