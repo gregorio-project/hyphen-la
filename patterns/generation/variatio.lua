@@ -1,3 +1,5 @@
+logFile = assert(io.open("variatio.log","w"))
+
 function createSet (list)
    local set = {}
    for _, l in ipairs(list) do
@@ -6,13 +8,59 @@ function createSet (list)
    return set
 end
 
+combiningAcute = utf8.char(769)
+combiningMacron = utf8.char(772)
+combiningTie = utf8.char(865)
+combiningDoubleMacron = utf8.char(862)
+
 -- digraphs with macrons are not needed, as diphthongs are always long
 vowels = createSet{"A","a","Ā","ā","E","e","Ē","ē","I","i","Ī","ī","O","o","Ō",
    "ō","U","u","Ū","ū","Y","y","Ȳ","ȳ","Æ","æ","Œ","œ"}
 
 longVowels = createSet{"Ā","ā","Ē","ē","Ī","ī","Ō","ō","Ū","ū","Ȳ","ȳ"}
 
-shortVowels = createSet{"A","a","E","e","I","i","O","o","U","u","Y","y"}
+shortVowels = createSet{"A","a","E","e","I","i","O","o","U","u","Y","y","Á","á","É","é","Í","í","Ó","ó","Ú","ú","Ý","ý"}
+
+-- q is intentionally left out here
+lowercaseConsonants = createSet{"b","c","d","f","g","h","j","k","l","m","n","p","r","s","t","v","w","x","z"}
+
+-- list of all hyphenated and variated word forms
+outputlist = {}
+
+function addOutputForm(word)
+   local key = string.gsub(word,"-","")
+   if outputlist[key] == nil then
+      outputlist[key] = word
+   elseif outputlist[key] ~= word then
+      local synthesis = ""
+      local offset = 0
+      local rejected1 = ""
+      local rejected2 = ""
+      local index = 1
+      while index <= string.len(outputlist[key]) do
+         local c1 = string.sub(outputlist[key],index,index)
+         local c2 = string.sub(word,index+offset,index+offset)
+         if c1 == c2 then
+            synthesis = synthesis..c1
+            if c1 ~= "-" and c1 ~= "." then
+               rejected1 = rejected1..c1
+               rejected2 = rejected2..c1
+            end
+         elseif c1 == "-" then
+            offset = offset-1
+            rejected1 = rejected1..c1
+         elseif c2 == "-" then
+            offset = offset+1
+            rejected2 = rejected2..c2
+            index = index-1
+         end
+         index = index+1
+      end
+      logFile:write("rejected hyphenation: "..rejected1.."\n")
+      logFile:write("rejected hyphenation: "..rejected2.."\n")
+      outputlist[key] = synthesis
+   end
+end
 
 function contains_j(word)
    if string.find(word,"j") or string.find(word,"J") then
@@ -48,6 +96,121 @@ function containsDiphthong(word)
    end
 end
 
+function hasMoreThanOneSyllable(word)
+   if string.find(word,"[.·-]") then
+      return true
+   else
+      return false
+   end
+end
+
+function lastSyllableBoundary(word)
+   local index
+   for i, code in utf8.codes(word) do
+      local c = utf8.char(code)
+      if c == "-" or c == "·" or c == "." then
+         index = i
+      end
+   end
+   return index
+end
+
+function addAccent(word)
+   local i = lastSyllableBoundary(word)
+   if string.find(string.sub(word,1,i-1),"[.·-]") then
+      local j = lastSyllableBoundary(string.sub(word,1,i-1))
+      if string.sub(word,i,i+1) == "·" then
+         beginUltima = i+2
+      else
+         beginUltima = i+1
+      end
+      if string.sub(word,j,j+1) == "·" then
+         beginPaenultima = j+2
+      else
+         beginPaenultima = j+1
+      end
+      endPaenultima = i-1
+      local paenultima = string.sub(word,beginPaenultima,endPaenultima)
+      local c = string.sub(word,beginUltima,beginUltima)
+      if containsLongVowel(paenultima) or containsDigraph(paenultima)
+      or containsDiphthong(paenultima)
+      or lowercaseConsonants[lastCharacter(paenultima)]
+      or c == "j" or c == "x" or c == "z" then
+         beginAccentedSyllable = beginPaenultima
+         endAccentedSyllable = endPaenultima
+      else
+         if string.find(string.sub(word,1,j-1),"[.·-]") then
+            local k = lastSyllableBoundary(string.sub(word,1,j-1))
+            if string.sub(word,k,k+1) == "·" then
+               beginAccentedSyllable = k+2
+            else
+               beginAccentedSyllable = k+1
+            end
+         else
+            beginAccentedSyllable = 1
+         end
+         endAccentedSyllable = j-1
+      end
+   else
+      beginAccentedSyllable = 1
+      endAccentedSyllable = i-1
+   end
+   local output
+   if beginAccentedSyllable > 1 then
+      output = string.sub(word,1,beginAccentedSyllable-1)
+   else
+      output = ""
+   end
+   local accentedSyllable = string.sub(word,beginAccentedSyllable,endAccentedSyllable)
+   while string.len(accentedSyllable) > 0 do
+      local c, tail = splitHead(accentedSyllable)
+      if c == "A" then
+         output = output.."Á"
+      elseif c == "a" then
+         output = output.."á"
+      elseif c == "E" then
+         output = output.."É"
+      elseif c == "e" then
+         output = output.."é"
+      elseif c == "I" then
+         output = output.."Í"
+      elseif c == "i" then
+         output = output.."í"
+      elseif c == "O" then
+         output = output.."Ó"
+      elseif c == "o" then
+         output = output.."ó"
+      elseif c == "U" then
+         output = output.."Ú"
+      elseif c == "u" then
+         output = output.."ú"
+      elseif c == "Y" then
+         output = output.."Ý"
+      elseif c == "y" then
+         output = output.."ý"
+      elseif c == "Æ" then
+         output = output.."Ǽ"
+      elseif c == "æ" then
+         output = output.."ǽ"
+      elseif c == "Au" then
+         output = output.."Áu"
+      elseif c == "au" then
+         output = output.."áu"
+      elseif c == "Eu" then
+         output = output.."Éu"
+      elseif c == "eu" then
+         output = output.."éu"
+      elseif c == "Œ" or c == "œ" or longVowels[c] then
+         output = output..c..combiningAcute
+      else
+         output = output..c
+      end
+      accentedSyllable = tail
+   end
+   output = output..string.sub(word,endAccentedSyllable+1)
+   return output
+end
+
 function firstCharacter(word)
    if utf8.len(word) > 1 then
       return string.sub(word,1,utf8.offset(word,2)-1)
@@ -76,30 +239,48 @@ function thirdCharacter(word)
    end
 end
 
+function lastCharacter(word)
+   return string.sub(word,utf8.offset(word,-1))
+end
+
 function splitHead(word)
    local c1 = firstCharacter(word)
    local c2 = secondCharacter(word)
-   local head -- Au, au, Eu, eu, Æ·, æ·, ·æ, Œ·, œ·, ·œ, Qu, qu, gu, Su, su, or a single character
+   local head -- Au, au, Áu, áu, Eu, eu, Éu, éu, Æ·, æ·, ·æ, Ǽ·, ǽ·, ·ǽ, Œ·, œ·, ·œ, Œ́·, œ́·, ·œ́, Qu, qu, gu, Su, su, or a single character
    local tail
 
-   if (c1 == "A" or c1 == "a" or c1 == "E" or c1 == "e") and c2 == "u" then
-      head = c1..c2
-      if string.len(word) > 2 then
-         tail = string.sub(word,3)
-      else
-         tail = ""
-      end
-   elseif utf8.len(word) > 2
-   and (c1 == "Æ" or c1 == "æ" or c1 == "Œ" or c1 == "œ") and c2 == "·" then
-      head = c1..c2
-      tail = string.sub(word,utf8.offset(word,3))
-   elseif c1 == "·" and (c2 == "æ" or c2 == "œ") then
+   if (c1 == "A" or c1 == "a" or c1 == "Á" or c1 == "á" or c1 == "E" or c1 == "e" or c1 == "É" or c1 == "é") and c2 == "u" then
       head = c1..c2
       if utf8.len(word) > 2 then
          tail = string.sub(word,utf8.offset(word,3))
       else
          tail = ""
       end
+   elseif utf8.len(word) > 2
+   and (c1 == "Æ" or c1 == "æ" or c1 == "Ǽ" or c1 == "ǽ" or c1 == "Œ" or c1 == "œ") and c2 == "·" then
+      head = c1..c2
+      tail = string.sub(word,utf8.offset(word,3))
+   elseif utf8.len(word) > 3
+   and (c1 == "Œ" or c1 == "œ") and c2 == combiningAcute and thirdCharacter(word) == "·" then
+      head = c1..c2.."·"
+      tail = string.sub(word,utf8.offset(word,4))
+   elseif c1 == "·" and (c2 == "æ" or c2 == "ǽ" or c2 == "œ") then
+      head = c1..c2
+      if utf8.len(word) > 2 then
+         tail = string.sub(word,utf8.offset(word,3))
+      else
+         tail = ""
+      end
+   elseif utf8.len(word) > 2 and c1 == "·" and c2 == "œ" and thirdCharacter(word) == combiningAcute then
+      head = c1..c2..combiningAcute
+      if utf8.len(word) > 3 then
+         tail = string.sub(word,utf8.offset(word,4))
+      else
+         tail = ""
+      end
+   elseif longVowels[c1] and c2 == combiningAcute then
+      head = c1..c2
+      tail = string.sub(word,utf8.offset(word,3))
    elseif utf8.len(word) > 2 and (c1 == "Q" or c1 == "q") and c2 == "u" then
       head = c1..c2
       tail = string.sub(word,3)
@@ -141,11 +322,17 @@ function containsShortVowel(word)
 end
 
 function insertVariants(list,character,endings)
-   if next(endings) == nil then
-      table.insert(list,character)
-   else
+   if list == outputlist then
       for _, ending in pairs(endings) do
-         table.insert(list,character..ending)
+         addOutputForm(character..ending)
+      end
+   else
+      if next(endings) == nil then
+         table.insert(list,character)
+      else
+         for _, ending in pairs(endings) do
+            table.insert(list,character..ending)
+         end
       end
    end
 end
@@ -160,8 +347,16 @@ function insertDigraphVariants(list,digraph,firstLetter,secondLetter,endingVaria
             insertVariants(list,"Ǣ",endingVariants)
          elseif digraph == "æ" then
             insertVariants(list,"ǣ",endingVariants)
+         elseif digraph == "Ǽ" then
+            insertVariants(list,"Ǣ"..combiningAcute,endingVariants)
+         elseif digraph == "ǽ" then
+            insertVariants(list,"ǣ"..combiningAcute,endingVariants)
+         elseif digraph == "Œ́" then
+            insertVariants(list,"Œ"..combiningMacron..combiningAcute,endingVariants)
+         elseif digraph == "œ́" then
+            insertVariants(list,"œ"..combiningMacron..combiningAcute,endingVariants)
          else
-            insertVariants(list,digraph..utf8.char(772),endingVariants)
+            insertVariants(list,digraph..combiningMacron,endingVariants)
          end
       end
    else
@@ -174,10 +369,34 @@ function insertDiphthongVariants(list,firstLetter,secondLetter,endingVariants,di
       insertVariants(list,firstLetter..secondLetter,endingVariants)
    end
    if diphthongType == "tie" or (mixedDiacritics and createTieVariants) then
-      insertVariants(list,firstLetter..utf8.char(865)..secondLetter,endingVariants)
+      if firstLetter == "Á" then
+         insertVariants(list,"A"..combiningTie..combiningAcute..secondLetter,endingVariants)
+      elseif firstLetter == "á" then
+         insertVariants(list,"a"..combiningTie..combiningAcute..secondLetter,endingVariants)
+      elseif firstLetter == "-á" then
+         insertVariants(list,"-a"..combiningTie..combiningAcute..secondLetter,endingVariants)
+      elseif firstLetter == "Ó" then
+         insertVariants(list,"O"..combiningTie..combiningAcute..secondLetter,endingVariants)
+      elseif firstLetter == "ó" then
+         insertVariants(list,"o"..combiningTie..combiningAcute..secondLetter,endingVariants)
+      elseif firstLetter == "-ó" then
+         insertVariants(list,"-o"..combiningTie..combiningAcute..secondLetter,endingVariants)
+      else
+         insertVariants(list,firstLetter..combiningTie..secondLetter,endingVariants)
+      end
    end
    if diphthongType == "macron" or (mixedDiacritics and createMacronVariants) then
-      insertVariants(list,firstLetter..utf8.char(862)..secondLetter,endingVariants)
+      if firstLetter == "Á" then
+         insertVariants(list,"A"..combiningDoubleMacron..combiningAcute..secondLetter,endingVariants)
+      elseif firstLetter == "á" then
+         insertVariants(list,"a"..combiningDoubleMacron..combiningAcute..secondLetter,endingVariants)
+      elseif firstLetter == "Ó" then
+         insertVariants(list,"O"..combiningDoubleMacron..combiningAcute..secondLetter,endingVariants)
+      elseif firstLetter == "ó" then
+         insertVariants(list,"o"..combiningDoubleMacron..combiningAcute..secondLetter,endingVariants)
+      else
+         insertVariants(list,firstLetter..combiningDoubleMacron..secondLetter,endingVariants)
+      end
    end
 end
 
@@ -186,7 +405,7 @@ function createVariants(list,word,use_j,use_Uv,useDigraphs,useMacrons,useBreves,
       local c, ending = splitHead(word)
       local endingVariants = createVariants({},ending,use_j,use_Uv,useDigraphs,useMacrons,useBreves,digraphType,diphthongType)
 
-      if longVowels[c] then
+      if longVowels[c] or (utf8.len(c) == 2 and longVowels[string.sub(c,1,utf8.offset(c,2)-1)]) then
          -- variant without macron
          if not useMacrons or mixedDiacritics then
             if c == "Ā" then ch = "A"
@@ -201,6 +420,18 @@ function createVariants(list,word,use_j,use_Uv,useDigraphs,useMacrons,useBreves,
             elseif c == "ū" then ch = "u"
             elseif c == "Ȳ" then ch = "Y"
             elseif c == "ȳ" then ch = "y"
+            elseif c == "Ā"..combiningAcute then ch = "Á"
+            elseif c == "ā"..combiningAcute then ch = "á"
+            elseif c == "Ē"..combiningAcute then ch = "É"
+            elseif c == "ē"..combiningAcute then ch = "é"
+            elseif c == "Ī"..combiningAcute then ch = "Í"
+            elseif c == "ī"..combiningAcute then ch = "í"
+            elseif c == "Ō"..combiningAcute then ch = "Ó"
+            elseif c == "ō"..combiningAcute then ch = "ó"
+            elseif c == "Ū"..combiningAcute then if use_Uv then ch = "Ú" else ch = "V́" end
+            elseif c == "ū"..combiningAcute then ch = "ú"
+            elseif c == "Ȳ"..combiningAcute then ch = "Ý"
+            elseif c == "ȳ"..combiningAcute then ch = "ý"
             end
             insertVariants(list,ch,endingVariants)
          end
@@ -213,7 +444,7 @@ function createVariants(list,word,use_j,use_Uv,useDigraphs,useMacrons,useBreves,
             end
             insertVariants(list,ch,endingVariants)
          end
-      elseif shortVowels[c] then
+      elseif shortVowels[c] or (utf8.len(c) == 2 and shortVowels[string.sub(c,1,utf8.offset(c,2)-1)]) then
          -- variant without breve
          if not useBreves or mixedDiacritics then
             if c == "U" and not use_Uv then
@@ -237,6 +468,18 @@ function createVariants(list,word,use_j,use_Uv,useDigraphs,useMacrons,useBreves,
             elseif c == "u" then ch = "ŭ"
             elseif c == "Y" then ch = "Y̆"
             elseif c == "y" then ch = "y̆"
+            elseif c == "Á" then ch = "Ă"..combiningAcute 
+            elseif c == "á" then ch = "ă"..combiningAcute
+            elseif c == "É" then ch = "Ĕ"..combiningAcute
+            elseif c == "é" then ch = "ĕ"..combiningAcute
+            elseif c == "Í" then ch = "Ĭ"..combiningAcute
+            elseif c == "í" then ch = "ĭ"..combiningAcute
+            elseif c == "Ó" then ch = "Ŏ"..combiningAcute
+            elseif c == "ó" then ch = "ŏ"..combiningAcute
+            elseif c == "Ú" then if use_Uv then ch = "Ŭ"..combiningAcute else ch = "V̆"..combiningAcute end
+            elseif c == "ú" then ch = "ŭ"..combiningAcute
+            elseif c == "Ý" then ch = "Y̆"..combiningAcute
+            elseif c == "ý" then ch = "y̆"..combiningAcute
             end
             insertVariants(list,ch,endingVariants)
          end
@@ -244,22 +487,42 @@ function createVariants(list,word,use_j,use_Uv,useDigraphs,useMacrons,useBreves,
          insertDigraphVariants(list,"Æ","A","e",endingVariants,useDigraphs,digraphType,diphthongType)
       elseif c == "æ" then
          insertDigraphVariants(list,"æ","a","e",endingVariants,useDigraphs,digraphType,diphthongType)
+      elseif c == "Ǽ" then
+         insertDigraphVariants(list,"Ǽ","Á","e",endingVariants,useDigraphs,digraphType,diphthongType)
+      elseif c == "ǽ" then
+         insertDigraphVariants(list,"ǽ","á","e",endingVariants,useDigraphs,digraphType,diphthongType)
       elseif c == "Æ·" then
          insertDigraphVariants(list,"Æ","A","e-",endingVariants,useDigraphs,digraphType,diphthongType)
       elseif c == "æ·" then
          insertDigraphVariants(list,"æ","a","e-",endingVariants,useDigraphs,digraphType,diphthongType)
+      elseif c == "Ǽ·" then
+         insertDigraphVariants(list,"Ǽ","Á","e-",endingVariants,useDigraphs,digraphType,diphthongType)
+      elseif c == "ǽ·" then
+         insertDigraphVariants(list,"ǽ","á","e-",endingVariants,useDigraphs,digraphType,diphthongType)
       elseif c == "·æ" then
          insertDigraphVariants(list,"æ","-a","e",endingVariants,useDigraphs,digraphType,diphthongType)
+      elseif c == "·ǽ" then
+         insertDigraphVariants(list,"ǽ","-á","e",endingVariants,useDigraphs,digraphType,diphthongType)
       elseif c == "Œ" then
          insertDigraphVariants(list,"Œ","O","e",endingVariants,useDigraphs,digraphType,diphthongType)
       elseif c == "œ" then
          insertDigraphVariants(list,"œ","o","e",endingVariants,useDigraphs,digraphType,diphthongType)
+      elseif c == "Œ́" then
+         insertDigraphVariants(list,"Œ́","Ó","e",endingVariants,useDigraphs,digraphType,diphthongType)
+      elseif c == "œ́" then
+         insertDigraphVariants(list,"œ́","ó","e",endingVariants,useDigraphs,digraphType,diphthongType)
       elseif c == "Œ·" then
          insertDigraphVariants(list,"Œ","O","e-",endingVariants,useDigraphs,digraphType,diphthongType)
       elseif c == "œ·" then
          insertDigraphVariants(list,"œ","o","e-",endingVariants,useDigraphs,digraphType,diphthongType)
+      elseif c == "Œ́·" then
+         insertDigraphVariants(list,"Œ́","Ó","e-",endingVariants,useDigraphs,digraphType,diphthongType)
+      elseif c == "œ́·" then
+         insertDigraphVariants(list,"œ́","ó","e-",endingVariants,useDigraphs,digraphType,diphthongType)
       elseif c == "·œ" then
          insertDigraphVariants(list,"œ","-o","e",endingVariants,useDigraphs,digraphType,diphthongType)
+      elseif c == "·œ́" then
+         insertDigraphVariants(list,"œ́","-ó","e",endingVariants,useDigraphs,digraphType,diphthongType)
       elseif c == "Au" then
          insertDiphthongVariants(list,"A","u",endingVariants,diphthongType)
       elseif c == "au" then
@@ -302,6 +565,7 @@ createDigraphVariants = true
 createMacronVariants = true
 createBreveVariants = true
 createTieVariants = true
+createAccentVariants = true
 mixedDiacritics = false
 
 -- read arguments from command line
@@ -319,6 +583,8 @@ while arg[i] do
       createBreveVariants = false
    elseif arg[i] == "--no-ties" then
       createTieVariants = false
+   elseif arg[i] == "--no-accents" then
+      createAccentVariants = false
    elseif arg[i] == "--mixed" then
       mixedDiacritics = true
    else
@@ -327,15 +593,10 @@ while arg[i] do
    i = i+1
 end
 
-j_index = 5
-
 -- read input line by line
 linecount = 0
 for word in io.lines() do
    linecount = linecount + 1
-
-   local outputlist = {}
-
    for j_index = 0, 1 do
       if j_index == 0 or (create_j_variants and contains_j(word)) then
          for v_index = 0, 1 do
@@ -345,46 +606,54 @@ for word in io.lines() do
                      local use_j = j_index > 0
                      local use_Uv = v_index > 0
                      local useDigraphs = digraphIndex > 0
-
-                     if mixedDiacritics then
-                        outputlist = createVariants(outputlist,word,use_j,use_Uv,useDigraphs,createMacronVariants,createBreveVariants,"","")
-                     else
-                        -- (1) variant without macrons and breves
-                        outputlist = createVariants(outputlist,word,use_j,use_Uv,useDigraphs,false,false,"plain","plain")
-                        -- (2) variant with ties on diphthongs, but without macrons and breves
-                        if createTieVariants and ((not useDigraphs and containsDigraph(word)) or containsDiphthong(word)) then
-                           outputlist = createVariants(outputlist,word,use_j,use_Uv,useDigraphs,false,false,"plain","tie")
-                        end
-                        if createMacronVariants and containsLongVowel(word) then
-                           -- (3) variant with macrons, but without breves
-                              outputlist = createVariants(outputlist,word,use_j,use_Uv,useDigraphs,true,false,"plain","plain")
-                           -- (4) variant with macrons and with ties on diphthongs, but without breves
-                           if createTieVariants and ((not useDigraphs and containsDigraph(word)) or containsDiphthong(word)) then
-                              outputlist = createVariants(outputlist,word,use_j,use_Uv,useDigraphs,true,false,"plain","tie")
+                     for accentIndex = 0, 1 do
+                        if accentIndex == 0 or (createAccentVariants and hasMoreThanOneSyllable(word,useDigraphs)) then
+                           if accentIndex == 0 then
+                              preparedWord = word
+                           else
+                              preparedWord = addAccent(word)
                            end
-                        end
-                        -- (5) variant with macrons even on digraphs, but without breves
-                        if createMacronVariants and useDigraphs then
-                           outputlist = createVariants(outputlist,word,use_j,use_Uv,true,true,false,"macron","plain")
-                        end
-                        -- (6) variant with macrons even on digraphs and diphthongs, but without breves
-                        if createMacronVariants and ((not useDigraphs and containsDigraph(word)) or containsDiphthong(word)) then
-                           outputlist = createVariants(outputlist,word,use_j,use_Uv,useDigraphs,true,false,"macron","macron")
-                        end
-                        if createBreveVariants and containsShortVowel(word) then
-                           -- (7) variant with (macrons and) breves
-                           outputlist = createVariants(outputlist,word,use_j,use_Uv,useDigraphs,createMacronVariants,true,"plain","plain")
-                           -- (8) variant with (macrons and) breves and with ties on diphthongs
-                           if createTieVariants and ((not useDigraphs and containsDigraph(word)) or containsDiphthong(word)) then
-                              outputlist = createVariants(outputlist,word,use_j,use_Uv,useDigraphs,true,true,"plain","tie")
-                           end
-                           -- (9) variant with macrons even on digraphs and with breves
-                           if createMacronVariants and useDigraphs then
-                              outputlist = createVariants(outputlist,word,use_j,use_Uv,true,true,true,"macron","plain")
-                           end
-                           -- (10) variant with macrons even on digraphs and diphthongs and with breves
-                           if createMacronVariants and ((not useDigraphs and containsDigraph(word)) or containsDiphthong(word)) then
-                              outputlist = createVariants(outputlist,word,use_j,use_Uv,useDigraphs,true,true,"macron","macron")
+                           if mixedDiacritics then
+                              outputlist = createVariants(outputlist,preparedWord,use_j,use_Uv,useDigraphs,createMacronVariants,createBreveVariants,"","")
+                           else
+                              -- (1) variant without macrons and breves
+                              outputlist = createVariants(outputlist,preparedWord,use_j,use_Uv,useDigraphs,false,false,"plain","plain")
+                              -- (2) variant with ties on diphthongs, but without macrons and breves
+                              if createTieVariants and ((not useDigraphs and containsDigraph(word)) or containsDiphthong(word)) then
+                                 outputlist = createVariants(outputlist,preparedWord,use_j,use_Uv,useDigraphs,false,false,"plain","tie")
+                              end
+                              if createMacronVariants and containsLongVowel(word) then
+                                 -- (3) variant with macrons, but without breves
+                                    outputlist = createVariants(outputlist,preparedWord,use_j,use_Uv,useDigraphs,true,false,"plain","plain")
+                                 -- (4) variant with macrons and with ties on diphthongs, but without breves
+                                 if createTieVariants and ((not useDigraphs and containsDigraph(word)) or containsDiphthong(word)) then
+                                    outputlist = createVariants(outputlist,preparedWord,use_j,use_Uv,useDigraphs,true,false,"plain","tie")
+                                 end
+                              end
+                              -- (5) variant with macrons even on digraphs, but without breves
+                              if createMacronVariants and useDigraphs then
+                                 outputlist = createVariants(outputlist,preparedWord,use_j,use_Uv,true,true,false,"macron","plain")
+                              end
+                              -- (6) variant with macrons even on digraphs and diphthongs, but without breves
+                              if createMacronVariants and ((not useDigraphs and containsDigraph(word)) or containsDiphthong(word)) then
+                                 outputlist = createVariants(outputlist,preparedWord,use_j,use_Uv,useDigraphs,true,false,"macron","macron")
+                              end
+                              if createBreveVariants and containsShortVowel(word) then
+                                 -- (7) variant with (macrons and) breves
+                                 outputlist = createVariants(outputlist,preparedWord,use_j,use_Uv,useDigraphs,createMacronVariants,true,"plain","plain")
+                                 -- (8) variant with (macrons and) breves and with ties on diphthongs
+                                 if createTieVariants and ((not useDigraphs and containsDigraph(word)) or containsDiphthong(word)) then
+                                    outputlist = createVariants(outputlist,preparedWord,use_j,use_Uv,useDigraphs,true,true,"plain","tie")
+                                 end
+                                 -- (9) variant with macrons even on digraphs and with breves
+                                 if createMacronVariants and useDigraphs then
+                                    outputlist = createVariants(outputlist,preparedWord,use_j,use_Uv,true,true,true,"macron","plain")
+                                 end
+                                 -- (10) variant with macrons even on digraphs and diphthongs and with breves
+                                 if createMacronVariants and ((not useDigraphs and containsDigraph(word)) or containsDiphthong(word)) then
+                                    outputlist = createVariants(outputlist,preparedWord,use_j,use_Uv,useDigraphs,true,true,"macron","macron")
+                                 end
+                              end
                            end
                         end
                      end
@@ -394,8 +663,8 @@ for word in io.lines() do
          end
       end
    end
+end
 
-   for _, word in pairs(outputlist) do
-      print(word)
-   end
+for _, word in pairs(outputlist) do
+   print(word)
 end

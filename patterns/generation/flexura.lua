@@ -28,9 +28,6 @@ function createSet(list)
    return set
 end
 
--- list of all generated forms
-outputlist = {}
-
 -- digraphs with macrons are not needed, as diphthongs are always long
 vowels = createSet{"A","a","Ā","ā","E","e","Ē","ē","I","i","Ī","ī","O","o","Ō",
    "ō","U","u","Ū","ū","Y","y","Ȳ","ȳ","Æ","æ","Œ","œ"}
@@ -99,7 +96,7 @@ adjectivesWithDeclensedFormAdverb = createSet{"cēterus","cotīdiānus",
 
 
 function addForm(word)
-   table.insert(outputlist,word)
+   print(word)
 end
 
 function attachEndings(root,endings)
@@ -205,6 +202,9 @@ pronominalAdjectiveEndings = { -- e.g. "sōlus", "ūllus"
 pronounEndings_e_a_ud = { -- e.g. "ille"
    "e","a","ud","īus","ī","um","am","ō","ā","æ","ōrum","ārum","īs","ōs","ās"}
 
+pronounEndings_o_ae = { -- "duo" and "ambō", nominative ending in "o"/"ō" is left out
+   "æ","ōrum","ārum","ōbus","ābus","ōs","ās"}
+
 pronounForms_qui_quae_quod = {"quī","quæ","quod","cujus","cui","quem","quam",
    "quō","quā","quōrum","quārum","quibus","quōs","quās"}
 
@@ -212,9 +212,6 @@ pronounForms_quis_quid = {"quis","quid","cujus","cui","quem","quō"}
 
 pronounForms_uter_utra_utrum = {"uter","utra","utrum","utrīus","utrī","utram",
    "utrō","utrā","utræ","utrōrum","utrārum","utrīs","utrōs","utrās"}
-
-endings_o_ae = { -- "duo" and "ambō", nominative ending in "o"/"ō" is left out
-   "æ","ōrum","ārum","ōbus","ābus","ōs","ās"}
 
 -- endings of the adjectives of the third declension
 adjectiveEndings_er_ris_re = { -- e.g. "acer"
@@ -985,6 +982,8 @@ for line in io.lines() do
          addForm("aistī") -- 2nd person sg. ind. perfect
          addForm("ājērunt") -- 3rd person pl. ind. perfect
          attachEndings("āj",participlePresentActiveEndingsE) -- participle
+		elseif endsIn(firstField,"-eō") then
+		elseif endsIn(firstField,"-ferō") then
       elseif firstField == "quæsō" then
          addForm("quæsō") -- 1st person sg. indicative present
          addForm("quæsumus") -- 1st person pl. indicative present
@@ -1503,6 +1502,9 @@ for line in io.lines() do
          addForm("alterīus") -- genitive sg.
       elseif firstField == "alter-uter" then
          attachEndings("alter-",pronounForms_uter_utra_utrum)
+      elseif firstField == "ambō" then
+         addForm("ambō") -- nominative
+         attachEndings("amb",pronounEndings_o_ae)
       elseif firstField == "ego" then
          addForm("ego") -- nominative
          addForm("egomet") -- nominative
@@ -1858,7 +1860,7 @@ for line in io.lines() do
          -- the plural forms are used for some pluralia tantum
       elseif firstField == "duo" then
          addForm("duo") -- nominative masc./neuter
-         attachEndings("du",endings_o_ae)
+         attachEndings("du",pronounEndings_o_ae)
       elseif firstField == "trēs" then
          attachEndings("tr",adjectiveEndings_es_ium)
       elseif firstField == "mīlle" then
@@ -1880,8 +1882,4 @@ for line in io.lines() do
    else
       invalidLine()
    end
-end
-
-for _, word in pairs(outputlist) do
-   print(word)
 end

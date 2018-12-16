@@ -311,25 +311,30 @@ The output will contain three types of syllable boundary markers:
 
 ### `variatio.lua`
 
-This script creates orthographic variants of already hyphenated words.
+This script creates orthographic variants of already hyphenated words. It also
+removes incompatible hyphenation points in homographs.
 
 #### Usage
 	lua5.3 variatio.lua [options] [< inputfile] [> outputfile]
 
 The input file has to follow the same conventions as the output of
 `divisio.lua`. If no input file is given, the standard input (terminal) is used
-for input; the input is terminated by `CTRL+D` in this case.
+for input; the input is terminated by `CTRL+D` in this case. A protocol about
+suppressed hyphenation points is written to `variatio.log`.
 
 #### Orthographic variants
 
 If no options are given, the following orthographic variants are generated.
 Some of them may be suppressed by options as explained below.
 
-1. A variant with *j* and a variant with *i* for words containing *j*:
+1. For words with at least two syllables: A variant with and a variant without
+accent: `ag-men` → *ag-men*, *ág-men*; `a.mī-cus` → *amī-cus*, *amī́-cus*;
+`im-pe-tus` → *im-pe-tus*, *ím-pe-tus*.
+2. A variant with *j* and a variant with *i* for words containing *j*:
 `jē-jū-ni.um` → *jē-jū-nium*, *iē-iū-nium*.
-2. A variant with *U/v* and a variant with *V/u* for words containing *U/v*:
+3. A variant with *U/v* and a variant with *V/u* for words containing *U/v*:
 `vī-vō` → *vī-vō*, *uī-uō*; `Ūra-nia` → *Ūra-nia*, *V̄ra-nia*.
-3. A variant with *æ/œ* and a variant with *ae/oe* for words containing
+4. A variant with *æ/œ* and a variant with *ae/oe* for words containing
 digraphs: `æ·dī-lis` → *ædī-lis*, *ae-dī-lis*; `cœ-tus` → *cœ-tus*, *coe-tus*.
 
 Orthogonally to this, the following variants are created:
@@ -372,6 +377,7 @@ vowels: *a͞e-dī-lĭs*, *la͞u-dăn-dǣ*, *la͞u-dăn-da͞e*, *ŏb-o͞e-dī-rĕ
 - `--no-v` – suppress all orthographic variants containing *U* or *v*.
 - `--no-digraphs` – suppress all orthographic variants containing *Æ*, *æ*,
   *Œ*, or *œ*.
+- `--no-accents` – suppress all orthographic variants containing accents.
 - `--no-macrons` – suppress all orthographic variants containing macrons.
 - `--no-breves` – suppress all orthographic variants containing breves.
 - `--no-ties` – suppress all orthographic variants containing ties.
@@ -398,7 +404,7 @@ This script generates hyphenation patterns for classical Latin by means of
 #### Usage
 	./generate-patterns.sh
 
-The script invokes the `generate-patgen-input` script first. It then runs
+The script invokes the `generate-patgen-input.sh` script first. It then runs
 *patgen* four times using `patgen_translate_classical` as *translate file* and
 writes the resulting patterns to the files `patterns_classical.[1-4]`. The
 *patgen* log data is written to `patterns_classical.log`.
