@@ -6,9 +6,17 @@ function createSet (list)
    return set
 end
 
+function lastCharacter(word)
+   return string.sub(word,utf8.offset(word,-1))
+end
+
+combiningAcute = utf8.char(769)
+
 -- digraphs with macrons are not needed, as diphthongs are always long
-vowels = createSet{"A","a","Ā","ā","E","e","Ē","ē","I","i","Ī","ī","O","o","Ō",
-   "ō","U","u","Ū","ū","Y","y","Ȳ","ȳ","Æ","æ","Œ","œ"}
+vowels = createSet{"A","a","á","Ā","ā","E","e","Ē","ē","I","i","Ī","ī","í","O","o","Ō",
+   "ō","U","u","ú","Ū","ū","Y","y","Ȳ","ȳ","Æ","æ","ǽ","Œ","œ"}
+
+vowelsNeedingCombiningAccent = createSet{"ā","ē","ī","ō","ū","ū","ȳ","œ"}
 
 digraphs = createSet{"Æ","æ","Œ","œ"}
 
@@ -68,10 +76,10 @@ function classicalHyphenation(word)
          end
       -- read s at beginning; u may follow
       elseif state == "potential su at beginning" then
-         if c == "U" or c == "u" then
+         if c == "u" then
             output = output..c
             state = "potential nonsyllabic u"
-         elseif c == "Q" or c == "q" then
+         elseif c == "q" then
             output = output..c
             state = "potential qu"
          elseif firstVowelsOfDiphthongs[c] then
@@ -88,7 +96,7 @@ function classicalHyphenation(word)
          end
       -- read a or e; u may follow and form a diphthong
       elseif state == "potential diphthong" then
-         if c == "U" or c == "u" then
+         if c == "u" then
             output = output..c
             state = "vowel"
          elseif firstVowelsOfDiphthongs[c] then
@@ -97,16 +105,16 @@ function classicalHyphenation(word)
          elseif vowels[c] then
             output = output.."-"..c
             state = "vowel"
-         elseif c == "Q" or c == "q" then
+         elseif c == "q" then
             output = output.."-"..c
             state = "potential qu"
-         elseif c == "S" or c == "s" then
+         elseif c == "s" then
             store = c
             state = "potential su"
-         elseif c == "N" or c == "n" then
+         elseif c == "n" then
             store = c
             state = "potential ng"
-         elseif c == "R" or c == "r" then
+         elseif c == "r" then
             store = c
             state = "potential rh"
          elseif voicelessStops[c] then
@@ -133,13 +141,13 @@ function classicalHyphenation(word)
          end
       -- read single vowel or second vowel of a diphthong
       elseif state == "vowel" then
-         if c == "Q" or c == "q" then
+         if c == "q" then
             output = output.."-"..c
             state = "potential qu"
-         elseif c == "S" or c == "s" then
+         elseif c == "s" then
             store = c
             state = "potential su"
-         elseif c == "N" or c == "n" then
+         elseif c == "n" then
             store = c
             state = "potential ng"
          elseif firstVowelsOfDiphthongs[c] then
@@ -148,7 +156,7 @@ function classicalHyphenation(word)
          elseif vowels[c] then
             output = output.."-"..c
             -- the state stays the same
-         elseif c == "R" or c == "r" then
+         elseif c == "r" then
             store = c
             state = "potential rh"
          elseif voicelessStops[c] then
@@ -168,12 +176,22 @@ function classicalHyphenation(word)
          elseif c == "-" then -- word boundary
             output = output.."="
             state = "beginning"
+         elseif c == "~" then -- word boundary before "ji"
+            if chant then
+               output = output.."-"
+            else
+               output = output..c
+            end
+            state = "word boundary before ji"
+         elseif c == combiningAcute and vowelsNeedingCombiningAccent[lastCharacter(output)] then -- combining acute
+            output = output..c
+            -- the state stays the same
          else
             invalidWord(word)
          end
       -- read q; u has to follow
       elseif state == "potential qu" then
-         if c == "U" or c == "u" then
+         if c == "u" then
             output = output..c
             state = "qu"
          else
@@ -181,15 +199,15 @@ function classicalHyphenation(word)
          end
       -- read s; u may follow
       elseif state == "potential su" then
-         if c == "U" or c == "u" then
+         if c == "u" then
             output = output.."-"..store..c
             store = ""
             state = "potential nonsyllabic u"
-         elseif c == "Q" or c == "q" then
+         elseif c == "q" then
             output = output..store.."-"..c
             store = ""
             state = "potential qu"
-         elseif c == "S" or c == "s" then
+         elseif c == "s" then
             output = output..store
             store = c
             -- the state stays the same
@@ -201,7 +219,7 @@ function classicalHyphenation(word)
             output = output.."-"..store..c
             store = ""
             state = "vowel"
-         elseif c == "R" or c == "r" then
+         elseif c == "r" then
             output = output..store
             store = c
             state = "potential rh"
@@ -243,14 +261,14 @@ function classicalHyphenation(word)
          end
       -- read r; h may follow
       elseif state == "potential rh" then
-         if c == "H" or c == "h" then
+         if c == "h" then
             store = store..c
             state = "consonant"
-         elseif c == "Q" or c == "q" then
+         elseif c == "q" then
             output = output..store.."-"..c
             store = ""
             state = "potential qu"
-         elseif c == "S" or c == "s" then
+         elseif c == "s" then
             output = output..store
             store = c
             state = "potential su"
@@ -262,7 +280,7 @@ function classicalHyphenation(word)
             output = output.."-"..store..c
             store = ""
             state = "vowel"
-         elseif c == "R" or c == "r" then
+         elseif c == "r" then
             output = output..store
             store = c
             -- the state stays the same
@@ -287,18 +305,18 @@ function classicalHyphenation(word)
          end
       -- read c, p, or t; h may follow
       elseif state == "potential aspirate" then
-         if c == "H" or c == "h" then
+         if c == "h" then
             store = store..c
             state = "potential muta cum liquida"
          elseif liquidae[c] then
             output = output.."-"..store..c
             store = ""
             state = "muta cum liquida"
-         elseif c == "Q" or c == "q" then
+         elseif c == "q" then
             output = output..store.."-"..c
             store = ""
             state = "potential qu"
-         elseif c == "S" or c == "s" then
+         elseif c == "s" then
             output = output..store
             store = c
             state = "potential su"
@@ -335,11 +353,11 @@ function classicalHyphenation(word)
             output = output.."-"..store..c
             store = ""
             state = "muta cum liquida"
-         elseif c == "Q" or c == "q" then
+         elseif c == "q" then
             output = output..store.."-"..c
             store = ""
             state = "potential qu"
-         elseif c == "S" or c == "s" then
+         elseif c == "s" then
             output = output..store
             store = c
             state = "potential su"
@@ -367,6 +385,14 @@ function classicalHyphenation(word)
             output = output..store.."="
             store = ""
             state = "beginning"
+         elseif c == "~" then
+            if chant then
+               output = output..store.."-"
+            else
+               output = output..store..c
+            end
+            store = ""
+            state = "word boundary before ji"
          else
             invalidWord(word)
          end
@@ -384,7 +410,7 @@ function classicalHyphenation(word)
       -- read "n" after a vowel; "gu" + vowel may follow and lead
       -- to a nonsyllabic u
       elseif state == "potential ng" then
-         if c == "G" or c == "g" then
+         if c == "g" then
             output = output..store
             store = c
             state = "potential ngu"
@@ -396,15 +422,15 @@ function classicalHyphenation(word)
             output = output.."-"..store..c
             store = ""
             state = "vowel"
-         elseif c == "Q" or c == "q" then
+         elseif c == "q" then
             output = output..store.."-"..c
             store = ""
             state = "potential qu"
-         elseif c == "S" or c == "s" then
+         elseif c == "s" then
             output = output..store
             store = c
             state = "potential su"
-         elseif c == "R" or c == "r" then
+         elseif c == "r" then
             output = output..store
             store = c
             state = "potential rh"
@@ -424,12 +450,20 @@ function classicalHyphenation(word)
             output = output..store.."="
             store = ""
             state = "beginning"
+         elseif c == "~" then
+            if chant then
+               output = output..store.."-"
+            else
+               output = output..store..c
+            end
+            store = ""
+            state = "word boundary before ji"
          else
             invalidWord(word)
          end
       -- read "ng"; "u" + vowel may follow and lead to a nonsyllabic u
       elseif state == "potential ngu" then
-         if c == "U" or c == "u" then
+         if c == "u" then
             output = output.."-"..store..c
             store = ""
             state = "potential nonsyllabic u"
@@ -457,16 +491,16 @@ function classicalHyphenation(word)
          if vowels[c] then
             output = output..c
             state = "vowel"
-         elseif c == "Q" or c == "q" then
+         elseif c == "q" then
             output = output.."-"..c
             state = "potential qu"
-         elseif c == "S" or c == "s" then
+         elseif c == "s" then
             store = c
             state = "potential su"
-         elseif c == "N" or c == "n" then
+         elseif c == "n" then
             store = c
             state = "potential ng"
-         elseif c == "R" or c == "r" then
+         elseif c == "r" then
             store = c
             state = "potential rh"
          elseif voicelessStops[c] then
@@ -491,13 +525,49 @@ function classicalHyphenation(word)
          else
             invalidWord(word)
          end
+      -- read "~", j has to follow
+      elseif state == "word boundary before ji" then
+         if c == "j" then
+            output = output..c
+            state = "j before i"
+         else
+            invalidWord(word)
+         end
+      -- read "~j", i has to follow
+      elseif state == "j before i" then
+         if c == "i" then
+            output = output..c
+            state = "ji"
+         else
+            invalidWord(word)
+         end
+      -- read "~ji", c has to follow
+      elseif state == "ji" then
+         if c == "c" then
+            if chant then
+               output = output.."-"..c
+            else
+               output = output.."·"..c
+            end
+            state = "jic"
+         else
+            invalidWord(word)
+         end
+      -- read "~jic", vowel has to follow
+      elseif state == "jic" then
+         if vowels[c] then
+            output = output..c
+            state = "vowel"
+         else
+            invalidWord(word)
+         end
       -- read consonant after the last vowel of the syllable
       elseif state == "consonant" then
-         if c == "Q" or c == "q" then
+         if c == "q" then
             output = output..store.."-"..c
             store = ""
             state = "potential qu"
-         elseif c == "S" or c == "s" then
+         elseif c == "s" then
             output = output..store
             store = c
             state = "potential su"
@@ -509,7 +579,7 @@ function classicalHyphenation(word)
             output = output.."-"..store..c
             store = ""
             state = "vowel"
-         elseif c == "R" or c == "r" then
+         elseif c == "r" then
             output = output..store
             store = c
             state = "potential rh"
@@ -599,6 +669,9 @@ function removeUnwantedHyphens(input)
             state = "normal"
          elseif c == "=" then
             output = output.."."
+            state = "beginning"
+         elseif c == "~" then
+            output = output.."_"
             state = "beginning"
          else
             output = output..c
@@ -705,7 +778,7 @@ function removeUnwantedHyphens(input)
    end
 
    if state == "potential single vowel" then
-      output = output..store
+      output = output.."."..store
    elseif state == "potential single digraph" then
       output = output.."·"..store
    end

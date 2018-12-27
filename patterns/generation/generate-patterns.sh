@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PATGEN=patgen
+
 # generate input from "index_verborum"
 ./generate-patgen-input.sh
 
@@ -34,7 +36,7 @@ touch patterns_classical.0
 for i in 1 2 3 4 5 6; do
   # create patterns of level i
   printf "%s\n%s\n%s\n%s" "${hyph_start_finish[$i]}" "${pat_start_finish[$i]}" "${good_bad_thres[$i]}" "y" \
-  | patgen patgen_input_classical patterns_classical.$(($i-1)) patterns_classical.$i patgen_translate_classical \
+  | $PATGEN patgen_input_classical patterns_classical.$(($i-1)) patterns_classical.$i patgen_translate_classical \
   | tee -a patterns_classical.log
 done
 

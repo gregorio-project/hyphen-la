@@ -21,8 +21,13 @@ longVowels = createSet{"Ā","ā","Ē","ē","Ī","ī","Ō","ō","Ū","ū","Ȳ","�
 
 shortVowels = createSet{"A","a","E","e","I","i","O","o","U","u","Y","y","Á","á","É","é","Í","í","Ó","ó","Ú","ú","Ý","ý"}
 
--- q is intentionally left out here
-lowercaseConsonants = createSet{"b","c","d","f","g","h","j","k","l","m","n","p","r","s","t","v","w","x","z"}
+lowercaseConsonants = createSet{"b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","z"}
+
+-- stop consonants, called "(litterae) mutae" in Latin
+lowercaseMutae = createSet{"b","p","d","t","g","c","k"}
+
+-- liquid consonants, called "(litterae) liquidae" in Latin
+lowercaseLiquidae = createSet{"l","r"}
 
 -- list of all hyphenated and variated word forms
 outputlist = {}
@@ -42,7 +47,7 @@ function addOutputForm(word)
          local c2 = string.sub(word,index+offset,index+offset)
          if c1 == c2 then
             synthesis = synthesis..c1
-            if c1 ~= "-" and c1 ~= "." then
+            if c1 ~= "-" then
                rejected1 = rejected1..c1
                rejected2 = rejected2..c1
             end
@@ -79,7 +84,7 @@ function contains_U_or_v(word) -- U/v are modern, V/u are classical
 end
 
 function containsDigraph(word)
-   if string.find(word,"Æ") or string.find(word,"æ")
+   if string.find(word,"Æ") or string.find(word,"æ") or string.find(word,"ǽ")
    or string.find(word,"Œ") or string.find(word,"œ") then
       return true
    else
@@ -97,7 +102,7 @@ function containsDiphthong(word)
 end
 
 function hasMoreThanOneSyllable(word)
-   if string.find(word,"[.·-]") then
+   if string.find(word,"-") or string.find(word,"~") or string.find(word,"_") or string.find(word,"·") or string.find(word,"%.") then
       return true
    else
       return false
@@ -108,16 +113,154 @@ function lastSyllableBoundary(word)
    local index
    for i, code in utf8.codes(word) do
       local c = utf8.char(code)
-      if c == "-" or c == "·" or c == "." then
+      if c == "-" or c == "~" or c == "_" or c == "·" or c == "." then
          index = i
       end
    end
    return index
 end
 
+function firstCharacter(word)
+   if utf8.len(word) > 1 then
+      return string.sub(word,1,utf8.offset(word,2)-1)
+   else
+      return word
+   end
+end
+
+function secondCharacter(word)
+   if utf8.len(word) > 2 then
+      return string.sub(word,utf8.offset(word,2),utf8.offset(word,3)-1)
+   elseif utf8.len(word) == 2 then
+      return string.sub(word,utf8.offset(word,2))
+   else
+      return nil
+   end
+end
+
+function thirdCharacter(word)
+   if utf8.len(word) > 3 then
+      return string.sub(word,utf8.offset(word,3),utf8.offset(word,4)-1)
+   elseif utf8.len(word) == 3 then
+      return string.sub(word,utf8.offset(word,3))
+   else
+      return nil
+   end
+end
+
+function lastCharacter(word)
+   return string.sub(word,utf8.offset(word,-1))
+end
+
+function splitHead(word)
+   local c1 = firstCharacter(word)
+   local c2 = secondCharacter(word)
+   local head -- Au, au, Áu, áu, Eu, eu, Éu, éu, Æ·, æ·, ·æ, Ǽ·, ǽ·, ·ǽ, Œ́, œ́, Œ·, œ·, ·œ, Œ́·, œ́·, ·œ́, accented macron vowel, ~j, Qu, qu, gu, Su, su, or a single character
+   local tail
+
+   if (c1 == "A" or c1 == "a" or c1 == "Á" or c1 == "á" or c1 == "E" or c1 == "e" or c1 == "É" or c1 == "é") and c2 == "u" then
+      head = c1..c2
+      if utf8.len(word) > 2 then
+         tail = string.sub(word,utf8.offset(word,3))
+      else
+         tail = ""
+      end
+   elseif utf8.len(word) > 2
+   and (c1 == "Æ" or c1 == "æ" or c1 == "Ǽ" or c1 == "ǽ" or c1 == "Œ" or c1 == "œ") and c2 == "·" then
+      head = c1..c2
+      tail = string.sub(word,utf8.offset(word,3))
+   elseif utf8.len(word) > 3
+   and (c1 == "Œ" or c1 == "œ") and c2 == combiningAcute and thirdCharacter(word) == "·" then
+      head = c1..c2.."·"
+      tail = string.sub(word,utf8.offset(word,4))
+   elseif (c1 == "Œ" or c1 == "œ") and c2 == combiningAcute then
+      head = c1..c2
+      if utf8.len(word) > 2 then
+         tail = string.sub(word,utf8.offset(word,3))
+      else
+         tail = ""
+      end
+   elseif c1 == "·" and (c2 == "æ" or c2 == "ǽ" or c2 == "œ") then
+      head = c1..c2
+      if utf8.len(word) > 2 then
+         tail = string.sub(word,utf8.offset(word,3))
+      else
+         tail = ""
+      end
+   elseif utf8.len(word) > 2 and c1 == "·" and c2 == "œ" and thirdCharacter(word) == combiningAcute then
+      head = c1..c2..combiningAcute
+      if utf8.len(word) > 3 then
+         tail = string.sub(word,utf8.offset(word,4))
+      else
+         tail = ""
+      end
+   elseif longVowels[c1] and c2 == combiningAcute then
+      head = c1..c2
+      tail = string.sub(word,utf8.offset(word,3))
+   elseif (c1 == "~" or c1 == "_") and c2 == "j" then
+      head = c1..c2
+      tail = string.sub(word,3)
+   elseif utf8.len(word) > 2 and (c1 == "Q" or c1 == "q") and c2 == "u" then
+      head = c1..c2
+      tail = string.sub(word,3)
+   elseif utf8.len(word) > 2 and (c1 == "g" or c1 == "S" or c1 == "s")
+   and c2 == "u" and vowels[thirdCharacter(word)] then
+      head = c1..c2
+      tail = string.sub(word,3)
+   else
+      head = c1
+      if utf8.len(word) > 1 then
+         tail = string.sub(word,utf8.offset(word,2))
+      else
+         tail = ""
+      end
+   end
+   return head, tail
+end
+
+function beginsWithDoubleConsonant(syllable)
+   local c1 = firstCharacter(syllable)
+   local c2 = secondCharacter(syllable)
+   local c3 = thirdCharacter(syllable)
+   if c1 == "j" or c1 == "x" or c1 == "z" then
+      return true
+   elseif not lowercaseConsonants[c1] then
+      return false
+   elseif not lowercaseConsonants[c2] then
+      return false
+   elseif lowercaseMutae[c1] and lowercaseLiquidae[c2] then
+      return false
+   elseif lowercaseMutae[c1] and c2 == "h" and (not lowercaseConsonants[c3] or lowercaseLiquidae[c3]) then
+      return false
+   else
+      return true
+   end
+end
+
+function containsAccent(word)
+   if string.find(word,combiningAcute) or string.find(word,"á") or string.find(word,"é") or string.find(word,"í")
+   or string.find(word,"ó") or string.find(word,"ú") or string.find(word,"ý") or string.find(word,"ǽ") then
+      return true
+   else
+      return false
+   end
+end
+
+function removeAccent(word)
+   local tmp = string.gsub(word,combiningAcute,"")
+   tmp = string.gsub(tmp,"á","a")
+   tmp = string.gsub(tmp,"é","e")
+   tmp = string.gsub(tmp,"í","i")
+   tmp = string.gsub(tmp,"ó","o")
+   tmp = string.gsub(tmp,"ú","u")
+   tmp = string.gsub(tmp,"ý","y")
+   tmp = string.gsub(tmp,"ǽ","æ")
+   return tmp
+end
+
 function addAccent(word)
    local i = lastSyllableBoundary(word)
-   if string.find(string.sub(word,1,i-1),"[.·-]") then
+   if hasMoreThanOneSyllable(string.sub(word,1,i-1)) then -- at least three syllables
       local j = lastSyllableBoundary(string.sub(word,1,i-1))
       if string.sub(word,i,i+1) == "·" then
          beginUltima = i+2
@@ -131,15 +274,14 @@ function addAccent(word)
       end
       endPaenultima = i-1
       local paenultima = string.sub(word,beginPaenultima,endPaenultima)
-      local c = string.sub(word,beginUltima,beginUltima)
-      if containsLongVowel(paenultima) or containsDigraph(paenultima)
-      or containsDiphthong(paenultima)
+      local ultima = string.sub(word,beginUltima)
+      if containsLongVowel(paenultima) or containsDigraph(paenultima) or containsDiphthong(paenultima)
       or lowercaseConsonants[lastCharacter(paenultima)]
-      or c == "j" or c == "x" or c == "z" then
+      or beginsWithDoubleConsonant(ultima) then
          beginAccentedSyllable = beginPaenultima
          endAccentedSyllable = endPaenultima
       else
-         if string.find(string.sub(word,1,j-1),"[.·-]") then
+         if hasMoreThanOneSyllable(string.sub(word,1,j-1)) then -- at least four syllables
             local k = lastSyllableBoundary(string.sub(word,1,j-1))
             if string.sub(word,k,k+1) == "·" then
                beginAccentedSyllable = k+2
@@ -209,95 +351,6 @@ function addAccent(word)
    end
    output = output..string.sub(word,endAccentedSyllable+1)
    return output
-end
-
-function firstCharacter(word)
-   if utf8.len(word) > 1 then
-      return string.sub(word,1,utf8.offset(word,2)-1)
-   else
-      return word
-   end
-end
-
-function secondCharacter(word)
-   if utf8.len(word) > 2 then
-      return string.sub(word,utf8.offset(word,2),utf8.offset(word,3)-1)
-   elseif utf8.len(word) == 2 then
-      return string.sub(word,utf8.offset(word,2))
-   else
-      return nil
-   end
-end
-
-function thirdCharacter(word)
-   if utf8.len(word) > 3 then
-      return string.sub(word,utf8.offset(word,3),utf8.offset(word,4)-1)
-   elseif utf8.len(word) == 3 then
-      return string.sub(word,utf8.offset(word,3))
-   else
-      return nil
-   end
-end
-
-function lastCharacter(word)
-   return string.sub(word,utf8.offset(word,-1))
-end
-
-function splitHead(word)
-   local c1 = firstCharacter(word)
-   local c2 = secondCharacter(word)
-   local head -- Au, au, Áu, áu, Eu, eu, Éu, éu, Æ·, æ·, ·æ, Ǽ·, ǽ·, ·ǽ, Œ·, œ·, ·œ, Œ́·, œ́·, ·œ́, Qu, qu, gu, Su, su, or a single character
-   local tail
-
-   if (c1 == "A" or c1 == "a" or c1 == "Á" or c1 == "á" or c1 == "E" or c1 == "e" or c1 == "É" or c1 == "é") and c2 == "u" then
-      head = c1..c2
-      if utf8.len(word) > 2 then
-         tail = string.sub(word,utf8.offset(word,3))
-      else
-         tail = ""
-      end
-   elseif utf8.len(word) > 2
-   and (c1 == "Æ" or c1 == "æ" or c1 == "Ǽ" or c1 == "ǽ" or c1 == "Œ" or c1 == "œ") and c2 == "·" then
-      head = c1..c2
-      tail = string.sub(word,utf8.offset(word,3))
-   elseif utf8.len(word) > 3
-   and (c1 == "Œ" or c1 == "œ") and c2 == combiningAcute and thirdCharacter(word) == "·" then
-      head = c1..c2.."·"
-      tail = string.sub(word,utf8.offset(word,4))
-   elseif c1 == "·" and (c2 == "æ" or c2 == "ǽ" or c2 == "œ") then
-      head = c1..c2
-      if utf8.len(word) > 2 then
-         tail = string.sub(word,utf8.offset(word,3))
-      else
-         tail = ""
-      end
-   elseif utf8.len(word) > 2 and c1 == "·" and c2 == "œ" and thirdCharacter(word) == combiningAcute then
-      head = c1..c2..combiningAcute
-      if utf8.len(word) > 3 then
-         tail = string.sub(word,utf8.offset(word,4))
-      else
-         tail = ""
-      end
-   elseif longVowels[c1] and c2 == combiningAcute then
-      head = c1..c2
-      tail = string.sub(word,utf8.offset(word,3))
-   elseif utf8.len(word) > 2 and (c1 == "Q" or c1 == "q") and c2 == "u" then
-      head = c1..c2
-      tail = string.sub(word,3)
-   elseif utf8.len(word) > 2 and (c1 == "g" or c1 == "S" or c1 == "s")
-   and c2 == "u" and vowels[thirdCharacter(word)] then
-      head = c1..c2
-      tail = string.sub(word,3)
-   else
-      head = c1
-      if utf8.len(word) > 1 then
-         tail = string.sub(word,utf8.offset(word,2))
-      else
-         tail = ""
-      end
-   end
-
-   return head, tail
 end
 
 function containsLongVowel(word)
@@ -444,7 +497,7 @@ function createVariants(list,word,use_j,use_Uv,useDigraphs,useMacrons,useBreves,
             end
             insertVariants(list,ch,endingVariants)
          end
-      elseif shortVowels[c] or (utf8.len(c) == 2 and shortVowels[string.sub(c,1,utf8.offset(c,2)-1)]) then
+      elseif shortVowels[c] then
          -- variant without breve
          if not useBreves or mixedDiacritics then
             if c == "U" and not use_Uv then
@@ -527,10 +580,18 @@ function createVariants(list,word,use_j,use_Uv,useDigraphs,useMacrons,useBreves,
          insertDiphthongVariants(list,"A","u",endingVariants,diphthongType)
       elseif c == "au" then
          insertDiphthongVariants(list,"a","u",endingVariants,diphthongType)
+      elseif c == "Áu" then
+         insertDiphthongVariants(list,"Á","u",endingVariants,diphthongType)
+      elseif c == "áu" then
+         insertDiphthongVariants(list,"á","u",endingVariants,diphthongType)
       elseif c == "Eu" then
          insertDiphthongVariants(list,"E","u",endingVariants,diphthongType)
       elseif c == "eu" then
          insertDiphthongVariants(list,"e","u",endingVariants,diphthongType)
+      elseif c == "Éu" then
+         insertDiphthongVariants(list,"É","u",endingVariants,diphthongType)
+      elseif c == "éu" then
+         insertDiphthongVariants(list,"é","u",endingVariants,diphthongType)
       elseif c == "J" then
          if use_j then
             insertVariants(list,"J",endingVariants)
@@ -542,6 +603,24 @@ function createVariants(list,word,use_j,use_Uv,useDigraphs,useMacrons,useBreves,
             insertVariants(list,"j",endingVariants)
          else
             insertVariants(list,"i",endingVariants)
+         end
+      elseif c == "~j" then
+         if use_j then
+            insertVariants(list,"-j",endingVariants)
+         else
+            insertVariants(list,"-",endingVariants)
+         end
+      elseif c == "_j" then
+         if use_j then
+            insertVariants(list,"j",endingVariants)
+         else
+            insertVariants(list,"",endingVariants)
+         end
+      elseif c == "·" then
+         if use_j then
+            insertVariants(list,"-",endingVariants)
+         else
+            insertVariants(list,"",endingVariants)
          end
       elseif c == "v" then
          if use_Uv then
@@ -609,9 +688,17 @@ for word in io.lines() do
                      for accentIndex = 0, 1 do
                         if accentIndex == 0 or (createAccentVariants and hasMoreThanOneSyllable(word,useDigraphs)) then
                            if accentIndex == 0 then
-                              preparedWord = word
+                              if containsAccent(word) then
+                                 preparedWord = removeAccent(word)
+                              else
+                                 preparedWord = word
+                              end
                            else
-                              preparedWord = addAccent(word)
+                              if containsAccent(word) then
+                                 preparedWord = word
+                              else
+                                 preparedWord = addAccent(word)
+                              end
                            end
                            if mixedDiacritics then
                               outputlist = createVariants(outputlist,preparedWord,use_j,use_Uv,useDigraphs,createMacronVariants,createBreveVariants,"","")

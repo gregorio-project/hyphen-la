@@ -34,15 +34,14 @@ forms according to the basic rules. This is easy as the input list uses *i* and
 → *vi-vo, vī-vō, ui-uo, uī-uō*; `jūs-tus` → *jus-tus, jūs-tus, jūs-tŭs,
 ius-tus, iūs-tus, iūs-tŭs*; `cæ-lum` → *cæ-lum, cǣ-lum, cæ-lŭm, cǣ-lŭm,
 cae-lum, ca͞e-lum, cae-lŭm, ca͞e-lŭm*. It is crucial to do this after the
-hyphenation.
+hyphenation. The script also removes incompatible hyphenation points in
+homographs.
 
-5. Handle special cases like homographs (still in preparation).
-
-6. Create patterns using *patgen*. The shell script `generate-patgen-input.sh`
+5. Create patterns using *patgen*. The shell script `generate-patgen-input.sh`
 generates a list of hyphenated words as needed by *patgen* by means of the word
 list and the scripts mentioned above.
 
-7. Check the patterns using test files in the
+6. Check the patterns using test files in the
 [tests/nonliturgical](../../tests/nonliturgical) directory. Every error can be
 corrected by putting the erroneously hyphenated word in the input list.
 
@@ -75,11 +74,19 @@ generated automatically.
 - Mark long single vowels (but no digraphs and diphthongs) with macrons:
   `sēditiō`, `ædificō`; do not mark short vowels.
 - Write *j* for every semivocalic *i*: `jam`, `jaciō`, `Gājus`, `jējūnium`.
+  Also use *j* in the compounds of *jacĕre*: `ab-jiciō` (classical spelling:
+  *abiciō*).
 - Use *u* and *v* according to the modern conventions: `vērus`, `laudāvī`,
   `Ūrania`.
 - Write *æ* and *œ* for the diphthongs *ae* and *oe*: `cælum`, `tragœdia`.
-- Use hyphens to mark compound words: `ab-scindō`, `ob-œdiō`, `anim-ad-vertō`,
-  `long-ævus`.
+- Use hyphens to mark compound words: `ab-scindō`, `ē-jiciō`, `ob-œdiō`,
+  `anim-ad-vertō`, `long-ævus`. Do not use hyphens if a prefix is assimilated
+  to the following word or extended by *s*: `abstrahō`, `assimils`, `afferō`,
+  `difficilis`, `occidō`, `sustulī`.
+- Use an accented vowel (or a combining acute accent U+301 for vowels with
+  macron) if an uninflectable word with at least to syllables has its accent on
+  the last syllable: `ab-hínc`, `ad-hū́c`. Note: In other cases, the accent is
+  generated automatically by the scripts.
 - Only use lowercase letters except at the beginning of proper nouns and their
   derivatives.
 
@@ -191,7 +198,12 @@ terminated by `CTRL+D` in this case.
 
 The output contains vertical bars where *au* or *eu* is not a diphthong and
 where *u* is a full vowel after *ng* or *s* before another vowel: *me|us*,
-*su|us*.
+*su|us*. This is important to be able to find all syllable boundaries.
+
+The word boundary in the compounds of *jacĕre* is replaced by a tilde:
+*in~jiciō*. This is because the following *j* needs a special handling when
+orthographical variants are generated; the *j* has to be omitted rather than
+replaced by *i* in words like *in-jiciō*.
 
 #### Irregular forms
 
@@ -246,9 +258,9 @@ hyphenation rules for classical Latin. It is intended to help to prepare a
 #### Usage
 	lua5.3 divisio.lua [options] [< inputfile] [> outputfile]
 
-The input file has to contain a list of words separated by line breaks. If no
-input file is given, the standard input (terminal) is used for input; the input
-is terminated by `CTRL+D` in this case.
+The input file has to follow the same conventions as the output of
+`flexura.lua`. If no input file is given, the standard input (terminal) is used
+for input; the input is terminated by `CTRL+D` in this case.
 
 The input may contain the following characters:
 - the 26 lowercase and the 26 uppercase letters of the Latin alphabet
@@ -256,15 +268,21 @@ The input may contain the following characters:
   (U+12A), `ī` (U+12B), `Ō` (U+14C), `ō` (U+14D), `Ū` (U+16A), `ū` (U+16B), `Ȳ`
   (U+232), `ȳ` (U+233)
 - digraphs: `Æ` (U+C6), `æ` (U+E6), `Œ` (U+152), `œ` (U+153)
-- auxiliary symbols as described below: `-`, `|`, and `^`
+- auxiliary symbols as described below: `-`, `~`, `|`, and `^`
 
-The output will contain three types of syllable boundary markers:
+The output will contain five types of syllable boundary markers:
 - a hyphen `-` for a regular hyphenation point
+- a baseline dot `.` for a syllable boundary that is not a hyphenation point
 - a middle dot `·` (U+B7) for a hyphenation point that is illegal as long as
   digraphs are used, but becomes legal when the digraphs are replaced by *ae*
   and *oe*: `æ·di-fi-cā-re` (*ædi-fi-cā-re* or *ae-di-fi-cā-re*), `ob-œ·dī-re`
-  (*ob-œdī-re* or *ob-oe-dī-re*), `su·æ` (*suæ* or *su-ae*)
-- a baseline dot `.` for a syllable boundary that is not a hyphenation point
+  (*ob-œdī-re* or *ob-oe-dī-re*), `su·æ` (*suæ* or *su-ae*); furthermore the
+  middle dot is used after `ji` where the *j* is omitted in the classical
+  spelling: `in~ji·ci.ō`
+- a tilde `~` for a hyphenation point before `ji` where the *j* is omitted in
+  the classical spelling: `in~ji·ci.ō`
+- an underscore `_` for a syllable boundary that is not a hyphenation point
+  before `ji` where the *j* is omitted in the classical spelling: `ē_ji·ci.ō`
 
 #### Options
 - `--chant` – hyphenate even single vowel syllables as needed for chant:
@@ -288,8 +306,7 @@ The output will contain three types of syllable boundary markers:
 - A single consonant between two vowels is taken to the next syllable: `domus`
   → `do-mus`, `lā-tus` → `lā-tus`. An auxiliary hyphen is required if the
   consonant belongs to the preceding syllable because of the morphology of the
-  word: `in-icere` → `in-ice-re`, `sub-īre` → `sub-īre`, `anim-advertō` →
-  `anim-ad-ver-tō`.
+  word: `sub-īre` → `sub-īre`, `anim-advertō` → `anim-ad-ver-tō`.
 - The last of several consonants between two vowels is taken to the next
   syllable: `crēscit` → `crēs-cit`, `māgnus` → `māg-nus`, `omnis` → `om-nis`,
   `vester` → `ves-ter`, `ūnctiō` → `ūnc-tiō`. Stop consonants followed by
@@ -329,7 +346,8 @@ Some of them may be suppressed by options as explained below.
 
 1. For words with at least two syllables: A variant with and a variant without
 accent: `ag-men` → *ag-men*, *ág-men*; `a.mī-cus` → *amī-cus*, *amī́-cus*;
-`im-pe-tus` → *im-pe-tus*, *ím-pe-tus*.
+`im-pe-tus` → *im-pe-tus*, *ím-pe-tus*. The *combining acute accent* (U+301) is
+used for vowels already having another diacritical mark (e.g. a macron).
 2. A variant with *j* and a variant with *i* for words containing *j*:
 `jē-jū-ni.um` → *jē-jū-nium*, *iē-iū-nium*.
 3. A variant with *U/v* and a variant with *V/u* for words containing *U/v*:
@@ -405,6 +423,6 @@ This script generates hyphenation patterns for classical Latin by means of
 	./generate-patterns.sh
 
 The script invokes the `generate-patgen-input.sh` script first. It then runs
-*patgen* four times using `patgen_translate_classical` as *translate file* and
-writes the resulting patterns to the files `patterns_classical.[1-4]`. The
+*patgen* six times using `patgen_translate_classical` as *translate file* and
+writes the resulting patterns to the files `patterns_classical.[1-6]`. The
 *patgen* log data is written to `patterns_classical.log`.
