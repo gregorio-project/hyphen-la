@@ -33,37 +33,40 @@ lowercaseLiquidae = createSet{"l","r"}
 outputlist = {}
 
 function addOutputForm(word)
-   local key = string.gsub(word,"-","")
-   if outputlist[key] == nil then
-      outputlist[key] = word
-   elseif outputlist[key] ~= word then
-      local synthesis = ""
-      local offset = 0
-      local rejected1 = ""
-      local rejected2 = ""
-      local index = 1
-      while index <= string.len(outputlist[key]) do
-         local c1 = string.sub(outputlist[key],index,index)
-         local c2 = string.sub(word,index+offset,index+offset)
-         if c1 == c2 then
-            synthesis = synthesis..c1
-            if c1 ~= "-" then
+   if outputNon_ec_AccentVariants
+	or (not string.find(word,combiningAcute) and not string.find(word,"Ǽ") and not string.find(word,"ǽ")) then
+      local key = string.gsub(word,"-","")
+      if outputlist[key] == nil then
+         outputlist[key] = word
+      elseif outputlist[key] ~= word then
+         local synthesis = ""
+         local offset = 0
+         local rejected1 = ""
+         local rejected2 = ""
+         local index = 1
+         while index <= string.len(outputlist[key]) do
+            local c1 = string.sub(outputlist[key],index,index)
+            local c2 = string.sub(word,index+offset,index+offset)
+            if c1 == c2 then
+               synthesis = synthesis..c1
+               if c1 ~= "-" then
+                  rejected1 = rejected1..c1
+                  rejected2 = rejected2..c1
+               end
+            elseif c1 == "-" then
+               offset = offset-1
                rejected1 = rejected1..c1
-               rejected2 = rejected2..c1
+            elseif c2 == "-" then
+               offset = offset+1
+               rejected2 = rejected2..c2
+               index = index-1
             end
-         elseif c1 == "-" then
-            offset = offset-1
-            rejected1 = rejected1..c1
-         elseif c2 == "-" then
-            offset = offset+1
-            rejected2 = rejected2..c2
-            index = index-1
+            index = index+1
          end
-         index = index+1
+         logFile:write("rejected hyphenation: "..rejected1.."\n")
+         logFile:write("rejected hyphenation: "..rejected2.."\n")
+         outputlist[key] = synthesis
       end
-      logFile:write("rejected hyphenation: "..rejected1.."\n")
-      logFile:write("rejected hyphenation: "..rejected2.."\n")
-      outputlist[key] = synthesis
    end
 end
 
@@ -645,6 +648,7 @@ createMacronVariants = true
 createBreveVariants = true
 createTieVariants = true
 createAccentVariants = true
+outputNon_ec_AccentVariants = true
 mixedDiacritics = false
 
 -- read arguments from command line
@@ -664,6 +668,11 @@ while arg[i] do
       createTieVariants = false
    elseif arg[i] == "--no-accents" then
       createAccentVariants = false
+   elseif arg[i] == "--ec" then
+      createMacronVariants = false
+      createBreveVariants = false
+      createTieVariants = false
+      outputNon_ec_AccentVariants = false
    elseif arg[i] == "--mixed" then
       mixedDiacritics = true
    else

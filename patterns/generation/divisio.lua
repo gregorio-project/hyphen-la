@@ -300,6 +300,12 @@ function classicalHyphenation(word)
             output = output..store.."="
             store = ""
             state = "beginning"
+         elseif c == "^" then -- extraordinary hyphenation point for Greek words
+            if greek then
+               output = output..store.."="
+					store = ""
+               state = "beginning"
+            end -- the state stays the same if greek is false
          else
             invalidWord(word)
          end

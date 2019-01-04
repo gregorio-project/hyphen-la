@@ -83,10 +83,10 @@ generated automatically.
   `anim-ad-vertō`, `long-ævus`. Do not use hyphens if a prefix is assimilated
   to the following word or extended by *s*: `abstrahō`, `assimils`, `afferō`,
   `difficilis`, `occidō`, `sustulī`.
-- Use an accented vowel (or a combining acute accent U+301 for vowels with
-  macron) if an uninflectable word with at least to syllables has its accent on
-  the last syllable: `ab-hínc`, `ad-hū́c`. Note: In other cases, the accent is
-  generated automatically by the scripts.
+- Use an accented vowel (or a *combining acute accent* U+301 for vowels with
+  macron) if an uninflectable word with at least two syllables has its accent
+  on the last syllable: `ab-hínc`, `ad-hū́c`. Note: In other cases, the accent
+  is generated automatically by the scripts.
 - Only use lowercase letters except at the beginning of proper nouns and their
   derivatives.
 
@@ -98,6 +98,7 @@ generated automatically.
 - `3` – verb of the third conjugation
 - `3M` – verb of the mixed third conjugation
 - `4` – verb of the fourth conjugation
+- `VI` – irregular verb
 
 Examples:
 
@@ -113,6 +114,7 @@ Examples:
 	partior,4
 	ab-scindō,3,ab-scidī,ab-scissus
 	ex-audiō,4
+	volō,VI
 
 #### Nouns
 
@@ -185,9 +187,10 @@ Examples:
 ### `flexura.lua`
 
 This script generates all inflected forms of the Latin words in the input list.
-The script is still under development. Currently, only the present stem forms
-of regular Latin verbs and declensed forms of nouns, adjectives (including
-comparatives, superlatives and adverbs), pronouns and numerals are generated.
+The script is still under development. The present stem forms of regular Latin
+verbs and declensed forms of nouns, adjectives (including comparatives,
+superlatives and adverbs), pronouns and numerals are generated. The perfect
+stem and the supine stem forms of verbs are still missing.
 
 #### Usage
 	lua5.3 flexura.lua [< inputfile] [> outputfile]
@@ -215,6 +218,9 @@ The following irregular forms are taken into account:
 - the imperatives *dīc*, *dūc*, *fac* of *dīcere*, *dūcere*, *facere* and their
   compounds
 - the imperative *calface* of *calefacere*
+- the forms of the following irregular verbs (word type `VI`): *ajō*, *eō* and
+  compounds, *ferō* and compounds, *fīō*, *in-quam*, *malō*, *nōlō*, *possum*,
+  *quæsō*, *sum* and compounds, *volō*
 
 ##### Nouns
 
