@@ -23,9 +23,9 @@ pat_start_finish[6]='6 11'
 good_bad_thres[1]='1 1 1'
 good_bad_thres[2]='1 2 1'
 good_bad_thres[3]='1 1 1'
-good_bad_thres[4]='1 2 1'
+good_bad_thres[4]='1 3 1'
 good_bad_thres[5]='1 1 1'
-good_bad_thres[6]='1 2 1'
+good_bad_thres[6]='1 4 1'
 
 # delete log file
 rm -f patterns_classical.log

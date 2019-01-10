@@ -303,7 +303,7 @@ function classicalHyphenation(word)
          elseif c == "^" then -- extraordinary hyphenation point for Greek words
             if greek then
                output = output..store.."="
-					store = ""
+               store = ""
                state = "beginning"
             end -- the state stays the same if greek is false
          else
@@ -452,6 +452,11 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             state = "consonant"
+         elseif c == "^" then -- extraordinary hyphenation point for Greek words
+            if greek then
+               output = output.."-"
+               state = "beginning"
+            end -- the state stays the same if greek is false
          elseif c == "-" then
             output = output..store.."="
             store = ""
@@ -787,6 +792,8 @@ function removeUnwantedHyphens(input)
       output = output.."."..store
    elseif state == "potential single digraph" then
       output = output.."·"..store
+	elseif state == "vowel at beginning" and string.find(output,"-") then
+		output = string.sub(output,1,utf8.offset(output,-2)-1).."."..string.sub(output,utf8.offset(output,-1))
    end
 
    if traceStates then

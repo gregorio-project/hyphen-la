@@ -32,13 +32,43 @@ lowercaseLiquidae = createSet{"l","r"}
 -- list of all hyphenated and variated word forms
 outputlist = {}
 
+rejectedHyphenations = {}
+
+function beginLowercase(word)
+	local c = firstCharacter(word)
+	local ch
+	if c == "Ā" then ch = "ā"
+	elseif c == "Ă" then ch = "ă"
+	elseif c == "Á" then ch = "á"
+	elseif c == "Æ" then ch = "æ"
+	elseif c == "Ǣ" then ch = "ǣ"
+	elseif c == "Ǽ" then ch = "ǽ"
+	elseif c == "Ē" then ch = "ē"
+	elseif c == "Ĕ" then ch = "ĕ"
+	elseif c == "É" then ch = "é"
+	elseif c == "Ī" then ch = "ī"
+	elseif c == "Ĭ" then ch = "ĭ"
+	elseif c == "Í" then ch = "í"
+	elseif c == "Ō" then ch = "ō"
+	elseif c == "Ŏ" then ch = "ŏ"
+	elseif c == "Ó" then ch = "ó"
+	elseif c == "Œ" then ch = "œ"
+	elseif c == "Ū" then ch = "ū"
+	elseif c == "Ŭ" then ch = "ŭ"
+	elseif c == "Ú" then ch = "ú"
+	elseif c == "Ȳ" then ch = "ȳ"
+	elseif c == "Ý" then ch = "ý"
+	else ch = string.lower(c) end
+	return ch..string.sub(word,utf8.offset(word,2))
+end
+
 function addOutputForm(word)
    if outputNon_ec_AccentVariants
-	or (not string.find(word,combiningAcute) and not string.find(word,"Ǽ") and not string.find(word,"ǽ")) then
-      local key = string.gsub(word,"-","")
+   or (not string.find(word,combiningAcute) and not string.find(word,"Ǽ") and not string.find(word,"ǽ")) then
+      local key = beginLowercase(string.gsub(word,"-",""))
       if outputlist[key] == nil then
          outputlist[key] = word
-      elseif outputlist[key] ~= word then
+      elseif beginLowercase(outputlist[key]) ~= beginLowercase(word) then
          local synthesis = ""
          local offset = 0
          local rejected1 = ""
@@ -47,24 +77,34 @@ function addOutputForm(word)
          while index <= string.len(outputlist[key]) do
             local c1 = string.sub(outputlist[key],index,index)
             local c2 = string.sub(word,index+offset,index+offset)
-            if c1 == c2 then
-               synthesis = synthesis..c1
-               if c1 ~= "-" then
-                  rejected1 = rejected1..c1
-                  rejected2 = rejected2..c1
-               end
-            elseif c1 == "-" then
+            if c1 == "-" and c2 ~= "-" then
                offset = offset-1
                rejected1 = rejected1..c1
-            elseif c2 == "-" then
+            elseif c1 ~= "-" and c2 == "-" then
                offset = offset+1
                rejected2 = rejected2..c2
                index = index-1
+            else
+               synthesis = synthesis..c1
+               if c1 ~= "-" then
+                  rejected1 = rejected1..c1
+                  rejected2 = rejected2..c2
+               end
             end
             index = index+1
          end
-         logFile:write("rejected hyphenation: "..rejected1.."\n")
-         logFile:write("rejected hyphenation: "..rejected2.."\n")
+         if string.find(rejected1,"-") then
+            if not rejectedHyphenations[rejected1] then
+               rejectedHyphenations[rejected1] = true
+               logFile:write("rejected hyphenation: "..rejected1.."\n")
+            end
+         end
+         if string.find(rejected2,"-") then
+            if not rejectedHyphenations[rejected2] then
+               rejectedHyphenations[rejected2] = true
+               logFile:write("rejected hyphenation: "..rejected2.."\n")
+            end
+         end
          outputlist[key] = synthesis
       end
    end

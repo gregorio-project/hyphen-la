@@ -168,6 +168,39 @@ function attachEndingsEnclitic(root,endings,enclitic)
    end
 end
 
+function addPerfectStemForms(firstPersonSingular)
+   if endsIn(firstPersonSingular,"ī") then
+      stem = utf8substring(firstPersonSingular,1,-2)
+      for _, ending in pairs(perfectStemEndings) do
+         attachEnding(stem,ending)
+         if endsIn(stem,"īv") and utf8.len(ending) > 2
+         and (utf8substring(ending,1,2) == "er" or utf8substring(ending,1,2) == "ēr") then
+            attachEnding(utf8substring(stem,1,-3).."i",ending)
+         elseif endsIn(stem,"v") and utf8.len(ending) > 2
+         and (utf8substring(ending,1,2) == "er" or utf8substring(ending,1,2) == "ēr"
+         or utf8substring(ending,1,2) == "is") then
+            attachEnding(utf8substring(stem,1,-2),utf8substring(ending,2))
+         end
+      end
+   else
+      invalidField(firstPersonSingular)
+   end
+end
+
+function addPerfectStemFormsImpersonal(thirdPersonSingular)
+   if endsIn(thirdPersonSingular,"it") then
+      stem = utf8substring(thirdPersonSingular,1,-3)
+      attachEnding(stem,"it") -- perfect indicative active
+      attachEnding(stem,"erit") -- perfect subjunctive active/future perfect active
+      attachEnding(stem,"isse") -- infinitive perfect
+      attachEnding(stem,"erat") -- pluperfect indicative active
+      attachEnding(stem,"isset") -- pluperfect subjunctive active
+   else
+      invalidField(thirdPersonSingular)
+   end
+end
+
+
 -- endings of the nouns of the first declension
 nounEndings1 = { "a","æ","am","ā","ārum","īs","ās" }
 nounEndings1_greek = { "ēs","æ","am","ā","ārum","īs","ās" }
@@ -330,16 +363,18 @@ presentEndingsSubjunctiveActive_a = {"am","ās","at","āmus","ātis","ant"}
 presentEndingsSubjunctiveActive_i = {"im","īs","it","īmus","ītis","int"}
 
 imperfectEndingsIndicativeActive = {"bam","bās","bat","bāmus","bātis","bant"}
-imperfectEndingsIndicativePassive = {"bar","bāris","bātur","bāmur","bāminī","bantur"}
+imperfectEndingsIndicativePassive = {"bar","bāris","bāre","bātur","bāmur","bāminī","bantur"}
 imperfectEndingsSubjunctiveActive = {"rem","rēs","ret","rēmus","rētis","rent"}
 imperfectEndingsSubjunctiveActiveWithout_r = {"em","ēs","et","ēmus","ētis","ent"}
-imperfectEndingsSubjunctivePassive = {"rer","rēris","rētur","rēmur","rēminī","rentur"}
+imperfectEndingsSubjunctivePassive = {"rer","rēris","rēre","rētur","rēmur","rēminī","rentur"}
+imperfectEndingsIndicativeActive_esse = {"eram","erās","erat","erāmus","erātis","erant"}
 
 futureEndingsActive_b = {"bō","bis","bit","bimus","bitis","bunt"}
 futureEndingsActive_a_e = {"am","ēs","et","ēmus","ētis","ent"}
-futureEndingsPassive_b = {"bor","beris","bitur","bimur","biminī","buntur"}
-futureEndingsPassive_a_e = {"ar","ēris","ētur","ēmur","ēminī","entur"}
+futureEndingsPassive_b = {"bor","beris","bere","bitur","bimur","biminī","buntur"}
+futureEndingsPassive_a_e = {"ar","ēris","ēre","ētur","ēmur","ēminī","entur"}
 
+perfectEndingsSubjunctiveActiveAndFutureActive = {"erim","erīs","eris","erit","erīmus","erimus","erītis","eritis","erint","erō"}
 
 -- endings of the first conjugation
 presentStemEndingsActive1 = {
@@ -354,7 +389,7 @@ addEndings(presentStemEndingsActive1,"ā",futureEndingsActive_b)
 
 presentStemEndingsPassive1 = {
    "or","āris","ātur","āmur","āminī","antur", -- indicative present
-   "er","ēris","ētur","ēmur","ēminī","entur", -- subjunctive present
+   "er","ēris","ēre","ētur","ēmur","ēminī","entur", -- subjunctive present
    "āre","ātor","antor", -- imperative
    "ārī" --infinitive
    }
@@ -369,7 +404,7 @@ presentStemEndings_dare = {
    "em","ēs","et","ēmus","ētis","ent", -- subjunctive present active
    "ā","ate","atō","atōte","antō", -- imperative active
    "or","aris","atur","amur","aminī","antur", -- indicative present passive
-   "er","ēris","ētur","ēmur","ēminī","entur", -- subjunctive present passive
+   "er","ēris","ēre","ētur","ēmur","ēminī","entur", -- subjunctive present passive
    "are","ator","antor", -- imperative passive
    "arī" --infinitive passive
    }
@@ -395,7 +430,7 @@ addEndings(presentStemEndingsActive2,"ē",futureEndingsActive_b)
 
 presentStemEndingsPassive2 = {
    "eor","ēris","ētur","ēmur","ēminī","entur", -- indicative present
-   "ear","eāris","eātur","eāmur","eāminī","eantur", -- subjunctive present
+   "ear","eāris","eāre","eātur","eāmur","eāminī","eantur", -- subjunctive present
    "ēre","ētor","entor", -- imperative
    "ērī" --infinitive
    }
@@ -421,7 +456,7 @@ addEndings(presentStemEndingsActive3,"",futureEndingsActive_a_e)
 
 presentStemEndingsPassive3 = {
    "or","eris","itur","imur","iminī","untur", -- indicative present
-   "āris","ātur","āmur","āminī","antur", -- subjunctive present
+   "āris","āre","ātur","āmur","āminī","antur", -- subjunctive present
    "ere","itor","untor", -- imperative
    "ī" --infinitive
    }
@@ -447,7 +482,7 @@ addEndings(presentStemEndingsActive3M,"i",futureEndingsActive_a_e)
 
 presentStemEndingsPassive3M = {
    "ior","eris","itur","imur","iminī","iuntur", -- indicative present
-   "iāris","iātur","iāmur","iāminī","iantur", -- subjunctive present
+   "iāris","iāre","iātur","iāmur","iāminī","iantur", -- subjunctive present
    "ere","itor","iuntor", -- imperative
    "ī" --infinitive
    }
@@ -470,7 +505,7 @@ addEndings(presentStemEndingsActive4,"i",futureEndingsActive_a_e)
 
 presentStemEndingsPassive4 = {
    "ior","īris","ītur","īmur","īminī","iuntur", -- indicative present
-   "iāris","iātur","iāmur","iāminī","iantur", -- subjunctive present
+   "iāris","iāre","iātur","iāmur","iāminī","iantur", -- subjunctive present
    "īre","ītor","iuntor", -- imperative
    "īrī" --infinitive
    }
@@ -483,13 +518,13 @@ addEndings(presentStemEndingsPassive4,"i",futureEndingsPassive_a_e)
 -- forms of "esse"
 presentStemForms_esse = {
    "sum","es","est","sumus","estis","sunt", -- indicative present
-   "eram","erās","erat","erāmus","erātis","erant", -- indicative imperfect
    "erō","eris","erit","erimus","eritis","erunt", -- future
    "es","este","estō","estōte","suntō", -- imperative
    "esse" -- infinitve
    }
 
 addEndings(presentStemForms_esse,"s",presentEndingsSubjunctiveActive_i)
+addEndings(presentStemForms_esse,"",imperfectEndingsIndicativeActive_esse)
 addEndings(presentStemForms_esse,"fo",imperfectEndingsSubjunctiveActive)
 addEndings(presentStemForms_esse,"ess",imperfectEndingsSubjunctiveActiveWithout_r)
 
@@ -500,7 +535,7 @@ presentStemForms_ferre = {
    "fer","ferte","fertō","fertōte","feruntō", -- imperative active
    "ferre", -- infinitve present active
    "feror","ferris","fertur","ferimur","feriminī","feruntur", -- indicative present passive
-   "ferar","ferāris","ferātur","ferāmur","ferāminī","ferantur", -- subjunctive present passive
+   "ferar","ferāris","ferāre","ferātur","ferāmur","ferāminī","ferantur", -- subjunctive present passive
    "fertor","feruntor", -- imperative passive
    "ferrī" --infinitive present passive
    }
@@ -520,7 +555,7 @@ presentStemForms_ire = {
    "ī","īte","ītō","ītōte","euntō", -- imperative
    "īre", -- infinitve
    "eor","īris","ītur","īmur","īminī","euntur", -- indicative present
-   "ear","eāris","eātur","eāmur","eāminī","eantur", -- subjunctive present
+   "ear","eāris","eāre","eātur","eāmur","eāminī","eantur", -- subjunctive present
    "ītor","euntor", -- imperative
    "īrī" --infinitive
    }
@@ -533,11 +568,17 @@ addEndings(presentStemForms_ire,"ī",imperfectEndingsSubjunctivePassive)
 addEndings(presentStemForms_ire,"ī",futureEndingsActive_b)
 addEndings(presentStemForms_ire,"ī",futureEndingsPassive_b)
 
+perfectStemForms_ire = {"iī","īstī","iit","iimus","īstis","iērunt","iēre", -- perfect indicative active
+   "īsse" -- infinitive perfect active
+   }
+
+addEndings(perfectStemForms_ire,"i",perfectEndingsSubjunctiveActiveAndFutureActive) -- perfect subjunctive active und future perfect active
+addEndings(perfectStemForms_ire,"i",imperfectEndingsIndicativeActive_esse) -- pluperfect indicative active
+addEndings(perfectStemForms_ire,"īss",imperfectEndingsSubjunctiveActiveWithout_r) -- pluperfect subjunctive active
 
 -- forms of "posse"
 presentStemForms_posse = {
    "possum","pot-es","pot-est","possumus","pot-estis","possunt", -- indicative present
-   "pot-eram","pot-erās","pot-erat","pot-erāmus","pot-erātis","pot-erant", -- indicative imperfect
    "pot-erō","pot-eris","pot-erit","pot-erimus","pot-eritis","pot-erunt", -- future
    "possiem","possies","possiet", -- old forms of the subjunctive present
    "potisset", -- old form of the subjunctive imperfect
@@ -545,7 +586,18 @@ presentStemForms_posse = {
    }
 
 addEndings(presentStemForms_posse,"poss",presentEndingsSubjunctiveActive_i)
+addEndings(presentStemForms_posse,"pot-",imperfectEndingsIndicativeActive_esse)
 addEndings(presentStemForms_posse,"poss",imperfectEndingsSubjunctiveActiveWithout_r)
+
+
+-- endings of the perfect stem
+perfectStemEndings = {"ī","istī","it","imus","istis","ērunt","ēre", -- perfect indicative active
+   "isse" -- infinitive perfect active
+   }
+
+addEndings(perfectStemEndings,"",perfectEndingsSubjunctiveActiveAndFutureActive) -- perfect subjunctive active und future perfect active
+addEndings(perfectStemEndings,"",imperfectEndingsIndicativeActive_esse) -- pluperfect indicative active
+addEndings(perfectStemEndings,"iss",imperfectEndingsSubjunctiveActiveWithout_r) -- pluperfect subjunctive active
 
 
 -- generate positive forms of adjectives with three endings
@@ -841,7 +893,8 @@ function generatePositiveForms1(nominative,genitive)
 
    -- adjectives endings in "ās"/"ātis" or "īs"/"ītis"
    elseif endsIn(nominative,"ās") or endsIn(nominative,"īs") then
-      if genitive and endsIn(genitive,"tis") and utf8substring(genitive,1,-4) == utf8substring(nominative,1,-2) then
+      if genitive and endsIn(genitive,"tis")
+      and utf8substring(genitive,1,-4) == utf8substring(nominative,1,-2) then
          addForm(utf8substring(nominative,1,-2)..combiningAcute.."s") -- nominative sg. with accent
          root = utf8substring(genitive,1,-3)
          attachEndings(root,adjectiveEndings_i_ium)
@@ -982,6 +1035,9 @@ for line in io.lines() do
             fourthField = nil
          else
             thirdField = string.sub(line,1,i-1)
+            if thirdField == "" then
+               thirdField = nil
+            end
             fourthField = string.sub(line,i+1,-1)
          end
       end
@@ -1001,12 +1057,28 @@ for line in io.lines() do
          attachEndings(root,presentStemEndings_dare)
          attachEndings(root,participlePresentActiveEndingsA)
          attachEndings(root.."and",adjectiveEndings_us_a_um) -- gerundivum
+         if thirdField then
+            if thirdField == root.."edī" then
+               addPerfectStemForms(thirdField)
+            else
+               invalidField(thirdField)
+            end
+         end
       elseif endsIn(firstField,"ō") then
          root = utf8substring(firstField,1,-2)
          attachEndings(root,presentStemEndingsActive1)
          attachEndings(root,presentStemEndingsPassive1)
          attachEndings(root,participlePresentActiveEndingsA)
          attachEndings(root.."and",adjectiveEndings_us_a_um) -- gerundivum
+         if thirdField then
+            if thirdField == root.."āvī" then
+               invalidField(thirdField)
+            else
+               addPerfectStemForms(thirdField)
+            end
+         else
+            addPerfectStemForms(root.."āvī")
+         end
       elseif string.sub(firstField,-2) == "or" then
          root = string.sub(firstField,1,-3)
          attachEndings(root,presentStemEndingsPassive1)
@@ -1026,14 +1098,26 @@ for line in io.lines() do
          attachEndings(root,presentStemEndingsPassive2)
          attachEndings(root,participlePresentActiveEndingsE)
          attachEndings(root.."end",adjectiveEndings_us_a_um) -- gerundivum
-		elseif endsIn(firstField,"et") then -- impersonal verb
-			root = string.sub(firstField,1,-3)
-			addForm(root.."et") -- present indicative
-			addForm(root.."at") -- present subjunctive
-			addForm(root.."ēbat") -- imperfect indicative
-			addForm(root.."ēret") -- imperfect subjunctive
-			addForm(root.."ēbit") -- future
-			addForm(root.."ēre") -- infinitive present
+         if thirdField then
+            if endsIn(thirdField,"us") then -- semideponent verb
+            else
+               addPerfectStemForms(thirdField)
+            end
+         end
+      elseif endsIn(firstField,"et") then -- impersonal verb
+         root = string.sub(firstField,1,-3)
+         addForm(root.."et") -- present indicative
+         addForm(root.."at") -- present subjunctive
+         addForm(root.."ēbat") -- imperfect indicative
+         addForm(root.."ēret") -- imperfect subjunctive
+         addForm(root.."ēbit") -- future
+         addForm(root.."ēre") -- infinitive present
+         if thirdField then
+            if endsIn(thirdField,"um") then -- semideponent verb
+            else
+               addPerfectStemFormsImpersonal(thirdField)
+            end
+         end
       elseif endsIn(firstField,"eor") then -- deponent verb
          root = string.sub(firstField,1,-4)
          attachEndings(root,presentStemEndingsPassive2)
@@ -1058,7 +1142,8 @@ for line in io.lines() do
             -- second person singular of the imperative present
             if firstField == "dīcō" or firstField == "dūcō" then
                addForm(root) -- imperative "dīc"/"dūc"
-            elseif utf8.len(firstField) > 5 and (endsIn(firstField,"-dīcō") or endsIn(firstField,"-dūcō")) then
+            elseif utf8.len(firstField) > 5
+            and (endsIn(firstField,"-dīcō") or endsIn(firstField,"-dūcō")) then
                addForm(utf8substring(firstField,1,-3)..combiningAcute.."c") -- imperative, e.g. "ab-dū́c"
             else
                addForm(root.."e") -- imperative, e.g. "mitte"
@@ -1087,15 +1172,24 @@ for line in io.lines() do
             attachEndings(root,presentStemEndingsPassive3)
             attachEndings(root,participlePresentActiveEndingsE)
             attachEndings(root.."end",adjectiveEndings_us_a_um) -- gerundivum
+            if thirdField then
+               if endsIn(thirdField,"us") then -- semideponent verb
+               else
+                  addPerfectStemForms(thirdField)
+               end
+            end
          end
-		elseif endsIn(firstField,"it") then -- impersonal verb
-			root = string.sub(firstField,1,-3)
-			addForm(root.."it") -- present indicative
-			addForm(root.."at") -- present subjunctive
-			addForm(root.."ēbat") -- imperfect indicative
-			addForm(root.."eret") -- imperfect subjunctive
-			addForm(root.."et") -- future
-			addForm(root.."ere") -- infinitive present
+      elseif endsIn(firstField,"it") then -- impersonal verb
+         root = string.sub(firstField,1,-3)
+         addForm(root.."it") -- present indicative
+         addForm(root.."at") -- present subjunctive
+         addForm(root.."ēbat") -- imperfect indicative
+         addForm(root.."eret") -- imperfect subjunctive
+         addForm(root.."et") -- future
+         addForm(root.."ere") -- infinitive present
+         if thirdField then
+            addPerfectStemFormsImpersonal(thirdField)
+         end
       elseif endsIn(firstField,"or") then -- deponent verb
          local c = utf8substring(firstField,-3,-3)
          if not consonants[c] and c ~= "u" then
@@ -1134,6 +1228,9 @@ for line in io.lines() do
          attachEndings(root,presentStemEndingsPassive3M)
          attachEndings(root.."i",participlePresentActiveEndingsE)
          attachEndings(root.."iend",adjectiveEndings_us_a_um) -- gerundivum
+         if thirdField then
+            addPerfectStemForms(thirdField)
+         end
       elseif string.sub(firstField,-3) == "ior" then
          root = string.sub(firstField,1,-4)
          attachEndings(root,presentStemEndingsPassive3M)
@@ -1153,11 +1250,32 @@ for line in io.lines() do
          attachEndings(root,presentStemEndingsPassive4)
          attachEndings(root.."i",participlePresentActiveEndingsE)
          attachEndings(root.."iend",adjectiveEndings_us_a_um) -- gerundivum
+         if thirdField then
+            if thirdField == root.."īvī" then
+               invalidField(thirdField)
+            else
+               addPerfectStemForms(thirdField)
+            end
+         else
+            addPerfectStemForms(root.."īvī")
+         end
       elseif string.sub(firstField,-3) == "ior" then
          root = string.sub(firstField,1,-4)
          attachEndings(root,presentStemEndingsPassive4)
          attachEndings(root.."i",participlePresentActiveEndingsE)
          attachEndings(root.."iend",adjectiveEndings_us_a_um) -- gerundivum
+      else
+         invalidField(firstField)
+      end
+
+   -- verb with perfect forms only
+   elseif secondField == "VP" then
+      if endsIn(firstField,"ī") then
+         addPerfectStemForms(firstField)
+         if firstField == "meminī" then
+            addForm("mementō")
+            addForm("mementōte")
+         end
       else
          invalidField(firstField)
       end
@@ -1186,79 +1304,151 @@ for line in io.lines() do
          addForm("ajērunt") -- 3rd person pl. ind. perfect
          addForm("aisse") -- infinitive perfect
          attachEndings("aj",participlePresentActiveEndingsE) -- participle
+         if thirdField or fourthField then
+            invalidLine()
+         end
       elseif firstField == "eō" then
          attachEndings("",presentStemForms_ire)
          attachEndings("",participlePresentActiveForms_ire)
          attachEndings("eund",adjectiveEndings_us_a_um) -- gerundivum
+         if thirdField then
+            if thirdField == "iī" then
+               attachEndings("",perfectStemForms_ire)
+            elseif thirdField == "īvī" then
+               addPerfectStemForms(thirdField)
+            else
+               invalidField(thirdField)
+            end
+         end
       elseif endsIn(firstField,"-eō") or firstField == "queō" or firstField == "ne-queō" then
          root = utf8substring(firstField,1,-3)
          attachEndings(root,presentStemForms_ire)
          attachEndings(root,participlePresentActiveForms_ire)
          attachEndings(root.."eund",adjectiveEndings_us_a_um) -- gerundivum
+         if thirdField then
+            if endsIn(thirdField,"iī") then
+               attachEndings(utf8substring(thirdField,1,-3),perfectStemForms_ire)
+            elseif endsIn(thirdField,"īvī") then
+               addPerfectStemForms(thirdField)
+            else
+               invalidField(thirdField)
+            end
+         end
       elseif firstField == "ferō" then
          attachEndings("",presentStemForms_ferre)
          attachEndings("fer",participlePresentActiveEndingsE)
          attachEndings("ferend",adjectiveEndings_us_a_um) -- gerundivum
+         if thirdField then
+            if thirdField == "tulī" then
+               addPerfectStemForms(thirdField)
+            else
+               invalidField(thirdField)
+            end
+         end
       elseif endsIn(firstField,"ferō") then
          root = utf8substring(firstField,1,-5)
          attachEndings(root,presentStemForms_ferre)
          attachEndings(root.."fer",participlePresentActiveEndingsE)
          attachEndings(root.."ferend",adjectiveEndings_us_a_um) -- gerundivum
-		elseif firstField == "fīō" then
-			addForm("fīō") -- 1st person sg. present indicative
-			addForm("fīs") -- 2nd person sg. present indicative
-			addForm("fit") -- 3rd person sg. present indicative
-			addForm("fīmus") -- 1st person pl. present indicative
-			addForm("fītis") -- 2nd person pl. present indicative
-			addForm("fīunt") -- 3rd person pl. present indicative
-			attachEndings("fī",presentEndingsSubjunctiveActive_a) -- present subjunctive
-			addForm("fī") -- imperative present sg.
-			addForm("fīte") -- imperative present pl.
-			addForm("fierī") -- infinitive present
-			attachEndings("fīē",imperfectEndingsIndicativeActive) -- imperfect indicative
-			attachEndings("fie",imperfectEndingsSubjunctiveActive) -- imperfect subjunctive
-			attachEndings("fī",futureEndingsActive_a_e) -- future
-		elseif firstField == "in-quam" then
-			addForm("in-quam") -- 1st person sg. present
-			addForm("in-quīs") -- 2nd person sg. present
-			addForm("in-quit") -- 3rd person sg. present
-			addForm("in-quītis") -- 2nd person pl. present
-			addForm("in-quiunt") -- 3rd person pl. present
-			addForm("in-quiēs") -- 2nd person sg. future
-			addForm("in-quiet") -- 3rd person sg. future
-		elseif firstField == "mālō" then
-			addForm("mālō") -- 1st person sg. present indicative
-			addForm("māvīs") -- 2nd person sg. present indicative
-			addForm("māvult") -- 3rd person sg. present indicative
-			addForm("mālumus") -- 1st person pl. present indicative
-			addForm("māvultis") -- 2nd person pl. present indicative
-			addForm("mālunt") -- 3rd person pl. present indicative
-			attachEndings("māl",presentEndingsSubjunctiveActive_i) -- present subjunctive
-			addForm("mālle") -- infinitive present
-			attachEndings("mālē",imperfectEndingsIndicativeActive) -- imperfect indicative
-			attachEndings("māll",imperfectEndingsSubjunctiveActiveWithout_r) -- imperfect subjunctive
-			attachEndings("māl",futureEndingsActive_a_e) -- future
-		elseif firstField == "nōlō" then
-			addForm("nōlō") -- 1st person sg. present indicative
-			addForm("nōlumus") -- 1st person pl. present indicative
-			addForm("nōlunt") -- 3rd person pl. present indicative
-			attachEndings("nōl",presentEndingsSubjunctiveActive_i) -- present subjunctive
-			addForm("nōlī") -- imperative present sg.
-			addForm("nōlīte") -- imperative present pl.
-			addForm("nōlle") -- infinitive present
-			attachEndings("nōlē",imperfectEndingsIndicativeActive) -- imperfect indicative
-			attachEndings("nōll",imperfectEndingsSubjunctiveActiveWithout_r) -- imperfect subjunctive
-			attachEndings("nōl",futureEndingsActive_a_e) -- future
-			addForm("nōlītō") -- imperative future sg.
-			addForm("nōlītōte") -- imperative future pl.
+         if thirdField then
+            if endsIn(thirdField,"tulī") then
+               addPerfectStemForms(thirdField)
+            else
+               invalidField(thirdField)
+            end
+         end
+      elseif firstField == "fīō" then
+         addForm("fīō") -- 1st person sg. present indicative
+         addForm("fīs") -- 2nd person sg. present indicative
+         addForm("fit") -- 3rd person sg. present indicative
+         addForm("fīmus") -- 1st person pl. present indicative
+         addForm("fītis") -- 2nd person pl. present indicative
+         addForm("fīunt") -- 3rd person pl. present indicative
+         attachEndings("fī",presentEndingsSubjunctiveActive_a) -- present subjunctive
+         addForm("fī") -- imperative present sg.
+         addForm("fīte") -- imperative present pl.
+         addForm("fierī") -- infinitive present
+         attachEndings("fīē",imperfectEndingsIndicativeActive) -- imperfect indicative
+         attachEndings("fie",imperfectEndingsSubjunctiveActive) -- imperfect subjunctive
+         attachEndings("fī",futureEndingsActive_a_e) -- future
+         if thirdField or fourthField then
+            invalidLine()
+         end
+      elseif firstField == "in-quam" then
+         addForm("in-quam") -- 1st person sg. present
+         addForm("in-quīs") -- 2nd person sg. present
+         addForm("in-quit") -- 3rd person sg. present
+         addForm("in-quītis") -- 2nd person pl. present
+         addForm("in-quiunt") -- 3rd person pl. present
+         addForm("in-quiēs") -- 2nd person sg. future
+         addForm("in-quiet") -- 3rd person sg. future
+         if thirdField or fourthField then
+            invalidLine()
+         end
+      elseif firstField == "mālō" then
+         addForm("mālō") -- 1st person sg. present indicative
+         addForm("māvīs") -- 2nd person sg. present indicative
+         addForm("māvult") -- 3rd person sg. present indicative
+         addForm("mālumus") -- 1st person pl. present indicative
+         addForm("māvultis") -- 2nd person pl. present indicative
+         addForm("mālunt") -- 3rd person pl. present indicative
+         attachEndings("māl",presentEndingsSubjunctiveActive_i) -- present subjunctive
+         addForm("mālle") -- infinitive present
+         attachEndings("mālē",imperfectEndingsIndicativeActive) -- imperfect indicative
+         attachEndings("māll",imperfectEndingsSubjunctiveActiveWithout_r) -- imperfect subjunctive
+         attachEndings("māl",futureEndingsActive_a_e) -- future
+         if thirdField then
+            if thirdField == "māluī" then
+               addPerfectStemForms(thirdField)
+            else
+               invalidField(thirdField)
+            end
+         end
+      elseif firstField == "nōlō" then
+         addForm("nōlō") -- 1st person sg. present indicative
+         addForm("nōlumus") -- 1st person pl. present indicative
+         addForm("nōlunt") -- 3rd person pl. present indicative
+         attachEndings("nōl",presentEndingsSubjunctiveActive_i) -- present subjunctive
+         addForm("nōlī") -- imperative present sg.
+         addForm("nōlīte") -- imperative present pl.
+         addForm("nōlle") -- infinitive present
+         attachEndings("nōlē",imperfectEndingsIndicativeActive) -- imperfect indicative
+         attachEndings("nōll",imperfectEndingsSubjunctiveActiveWithout_r) -- imperfect subjunctive
+         attachEndings("nōl",futureEndingsActive_a_e) -- future
+         addForm("nōlītō") -- imperative future sg.
+         addForm("nōlītōte") -- imperative future pl.
+         if thirdField then
+            if thirdField == "nōluī" then
+               addPerfectStemForms(thirdField)
+            else
+               invalidField(thirdField)
+            end
+         end
       elseif firstField == "possum" then
          attachEndings("",presentStemForms_posse)
+         if thirdField then
+            if thirdField == "potuī" then
+               addPerfectStemForms(thirdField)
+            else
+               invalidField(thirdField)
+            end
+         end
       elseif firstField == "quæsō" then
          addForm("quæsō") -- 1st person sg. indicative present
          addForm("quæsumus") -- 1st person pl. indicative present
+         if thirdField or fourthField then
+            invalidLine()
+         end
       elseif firstField == "sum" then
          attachEndings("",presentStemForms_esse)
          attachEndings("",participlePresentActiveEndingsE) -- participle: ēns/entis
+         if thirdField then
+            if thirdField == "fuī" then
+               addPerfectStemForms(thirdField)
+            else
+               invalidField(thirdField)
+            end
+         end
       elseif endsIn(firstField,"sum") then
          root = string.sub(firstField,1,-4)
          if root == "as" then -- assum/ad-esse
@@ -1271,19 +1461,33 @@ for line in io.lines() do
             attachEndings(root,presentStemForms_esse)
          end
          attachEndings(root.."s",participlePresentActiveEndingsE) -- participle: -sēns/-sentis
-		elseif firstField == "volō" then
-			addForm("volō") -- 1st person sg. present indicative
-			addForm("vīs") -- 2nd person sg. present indicative
-			addForm("vult") -- 3rd person sg. present indicative
-			addForm("volumus") -- 1st person pl. present indicative
-			addForm("vultis") -- 2nd person pl. present indicative
-			addForm("volunt") -- 3rd person pl. present indicative
-			attachEndings("vel",presentEndingsSubjunctiveActive_i) -- present subjunctive
-			addForm("velle") -- infinitive present
+         if thirdField then
+            if endsIn(thirdField,"fuī") then
+               addPerfectStemForms(thirdField)
+            else
+               invalidField(thirdField)
+            end
+         end
+      elseif firstField == "volō" then
+         addForm("volō") -- 1st person sg. present indicative
+         addForm("vīs") -- 2nd person sg. present indicative
+         addForm("vult") -- 3rd person sg. present indicative
+         addForm("volumus") -- 1st person pl. present indicative
+         addForm("vultis") -- 2nd person pl. present indicative
+         addForm("volunt") -- 3rd person pl. present indicative
+         attachEndings("vel",presentEndingsSubjunctiveActive_i) -- present subjunctive
+         addForm("velle") -- infinitive present
          attachEndings("vol",participlePresentActiveEndingsE) -- participle present
-			attachEndings("volē",imperfectEndingsIndicativeActive) -- imperfect indicative
-			attachEndings("voll",imperfectEndingsSubjunctiveActiveWithout_r) -- imperfect subjunctive
-			attachEndings("vol",futureEndingsActive_a_e) -- future
+         attachEndings("volē",imperfectEndingsIndicativeActive) -- imperfect indicative
+         attachEndings("voll",imperfectEndingsSubjunctiveActiveWithout_r) -- imperfect subjunctive
+         attachEndings("vol",futureEndingsActive_a_e) -- future
+         if thirdField then
+            if thirdField == "voluī" then
+               addPerfectStemForms(thirdField)
+            else
+               invalidField(thirdField)
+            end
+         end
       else
          invalidLine()
       end

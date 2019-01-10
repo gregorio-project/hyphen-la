@@ -81,8 +81,8 @@ generated automatically.
 - Write *æ* and *œ* for the diphthongs *ae* and *oe*: `cælum`, `tragœdia`.
 - Use hyphens to mark compound words: `ab-scindō`, `ē-jiciō`, `ob-œdiō`,
   `anim-ad-vertō`, `long-ævus`. Do not use hyphens if a prefix is assimilated
-  to the following word or extended by *s*: `abstrahō`, `assimils`, `afferō`,
-  `difficilis`, `occidō`, `sustulī`.
+  before a consonant or extended by *s*: `abstrahō`, `assimils`, `afferō`,
+  `difficilis`, `occidō`, `sustulī`, `complūrēs`, but `com-edō`.
 - Use an accented vowel (or a *combining acute accent* U+301 for vowels with
   macron) if an uninflectable word with at least two syllables has its accent
   on the last syllable: `ab-hínc`, `ad-hū́c`. Note: In other cases, the accent
@@ -98,6 +98,7 @@ generated automatically.
 - `3` – verb of the third conjugation
 - `3M` – verb of the mixed third conjugation
 - `4` – verb of the fourth conjugation
+- `VP` – verb with perfect forms only
 - `VI` – irregular verb
 
 Examples:
@@ -114,7 +115,8 @@ Examples:
 	partior,4
 	ab-scindō,3,ab-scidī,ab-scissus
 	ex-audiō,4
-	volō,VI
+	meminī,VP
+	volō,VI,voluī
 
 #### Nouns
 
