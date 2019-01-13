@@ -1151,7 +1151,7 @@ com-po-no
 com-por-to
 com-pos
 com-po-si-to
-com-pot-es
+com-po-tes
 com-pre-hen-do
 com-pres-se
 com-pri-mo
@@ -1530,7 +1530,6 @@ cul-mi-no
 cul-mus
 cul-pa
 cum
-cum-scri-bil-lo
 cunc-tus
 cur-ro
 cur-rus
@@ -3516,7 +3515,7 @@ li-no-stro-phon
 lo-cu-ples
 lon-gæ-vus
 lon-gin-quo
-lon-gi-vus
+lon-gi-vi-vax
 Lon-gu-la
 Lon-gu-la-nus
 lon-gu-le
@@ -3633,7 +3632,6 @@ ob-es-set
 ob-es-se-tis
 ob-est
 ob-ex
-ob-fi-di-re
 ob-ge-ro
 ob-hu-mo
 ob-ie-ce-ram
@@ -3948,7 +3946,7 @@ of-frin-gunt
 of-frin-gun-tur
 om-nes
 om-ni
-om-ni-pot-ens
+om-ni-po-tens
 om-nis
 op-pan-gunt
 op-pan-gun-tur
@@ -4441,8 +4439,8 @@ post-mo-do
 post-mo-dum
 post-po-no
 post-quam
-pot-ens
-pot-en-ter
+po-tens
+po-ten-ter
 pot-es
 pot-est
 po-tu
@@ -5273,7 +5271,6 @@ re-spi-ra-men
 re-spi-ra-men-tum
 re-spi-ra-re
 re-spi-ra-tus
-re-spi-re
 re-spi-ro
 re-splen-de-re
 re-spon-de-re
@@ -5620,6 +5617,7 @@ sub-pin-guis-si-mus
 sub-re-po
 sub-rin-gun-tur
 sub-ro-go
+sub-scri-be-re
 sub-scri-bo
 sub-se-quor
 sub-spar-ge-re
@@ -6749,7 +6747,6 @@ sup-pun-gunt
 sup-pun-gun-tur
 su-pra
 sus
-su-scri-be-re
 su-spec-ta-re
 su-spec-ti-vus
 su-spec-to
@@ -6937,6 +6934,8 @@ trans-al-pi-cus
 trans-al-pi-nus
 trans-be-ne-ven-ta-nus
 trans-bi-bo
+tran-scen-do
+tran-scen-sus
 tran-scri-bo
 tran-scrip-tus
 trans-cur-ro
@@ -6963,6 +6962,7 @@ tran-se-ras
 tran-se-rat
 tran-se-ra-tis
 tran-se-ra-tur
+tran-se-re
 tran-se-re-bam
 tran-se-re-ba-mi-ni
 tran-se-re-ba-mur
@@ -7006,6 +7006,7 @@ tran-se-ri
 tran-se-ri-mi-ni
 tran-se-ri-mur
 tran-se-ri-mus
+tran-se-ris
 tran-se-rit
 tran-se-ri-te
 tran-se-ri-tis

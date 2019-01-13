@@ -313,7 +313,6 @@ ad-i-ci-o
 ad-iec-ti-ci-us
 ad-iec-ti-o
 ad-i-ens
-ad-i-e-un-tis
 ad-i-go
 ad-ii-ci-o
 ad-i-mo
@@ -2406,7 +2405,7 @@ di-sces-si-o
 di-sce-us
 di-sci-di-um
 dis-cor-di-a
-dis-cre-pen-ti-a
+dis-cre-pan-ti-a
 dis-cru-ci-o
 dis-cu-ti-o
 dis-i-ci-o
@@ -2433,7 +2432,6 @@ dis-pe-sce-re
 di-spi-ci-o
 dis-pli-cen-ti-a
 dis-pli-ce-o
-dis-plu-vi-a
 dis-plu-vi-a-tus
 di-spo-li-a-re
 di-spo-li-o
@@ -2777,7 +2775,7 @@ E-pi-me-the-us
 e-pis-tra-te-gi-a
 e-pis-tra-te-gus
 e-pi-stro-phe
-e-pi-tha-la-mus
+e-pi-tha-la-mi-on
 e-pi-zeu-xis
 e-plo-ce-us
 E-po-pe-us
@@ -2802,6 +2800,7 @@ er-ro-ne-us
 e-ru-bes-cam
 e-ruc-ta-vit
 e-scæ
+es-cha-to-col-li-on
 e-scis
 et-e-nim
 et-i-am
@@ -5053,7 +5052,7 @@ plu-me-us
 plu-te-um
 plu-te-us
 pni-ge-us
-Pœ-ni-ce-us
+pœ-ni-ce-us
 po-e-ti-ca
 Pœt-ne-um
 Po-lich-næ-i
@@ -7102,20 +7101,10 @@ trans-e-mi-ni
 trans-e-mur
 trans-e-o
 trans-e-or
-trans-e-re
-trans-é-re
-trán-se-re
 trans-e-re-mi-ni
 trans-e-re-mur
 trans-e-ren-tur
 trans-e-rer
-trans-e-ré-re
-tran-sé-re-re
-trans-e-ré-ris
-tran-sé-re-ris
-trans-e-ris
-trans-é-ris
-trán-se-ris
 tran-se-ru-e-ram
 tran-se-ru-e-ra-mus
 tran-se-ru-e-rant
@@ -7374,11 +7363,14 @@ trans-i-re
 trans-i-rem
 trans-i-re-mus
 trans-i-rent
+trans-i-re-re
+trans-i-re-ris
 trans-i-res
 trans-i-ret
 trans-i-re-tis
 trans-i-re-tur
 trans-i-ri
+trans-i-ris
 trans-i-te
 trans-i-ti
 trans-i-ti-o

@@ -167,17 +167,23 @@ function readHyphenations(fileName,set,hyphenationStyle)
 end
 
 function writeHyphenationCandidates(fileName,set)
-   if next(set) == nil then
+   if next(set) ~= nil then
+      print('Missing words written to "'..fileName..'":')
       local outputStream = assert(io.open(fileName,"w"))
       for _, word in pairs(set) do
          outputStream:write(word..'\n')
+         print(word)
       end
       wordListsDiffer = true
    end
 end
 
 function sortFile(fileName)
-	os.execute("sort -o "..fileName.." "..fileName)
+   os.execute("sort -o "..fileName.." "..fileName)
+end
+
+function deleteFile(fileName)
+   os.execute("rm -f "..fileName)
 end
 
 -- sort word lists
@@ -292,6 +298,14 @@ end
 
 -- write new words from the original file to candidate files
 
+missingWords = {}
+
+for key, word in pairs(original) do
+   if not liturgical[key] then
+      missingWords[key] = word
+   end
+end
+
 liturgicalCandidates = {}
 liturgicalClassicalCandidates = {}
 liturgicalItalianCandidates = {}
@@ -300,7 +314,7 @@ classicalItalianCandidates = {}
 italianCandidates = {}
 allCandidates = {}
 
-for _, word in pairs(original) do
+for _, word in pairs(missingWords) do
    if containsSingleVowelSyllable(word) or containsHiatus(word)
    or containsAccents(word) then
       table.insert(liturgicalCandidates,word)
@@ -342,6 +356,14 @@ classicalFile = "candidates-classical-only.txt"
 classicalItalianFile = "candidates-classical-italian.txt"
 italianFile = "candidates-italian-only.txt"
 allFile = "candidates-all-styles.txt"
+
+deleteFile(liturgicalFile)
+deleteFile(liturgicalClassicalFile)
+deleteFile(liturgicalItalianFile)
+deleteFile(classicalFile)
+deleteFile(classicalItalianFile)
+deleteFile(italianFile)
+deleteFile(allFile)
 
 writeHyphenationCandidates(liturgicalFile,liturgicalCandidates)
 writeHyphenationCandidates(liturgicalClassicalFile,liturgicalClassicalCandidates)

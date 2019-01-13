@@ -1172,7 +1172,6 @@ di-sco-lor
 di-scor-dia
 di-scor-do
 di-scors
-di-scre-pen-tia
 di-scre-pi-to
 di-scre-po
 di-scre-tim
@@ -1248,7 +1247,6 @@ di-spli-ci-tus
 di-spli-co
 di-splo-de-re
 di-splo-do
-di-splu-via
 di-splu-via-tus
 di-spo-ne-re
 di-spo-no
@@ -1512,7 +1510,6 @@ eque-stris
 Era-si-stra-tus
 eru-be-scam
 esca
-escha-to
 esto
 estrix
 eu-cha-ri-stia
@@ -2106,13 +2103,13 @@ po-stu-la-tio
 po-stu-lo
 Po-stu-mius
 Po-stu-mus
-pot-estas
+po-te-stas
 pot-este
 pot-estis
 pot-esto
 pot-esto-te
-pot-ui-sti
-pot-ui-stis
+po-tui-sti
+po-tui-stis
 præ-di-spo-ne-re
 præ-di-spo-no
 præ-di-spo-si-tus
@@ -2149,10 +2146,10 @@ pro-stra-vi-sti
 pro-stra-vi-stis
 pro-to-ma-gi-stri
 pseud-apo-sto-lus
-pseu-doa-po-sto-lus
+pseu-do-apo-sto-lus
 pseu-do-chri-stia-nus
 Pseu-do-chri-stus
-pseu-doe-pi-sco-pus
+pseu-do-epi-sco-pus
 pseu-do-ma-gi-ster
 pseu-do-pa-stor
 pu-gneus
@@ -2331,8 +2328,8 @@ su-per-fui-stis
 su-per-ii-sti
 su-per-ii-stis
 su-per-in-cre-sco
-su-per-ind-ui-sti
-su-per-ind-ui-stis
+su-per-in-dui-sti
+su-per-in-dui-stis
 su-per-in-du-xi-sti
 su-per-in-du-xi-stis
 su-per-in-ie-ci-sti
@@ -2403,8 +2400,6 @@ ton-stri-na
 ton-stri-nus
 ton-strix
 trans-au-stri-nus
-tran-scen-den-tia
-tran-scen-sio
 tran-sco-lo
 tran-scon-tra
 Tran-scu-da-ni

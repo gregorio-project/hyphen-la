@@ -9,7 +9,7 @@ directory. The categorization is not yet finished.
 
 Hyphenations suitable only for liturgical Latin, i.e. hyphenations with single
 vowel syllables and hiatus, e.g. *u-ni-cus*, *au-di-o*, *in-i-mi-cus*,
-*cre-a-re*, *cor-po-re-us*; also accented forms like *tran-sé-re-re*.
+*cre-a-re*, *cor-po-re-us*.
 
 ### wordlist-liturgical-classical.txt
 
@@ -53,6 +53,10 @@ This script sorts all word lists mentioned above and checks
   `wordlist-liturgical.txt`,
 - if the hyphenations for the liturgical variant are identical to those of
   `wordlist-liturgical.txt`.
+
+Furthermore, the scripts writes `candidates-*` files in case of missing
+hyphenations from `wordlist-liturgical.txt` prepared for the different
+hyphenation variants.
 
 #### Usage
 	lua5.3 check-wordlists.lua

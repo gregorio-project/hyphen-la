@@ -343,6 +343,4 @@ su-sci-pe
 su-sci-tans
 su-sci-to
 ta-be-scet
-tran-scen-do
-tran-scen-sus
 tran-sci-do
