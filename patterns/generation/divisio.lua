@@ -241,6 +241,13 @@ function classicalHyphenation(word)
                store = ""
                state = "beginning"
             end -- the state stays the same if greek is false
+         elseif c == "~" then -- word boundary before "ji"
+            if chant then
+               output = output.."-"
+            else
+               output = output..c
+            end
+            state = "word boundary before ji"
          elseif c == "-" then -- word boundary
             output = output..store.."="
             store = ""
@@ -792,8 +799,8 @@ function removeUnwantedHyphens(input)
       output = output.."."..store
    elseif state == "potential single digraph" then
       output = output.."·"..store
-	elseif state == "vowel at beginning" and string.find(output,"-") then
-		output = string.sub(output,1,utf8.offset(output,-2)-1).."."..string.sub(output,utf8.offset(output,-1))
+   elseif state == "vowel at beginning" and string.find(output,"-") then
+      output = string.sub(output,1,utf8.offset(output,-2)-1).."."..string.sub(output,utf8.offset(output,-1))
    end
 
    if traceStates then

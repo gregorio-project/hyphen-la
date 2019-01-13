@@ -200,6 +200,17 @@ function addPerfectStemFormsImpersonal(thirdPersonSingular)
    end
 end
 
+function addSupineStemForms(supine)
+   if endsIn(supine,"um") then
+      local stem = string.sub(supine,1,-3)
+      attachEndings(stem,adjectiveEndings_us_a_um) -- perfect passive particple
+      attachEndings(stem.."ūr",adjectiveEndings_us_a_um) -- future active participle 
+      addForm(stem.."ū") -- second supine
+   else
+      invalidField(supine)
+   end
+end
+
 
 -- endings of the nouns of the first declension
 nounEndings1 = { "a","æ","am","ā","ārum","īs","ās" }
@@ -336,7 +347,7 @@ adjectiveEndings_i_um = { -- e.g. "memor", nom. sing. is left out
 adjectiveEndings_e_um = { -- e.g. "vetus", nom. sing. is left out
    "is","ī","em","e","ēs","a","um","ibus"}
 
--- the participles present active follow the mixed declension
+-- the present active participles follow the mixed declension
 participlePresentActiveEndingsA = { -- e.g. "laudāns" < "laudāre"
    "āns","antis","antī","antem","ante",
    "antēs","antia","antium","antibus","antīs"}
@@ -1064,6 +1075,13 @@ for line in io.lines() do
                invalidField(thirdField)
             end
          end
+         if fourthField then
+            if fourthField == root.."atum" then
+               addSupineStemForms(fourthField)
+            else
+               invalidField(fourthField)
+            end
+         end
       elseif endsIn(firstField,"ō") then
          root = utf8substring(firstField,1,-2)
          attachEndings(root,presentStemEndingsActive1)
@@ -1079,11 +1097,34 @@ for line in io.lines() do
          else
             addPerfectStemForms(root.."āvī")
          end
+         if fourthField then
+            if fourthField == root.."ātum" then
+               invalidField(fourthField)
+            else
+               addSupineStemForms(fourthField)
+            end
+         else
+            addSupineStemForms(root.."ātum")
+         end
       elseif string.sub(firstField,-2) == "or" then
          root = string.sub(firstField,1,-3)
          attachEndings(root,presentStemEndingsPassive1)
          attachEndings(root,participlePresentActiveEndingsA)
          attachEndings(root.."and",adjectiveEndings_us_a_um) -- gerundivum
+         if thirdField then
+            if thirdField == root.."ātus" then
+               invalidField(thirdField)
+            elseif endsIn(thirdField,"us") then
+               addSupineStemForms(string.sub(thirdField,1,-2).."m")
+            else
+               invalidField(thirdField)
+            end
+         else
+            addSupineStemForms(root.."ātum")
+         end
+         if fourthField then
+            invalidLine()
+         end
       else
          invalidField(firstField)
       end
@@ -1100,9 +1141,13 @@ for line in io.lines() do
          attachEndings(root.."end",adjectiveEndings_us_a_um) -- gerundivum
          if thirdField then
             if endsIn(thirdField,"us") then -- semideponent verb
+               addSupineStemForms(string.sub(thirdField,1,-2).."m")
             else
                addPerfectStemForms(thirdField)
             end
+         end
+         if fourthField then
+            addSupineStemForms(fourthField)
          end
       elseif endsIn(firstField,"et") then -- impersonal verb
          root = string.sub(firstField,1,-3)
@@ -1114,15 +1159,29 @@ for line in io.lines() do
          addForm(root.."ēre") -- infinitive present
          if thirdField then
             if endsIn(thirdField,"um") then -- semideponent verb
+               addSupineStemForms(thirdField)
             else
                addPerfectStemFormsImpersonal(thirdField)
             end
+         end
+         if fourthField then
+            invalidLine()
          end
       elseif endsIn(firstField,"eor") then -- deponent verb
          root = string.sub(firstField,1,-4)
          attachEndings(root,presentStemEndingsPassive2)
          attachEndings(root,participlePresentActiveEndingsE)
          attachEndings(root.."end",adjectiveEndings_us_a_um) -- gerundivum
+         if thirdField then
+            if endsIn(thirdField,"us") then
+               addSupineStemForms(string.sub(thirdField,1,-2).."m")
+            else
+               invalidField(thirdField)
+            end
+         end
+         if fourthField then
+            invalidLine()
+         end
       else
          invalidField(firstField)
       end
@@ -1174,9 +1233,13 @@ for line in io.lines() do
             attachEndings(root.."end",adjectiveEndings_us_a_um) -- gerundivum
             if thirdField then
                if endsIn(thirdField,"us") then -- semideponent verb
+                  addSupineStemForms(string.sub(thirdField,1,-2).."m")
                else
                   addPerfectStemForms(thirdField)
                end
+            end
+            if fourthField then
+               addSupineStemForms(fourthField)
             end
          end
       elseif endsIn(firstField,"it") then -- impersonal verb
@@ -1190,6 +1253,9 @@ for line in io.lines() do
          if thirdField then
             addPerfectStemFormsImpersonal(thirdField)
          end
+         if fourthField then
+            invalidLine()
+         end
       elseif endsIn(firstField,"or") then -- deponent verb
          local c = utf8substring(firstField,-3,-3)
          if not consonants[c] and c ~= "u" then
@@ -1199,6 +1265,16 @@ for line in io.lines() do
             attachEndings(root,presentStemEndingsPassive3)
             attachEndings(root,participlePresentActiveEndingsE)
             attachEndings(root.."end",adjectiveEndings_us_a_um) -- gerundivum
+         end
+         if thirdField then
+            if endsIn(thirdField,"us") then
+               addSupineStemForms(string.sub(thirdField,1,-2).."m")
+            else
+               invalidField(thirdField)
+            end
+         end
+         if fourthField then
+            invalidLine()
          end
       else
          invalidField(firstField)
@@ -1231,11 +1307,24 @@ for line in io.lines() do
          if thirdField then
             addPerfectStemForms(thirdField)
          end
+         if fourthField then
+            addSupineStemForms(fourthField)
+         end
       elseif string.sub(firstField,-3) == "ior" then
          root = string.sub(firstField,1,-4)
          attachEndings(root,presentStemEndingsPassive3M)
          attachEndings(root.."i",participlePresentActiveEndingsE)
          attachEndings(root.."iend",adjectiveEndings_us_a_um) -- gerundivum
+         if thirdField then
+            if endsIn(thirdField,"us") then
+               addSupineStemForms(string.sub(thirdField,1,-2).."m")
+            else
+               invalidField(thirdField)
+            end
+         end
+         if fourthField then
+            invalidLine()
+         end
       else
          invalidField(firstField)
       end
@@ -1259,11 +1348,34 @@ for line in io.lines() do
          else
             addPerfectStemForms(root.."īvī")
          end
+         if fourthField then
+            if fourthField == root.."ītum" then
+               invalidField(fourthField)
+            else
+               addSupineStemForms(fourthField)
+            end
+         else
+            addSupineStemForms(root.."ītum")
+         end
       elseif string.sub(firstField,-3) == "ior" then
          root = string.sub(firstField,1,-4)
          attachEndings(root,presentStemEndingsPassive4)
          attachEndings(root.."i",participlePresentActiveEndingsE)
          attachEndings(root.."iend",adjectiveEndings_us_a_um) -- gerundivum
+         if thirdField then
+            if thirdField == root.."ītus" then
+               invalidField(thirdField)
+            elseif endsIn(thirdField,"us") then
+               addSupineStemForms(string.sub(thirdField,1,-2).."m")
+            else
+               invalidField(thirdField)
+            end
+         else
+            addSupineStemForms(root.."ītum")
+         end
+         if fourthField then
+            invalidLine()
+         end
       else
          invalidField(firstField)
       end
@@ -1275,6 +1387,12 @@ for line in io.lines() do
          if firstField == "meminī" then
             addForm("mementō")
             addForm("mementōte")
+         end
+         if thirdField then
+            addSupineStemForms(thirdField)
+         end
+         if fourthField then
+            invalidLine()
          end
       else
          invalidField(firstField)
@@ -1320,6 +1438,13 @@ for line in io.lines() do
                invalidField(thirdField)
             end
          end
+         if fourthField then
+            if fourthField == "itum" then
+               addSupineStemForms(fourthField)
+            else
+               invalidField(fourthField)
+            end
+         end
       elseif endsIn(firstField,"-eō") or firstField == "queō" or firstField == "ne-queō" then
          root = utf8substring(firstField,1,-3)
          attachEndings(root,presentStemForms_ire)
@@ -1334,6 +1459,13 @@ for line in io.lines() do
                invalidField(thirdField)
             end
          end
+         if fourthField then
+            if endsIn(fourthField,"itum") then
+               addSupineStemForms(fourthField)
+            else
+               invalidField(fourthField)
+            end
+         end
       elseif firstField == "ferō" then
          attachEndings("",presentStemForms_ferre)
          attachEndings("fer",participlePresentActiveEndingsE)
@@ -1343,6 +1475,13 @@ for line in io.lines() do
                addPerfectStemForms(thirdField)
             else
                invalidField(thirdField)
+            end
+         end
+         if fourthField then
+            if fourthField == "lātum" then
+               addSupineStemForms(fourthField)
+            else
+               invalidField(fourthField)
             end
          end
       elseif endsIn(firstField,"ferō") then
@@ -1357,31 +1496,51 @@ for line in io.lines() do
                invalidField(thirdField)
             end
          end
-      elseif firstField == "fīō" then
-         addForm("fīō") -- 1st person sg. present indicative
-         addForm("fīs") -- 2nd person sg. present indicative
-         addForm("fit") -- 3rd person sg. present indicative
-         addForm("fīmus") -- 1st person pl. present indicative
-         addForm("fītis") -- 2nd person pl. present indicative
-         addForm("fīunt") -- 3rd person pl. present indicative
-         attachEndings("fī",presentEndingsSubjunctiveActive_a) -- present subjunctive
-         addForm("fī") -- imperative present sg.
-         addForm("fīte") -- imperative present pl.
-         addForm("fierī") -- infinitive present
-         attachEndings("fīē",imperfectEndingsIndicativeActive) -- imperfect indicative
-         attachEndings("fie",imperfectEndingsSubjunctiveActive) -- imperfect subjunctive
-         attachEndings("fī",futureEndingsActive_a_e) -- future
+         if fourthField then
+            if endsIn(fourthField,"lātum") then
+               addSupineStemForms(fourthField)
+            else
+               invalidField(fourthField)
+            end
+         end
+      elseif firstField == "fīō" or endsIn(firstField,"-fīō") then
+         if firstField == "fīō" then
+            stem = ""
+         else
+            stem = utf8substring(firstField,1,-4)
+         end
+         addForm(stem.."fīō") -- 1st person sg. present indicative
+         addForm(stem.."fīs") -- 2nd person sg. present indicative
+         addForm(stem.."fit") -- 3rd person sg. present indicative
+         addForm(stem.."fīmus") -- 1st person pl. present indicative
+         addForm(stem.."fītis") -- 2nd person pl. present indicative
+         addForm(stem.."fīunt") -- 3rd person pl. present indicative
+         attachEndings(stem.."fī",presentEndingsSubjunctiveActive_a) -- present subjunctive
+         addForm(stem.."fī") -- imperative present sg.
+         addForm(stem.."fīte") -- imperative present pl.
+         addForm(stem.."fierī") -- infinitive present
+         attachEndings(stem.."fīē",imperfectEndingsIndicativeActive) -- imperfect indicative
+         attachEndings(stem.."fie",imperfectEndingsSubjunctiveActive) -- imperfect subjunctive
+         attachEndings(stem.."fī",futureEndingsActive_a_e) -- future
          if thirdField or fourthField then
             invalidLine()
          end
       elseif firstField == "in-quam" then
          addForm("in-quam") -- 1st person sg. present
+         addForm("in-quiō") -- 1st person sg. present (late Latin)
          addForm("in-quīs") -- 2nd person sg. present
          addForm("in-quit") -- 3rd person sg. present
+         addForm("in-quiat") -- 3rd person sg. present subjunctive
          addForm("in-quītis") -- 2nd person pl. present
          addForm("in-quiunt") -- 3rd person pl. present
+         addForm("in-que") -- imperative
+         addForm("in-quiēbat") -- 3rd person sg. imperfect
          addForm("in-quiēs") -- 2nd person sg. future
          addForm("in-quiet") -- 3rd person sg. future
+         addForm("in-quiī") -- 1st person sg. perfect
+         addForm("in-quī") -- 1st person sg. perfect
+         addForm("in-quistī") -- 1st person sg. perfect
+         attachEndings("in-qui",participlePresentActiveEndingsE)
          if thirdField or fourthField then
             invalidLine()
          end
@@ -1404,6 +1563,9 @@ for line in io.lines() do
                invalidField(thirdField)
             end
          end
+         if fourthField then
+            invalidLine()
+         end
       elseif firstField == "nōlō" then
          addForm("nōlō") -- 1st person sg. present indicative
          addForm("nōlumus") -- 1st person pl. present indicative
@@ -1424,6 +1586,9 @@ for line in io.lines() do
                invalidField(thirdField)
             end
          end
+         if fourthField then
+            invalidLine()
+         end
       elseif firstField == "possum" then
          attachEndings("",presentStemForms_posse)
          if thirdField then
@@ -1432,6 +1597,9 @@ for line in io.lines() do
             else
                invalidField(thirdField)
             end
+         end
+         if fourthField then
+            invalidLine()
          end
       elseif firstField == "quæsō" then
          addForm("quæsō") -- 1st person sg. indicative present
@@ -1447,6 +1615,13 @@ for line in io.lines() do
                addPerfectStemForms(thirdField)
             else
                invalidField(thirdField)
+            end
+         end
+         if fourthField then
+            if fourthField == "futūrus" then
+               attachEndings(string.sub(fourthField,1,-3),adjectiveEndings_us_a_um)
+            else
+               invalidField(fourthField)
             end
          end
       elseif endsIn(firstField,"sum") then
@@ -1468,6 +1643,13 @@ for line in io.lines() do
                invalidField(thirdField)
             end
          end
+         if fourthField then
+            if endsIn(fourthField,"futūrus") then
+               attachEndings(string.sub(fourthField,1,-3),adjectiveEndings_us_a_um)
+            else
+               invalidField(fourthField)
+            end
+         end
       elseif firstField == "volō" then
          addForm("volō") -- 1st person sg. present indicative
          addForm("vīs") -- 2nd person sg. present indicative
@@ -1477,7 +1659,7 @@ for line in io.lines() do
          addForm("volunt") -- 3rd person pl. present indicative
          attachEndings("vel",presentEndingsSubjunctiveActive_i) -- present subjunctive
          addForm("velle") -- infinitive present
-         attachEndings("vol",participlePresentActiveEndingsE) -- participle present
+         attachEndings("vol",participlePresentActiveEndingsE) -- present active participle
          attachEndings("volē",imperfectEndingsIndicativeActive) -- imperfect indicative
          attachEndings("voll",imperfectEndingsSubjunctiveActiveWithout_r) -- imperfect subjunctive
          attachEndings("vol",futureEndingsActive_a_e) -- future
@@ -1487,6 +1669,9 @@ for line in io.lines() do
             else
                invalidField(thirdField)
             end
+         end
+         if fourthField then
+            invalidLine()
          end
       else
          invalidLine()
