@@ -2,7 +2,7 @@
 
 The rules used by the hyphenation patterns for medieval and modern Latin are
 based on the hyphenation rules of modern Italian. The basic rule is to put the
-hyphenation point before the largest group of consonants, that can occur at the
+hyphenation point before the largest group of consonants that can occur at the
 beginning of a Latin word. Furthermore, etymology is respected to some extent.
 
 ## General rules
@@ -12,15 +12,15 @@ words.
 
 1. If a single consonant (including *h* and *x*) occurs between two vowels, the
 hyphenation point is before the consonant; the same holds for *i* and *u* if
-they are semivowels:
+they are semivowels.
 	- *ca-do*, *cae-cus*, *fe-ro*, *mi-si*, *tra-ho*, *du-xi*
 	- *Ga-ius* (= *Ga-jus*), *ie-iu-nium* (= *je-ju-nium*), *no-uem* (=
-	  *no-vem*) *ui-uo* (= *vi-vo*), *par-uus* (= *par-vus*)
+	  *no-vem*), *ui-uo* (= *vi-vo*), *par-uus* (= *par-vus*)
 
 2. If two consonants occur between two vowels, the hyphenation point is before
 the two consonants in case of *bl*, *cl*, *fl*, *gl*, *pl*, *br*, *cr*, *dr*,
 *fr*, *gr*, *pr*, *tr*, *gn*, *sc*, *sp*, *sq*, and *st*; the hyphenation point
-is between the consonants in other cases:
+is between the consonants in other cases.
 	- *pu-blicus*, *nu-cleus*, *fe-bris*, *qua-drum*, *mi-gro*, *pa-tris*
 	- *ma-gnus*
 	- *cre-scit*, *di-sco*, *ve-sper*, *iu-stus*
@@ -51,7 +51,7 @@ consonants *c*, *p*, *r*, and *t*, respectively.
 	- *pa-scha*, *Ae-schrion* 
 
 6. For typographic reasons, single vowels at the beginning or the end of a
-word are never separated:
+word are never separated.
 	- *acer* (not *a-cer*), *atrox* (not *a-trox*), *Ascra* (not *A-scra*),
 	  *asple-nos* (not *a-splenos*), *equus* (not *e-quus*), *Esqui-liae* (not
 	  *E-squiliae*), *ovis* (not *o-vis*) *ædes* (not *æ-des*, but without
@@ -60,7 +60,7 @@ word are never separated:
 
 7. Following a typographic rule of several Romance languages (e. g. Italian and
 French) two vowels are never separated, even if there is syllable boundary
-between them:
+between them.
 	- *meus* (not *me-us*), *luit* (not *lu-it*), *acies* (not *aci-es*)
 
 ## Etymologic rules
@@ -77,10 +77,10 @@ enclitics is a hyphenation point. This does not apply to the enclitics *ce* and
 	- *hu-iu-sce* (not *huius-ce*), *suop-te* (not *suo-pte*), *nostrap-te* (not
 	  *nostra-pte*)
 
-2. If the first element of a compound ends in a consonant and the second
-element begins with a vowel, the word boundary is ignored. The word is
-hyphenated according to the general rules. A possible hyphenation point after
-the first letter of the second element in suppressed.
+2. If the first element of a compound ends in a consonant (including *qu*) and
+the second element begins with a vowel, the word boundary is ignored. The word
+is hyphenated according to the general rules. A possible hyphenation point
+after the first letter of the second element in suppressed.
 	- *adest* (not *ad-est*), *abun-dat* (not *ab-undat*), *pe-reo* (not
 	  *per-eo*), *tran-seo* (not *trans-eo*), *su-bi-go* (not *sub-igo*),
 	  *am-bi-guus* (not *amb-iguus*), *oboe-di-re* (not *ob-oedire*), *co-me-do*
@@ -110,14 +110,13 @@ suppressed.
 	  *su-sti-neo* (not *sus-tineo*)
 
 4. When a common letter has fallen away at the word boundary, the word boundary
-boundary is ignored. The word is hyphenated according to the general rules. A
-possible hyphenation point after the first letter of the second element in
-suppressed.
+is ignored. The word is hyphenated according to the general rules. A possible
+hyphenation point after the first letter of the second element in suppressed.
 	- *tran-scribo* (< *trans* + *scribo*)
 	- *di-stringo* (< *dis* + *stringo*)
 	- *an-tea* (< *ante* + *ea*)
 	- *demo* (< *de* + *emo*, not *de-mo*)
 
 5. For typographic reasons, single letters at the beginning or the end of a
-word are never separated:
+word are never separated.
 	- *astrin-go* (not *a-stringo*), *asper-ges* (not *a-sperges*)

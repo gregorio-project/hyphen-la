@@ -6,7 +6,7 @@ metrics (a syllable ending in a consonant is usually long by position even if
 it contains a short vowel). In cases of conflict between these two principles,
 priority is given to etymology.
 
-Stop consonants (*b*, *p*, *d*, *t*, *g*, *c/k*) followed by liquid consonants
+Stop consonants (*b*, *p*, *d*, *t*, *g*, *c*) followed by liquid consonants
 (*l*, *r*) play a special role in Latin metrics. Such a combination of
 consonants is called a *muta cum liquida*.
 
@@ -17,14 +17,14 @@ words.
 
 1. If a single consonant (including *h* and *x*) occurs between two vowels, the
 hyphenation point is before the consonant; the same holds for *i* and *u* if
-they are semivowels:
+they are semivowels.
 	- *ca-dō*, *cae-cus*, *fe-rō*, *mī-sī*, *tra-hō*, *dū-xī*
 	- *Gā-ius* (= *Gā-jus*), *iē-iū-nium* (= *jē-jū-nium*), *no-uem* (=
-	  *no-vem*) *uī-uō* (= *vī-vō*), *par-uus* (= *par-vus*)
+	  *no-vem*), *uī-uō* (= *vī-vō*), *par-uus* (= *par-vus*)
 
 2. If two consonants occur between two vowels, the hyphenation point is before
 the two consonants in case of a *muta cum liquida*; the hyphenation point is
-between the consonants in other cases:
+between the consonants in other cases.
 	- *pū-blicus*, *nu-cleus*, *fe-bris*, *qua-drum*, *mi-grō*
 	- *om-nis*, *prop-ter*, *ag-men*, *scrīp-sī*, *māg-nus*, *crēs-cit*,
 	  *dis-cō*, *ves-per*, *iūs-tus*, *tēc-tum*, *pos-se*, *il-le*, *dex-ter*,
@@ -52,15 +52,15 @@ consonants *c*, *p*, *r*, and *t*, respectively.
 	- *Aes-chriōn*, *pul-chra*
 
 6. For typographic reasons, single vowels at the beginning or the end of a word
-are never separated:
+are never separated.
 	- *ācer* (not *ā-cer*), *atrōx* (not *a-trōx*), *Atlās* (not *A-tlās*),
-	  *equus* (not *e-quus*), *ovis* (not *o-vis*) *ædēs (not *æ-dēs, but
+	  *equus* (not *e-quus*), *ovis* (not *o-vis*) *ædēs* (not *æ-dēs*, but
 	  without digraph *ae-dēs*)
 	- *fī-liī* (not *fīli-ī*), *proe-lia* (not *proeli-a*), *luō* (not *lu-ō*)
 
 7. Following a typographic rule of several Romance languages (e. g. Italian and
 French) two vowels are never separated, even if there is syllable boundary
-between them:
+between them.
 	- *meus* (not *me-us*), *luit* (not *lu-it*), *aciēs* (not *aci-ēs*)
 
 ## Etymologic rules
@@ -80,7 +80,7 @@ enclitics is a hyphenation point.
 	  *huius-ce*
 
 2. If an epenthesis (*d*, *g*, or *s*) occurs at the word boundary, the
-hyphenation point is after the epenthesis:
+hyphenation point is after the epenthesis.
 	- *abs-trahō*, *abs-tineō*, *abs-condō*, *abs-cēdō*
 	- *obs-caenus*
 	- *prōd-eō*, *prōd-esse*, *prōd-igō*
@@ -90,7 +90,7 @@ hyphenation point is after the epenthesis:
 	- *sus-cipiō*, *sus-pendō*, *sus-tineō*
 
 3. When a common letter has fallen away at the word boundary, the hyphenation
-point is before the remaining letter:
+point is before the remaining letter.
 	- *trān-scrībō* (< *trāns* + *scrībō*)
 	- *dī-stringō* (< *dis* + *stringō*)
 	- *ant-eā* (< *ante* + *eā*)
@@ -105,7 +105,7 @@ hyphenation point after the first letter of the second element in suppressed.
 	- *quīn-quen-nium* (not *quīnqu-ennium*)
 
 5. For typographic reasons, single letters at the beginning or the end of a
-word are never separated:
+word are never separated.
 	- *astrin-gō* (not *a-stringō*), *asper-gēs* (not *a-spergēs*)
 	- *abī* (imperative of *ab-īre*, not *ab-ī*)
 	- *dēmō* (< *dē* + *ēmō*, not *d-ēmō*)
@@ -169,7 +169,9 @@ Plaute, Curc. 695, Poen. 1195, Térence, Andr. 786), bien que, par ailleurs, le
 groupe *occlusive* + *vibrante* ou *latérale* ne produise jamais d’allongement
 par position dans la vieille poésie classique.
 
-*Source:* Max Niedermann: *Phonétique historique du latin*, Paris 1940.
+#### Source
+
+Max Niedermann: *Phonétique historique du latin*, Paris 1940.
 
 The book is in the public domain in all countries but France, in which this
 document can be considered with the quote exception to *droit d’auteur*.
@@ -195,7 +197,7 @@ However, the hyphenation patterns give prevalence to etymology in most cases of
 doubt, so there are no deviations from the hyphenation examples given by
 Niedermann. The only case Niedermann does not explicitly deal with are
 compounds whose first element ends in a group of consonants like *long-aevus,
-quadr-angulus, post-ea, magn-animus*. For some of these, is seemed advisable
+quadr-angulus, post-ea, magn-animus*. For some of these, it seemed advisable
 not to follow the etymologic principle.
 
 ### Rubenbauer/Hofmann: Lateinische Grammatik
@@ -226,8 +228,10 @@ Konsonantengruppen zu ziehen seien, die im Wortanlaut stehen können; die Regel
 beruht nicht auf lebendiger Sprachbeobachtung, sondern auf mechanischer
 Übertragung von Gesetzen der grch. Silbentrennung.
 
-*Source:* Rubenbauer/Hofmann: *Lateinische Grammatik*, Bamberg/München
-<sup>12</sup>1995, p. 5 s.)
+#### Source
+
+Rubenbauer/Hofmann: *Lateinische Grammatik*, Bamberg/München <sup>12</sup>1995,
+p. 5 s.
 
 #### Comment
 
@@ -240,10 +244,10 @@ no further comment is required here.
 (Orthographie) und Aussprache und der grammatischen Theorie getrennt zu
 behandeln. In Schrift und Aussprache erscheint vereinzelt in wirklich oder
 scheinbar durchsichtigen Zusammensetzungen die etymologische Silbenteilung,
-vgl. Quint. 1, 7, 9 *haru-spex abs-tēmius*, s. auch. *Schulze*, Kl. Schr. 495².
-Ähnlich ist die morphologische Silbentrennung, bei der Reduplikation
-*vhe⁝vhaked* Maniosinschr., vgl. falisk. *pe⁝parai* Vetter nr. 241, bei einer
-Partikel *for.sit.an* Laud. Turiae. – Im Übrigen gilt Folgendes.
+vgl. Quint. 1, 7, 9 *haru-spex abs-tēmius*, s. auch. *Schulze*, Kl. Schr.
+495<sup>2</sup>. Ähnlich ist die morphologische Silbentrennung, bei der
+Reduplikation *vhe⁝vhaked* Maniosinschr., vgl. falisk. *pe⁝parai* Vetter nr.
+241, bei einer Partikel *for.sit.an* Laud. Turiae. – Im Übrigen gilt Folgendes.
 
 a) Die Silbengrenze ist *natürlich gegeben* hinter offenen Silben wie in *re-us
 ci-tō* und im Innern eines gedehnten, doppelt geschriebenen Konsonanten: *es-se
@@ -254,7 +258,7 @@ Zeilenbrechung auf Inschriften, z. B. in der Lex Rubria, oder noch deutlicher
 inder Lex Malacitana, CIL II 1964 (Bruns, Fontes nr. 30 b), unter Domitian:
 *cre|ari accipi|endis renunti|ato suffragi|um patrocini|umu̯e* (hiernach rein
 orthographisch auch *qu|is qu|ae qu|em qu|od qu|os*), *pecu|nia crea|ri cu|ria
-demo|liundum singu|los co|mitia di|̯uom*; *cau|tum cau|sam, prae|diatoria,
+demo|liundum singu|los co|mitia di|u̯om*; *cau|tum cau|sam, prae|diatoria,
 nego|tium ra|tionem*; endlich *pos|sit amis|si*, auch *ei|ius*.
 
 b) Auch bei *zwei Konsonanten* liegt auf der genannten Inschrift die Silbenfuge
@@ -269,7 +273,7 @@ Silbentrennung auf Inschriften: *sep|pte(m), vic|xit liquis|sti alum|mno* (zu
 *ppt mmn* s. § 223 a). – Bei Gruppen von drei und mehr Konsonanten gelten
 entsprechende Regeln, Trennung vor Muta cum Liquida, aber innerhalb der Gruppen
 wie *ct st*, also einersetis *tem|plum cas|tra*, andererseits *sanc|tus
-empt|tus*. Diese Silbenabteilung entspricht offenbar der Aussprache bzw. dem
+emp|tus*. Diese Silbenabteilung entspricht offenbar der Aussprache bzw. dem
 Sprachgefühl der Schreibenden und gibt damit die Silbengrenze.
 
 c) Die Silbengrenze liegt *vor* Muta cum Liquida: *du|plex pū|blicus sa|cra
@@ -294,15 +298,17 @@ e) […] Eine Präposition wird mit dem von ihr regierten Nomen vereinzelt, aber
 keineswegs konsequent, zusammengeschrieben (unberücksichtigt in D):
 *ingremiu(m)* D 542, *protrebibos* 227, *apurfinem* 224, *immontem*,
 *adterminum* usw. 453 (Sent. Minuc., s. *Meister*, SB Heidelberg 1924/25, 3.
-Abh. 29¹), *infronte* 694, *inparte* Gl. 18, 247 oben, *inaltod* Col. rostr. 10
-usw.; *inmunicipio* Bruns Fontes 27, 6, *exformula* ib. 41, 8; dazu mit
-Silbentrennung *a.ba.mo.re* VI 35767, *ab.ste* Pap. corp. Lat. 247 I 18 (Brief
-zwischen 21 u. 14 v. Chr.). Offenbar sind die Praepositionen in der Aussprache
-proklitisch an ihre Nomen angelehnt.
+Abh. 29<sup>1</sup>), *infronte* 694, *inparte* Gl. 18, 247 oben, *inaltod*
+Col. rostr. 10 usw.; *inmunicipio* Bruns Fontes 27, 6, *exformula* ib. 41, 8;
+dazu mit Silbentrennung *a.ba.mo.re* VI 35767, *ab.ste* Pap. corp. Lat. 247 I
+18 (Brief zwischen 21 u. 14 v. Chr.). Offenbar sind die Praepositionen in der
+Aussprache proklitisch an ihre Nomen angelehnt.
 
-*Source:* Leumann/Hofmann/Szantyr: *Lateinische Grammatik*, 1. Band:
-*Lateinische Laut- und Formenlehre*. Handbuch der Altertumswissenschaft, 2.
-Abteilung, 2. Teil, 1. Band, München 1977, p. 21 ss.
+#### Source
+
+Leumann/Hofmann/Szantyr: *Lateinische Grammatik*, 1. Band: *Lateinische Laut-
+und Formenlehre*. Handbuch der Altertumswissenschaft, 2.  Abteilung, 2.
+Teil, 1. Band, München 1977, p. 21 ss.
 
 #### Comment
 
@@ -333,11 +339,11 @@ evitare la divisione (*re-us*, *cre-a-re*, *gau-di-um*).
 
 2. Una consonante sola, i grafemi *ph th ch qu x z* ed anche *i* e *u* con
 valore di consonante si uniscono alla vocale seguente (*ro-sa, me-ta,
-mo-ri-tu-rus, *phi-lo-so-phus, e-quus, ae-qui-tas, di-xi, a-zy-mus,
-ie-iu-ni-um, ui-ue-re).
+mo-ri-tu-rus, phi-lo-so-phus, e-quus, ae-qui-tas, di-xi, a-zy-mus,
+ie-iu-ni-um, ui-ue-re*).
 
 3. I gruppi di due consonanti formati da *p b t d c g f* seguite da *r* o da
-*l*, ed eccezionalmente anch il gruppe *gn*, non si dividono mai (*du-plum,
+*l*, ed eccezionalmente anche il gruppe *gn*, non si dividono mai (*du-plum,
 pu-bli-cus, pa-tres, sa-cra, a-gros, ua-frum, sta-gnum*).
 
 4. Ogni altro gruppo di due o più consonanti uguali o diverse si divide
@@ -356,12 +362,14 @@ abs-ti-ne-re, ad-scri-be-re, mul-tas-que, uis-ne, sua-pte*; però
 lingua (*sce-ptrum, dra-chma, cy-cnus, i-sthmus, rhy-thmus, A-ri-sto-te-les*
 […]).
 
-*Source:* Raffaello Farina/Nino Marinone: *Metodologia*. Guida pratica alle
+#### Source
+
+Raffaello Farina/Nino Marinone: *Metodologia*. Guida pratica alle
 esercitazioni di seminario e alle tesi di laurea per le discipline umanistiche,
 Torino 1979, p. 90 s.
 
-*Concerning the Latin hyphenation rules, this work refers to the Latin grammar
-of Leumann/Hofmann/Szantyr cited above.*
+Concerning the Latin hyphenation rules, this work refers to the Latin grammar
+of Leumann/Hofmann/Szantyr cited above.
 
 #### Comment
 
