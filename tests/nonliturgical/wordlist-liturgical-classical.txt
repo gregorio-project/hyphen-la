@@ -1203,6 +1203,7 @@ in-dis-per-ti-bi-lis
 in-dis-po-si-te
 in-dis-po-si-tus
 in-dis-pu-ta-bi-lis
+in-du-res-co
 in-du-xis-ti
 in-du-xis-tis
 in-gus-ta-bi-lis

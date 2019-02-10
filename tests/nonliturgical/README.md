@@ -3,7 +3,8 @@
 This directory contains some lists of hyphenated words according to different
 Latin hyphenation styles. All word lists result from splitting and adapting
 [wordlist-liturgical.txt](../wordlist-liturgical.txt) in the [tests](../)
-directory. The categorization is not yet finished.
+directory. The lists have not yet been proofread systematically, so they might
+contain some erroneous hyphenations.
 
 ### wordlist-liturgical-only.txt
 

@@ -29,6 +29,15 @@ function utf8substring(s,i,j)
    end
 end
 
+function contains(list,element)
+   for _, v in pairs(list) do
+      if v == element then
+         return true
+      end
+   end
+   return false
+end
+
 function containsAccents(word)
    for _, code in utf8.codes(word) do
       if accentedVowels[utf8.char(code)] then
@@ -175,11 +184,17 @@ function writeHyphenationCandidates(fileName,set)
          print(word)
       end
       wordListsDiffer = true
+      io.close(outputStream)
+      sortFile(fileName)
    end
 end
 
 function sortFile(fileName)
-   os.execute("sort -o "..fileName.." "..fileName)
+   local file = io.open(fileName,"r")
+   if file ~= nil then
+      io.close(file)
+      os.execute("sort -o "..fileName.." "..fileName)
+   end
 end
 
 function deleteFile(fileName)
@@ -290,7 +305,7 @@ for key, word in pairs(liturgical) do
       wordListsDiffer = true
    elseif original[key] ~= word then
       -- different hyphenation in the original file
-      print('"'..word..'" is hyphenated differently in the original file "'..originalFile..'".')
+      print('"'..word..'" is hyphenated differently in the file "'..originalFile..'".')
       wordListsDiffer = true
    end
 end
@@ -301,6 +316,12 @@ end
 missingWords = {}
 
 for key, word in pairs(original) do
+   if not liturgical[key] then
+      missingWords[key] = word
+   end
+   if not classical[key] then
+      missingWords[key] = word
+   end
    if not liturgical[key] then
       missingWords[key] = word
    end
@@ -317,33 +338,59 @@ allCandidates = {}
 for _, word in pairs(missingWords) do
    if containsSingleVowelSyllable(word) or containsHiatus(word)
    or containsAccents(word) then
-      table.insert(liturgicalCandidates,word)
+      if not contains(liturgical,word) then
+         table.insert(liturgicalCandidates,word)
+      end
       word = removeSingleVowelSyllables(word)
       word = removeHiatus(word)
       if containsItalianHyphenation(word) then
-         table.insert(classicalCandidates,removeItalianHyphenation(word))
+         candidate = removeItalianHyphenation(word)
+         if not contains(classical,candidate) then
+            table.insert(classicalCandidates,candidate)
+         end
          if containsNonItalianHyphenation(word) then
-            table.insert(italianCandidates,removeNonItalianHyphenation(word))
-         else
+            candidate = removeNonItalianHyphenation(word)
+            if not contains(italian,candidate) then
+               table.insert(italianCandidates,candidate)
+            end
+         elseif not contains(italian,word) then
             table.insert(italianCandidates,word)
          end
       elseif containsNonItalianHyphenation(word) then
-         table.insert(classicalCandidates,word)
-         table.insert(italianCandidates,removeNonItalianHyphenation(word))
-      else
+         if not contains(classical,word) then
+            table.insert(classicalCandidates,word)
+         end
+         candidate = removeNonItalianHyphenation(word)
+         if not contains(italian,candidate) then
+            table.insert(italianCandidates,candidate)
+         end
+      elseif not contains(classical,word) or not contains(italian,word) then
          table.insert(classicalItalianCandidates,word)
       end
    elseif containsItalianHyphenation(word) then
-      table.insert(classicalCandidates,removeItalianHyphenation(word))
+      candidate = removeItalianHyphenation(word)
+      if not contains(classical,candidate) then
+         table.insert(classicalCandidates,candidate)
+      end
       if containsNonItalianHyphenation(word) then
-         table.insert(liturgicalCandidates,word)
-         table.insert(italianCandidates,removeNonItalianHyphenation(word))
-      else
+         if not contains(liturgical,word) then
+            table.insert(liturgicalCandidates,word)
+         end
+         candidate = removeNonItalianHyphenation(word)
+         if not contains(italian,candidate) then
+            table.insert(italianCandidates,candidate)
+         end
+      elseif not contains(liturgical,word) or not contains(italian,word) then
          table.insert(liturgicalItalianCandidates,word)
       end
    elseif containsNonItalianHyphenation(word) then
-      table.insert(liturgicalClassicalCandidates,word)
-      table.insert(italianCandidates,removeNonItalianHyphenation(word))
+      if not contains(classical,word) then
+         table.insert(liturgicalClassicalCandidates,word)
+      end
+      candidate = removeNonItalianHyphenation(word)
+      if not contains(italian,candidate) then
+         table.insert(italianCandidates,candidate)
+      end
    else
       table.insert(allCandidates,word)
    end

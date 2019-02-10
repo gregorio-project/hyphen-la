@@ -343,6 +343,7 @@ com-pin-gues-ci-to
 com-pin-gues-ci-to-te
 con-cus-to-dio
 con-dis-ci-pu-lus
+co-nis-te-rium
 con-quies-co
 cons-ce-le-ra-tus
 cons-cen-do
@@ -607,6 +608,8 @@ in-cris-pa-tio
 in-dig-ne
 in-dig-nus
 ind-ipis-cor
+ind-uis-ti
+ind-uis-tis
 in-splen-des-ce-re
 in-ter-mens-truus
 in-ter-mis-ceo
@@ -725,6 +728,7 @@ mus-ta-ceum
 mus-teus
 mys-te-rium
 nas-ce-tur
+neg-le-gen-tia
 nes-cio
 nos-ce
 nos-cit
@@ -960,6 +964,8 @@ ro-bus-teus
 rus-ceus
 sa-lig-neus
 sam-bu-cis-tria
+sed-itio
+sed-itio-sus
 se-ges-tria
 se-mes-trium
 se-miamb-us-tus
@@ -974,6 +980,7 @@ stag-neus
 stag-num
 sub-mi-nis-tra-tio
 sub-obs-cœ-nus
+su-per-ad-us-tio
 su-per-astas-ti
 su-per-astas-tis
 su-per-asti-tis-ti

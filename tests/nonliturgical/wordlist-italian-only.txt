@@ -1089,6 +1089,7 @@ con-cu-pi-sco
 con-cu-sto-dio
 con-do-le-sco
 con-fe-stim
+co-ni-ste-rium
 con-lu-stro
 con-quie-sco
 con-scien-tia
@@ -1679,6 +1680,9 @@ in-di-sper-ti-bi-lis
 in-di-spo-si-te
 in-di-spo-si-tus
 in-di-spu-ta-bi-lis
+ind-ui-sti
+ind-ui-stis
+in-du-re-sco
 in-du-xi-sti
 in-du-xi-stis
 in-gu-sta-bi-lis
@@ -1865,6 +1869,7 @@ mu-stri-cu-la
 Mu-tu-stra-ta-ni
 my-ste-rium
 Nau-stath-mos
+ne-gle-gen-tia
 Ne-me-stri-nus
 ne-scio
 neu-ro-spa-ston
@@ -2233,6 +2238,8 @@ sa-li-ca-strum
 sa-li-gneus
 sam-bu-ci-stria
 se-ce-spi-ta
+se-di-tio
+se-di-tio-sus
 se-ge-stra
 se-ge-stre
 se-ge-stria
@@ -2302,6 +2309,7 @@ sub-ter-stra-vi-sti
 sub-ter-stra-vi-stis
 sub-ve-sper-ti-nus
 sub-ve-spe-rus
+su-per-ad-ustio
 su-per-asta-sti
 su-per-asta-stis
 su-pe-ra-sti
