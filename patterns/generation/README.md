@@ -15,20 +15,19 @@ planned:
 
 ## Generation of hyphenation patterns for classical Latin
 
-1. Create a list `index_verborum` of about 2000 Latin words without inflected
-forms and without hyphenations, but containing information about the inflection
-class and hyphens in compound words and with special orthographic conventions.
-Orthographic variants can easily be created later. The exact format of the word
-list is described below.
+1. We maintain a list `index_verborum` of about 3500 Latin words without
+inflected forms and without hyphenations, but containing information about the
+inflection class and hyphens in compound words and with special orthographic
+conventions. The exact format of the word list is described below.
 
 2. Run the script `flexura.lua` on this list, which creates all possible
-inflected forms, for example *laudō, laudās, laudat, ..., laudābō, ...,
-laudāvī, ..., laudātus, laudāta, laudātum, ...* from input `laudō`. These forms
-are stored in `index_formarum`.
+inflected forms, for example *laudō, laudās, laudat, …, laudābō, …, laudāvī, …,
+laudātus, laudāta, laudātum, …* from input `laudō`. These forms are stored in
+`index_formarum`.
 
 3. Run the script `divisio.lua` on the output of step 2 to hyphenate all the
 forms according to the basic rules. This is easy as the input list uses *i* and
-*u* only as vowels. This yields *lau-dō, lau-dās, ...*.
+*u* only as vowels. This yields *lau-dō, lau-dās, …*.
 
 4. Create orthographic variants by means of the script `variatio.lua`: `vī-vō`
 → *vi-vo, vī-vō, ui-uo, uī-uō*; `jūs-tus` → *jus-tus, jūs-tus, jūs-tŭs,
@@ -81,8 +80,11 @@ generated automatically.
 - Write *æ* and *œ* for the diphthongs *ae* and *oe*: `cælum`, `tragœdia`.
 - Use hyphens to mark compound words: `ab-scindō`, `ē-jiciō`, `ob-œdiō`,
   `anim-ad-vertō`, `long-ævus`. Do not use hyphens if a prefix is assimilated
-  before a consonant or extended by *s*: `abstrahō`, `assimils`, `afferō`,
-  `difficilis`, `occidō`, `sustulī`, `complūrēs`, but `com-edō`.
+  to the following element of the compound or if a prefix is extended by an
+  epenthesis (*d*, *g*, or *s*): `abstrahō`, `assimils`, `afferō`,
+  `difficilis`, `neglegō`, `occidō`, `sustulī`, `complūrēs`, `redhibeō`.
+  However, a hyphen is necessary, when the second element begins with a vowel
+  of with *fl* or *fr*: `com-edō`, `red-emptiō`, `neg-ōtium`, `ef-flō`.
 - Use an accented vowel (or a *combining acute accent* U+301 for vowels with
   macron) if an uninflectable word with at least two syllables has its accent
   on the last syllable: `ab-hínc`, `ad-hū́c`. Note: In other cases, the accent
@@ -93,17 +95,29 @@ generated automatically.
 ### Possible word types
 
 #### Verbs
+
 - `1` – verb of the first conjugation
+- `1intr` – intransitive verb of the first conjugation
 - `2` – verb of the second conjugation
+- `2intr` – intransitive verb of the second conjugation
 - `3` – verb of the third conjugation
+- `3intr` – intransitive verb of the third conjugation
 - `3M` – verb of the mixed third conjugation
+- `3Mintr` – intransitive verb of the mixed third conjugation
 - `4` – verb of the fourth conjugation
+- `4intr` – verb of the fourth conjugation
 - `VP` – verb with perfect forms only
 - `VI` – irregular verb
+- `VIintr` – intransitive irregular verb (*eō* and some of its compounds)
+
+Intransitive verbs are treated separately because they only have impersonal
+passive forms. Deponent verbs, impersonal verbs and irregular verbs having no
+passive forms at all are not marked as intransitive.
 
 Examples:
 
 	laudō,1
+	ambulō,1intr
 	moneō,2,monuī,monitum
 	mittō,3,mīsī,missum
 	capiō,3M,cēpī,captum
@@ -117,6 +131,7 @@ Examples:
 	ex-audiō,4
 	meminī,VP
 	volō,VI,voluī
+	eō,VIintr,iī,itum
 
 #### Nouns
 
@@ -189,10 +204,9 @@ Examples:
 ### `flexura.lua`
 
 This script generates all inflected forms of the Latin words in the input list.
-The script is still under development. The present stem forms of regular Latin
-verbs and declensed forms of nouns, adjectives (including comparatives,
-superlatives and adverbs), pronouns and numerals are generated. The perfect
-stem and the supine stem forms of verbs are still missing.
+This includes the conjugated forms of the Latin verbs, their infinitives and
+participles, the declensed forms of nouns, adjectives (including comparatives,
+superlatives and adverbs), pronouns and numerals.
 
 #### Usage
 	lua5.3 flexura.lua [< inputfile] [> outputfile]

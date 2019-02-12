@@ -35,31 +35,31 @@ outputlist = {}
 rejectedHyphenations = {}
 
 function beginLowercase(word)
-	local c = firstCharacter(word)
-	local ch
-	if c == "Ā" then ch = "ā"
-	elseif c == "Ă" then ch = "ă"
-	elseif c == "Á" then ch = "á"
-	elseif c == "Æ" then ch = "æ"
-	elseif c == "Ǣ" then ch = "ǣ"
-	elseif c == "Ǽ" then ch = "ǽ"
-	elseif c == "Ē" then ch = "ē"
-	elseif c == "Ĕ" then ch = "ĕ"
-	elseif c == "É" then ch = "é"
-	elseif c == "Ī" then ch = "ī"
-	elseif c == "Ĭ" then ch = "ĭ"
-	elseif c == "Í" then ch = "í"
-	elseif c == "Ō" then ch = "ō"
-	elseif c == "Ŏ" then ch = "ŏ"
-	elseif c == "Ó" then ch = "ó"
-	elseif c == "Œ" then ch = "œ"
-	elseif c == "Ū" then ch = "ū"
-	elseif c == "Ŭ" then ch = "ŭ"
-	elseif c == "Ú" then ch = "ú"
-	elseif c == "Ȳ" then ch = "ȳ"
-	elseif c == "Ý" then ch = "ý"
-	else ch = string.lower(c) end
-	return ch..string.sub(word,utf8.offset(word,2))
+   local c = firstCharacter(word)
+   local ch
+   if c == "Ā" then ch = "ā"
+   elseif c == "Ă" then ch = "ă"
+   elseif c == "Á" then ch = "á"
+   elseif c == "Æ" then ch = "æ"
+   elseif c == "Ǣ" then ch = "ǣ"
+   elseif c == "Ǽ" then ch = "ǽ"
+   elseif c == "Ē" then ch = "ē"
+   elseif c == "Ĕ" then ch = "ĕ"
+   elseif c == "É" then ch = "é"
+   elseif c == "Ī" then ch = "ī"
+   elseif c == "Ĭ" then ch = "ĭ"
+   elseif c == "Í" then ch = "í"
+   elseif c == "Ō" then ch = "ō"
+   elseif c == "Ŏ" then ch = "ŏ"
+   elseif c == "Ó" then ch = "ó"
+   elseif c == "Œ" then ch = "œ"
+   elseif c == "Ū" then ch = "ū"
+   elseif c == "Ŭ" then ch = "ŭ"
+   elseif c == "Ú" then ch = "ú"
+   elseif c == "Ȳ" then ch = "ȳ"
+   elseif c == "Ý" then ch = "ý"
+   else ch = string.lower(c) end
+   return ch..string.sub(word,utf8.offset(word,2))
 end
 
 function addOutputForm(word)
