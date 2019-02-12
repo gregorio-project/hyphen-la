@@ -98,7 +98,7 @@ point is before the remaining letter.
 4. If the first element of the compound ends in a *muta cum liquida*, in *gn*,
 or in *qu*, the word boundary is no hyphenation point for phonetic reasons. The
 word is hyphenated according to the general rules in this case. A possible
-hyphenation point after the first letter of the second element in suppressed.
+hyphenation point after the first letter of the second element is suppressed.
 	- *qua-dran-gu-lus* (not *quadr-angulus*)
 	- *māg-nope-re* (not *māgn-opere* or *māgno-pere*), *māg-nani-mus* (not
 	  *māgn-animus* or *māgna-nimus*)
@@ -391,7 +391,7 @@ As far as compound words are concerned, our patterns for classical Latin treat
 those more or less like proposed by the fifth rule, but with some more weight
 on morphologic division. We do not allow *quinqu-ennium* or *quadr-angulus*,
 but we prefer *paen-insula* and *long-aevus* to *pae-ninsula* and
-*lon-gae-vus*.
+*lon-gaevus*.
 
 The sixth rule is not applied by our patterns, as the hyphenation rules for
 classical Greek are quite different from those of classical Latin and our word

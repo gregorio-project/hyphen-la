@@ -80,7 +80,7 @@ enclitics is a hyphenation point. This does not apply to the enclitics *ce* and
 2. If the first element of a compound ends in a consonant (including *qu*) and
 the second element begins with a vowel, the word boundary is ignored. The word
 is hyphenated according to the general rules. A possible hyphenation point
-after the first letter of the second element in suppressed.
+after the first letter of the second element is suppressed.
 	- *adest* (not *ad-est*), *abun-dat* (not *ab-undat*), *pe-reo* (not
 	  *per-eo*), *tran-seo* (not *trans-eo*), *su-bi-go* (not *sub-igo*),
 	  *am-bi-guus* (not *amb-iguus*), *oboe-di-re* (not *ob-oedire*), *co-me-do*
@@ -95,7 +95,7 @@ after the first letter of the second element in suppressed.
 
 3. If an epenthesis (*d*, *g*, or *s*) occurs at the word boundary, the word
 boundary is ignored. The word is hyphenated according to the general rules. A
-possible hyphenation point after the first letter of the second element in
+possible hyphenation point after the first letter of the second element is
 suppressed.
 	- *ab-stra-ho* (not *abs-traho*), *ab-sti-neo* (not *abs-tineo*),
 	  *ab-scon-do* (not *abs-condo*), *ab-sce-do* (not *abs-cedo*)
@@ -111,7 +111,7 @@ suppressed.
 
 4. When a common letter has fallen away at the word boundary, the word boundary
 is ignored. The word is hyphenated according to the general rules. A possible
-hyphenation point after the first letter of the second element in suppressed.
+hyphenation point after the first letter of the second element is suppressed.
 	- *tran-scribo* (< *trans* + *scribo*)
 	- *di-stringo* (< *dis* + *stringo*)
 	- *an-tea* (< *ante* + *ea*)
