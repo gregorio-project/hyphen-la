@@ -32,6 +32,9 @@ lowercaseLiquidae = createSet{"l","r"}
 -- list of all hyphenated and variated word forms
 outputlist = {}
 
+-- list of all comments
+commentList = {}
+
 rejectedHyphenations = {}
 
 function beginLowercase(word)
@@ -68,6 +71,7 @@ function addOutputForm(word)
       local key = beginLowercase(string.gsub(word,"-",""))
       if outputlist[key] == nil then
          outputlist[key] = word
+         commentList[key] = comment
       elseif beginLowercase(outputlist[key]) ~= beginLowercase(word) then
          local synthesis = ""
          local offset = 0
@@ -96,16 +100,19 @@ function addOutputForm(word)
          if string.find(rejected1,"-") then
             if not rejectedHyphenations[rejected1] then
                rejectedHyphenations[rejected1] = true
-               logFile:write("rejected hyphenation: "..rejected1.."\n")
+               logFile:write("rejected hyphenation: "..rejected1.." < "..commentList[key].."\n")
             end
          end
          if string.find(rejected2,"-") then
             if not rejectedHyphenations[rejected2] then
                rejectedHyphenations[rejected2] = true
-               logFile:write("rejected hyphenation: "..rejected2.."\n")
+               logFile:write("rejected hyphenation: "..rejected2.." < "..comment.."\n")
             end
          end
          outputlist[key] = synthesis
+         commentList[key] = commentList[key].."/"..comment
+      elseif commentList[key] ~= comment then
+         commentList[key] = commentList[key].."/"..comment
       end
    end
 end
@@ -723,8 +730,16 @@ end
 
 -- read input line by line
 linecount = 0
-for word in io.lines() do
+for line in io.lines() do
    linecount = linecount + 1
+   local i = string.find(line," < ")
+   if i then
+      word = string.sub(line,1,i-1)
+      comment = string.sub(line,i+3)
+   else
+      word = line
+      comment = ""
+   end
    for j_index = 0, 1 do
       if j_index == 0 or (create_j_variants and contains_j(word)) then
          for v_index = 0, 1 do

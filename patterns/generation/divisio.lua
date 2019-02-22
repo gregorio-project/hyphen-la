@@ -34,8 +34,8 @@ voicelessStops = createSet{"p","t","c","k"}
 -- liquid consonants, called "(litterae) liquidae" in Latin
 liquidae = createSet{"L","l","R","r"}
 
-function addHyphenation(hyphenatedWord)
-   print(hyphenatedWord)
+function addHyphenation(hyphenatedWord,comment)
+   print(hyphenatedWord..comment)
 end
 
 function invalidWord(word)
@@ -245,9 +245,11 @@ function classicalHyphenation(word)
             end -- the state stays the same if greek is false
          elseif c == "~" then -- word boundary before "ji"
             if chant then
-               output = output.."-"
+               output = output..store.."-"
+               store = ""
             else
-               output = output..c
+               output = output..store..c
+               store = ""
             end
             state = "word boundary before ji"
          elseif c == "-" then -- word boundary
@@ -683,6 +685,14 @@ function classicalHyphenation(word)
                store = ""
                state = "beginning"
             end -- the state stays the same if greek is false
+         elseif c == "~" then -- word boundary before "ji"
+            if chant then
+               output = output..store.."-"
+            else
+               output = output..store..c
+            end
+            store = ""
+            state = "word boundary before ji"
          elseif c == "-" then -- word boundary
             output = output..store.."="
             store = ""
@@ -752,7 +762,7 @@ function removeUnwantedHyphens(input)
          elseif c == "=" then
             output = output.."."
             state = "beginning"
-         elseif c == "~" then
+         elseif c == "~" then -- word boundary before "ji"
             output = output.."_"
             state = "beginning"
          else
@@ -897,8 +907,17 @@ end
 
 -- read input line by line
 linecount = 0
-for word in io.lines() do
+for line in io.lines() do
    linecount = linecount + 1
+   local i = string.find(line," ")
+   if i then
+      word = string.sub(line,1,i-1)
+      comment = string.sub(line,i)
+   else
+      word = line
+      comment = ""
+   end
+
    hyphenatedWord = classicalHyphenation(word)
 
    if chant then
@@ -908,5 +927,5 @@ for word in io.lines() do
       hyphenatedWord = removeUnwantedHyphens(hyphenatedWord)
    end
 
-   addHyphenation(hyphenatedWord)
+   addHyphenation(hyphenatedWord,comment)
 end

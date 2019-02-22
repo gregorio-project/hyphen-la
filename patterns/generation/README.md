@@ -27,7 +27,7 @@ laudātus, laudāta, laudātum, …* from input `laudō`. These forms are stored
 
 3. Run the script `divisio.lua` on the output of step 2 to hyphenate all the
 forms according to the basic rules. This is easy as the input list uses *i* and
-*u* only as vowels. This yields *lau-dō, lau-dās, …*.
+*u* only as vowels. This yields *lau-dō, lau-dās, …*
 
 4. Create orthographic variants by means of the script `variatio.lua`: `vī-vō`
 → *vi-vo, vī-vō, ui-uo, uī-uō*; `jūs-tus` → *jus-tus, jūs-tus, jūs-tŭs,
@@ -142,8 +142,8 @@ Examples:
 - `D3` – masculine/feminine noun of the third declension; the third field
   contains the genitive; the genitive is left out for nouns ending in
   *-dō/-dinis*, *gō/-ginis*, *-ēns/-entis*, *-iō/-iōnis*, *-is/-is*,
-  *-or/-ōris*, *-tās/-tātis*; the third field contains the accusative if this
-  ends in *-im*.
+  *-or/-ōris*, *-tās/-tātis*, *-trīx/-trīcis*; the third field contains the
+  accusative if this ends in *-im*.
 - `D3N` – neuter noun of the third declension; the third field contains the
   genitive; the genitive is left out for nouns endings in *-men/-minis*.
 - `D4` – masculine/feminine noun of the fourth declension
@@ -246,7 +246,7 @@ The following irregular forms are taken into account:
   *deus*
 - the ablative form *vespere* (besides *vesperō*) of *vesper*
 - the accusative form *vulgum/volgum* of the neuter noun *vulgus/volgus*
-- the plural form *loca* (besides *locī*) of *locus*
+- the plural forms *loca* and *joca* (besides *locī* and *jocī*) of *locus* and *jocus*
 - the defective forms of *vīs* (plural *vīrēs*)
 - the genitive plural form *boum* (besides *bovum*) and the dative/ablative
   plural forms *bōbus* and *būbus* of *bōs*
@@ -261,11 +261,11 @@ The following irregular forms are taken into account:
 - the comparatives *jūnior* (besides *juvenior*), *melior*, *mājor*, *pējor*,
   *plūs*, *vetustior* of *juvenis*, *bonus*, *māgnus*, *malus*, *multus*,
   *vetus*
-- the superlatives *citimus*, *dēterrimus*, *extrēmus*, *īnfimus/īmus*,
-  *maximus*, *optimus*, *pessimus*, *plūrimus/plūrumus*, *postrēmus/postumus*,
-  *proximus*, *suprēmus*, *veterrimus* of *citer*, *dēterior*, *exter/exterus*,
-  *īnferus*, *māgnus*, *bonus*, *malus*, *multus*, *posterus*, *propior*,
-  *superus*, *vetus*
+- the superlatives *citimus*, *dēterrimus*, *dextumus/dextimus*, *extrēmus*,
+  *īnfimus/īmus*, *maximus*, *optimus*, *pessimus*, *plūrimus/plūrumus*,
+  *postrēmus/postumus*, *proximus*, *suprēmus*, *veterrimus* of *citer*,
+  *dēterior*, *dexter*, *exter/exterus*, *īnferus*, *māgnus*, *bonus*, *malus*,
+  *multus*, *posterus*, *propior*, *superus*, *vetus*
 - the adverbs *audācter* (besides *audāciter*), *bene*, *cito*, *difficulter*,
   *magis/mage*, *parum*, *rārenter*, *sollerter* of *audāx*, *bonus*, *citus*,
   *difficilis*, *māgnus*, *parvus*, *rārus*, *sollers*
@@ -431,10 +431,14 @@ vowels: *a͞e-dī-lĭs*, *la͞u-dăn-dǣ*, *la͞u-dăn-da͞e*, *ŏb-o͞e-dī-rĕ
 This script generates a list of hyphenated words as needed by *patgen*.
 
 #### Usage
-	./generate-patgen-input.sh
+	./generate-patgen-input.sh [option]
 
 The generated file is named `patgen_input_classical`. Use this as *dictionary
 file* for *patgen*.
+
+#### Options
+- `--ec` – suppress all orthographic variants not supported by the EC (T1) font
+  encoding
 
 ### `generate-patterns.sh`
 
@@ -445,6 +449,9 @@ This script generates hyphenation patterns for classical Latin by means of
 	./generate-patterns.sh
 
 The script invokes the `generate-patgen-input.sh` script first. It then runs
-*patgen* six times using `patgen_translate_classical` as *translate file* and
-writes the resulting patterns to the files `patterns_classical.[1-6]`. The
+*patgen* seven times using `patgen_translate_classical` as *translate file* and
+writes the resulting patterns to the files `patterns_classical.[1-7]`. The
 *patgen* log data is written to `patterns_classical.log`.
+
+#### Options
+- `--ec` – generate patterns compatible with the EC (T1) font encoding
