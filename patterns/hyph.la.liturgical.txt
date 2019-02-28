@@ -221,6 +221,8 @@
 .anti1
 .anti3m2n
 .ape3r2u
+.ar2ch3ang
+.ar2ch3áng
 .archi3e
 .a3s2c
 .á3s2c
@@ -422,6 +424,9 @@
 .ei5on
 .ele3usa
 .ele3usæ
+.epi5s4tr
+.epi5s4ty
+.epi5s4tý
 .e2t3en
 .é2t3en
 .e2t3i3am
@@ -955,6 +960,8 @@
 .pseu2d3a
 .pseudo3s4
 .pseudó3s4
+.pseudo4s5t
+.pseudó4s5t
 .p4t
 .pulei4
 .puléi4
@@ -1810,6 +1817,7 @@ r4us.
 3s4péx
 3s4phæ
 3s4phǽ
+3s4phr
 3s4pic
 3s4píc
 3s4pir
@@ -1927,5 +1935,6 @@ y3y
 2yx.
 1z
 2z.
+z2m
 2zz
 8́
