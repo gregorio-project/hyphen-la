@@ -47,13 +47,9 @@
 .a2b3ru
 .ab4s3temi
 .ab4s3témi
-.ab5s4temini.
-.ab5s4témini.
 .ab4s3ten
 .ab4s3tén
 .ab5s4tent.
-.ab5s4tentur.
-.ab5s4téntur.
 .ab4s3terg
 .ab4s3térg
 .ab4s3terr

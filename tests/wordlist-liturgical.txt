@@ -230,7 +230,6 @@ ab-sen-ti-vus
 ab-sen-to
 ab-si-da
 ab-si-da-tus
-ab-si-et
 Ab-si-læ
 ab-si-li-o
 ab-sim
@@ -346,7 +345,6 @@ abs-te-mi-as
 abs-te-mi-e
 abs-te-mi-i
 abs-te-mi-is
-ab-ste-mi-ni
 abs-te-mi-o
 abs-te-mi-o-rum
 abs-te-mi-os
@@ -363,13 +361,10 @@ abs-ten-ti
 abs-ten-ti-o
 abs-ten-tu
 abs-ten-tum
-ab-sten-tur
 abs-ten-tu-ros
 abs-ten-tu-rum
 abs-ten-tu-rus
 abs-ten-tus
-ab-ster
-ab-ste-re
 abs-ter-ga-ba-mus
 abs-ter-gam
 abs-ter-ga-mi-ni
@@ -462,7 +457,6 @@ abs-ter-gunt
 abs-ter-gun-to
 abs-ter-gun-tor
 abs-ter-gun-tur
-ab-ste-ris
 ab-ster-nam
 ab-ster-na-mi-ni
 ab-ster-na-mur
@@ -1522,7 +1516,7 @@ ad-i-pi-sci-tur
 ad-i-pis-cor
 ad-i-pis-cun-tor
 ad-i-pis-cun-tur
-a-di-pi-um
+a-di-pum
 ad-i-tus
 ad-iu
 ad-iu-bi-lo

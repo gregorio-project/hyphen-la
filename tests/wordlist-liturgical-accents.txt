@@ -236,7 +236,6 @@ absentívus
 absénto
 absída
 absidátus
-ábsiet
 Absilæ
 absílio
 absim
@@ -353,7 +352,6 @@ abstémias
 abstémie
 abstémii
 abstémiis
-abstémini
 abstémio
 abstemiórum
 abstémios
@@ -370,13 +368,10 @@ absténti
 absténtio
 absténtu
 absténtum
-absténtur
 abstentúros
 abstentúrum
 abstentúrus
 absténtus
-abster
-abstére
 abstergabámus
 abstérgam
 abstergámini
@@ -469,7 +464,6 @@ abstérgunt
 abstergúnto
 abstergúntor
 abstergúntur
-abstéris
 abstérnam
 absternámini
 absternámur
@@ -1544,7 +1538,7 @@ adipíscitur
 adipíscor
 adipiscúntor
 adipiscúntur
-adípium
+ádipum
 áditus
 adiúbilo
 adiudicátio
