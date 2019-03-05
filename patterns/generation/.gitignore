@@ -1,4 +1,5 @@
-patgen_input_classical
-patterns_classical.*
+index_formarum
+patgen_input_classical*
+patterns_classical*
 pattmp.*
 *.log

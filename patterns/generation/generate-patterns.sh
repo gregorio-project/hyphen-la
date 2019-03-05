@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PATGEN=./patgen
+PATGEN=patgen
 
 if [ "$1" = "--ec" -o "$2" = "--ec" ]
 then
@@ -37,13 +37,13 @@ pat_start_finish[5]='5 11'
 pat_start_finish[6]='6 11'
 pat_start_finish[7]='7 11'
 
-good_bad_thres[1]='1 2 1'
-good_bad_thres[2]='1 3 1'
-good_bad_thres[3]='1 4 1'
-good_bad_thres[4]='1 5 1'
-good_bad_thres[5]='1 6 1'
-good_bad_thres[6]='1 7 1'
-good_bad_thres[7]='1 8 1'
+good_bad_thres[1]='1 3 1'
+good_bad_thres[2]='1 4 1'
+good_bad_thres[3]='1 5 1'
+good_bad_thres[4]='1 6 1'
+good_bad_thres[5]='1 7 1'
+good_bad_thres[6]='1 8 1'
+good_bad_thres[7]='1 9 1'
 
 # generate input from "index_verborum"
 if [ "$1" = "--ec" -o "$2" = "--ec" ]

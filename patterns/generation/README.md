@@ -15,7 +15,7 @@ planned:
 
 ## Generation of hyphenation patterns for classical Latin
 
-1. We maintain a list `index_verborum` of about 3500 Latin words without
+1. We maintain a list `index_verborum` of about 5000 Latin words without
 inflected forms and without hyphenations, but containing information about the
 inflection class and hyphens in compound words and with special orthographic
 conventions. The exact format of the word list is described below.
@@ -81,10 +81,11 @@ generated automatically.
 - Use hyphens to mark compound words: `ab-scindō`, `ē-jiciō`, `ob-œdiō`,
   `anim-ad-vertō`, `long-ævus`. Do not use hyphens if a prefix is assimilated
   to the following element of the compound or if a prefix is extended by an
-  epenthesis (*d*, *g*, or *s*): `abstrahō`, `assimils`, `afferō`,
-  `difficilis`, `neglegō`, `occidō`, `sustulī`, `complūrēs`, `redhibeō`.
-  However, a hyphen is necessary, when the second element begins with a vowel
-  of with *fl* or *fr*: `com-edō`, `red-emptiō`, `neg-ōtium`, `ef-flō`.
+  epenthesis (*d* or *s*): `abstrahō`, `assimils`, `afferō`, `difficilis`,
+  `occidō`, `sustulī`, `complūrēs`, `redhibeō`.  However, a hyphen is
+  necessary, when the second element begins with a vowel of with *fl* or *fr*
+  or when *neg* is followed by *l*: `com-edō`, `red-emptiō`, `neg-ōtium`,
+  `ef-flō`, `neg-legō`.
 - Use an accented vowel (or a *combining acute accent* U+301 for vowels with
   macron) if an uninflectable word with at least two syllables has its accent
   on the last syllable: `ab-hínc`, `ad-hū́c`. Note: In other cases, the accent
@@ -135,10 +136,13 @@ Examples:
 
 #### Nouns
 
-- `D1` – masculine/feminine noun of the first declension
-- `D2` – masculine/feminine noun of the second declension; if the nominative
-  ends in *-r*, the third field contains the genitive.
-- `D2N` – neuter noun of the second declension
+- `D1` – masculine/feminine noun of the first declension (ending in *-a*, *-æ*,
+  *-ē*, or *-ēs*)
+- `D2` – masculine/feminine noun of the second declension (ending in *-us*,
+  *-r*, *-ī*, *-os*, or *-e͡us*); if the nominative ends in *-r*, the third
+  field contains the genitive.
+- `D2N` – neuter noun of the second declension (ending in *-um*, *-us*, *-a*,
+  *-on*, or *-os*)
 - `D3` – masculine/feminine noun of the third declension; the third field
   contains the genitive; the genitive is left out for nouns ending in
   *-dō/-dinis*, *gō/-ginis*, *-ēns/-entis*, *-iō/-iōnis*, *-is/-is*,
@@ -146,9 +150,10 @@ Examples:
   accusative if this ends in *-im*.
 - `D3N` – neuter noun of the third declension; the third field contains the
   genitive; the genitive is left out for nouns endings in *-men/-minis*.
-- `D4` – masculine/feminine noun of the fourth declension
-- `D4N` – neuter noun of the fourth declension
-- `D5` – masculine/feminine noun of the fifth declension
+- `D4` – masculine/feminine noun of the fourth declension (ending in *-us* or
+  *-ūs*)
+- `D4N` – neuter noun of the fourth declension (ending in *-ū*)
+- `D5` – masculine/feminine noun of the fifth declension (ending in *-ēs*)
 
 Examples:
 
@@ -446,12 +451,12 @@ This script generates hyphenation patterns for classical Latin by means of
 *patgen*.
 
 #### Usage
-	./generate-patterns.sh
+	./generate-patterns.sh [option]
 
 The script invokes the `generate-patgen-input.sh` script first. It then runs
 *patgen* seven times using `patgen_translate_classical` as *translate file* and
 writes the resulting patterns to the files `patterns_classical.[1-7]`. The
-*patgen* log data is written to `patterns_classical.log`.
+*patgen* log data is written to `patgen_classical.log`.
 
 #### Options
 - `--ec` – generate patterns compatible with the EC (T1) font encoding

@@ -239,7 +239,7 @@ function classicalHyphenation(word)
             state = "consonant"
          elseif c == "^" then -- extraordinary hyphenation point for Greek words
             if greek then
-               output = output..store.."-"
+               output = output..store.."="
                store = ""
                state = "beginning"
             end -- the state stays the same if greek is false
@@ -324,9 +324,11 @@ function classicalHyphenation(word)
             end -- the state stays the same if greek is false
          elseif c == "~" then -- word boundary before "ji"
             if chant then
-               output = output.."-"
+               output = output..store.."-"
+					store = ""
             else
-               output = output..c
+               output = output..store..c
+					store = ""
             end
             state = "word boundary before ji"
          elseif c == "-" then -- word boundary
@@ -367,7 +369,7 @@ function classicalHyphenation(word)
             state = "consonant"
          elseif c == "^" then -- extraordinary hyphenation point for Greek words
             if greek then
-               output = output..store.."-"
+               output = output..store.."="
                store = ""
                state = "beginning"
             end -- the state stays the same if greek is false
@@ -445,6 +447,12 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             state = "consonant"
+         elseif c == "^" then -- extraordinary hyphenation point for Greek words
+            if greek then
+               output = output..store.."="
+               store = ""
+               state = "beginning"
+            end -- the state stays the same if greek is false
          elseif c == "~" then -- word boundary before "ji"
             if chant then
                output = output..store.."-"
@@ -681,7 +689,7 @@ function classicalHyphenation(word)
             -- the state stays the same
          elseif c == "^" then -- extraordinary hyphenation point for Greek words
             if greek then
-               output = output..store.."-"
+               output = output..store.."="
                store = ""
                state = "beginning"
             end -- the state stays the same if greek is false

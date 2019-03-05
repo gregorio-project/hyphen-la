@@ -107,7 +107,7 @@ end
 -- adjectives with consonantal declension
 adjectivesConsonantalDeclension = createSet{"compos","com-pos","dīves",
    "particeps","parti-ceps","pauper","prīnceps","prīn-ceps","sōspes",
-   "super-stes","vetus"}
+   "super-stes","vetus","per-vetus"}
 
 -- adjectives with superlative ending in "-limus"
 adjectivesSuperlative_limus = createSet{"difficilis","dis-similis",
@@ -219,8 +219,9 @@ end
 
 -- endings of the nouns of the first declension
 nounEndings1 = { "a","æ","am","ā","ārum","īs","ās" }
-nounEndings1_greek = { "ēs","æ","am","ā","ārum","īs","ās" }
 nounEndings1_ae_arum = { "æ","ārum","īs","ās" }
+nounEndings1_greek_e_es = { "ē","ēs","æ","ēn","ē","æ","ārum","īs","ās" }
+nounEndings1_greek_es_ae = { "ēs","æ","ēn","ē","ārum","īs","ās" }
 
 -- endings of the nouns of the second declension
 nounEndings2_us = { "us","ī","ō","um","e","ōrum","īs","ōs" }
@@ -234,6 +235,10 @@ nounEndings2_r_ri = { "r","rī","rō","rum","rōrum","rīs","rōs" }
 nounEndings2_er_ri = { "er","rī","rō","rum","rōrum","rīs","rōs" }
 nounEndings2_i_orum = { "ī","ōrum","īs","ōs" }
 nounEndings2_a_orum = { "a","ōrum","īs" }
+nounEndings2_greek_eus = { "eus","eī","eō","e|um","eu" } -- no plural
+nounEndings2_greek_os = { "os","ī","ō","on","e","ōrum","īs","ōs" }
+nounEndings2_greek_os_neuter = { "os","ī","ō","a","ōrum","īs" }
+nounEndings2_greek_on = { "on","ī","ō","a","ōrum","īs" }
 
 -- endings of the nouns of the third declension
 nounEndings3_i = { -- e.g. "turris"
@@ -1838,21 +1843,26 @@ for line in io.lines() do
                invalidField(fourthField)
             end
          end
-      elseif firstField == "volō" then
-         addForm("volō") -- 1st person sg. present indicative
-         addForm("vīs") -- 2nd person sg. present indicative
-         addForm("vult") -- 3rd person sg. present indicative
-         addForm("volumus") -- 1st person pl. present indicative
-         addForm("vultis") -- 2nd person pl. present indicative
-         addForm("volunt") -- 3rd person pl. present indicative
-         attachEndings("vel",presentEndingsSubjunctiveActive_i) -- present subjunctive
-         addForm("velle") -- infinitive present
-         attachEndings("vol",participlePresentActiveEndingsE) -- present active participle
-         attachEndings("volē",imperfectEndingsIndicativeActive) -- imperfect indicative
-         attachEndings("voll",imperfectEndingsSubjunctiveActiveWithout_r) -- imperfect subjunctive
-         attachEndings("vol",futureEndingsActive_a_e) -- future
+      elseif firstField == "volō" or endsIn(firstField,"-volō") then
+         if firstField == "volō" then
+            stem = ""
+         else
+            stem = utf8substring(firstField,1,-5)
+         end
+         addForm(stem.."volō") -- 1st person sg. present indicative
+         addForm(stem.."vīs") -- 2nd person sg. present indicative
+         addForm(stem.."vult") -- 3rd person sg. present indicative
+         addForm(stem.."volumus") -- 1st person pl. present indicative
+         addForm(stem.."vultis") -- 2nd person pl. present indicative
+         addForm(stem.."volunt") -- 3rd person pl. present indicative
+         attachEndings(stem.."vel",presentEndingsSubjunctiveActive_i) -- present subjunctive
+         addForm(stem.."velle") -- infinitive present
+         attachEndings(stem.."vol",participlePresentActiveEndingsE) -- present active participle
+         attachEndings(stem.."volē",imperfectEndingsIndicativeActive) -- imperfect indicative
+         attachEndings(stem.."voll",imperfectEndingsSubjunctiveActiveWithout_r) -- imperfect subjunctive
+         attachEndings(stem.."vol",futureEndingsActive_a_e) -- future
          if thirdField then
-            if thirdField == "voluī" then
+            if thirdField == stem.."voluī" then
                addPerfectStemForms(thirdField)
             else
                invalidField(thirdField)
@@ -1926,9 +1936,12 @@ for line in io.lines() do
          elseif firstField == "fīlia" then
             addForm("fīliābus") -- alternative genitive plural
          end
+      elseif endsIn(firstField,"ē") then -- greek word
+         root = utf8substring(firstField,1,-2)
+         attachEndings(root,nounEndings1_greek_e_es)
       elseif endsIn(firstField,"ēs") then -- greek word
          root = utf8substring(firstField,1,-3)
-         attachEndings(root,nounEndings1_greek)
+         attachEndings(root,nounEndings1_greek_es_ae)
       elseif endsIn(firstField,"æ") then -- plurale tantum
          if thirdField then
             invalidLine()
@@ -1944,6 +1957,12 @@ for line in io.lines() do
    elseif secondField == "D2" then
       if fourthField then
          invalidLine()
+      elseif endsIn(firstField,"e͡us") then -- greek word
+         root = utf8substring(firstField,1,-5)
+         attachEndings(root,nounEndings2_greek_eus)
+      elseif endsIn(firstField,"os") then -- greek word
+         root = utf8substring(firstField,1,-3)
+         attachEndings(root,nounEndings2_greek_os)
       elseif endsIn(firstField,"us") then
          if thirdField then
             invalidLine()
@@ -2003,6 +2022,12 @@ for line in io.lines() do
    elseif secondField == "D2N" then
       if thirdField or fourthField then
          invalidLine()
+      elseif endsIn(firstField,"os") then -- greek word
+         root = utf8substring(firstField,1,-3)
+         attachEndings(root,nounEndings2_greek_os_neuter)
+      elseif endsIn(firstField,"on") then -- greek word
+         root = utf8substring(firstField,1,-3)
+         attachEndings(root,nounEndings2_greek_on)
       elseif endsIn(firstField,"um") then
          if endsIn(firstField,"ium") then
             root = string.sub(firstField,1,-4)
@@ -2025,6 +2050,8 @@ for line in io.lines() do
       elseif endsIn(firstField,"a") then -- plurale tantum (neuter)
          root = string.sub(firstField,1,-2)
          attachEndings(root,nounEndings2_a_orum)
+      else
+         invalidField(firstField)
       end
 
    -- masculine/feminine noun of the third declension
@@ -2103,6 +2130,12 @@ for line in io.lines() do
          -- singular, genitive ending in "-ētis"
          elseif utf8substring(thirdField,1,-5) == utf8substring(firstField,1,-3)
          and (endsIn(thirdField,"ētis") or endsIn(thirdField,"etis")) then
+            addForm(firstField) -- nominative sg.
+            root = utf8substring(thirdField,1,-3)
+            attachEndings(root,nounEndings3_consonantal)
+         -- singular, genitive ending in "-edis"
+         elseif utf8substring(thirdField,1,-5) == utf8substring(firstField,1,-3)
+         and endsIn(thirdField,"edis") then
             addForm(firstField) -- nominative sg.
             root = utf8substring(thirdField,1,-3)
             attachEndings(root,nounEndings3_consonantal)
