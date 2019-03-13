@@ -274,6 +274,11 @@
 .circum5s4
 .circú4m5s4
 .ci2s3
+.coa2d3
+.coá2d3
+.coadi2u
+.coadi2ú
+.coádi2u
 .co1e
 .co3e2lec
 .co3e2lig
@@ -329,6 +334,7 @@
 .cu4mm
 .cu4sp
 .cú4sp
+.de3es.
 .de1í
 .dé1i
 .de1in
