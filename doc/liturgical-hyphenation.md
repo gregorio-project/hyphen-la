@@ -178,6 +178,10 @@ For each pair of conflicting words, the choice made for the patterns is indicate
 
 - `langueris`: lan-gu-é-ris (languesco) vs lan-gué-ris (langueor) → `lan-gu-e-ris` and `lan-gu-é-ris`
 
+- `præpoteris`: præ-pót-e-ris (præpossum) vs præ-po-té-ris (præpoto) → accented patterns are different and correct both, the non-accented word give `præ-pot-e-ris`
+
+- `præpotes`: prǽ-pot-es (præpossum) vs præ-pó-tes (præpoto) → accented patterns are different and correct both, the non-accented word give `præ-pot-es`
+
 - `supereris`: su-pé-re-ris (supero) vs su-pér-e-ris (supersum) → accented patterns are different and correct both, the non-accented word give `su-per-e-ris`
 
 - `superes`: sú-pe-res (supero) vs sú-per-es (supersum) → `su-per-es` and `sú-per-es`
