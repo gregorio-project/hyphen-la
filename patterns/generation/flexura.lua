@@ -222,6 +222,7 @@ nounEndings1 = { "a","æ","am","ā","ārum","īs","ās" }
 nounEndings1_ae_arum = { "æ","ārum","īs","ās" }
 nounEndings1_greek_e_es = { "ē","ēs","æ","ēn","ē","æ","ārum","īs","ās" }
 nounEndings1_greek_es_ae = { "ēs","æ","ēn","ē","ārum","īs","ās" }
+nounEndings1_greek_as_ae = { "ās","æ","ān","am","ā" } -- singular only
 
 -- endings of the nouns of the second declension
 nounEndings2_us = { "us","ī","ō","um","e","ōrum","īs","ōs" }
@@ -333,6 +334,8 @@ adjectiveEndings_ior_ius = { -- e.g. "altior"
 
 adjectiveEndings_jor_jus = { -- e.g. "pējor"
    "jor","jus","jōris","jōrī","jōrem","jōre","jōrēs","jōra","jōrum","jōribus"}
+
+adjectiveEndings_greek_os_on = { "os","on","ī","ō","e","a","ōrum","īs","ōs" }
 
 adjectiveEndings_ans_antis = { -- e.g. "cōnstāns"
    "āns","antis","antī","antem","antēs","antia","antium","antibus","antīs"}
@@ -1098,6 +1101,11 @@ function generatePositiveForms2(adjective)
       root = string.sub(adjective,1,-4)
       attachEndings(root,adjectiveEndings_ior_ius)
 
+   -- greek adjectives ending in "os/on"
+   elseif string.len(adjective) > 3 and endsIn(adjective,"os") then
+      root = string.sub(adjective,1,-3)
+      attachEndings(root,adjectiveEndings_greek_os_on)
+
    else
       invalidField(adjective)
    end
@@ -1287,24 +1295,34 @@ end
 -- generate forms of adjectives with three endings
 function generateAdjectiveForms3()
    if endsIn(firstField,"suārius") then
-      firstField = utf8substring(firstField,1,-6).."|ārius"
+      adjective = utf8substring(firstField,1,-6).."|ārius"
+   elseif firstField == "rē-jiculus" then
+      adjective = "rē~jiculus"
+   else
+      adjective = firstField
    end
-   generatePositiveForms3(firstField,thirdField)
-   generateAdverb3(firstField,thirdField)
+   generatePositiveForms3(adjective,thirdField)
+   generateAdverb3(adjective,thirdField)
    if secondField == "AC3" then
-      generateComparativeAndSuperlative3(firstField,thirdField)
+      generateComparativeAndSuperlative3(adjective,thirdField)
    end
 end
 
 -- generate forms of adjectives with two endings
 function generateAdjectiveForms2()
    if endsIn(firstField,"suālis") then
-      firstField = utf8substring(firstField,1,-5).."|ālis"
+      adjective = utf8substring(firstField,1,-5).."|ālis"
+   else
+      adjective = firstField
    end
-   generatePositiveForms2(firstField)
-   generateAdverb2(firstField)
+   generatePositiveForms2(adjective)
+   generateAdverb2(adjective)
    if secondField == "AC2" then
-      generateComparativeAndSuperlative2(firstField)
+      if endsIn(adjective,"os") then
+         invalidField(firstField)
+      else
+         generateComparativeAndSuperlative2(adjective)
+      end
    end
 end
 
@@ -1942,6 +1960,9 @@ for line in io.lines() do
       elseif endsIn(firstField,"ēs") then -- greek word
          root = utf8substring(firstField,1,-3)
          attachEndings(root,nounEndings1_greek_es_ae)
+      elseif endsIn(firstField,"ās") then -- greek word
+         root = utf8substring(firstField,1,-3)
+         attachEndings(root,nounEndings1_greek_as_ae)
       elseif endsIn(firstField,"æ") then -- plurale tantum
          if thirdField then
             invalidLine()
@@ -2156,6 +2177,10 @@ for line in io.lines() do
       elseif endsIn(firstField,"dō") or endsIn(firstField,"gō") then
          if thirdField == utf8substring(firstField,1,-2).."onis" then -- e.g. "Paphlagō"
             root = utf8substring(firstField,1,-2).."on"
+            addForm(firstField) -- nominative sg.
+            attachEndings(root,nounEndings3_consonantal)
+         elseif thirdField == utf8substring(firstField,1,-2).."ōnis" then -- e.g. "rēdō"
+            root = utf8substring(firstField,1,-2).."ōn"
             addForm(firstField) -- nominative sg.
             attachEndings(root,nounEndings3_consonantal)
          elseif thirdField then

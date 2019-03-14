@@ -325,10 +325,10 @@ function classicalHyphenation(word)
          elseif c == "~" then -- word boundary before "ji"
             if chant then
                output = output..store.."-"
-					store = ""
+               store = ""
             else
                output = output..store..c
-					store = ""
+               store = ""
             end
             state = "word boundary before ji"
          elseif c == "-" then -- word boundary
@@ -439,7 +439,7 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             state = "potential aspirate"
-         elseif c == "b" or c == "d" then
+         elseif c == "b" or c == "d" or c == "g" then
             output = output..store
             store = c
             -- the state stays the same
@@ -476,6 +476,8 @@ function classicalHyphenation(word)
          elseif vowels[c] then
             output = output..c
             state = "vowel"
+         elseif c == "^" then -- extraordinary hyphenation point for Greek words
+            -- the state stays the same, the hyphenation point is ignored
          elseif c == "-" then -- word boundary, hyphenation point suppressed
             if not chant then
                output = output.."&"

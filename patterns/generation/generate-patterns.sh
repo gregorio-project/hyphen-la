@@ -37,10 +37,10 @@ pat_start_finish[5]='5 11'
 pat_start_finish[6]='6 11'
 pat_start_finish[7]='7 11'
 
-good_bad_thres[1]='1 3 1'
-good_bad_thres[2]='1 4 1'
-good_bad_thres[3]='1 5 1'
-good_bad_thres[4]='1 6 1'
+good_bad_thres[1]='1 2 1'
+good_bad_thres[2]='1 5 1'
+good_bad_thres[3]='1 6 1'
+good_bad_thres[4]='1 7 1'
 good_bad_thres[5]='1 7 1'
 good_bad_thres[6]='1 8 1'
 good_bad_thres[7]='1 9 1'
@@ -58,20 +58,22 @@ then
    if [ "$1" = "-i" -o "$2" = "-i" ]
    then
       lua5.3 generate-initial-patterns.lua > initial_patterns
-      cp initial_patterns $outputFile.2
+      cp initial_patterns $outputFile.3
    else
       # create empty pattern file for first run
       touch $outputFile.0
    fi
 
-   # remove file with patgen parameters
+   # remove file with patgen parameters and old patterns files
    rm -f $parameterFile
+   rm -f $outputFile.1
+   rm -f $outputFile.2
 
    for i in 1 2 3 4 5 6 7; do
-      # remove "pattmp" file
+      # delete "pattmp" file
       rm -f pattmp.$i
 
-      if [ $i -gt 2 -o \( "$1" != "-i" -a "$2" != "-i" \) ]
+      if [ $i -gt 3 -o \( "$1" != "-i" -a "$2" != "-i" \) ]
       then
          # create patterns of level i
          printf "%s\n%s\n%s\n%s" "${hyph_start_finish[$i]}" "${pat_start_finish[$i]}" "${good_bad_thres[$i]}" "y" \

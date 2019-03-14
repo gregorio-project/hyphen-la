@@ -9,13 +9,13 @@ written by hand, but have been unmaintained for several years.
 
 Because of some deficiencies of the existing patterns, we are going to create
 improved patterns for classical Latin. The new patterns shall support marks for
-long and short vowels (macrons and breves, e.g. *lĭnguă Lătīnă*) as long and
+long and short vowels (macrons and breves, e. g. *lĭnguă Lătīnă*) as long and
 short vowels are important for classical Latin. The following workflow is
 planned:
 
 ## Generation of hyphenation patterns for classical Latin
 
-1. We maintain a list `index_verborum` of about 5000 Latin words without
+1. We maintain a list `index_verborum` of about 6000 Latin words without
 inflected forms and without hyphenations, but containing information about the
 inflection class and hyphens in compound words and with special orthographic
 conventions. The exact format of the word list is described below.
@@ -83,13 +83,20 @@ generated automatically.
   to the following element of the compound or if a prefix is extended by an
   epenthesis (*d* or *s*): `abstrahō`, `assimils`, `afferō`, `difficilis`,
   `occidō`, `sustulī`, `complūrēs`, `redhibeō`.  However, a hyphen is
-  necessary, when the second element begins with a vowel of with *fl* or *fr*
+  necessary, when the second element begins with a vowel or with *fl* or *fr*
   or when *neg* is followed by *l*: `com-edō`, `red-emptiō`, `neg-ōtium`,
   `ef-flō`, `neg-legō`.
 - Use an accented vowel (or a *combining acute accent* U+301 for vowels with
   macron) if an uninflectable word with at least two syllables has its accent
   on the last syllable: `ab-hínc`, `ad-hū́c`. Note: In other cases, the accent
   is generated automatically by the scripts.
+- *au* and *eu* are considered as diphthongs. Use a vertical bar, when *au* or
+  *eu* is no diphthong (e. g. `le|unculus`).
+- *au* and *eu* are not considered as diphthongs when the *u* is part of an
+  inflection ending for nouns, adjectives, and pronouns of the second
+  declension (e. g. *deus*, *meus*). Use a *combining double inverted breve*
+  (U+361) when *eu* is a diphthong in second declension words ending in *-eus*,
+  e. g. `Erechthe͡us`.
 - Only use lowercase letters except at the beginning of proper nouns and their
   derivatives.
 
@@ -112,7 +119,7 @@ generated automatically.
 - `VIintr` – intransitive irregular verb (*eō* and some of its compounds)
 
 Intransitive verbs are treated separately because they only have impersonal
-passive forms. Deponent verbs, impersonal verbs and irregular verbs having no
+passive forms. Deponent verbs, impersonal verbs, and irregular verbs having no
 passive forms at all are not marked as intransitive.
 
 Examples:
@@ -137,7 +144,7 @@ Examples:
 #### Nouns
 
 - `D1` – masculine/feminine noun of the first declension (ending in *-a*, *-æ*,
-  *-ē*, or *-ēs*)
+  *-ē*, *-ēs*, or *-ās*)
 - `D2` – masculine/feminine noun of the second declension (ending in *-us*,
   *-r*, *-ī*, *-os*, or *-e͡us*); if the nominative ends in *-r*, the third
   field contains the genitive.
@@ -149,7 +156,7 @@ Examples:
   *-or/-ōris*, *-tās/-tātis*, *-trīx/-trīcis*; the third field contains the
   accusative if this ends in *-im*.
 - `D3N` – neuter noun of the third declension; the third field contains the
-  genitive; the genitive is left out for nouns endings in *-men/-minis*.
+  genitive; the genitive is left out for nouns ending in *-men/-minis*.
 - `D4` – masculine/feminine noun of the fourth declension (ending in *-us* or
   *-ūs*)
 - `D4N` – neuter noun of the fourth declension (ending in *-ū*)
@@ -175,8 +182,8 @@ Examples:
 
 #### Adjectives, pronouns, and declinable numerals
 
-Adjectives are either comparable (e.g. *longus, longior, longissimus*) or
-incomparable (e.g. *ūnicus*). Pronouns, declinable numerals and incomparable
+Adjectives are either comparable (e. g. *longus, longior, longissimus*) or
+incomparable (e. g. *ūnicus*). Pronouns, declinable numerals and incomparable
 adjectives are similar, but pronouns and numerals do not have adverbs.
 
 - `AC3`/`AI3` – comparable/incomparable adjective with three endings; if the
@@ -239,9 +246,9 @@ The following irregular forms are taken into account:
 - the imperatives *dīc*, *dūc*, *fac* of *dīcere*, *dūcere*, *facere* and their
   compounds
 - the imperative *calface* of *calefacere*
-- the forms of the following irregular verbs (word type `VI`): *ajō*, *eō* and
-  compounds, *ferō* and compounds, *fīō*, *in-quam*, *malō*, *nōlō*, *possum*,
-  *quæsō*, *sum* and compounds, *volō*
+- the forms of the following irregular verbs (word type `VI` or `VIintr`):
+  *ajō*, *eō* and compounds, *ferō* and compounds, *fīō*, *in-quam*, *malō*,
+  *nōlō*, *possum*, *quæsō*, *sum* and compounds, *volō*
 
 ##### Nouns
 
@@ -303,7 +310,7 @@ The output will contain five types of syllable boundary markers:
 - a middle dot `·` (U+B7) for a hyphenation point that is illegal as long as
   digraphs are used, but becomes legal when the digraphs are replaced by *ae*
   and *oe*: `æ·di-fi-cā-re` (*ædi-fi-cā-re* or *ae-di-fi-cā-re*), `ob-œ·dī-re`
-  (*ob-œdī-re* or *ob-oe-dī-re*), `su·æ` (*suæ* or *su-ae*); furthermore the
+  (*ob-œdī-re* or *ob-oe-dī-re*), `su·æ` (*suæ* or *su-ae*); furthermore, the
   middle dot is used after `ji` where the *j* is omitted in the classical
   spelling: `in~ji·ci.ō`
 - a tilde `~` for a hyphenation point before `ji` where the *j* is omitted in
@@ -345,7 +352,7 @@ The output will contain five types of syllable boundary markers:
   followed by a vowel and *su* followed by a vowel: `sequī` → `se-quī`,
   `sanguis` → `san-guis`, `suāvis` → `suā-vis`. A vertical bar (U+7C) is
   required if *u* is a vowel after *ng* or *s* before another vowel: `langu|it`
-  → `lan-gu-it`, `langu|ērunt` → `lan-gu-ērunt`.
+  → `lan-gu-it`, `langu|ērunt` → `lan-gu.ē-runt`.
 - Single vowel syllables at the beginning or the end of a word are not
   separated: `odium` → `o.di-um`, `luō` → `lu.ō`. A single vowel syllable
   within a word is not separated from the preceding syllable: `speciōsus` →
@@ -374,7 +381,7 @@ Some of them may be suppressed by options as explained below.
 1. For words with at least two syllables: A variant with and a variant without
 accent: `ag-men` → *ag-men*, *ág-men*; `a.mī-cus` → *amī-cus*, *amī́-cus*;
 `im-pe-tus` → *im-pe-tus*, *ím-pe-tus*. The *combining acute accent* (U+301) is
-used for vowels already having another diacritical mark (e.g. a macron).
+used for vowels already having another diacritical mark (e. g. a macron).
 2. A variant with *j* and a variant with *i* for words containing *j*:
 `jē-jū-ni.um` → *jē-jū-nium*, *iē-iū-nium*.
 3. A variant with *U/v* and a variant with *V/u* for words containing *U/v*:
@@ -427,7 +434,7 @@ vowels: *a͞e-dī-lĭs*, *la͞u-dăn-dǣ*, *la͞u-dăn-da͞e*, *ŏb-o͞e-dī-rĕ
 - `--no-breves` – suppress all orthographic variants containing breves.
 - `--no-ties` – suppress all orthographic variants containing ties.
 - `--mixed` – generate variants with all possible combinations of vowels with
-  and without diacritical marks, e.g. *ci-vi-tas*, *ci-vi-tās*, *ci-vĭ-tas*,
+  and without diacritical marks, e. g. *ci-vi-tas*, *ci-vi-tās*, *ci-vĭ-tas*,
   *ci-vĭ-tās*, *cī-vi-tas*, *cī-vi-tās*, *cī-vĭ-tas*, *cī-vĭ-tās* from input
   `cī-vi-tās`. Expect very long output when using this option!
 
