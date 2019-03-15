@@ -186,6 +186,10 @@ For each pair of conflicting words, the choice made for the patterns is indicate
 
 - `præpotes`: prǽ-pot-es (præpossum) vs præ-pó-tes (præpoto) → accented patterns are different and correct both, the non-accented word give `præ-pot-es`
 
+- `proderis`: pród-e-ris (prosum) vs pró-de-ris and pro-dé-ris (prodo) → accented patterns are partially different and correct both, the non-accented word give `prod-e-ris`
+
+- `prodes`: prod-es (prosum) vs pro-des (prodo) → `prod-es`
+
 - `supereris`: su-pé-re-ris (supero) vs su-pér-e-ris (supersum) → accented patterns are different and correct both, the non-accented word give `su-per-e-ris`
 
 - `superes`: sú-pe-res (supero) vs sú-per-es (supersum) → `su-per-es` and `sú-per-es`
