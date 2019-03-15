@@ -190,6 +190,32 @@ For each pair of conflicting words, the choice made for the patterns is indicate
 
 - `prodes`: prod-es (prosum) vs pro-des (prodo) → `prod-es`
 
+- `prodi`: prod-i (prodeo) vs pro-di (prodo) → `pro-di`
+
+- `prodimus`: prod-í-mus (prodeo) vs pró-di-mus (prodo) → accented patterns are different and correct both, the non-accented word give `pro-di-mus`
+
+- `prodis`: prod-is (prodeo) vs pro-dis (prodo) → `pro-dis`
+
+- `prodit`: prod-it (prodeo) vs pro-dit (prodo) → `pro-dit`
+
+- `prodite`: prod-í-te (prodeo) vs pró-di-te (prodo) → accented patterns are different and correct both, the non-accented word give `pro-di-te`
+
+- `proditio` and all his flected forms `prodition*`: prod- (derived of prodeo) vs pro-d (derived of prodo) → `pro-di-ti-o` and `pro-di-ti-o-n*`
+
+- `proditis`: prod-í-tis (prodeo) vs pró-di-tis (prodo) → accented patterns are different and correct both, the non-accented word give `pro-di-tis`
+
+- `prodito`: prod-í-to (prodeo) vs pró-di-to (prodo) → accented patterns are different and correct both, the non-accented word give `pro-di-to`
+
+- `proditote`: prod-i-tó-te (prodeo) vs pro-di-tó-te (prodo) → `pro-di-to-te` and `pro-di-tó-te`
+
+- `proditu`: pród-i-tu (prodeo) vs pró-di-tu (prodo) → `pro-di-tu` and `pró-di-tu`
+
+- `proditum`: pród-i-tum (prodeo) vs pró-di-tum (prodo) → `pro-di-tum` and `pró-di-tum`
+
+- `proditur`: prod-í-tur (prodeo) vs pró-di-tur (prodo) → accented patterns are different and correct both, the non-accented word give `pro-di-tur`
+
+- `proditurus` and all his flected forms `proditur*`: prod-i-tú-rus (prodeo) vs pro-di-tú-rus (prodo) → `pro-di-tu-rus`, `pro-di-tú-rus` and `pro-di-tu-r*`
+
 - `supereris`: su-pé-re-ris (supero) vs su-pér-e-ris (supersum) → accented patterns are different and correct both, the non-accented word give `su-per-e-ris`
 
 - `superes`: sú-pe-res (supero) vs sú-per-es (supersum) → `su-per-es` and `sú-per-es`
