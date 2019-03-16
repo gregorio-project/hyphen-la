@@ -9,9 +9,6 @@ end
 vowels = createSet{"A","a","E","e","I","i","O","o","U","u","Y","y","Æ","æ","Œ",
    "œ"}
 
-accentedVowels = createSet{"Á","á","É","é","Í","í","Ó","ó","Ú","ú","Ý","ý","Ǽ",
-   "ǽ","Œ́","œ́"}
-
 -- q is intentionally left out here
 consonants = createSet{"B","b","C","c","D","d","F","f","G","g","H","h","J","j",
    "K","k","L","l","M","m","N","n","P","p","R","r","S","s","T","t","V","v","W",
@@ -32,15 +29,6 @@ end
 function contains(list,element)
    for _, v in pairs(list) do
       if v == element then
-         return true
-      end
-   end
-   return false
-end
-
-function containsAccents(word)
-   for _, code in utf8.codes(word) do
-      if accentedVowels[utf8.char(code)] then
          return true
       end
    end
@@ -163,8 +151,8 @@ function readHyphenations(fileName,set,hyphenationStyle)
       function does not work for accented characters, so there may be
       undetected duplicates beginning with an accented letter. ]]
       if set[word] then
-         if hyphenationStyle == "original" then
-            print('Duplicate in original file "'..fileName..'": '..set[word].."/"..line)
+         if hyphenationStyle == "liturgical" then
+            print('Duplicate in file "'..fileName..'": '..set[word].."/"..line)
          else
             print("Duplicate for "..hyphenationStyle.." Latin: "..set[word].."/"..line)
          end
@@ -203,49 +191,29 @@ end
 
 -- sort word lists
 
-liturgicalFile = "wordlist-liturgical-only.txt"
-liturgicalClassicalFile = "wordlist-liturgical-classical.txt"
-liturgicalItalianFile = "wordlist-liturgical-italian.txt"
 classicalFile = "wordlist-classical-only.txt"
 classicalItalianFile = "wordlist-classical-italian.txt"
 italianFile = "wordlist-italian-only.txt"
-allFile = "wordlist-all-styles.txt"
 
-sortFile(liturgicalFile)
-sortFile(liturgicalClassicalFile)
-sortFile(liturgicalItalianFile)
 sortFile(classicalFile)
 sortFile(classicalItalianFile)
 sortFile(italianFile)
-sortFile(allFile)
 
 
 -- read hyphenated words from word lists and store them in tables
 
-originalFile = "../wordlist-liturgical.txt"
-original = {}
+liturgicalFile = "../wordlist-liturgical.txt"
 liturgical = {}
 classical = {}
 italian = {}
 
 duplicate = false
 
-readHyphenations(originalFile,original,"original")
-
 readHyphenations(liturgicalFile,liturgical,"liturgical")
-readHyphenations(liturgicalClassicalFile,liturgical,"liturgical")
-readHyphenations(liturgicalItalianFile,liturgical,"liturgical")
-readHyphenations(allFile,liturgical,"liturgical")
-
 readHyphenations(classicalFile,classical,"classical")
-readHyphenations(liturgicalClassicalFile,classical,"classical")
 readHyphenations(classicalItalianFile,classical,"classical")
-readHyphenations(allFile,classical,"classical")
-
 readHyphenations(italianFile,italian,"Italian")
-readHyphenations(liturgicalItalianFile,italian,"Italian")
 readHyphenations(classicalItalianFile,italian,"Italian")
-readHyphenations(allFile,italian,"Italian")
 
 if not duplicate then
    print("No duplicates were found.")
@@ -294,53 +262,25 @@ if not wordListsDiffer then
 end
 
 
--- compare liturgical word list with original word list
-
-wordListsDiffer = false
-
-for key, word in pairs(liturgical) do
-   if not original[key] then
-      -- missing word in the original file
-      print('"'..word..'" is missing in the original file "'..originalFile..'".')
-      wordListsDiffer = true
-   elseif original[key] ~= word then
-      -- different hyphenation in the original file
-      print('"'..word..'" is hyphenated differently in the file "'..originalFile..'".')
-      wordListsDiffer = true
-   end
-end
-
-
 -- write new words from the original file to candidate files
 
 missingWords = {}
 
-for key, word in pairs(original) do
-   if not liturgical[key] then
-      missingWords[key] = word
-   end
+for key, word in pairs(liturgical) do
    if not classical[key] then
       missingWords[key] = word
    end
-   if not liturgical[key] then
+   if not italian[key] then
       missingWords[key] = word
    end
 end
 
-liturgicalCandidates = {}
-liturgicalClassicalCandidates = {}
-liturgicalItalianCandidates = {}
 classicalCandidates = {}
 classicalItalianCandidates = {}
 italianCandidates = {}
-allCandidates = {}
 
 for _, word in pairs(missingWords) do
-   if containsSingleVowelSyllable(word) or containsHiatus(word)
-   or containsAccents(word) then
-      if not contains(liturgical,word) then
-         table.insert(liturgicalCandidates,word)
-      end
+   if containsSingleVowelSyllable(word) or containsHiatus(word) then
       word = removeSingleVowelSyllables(word)
       word = removeHiatus(word)
       if containsItalianHyphenation(word) then
@@ -373,53 +313,34 @@ for _, word in pairs(missingWords) do
          table.insert(classicalCandidates,candidate)
       end
       if containsNonItalianHyphenation(word) then
-         if not contains(liturgical,word) then
-            table.insert(liturgicalCandidates,word)
-         end
          candidate = removeNonItalianHyphenation(word)
          if not contains(italian,candidate) then
             table.insert(italianCandidates,candidate)
          end
-      elseif not contains(liturgical,word) or not contains(italian,word) then
-         table.insert(liturgicalItalianCandidates,word)
+      elseif not contains(italian,word) then
+         table.insert(italianCandidates,word)
       end
    elseif containsNonItalianHyphenation(word) then
       if not contains(classical,word) then
-         table.insert(liturgicalClassicalCandidates,word)
+         table.insert(classicalCandidates,word)
       end
       candidate = removeNonItalianHyphenation(word)
       if not contains(italian,candidate) then
          table.insert(italianCandidates,candidate)
       end
    else
-      table.insert(allCandidates,word)
+      table.insert(classicalItalianCandidates,word)
    end
 end
 
-liturgicalFile = "candidates-liturgical-only.txt"
-liturgicalClassicalFile = "candidates-liturgical-classical.txt"
-liturgicalItalianFile = "candidates-liturgical-italian.txt"
 classicalFile = "candidates-classical-only.txt"
 classicalItalianFile = "candidates-classical-italian.txt"
 italianFile = "candidates-italian-only.txt"
-allFile = "candidates-all-styles.txt"
 
-deleteFile(liturgicalFile)
-deleteFile(liturgicalClassicalFile)
-deleteFile(liturgicalItalianFile)
 deleteFile(classicalFile)
 deleteFile(classicalItalianFile)
 deleteFile(italianFile)
-deleteFile(allFile)
 
-writeHyphenationCandidates(liturgicalFile,liturgicalCandidates)
-writeHyphenationCandidates(liturgicalClassicalFile,liturgicalClassicalCandidates)
-writeHyphenationCandidates(liturgicalItalianFile,liturgicalItalianCandidates)
 writeHyphenationCandidates(classicalFile,classicalCandidates)
 writeHyphenationCandidates(classicalItalianFile,classicalItalianCandidates)
 writeHyphenationCandidates(italianFile,italianCandidates)
-writeHyphenationCandidates(allFile,allCandidates)
-
-if not wordListsDiffer then
-   print('The hyphenations for liturgical Latin are identical to those of the original file "'..originalFile..'".')
-end
