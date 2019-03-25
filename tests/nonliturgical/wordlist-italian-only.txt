@@ -1793,6 +1793,7 @@ ia-spi-deus
 ia-spis
 ia-spius
 ia-spo-nyx
+Igna-tius
 igneus
 ignis
 igni-spi-cium
@@ -2330,9 +2331,9 @@ pau-xil-li-sper
 pe-de-stris
 pen-ta-spa-ston
 pen-te-co-stes
-pe-ran-gu-ste
-pe-ran-gu-stus
-pe-ra-sper
+per-an-gu-ste
+per-an-gu-stus
+per-asper
 per-cre-bre-sco
 per-egi-sti
 per-egi-stis
@@ -2341,7 +2342,7 @@ per-ii-stis
 per-il-lu-stris
 per-in-si-gnis
 pe-ri-sce-lis
-per-ispo-me-non
+pe-ri-spo-me-non
 per-ivi-sti
 per-ivi-stis
 per-lu-stra-tor
@@ -2497,13 +2498,21 @@ præ-sta-stis
 præ-sti-ti-sti
 præ-sti-ti-stis
 præ-stu-pe-sco
+præ-ter-aga-vi-sti
+præ-ter-aga-vi-stis
 præ-ter-este
 præ-ter-estis
 præ-ter-esto
 præ-ter-esto-te
 præ-ter-fui-sti
 præ-ter-fui-stis
+præ-ter-ii-sti
+præ-ter-ii-stis
+præ-ter-ivi-sti
+præ-ter-ivi-stis
 præ-ter-mon-strans
+præ-tri-vi-sti
+præ-tri-vi-stis
 Præ-xa-spes
 pro-ca-stria
 pro-ce-stria
@@ -2640,7 +2649,6 @@ re-lan-gui-stis
 re-pan-di-ro-strus
 re-splen-de-sce-re
 re-splen-de-sco
-re-spub-li-ca
 re-sta-gno
 re-stia-rius
 re-sti-cu-la
@@ -2675,7 +2683,7 @@ se-men-stris
 se-men-strum
 se-me-stris
 se-me-strium
-se-miamb-ustus
+se-mi-amb-ustus
 sem-ustu-la-tus
 sep-tem-me-stris
 se-que-stra
@@ -2756,7 +2764,6 @@ su-pe-ra-vi-stis
 su-per-cæ-le-stis
 su-per-co-ru-sco
 su-per-cre-sco
-su-per-de-stil-lo
 su-per-du-xi-sti
 su-per-du-xi-stis
 su-per-edi-sti
@@ -2834,7 +2841,6 @@ te-sta-men-tum
 te-steus
 te-stu-di-neus
 the-ri-strum
-ther-mo-spo-dion
 The-spia-cus
 The-spia-dæ
 The-spia-des

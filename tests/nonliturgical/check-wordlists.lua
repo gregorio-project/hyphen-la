@@ -165,15 +165,14 @@ end
 
 function writeHyphenationCandidates(fileName,set)
    if next(set) ~= nil then
-      print('Missing words written to "'..fileName..'":')
       local outputStream = assert(io.open(fileName,"w"))
       for _, word in pairs(set) do
          outputStream:write(word..'\n')
-         print(word)
       end
       wordListsDiffer = true
       io.close(outputStream)
       sortFile(fileName)
+      print('Missing words have been written to "'..fileName..'".')
    end
 end
 

@@ -1793,6 +1793,7 @@ ias-pi-deus
 ias-pis
 ias-pius
 ias-po-nyx
+Ig-na-tius
 ig-neus
 ig-nis
 ig-ni-spi-cium
@@ -2330,9 +2331,9 @@ pau-xil-lis-per
 pe-des-tris
 pen-tas-pas-ton
 pen-te-cos-tes
-pe-ran-gus-te
-pe-ran-gus-tus
-pe-ras-per
+per-an-gus-te
+per-an-gus-tus
+per-as-per
 per-cre-bres-co
 per-egis-ti
 per-egis-tis
@@ -2341,7 +2342,7 @@ per-iis-tis
 per-il-lus-tris
 per-in-sig-nis
 pe-ris-ce-lis
-per-is-po-me-non
+pe-ris-po-me-non
 per-ivis-ti
 per-ivis-tis
 per-lus-tra-tor
@@ -2455,7 +2456,7 @@ Pos-tu-mius
 Pos-tu-mus
 po-ta-vis-ti
 po-ta-vis-tis
-pot-es-tas
+po-tes-tas
 pot-es-te
 pot-es-tis
 pot-es-to
@@ -2497,13 +2498,21 @@ præ-stas-tis
 præ-sti-tis-ti
 præ-sti-tis-tis
 præ-stu-pes-co
+præ-ter-aga-vis-ti
+præ-ter-aga-vis-tis
 præ-ter-es-te
 præ-ter-es-tis
 præ-ter-es-to
 præ-ter-es-to-te
 præ-ter-fuis-ti
 præ-ter-fuis-tis
+præ-ter-iis-ti
+præ-ter-iis-tis
+præ-ter-ivis-ti
+præ-ter-ivis-tis
 præ-ter-mons-trans
+præ-tri-vis-ti
+præ-tri-vis-tis
 Præ-xas-pes
 pro-cas-tria
 pro-ces-tria
@@ -2531,7 +2540,7 @@ pro-ma-gis-tra-tu
 pro-ma-gis-tro
 pro-mons-tra
 pro-ros-tra
-pros-cæ-nium
+pro-scæ-nium
 pros-pa-ra-lep-sis
 pro-stra-vis-ti
 pro-stra-vis-tis
@@ -2640,7 +2649,6 @@ re-lan-guis-tis
 re-pan-di-ros-trus
 re-splen-des-ce-re
 re-splen-des-co
-res-pub-li-ca
 re-stag-no
 res-tia-rius
 res-ti-cu-la
@@ -2675,7 +2683,7 @@ se-mens-tris
 se-mens-trum
 se-mes-tris
 se-mes-trium
-se-miamb-us-tus
+se-mi-amb-us-tus
 sem-us-tu-la-tus
 sep-tem-mes-tris
 se-ques-tra
@@ -2756,7 +2764,6 @@ su-pe-ra-vis-tis
 su-per-cæ-les-tis
 su-per-co-rus-co
 su-per-cres-co
-su-per-des-til-lo
 su-per-du-xis-ti
 su-per-du-xis-tis
 su-per-edis-ti
@@ -2834,7 +2841,6 @@ tes-ta-men-tum
 tes-teus
 tes-tu-di-neus
 the-ris-trum
-ther-mos-po-dion
 Thes-pia-cus
 Thes-pia-dæ
 Thes-pia-des
