@@ -1147,8 +1147,8 @@
 .re3s2cú
 .re3s4p
 .ré3s4p
-.re6s5pu4b3l
-.re6s5pú4b3l
+.re6s5pub
+.re6s5púb
 .re5s4ta
 .re5s4tá
 .re5s2tag
