@@ -186,6 +186,8 @@ For each pair of conflicting words, the choice made for the patterns is indicate
 
 - `præpotes`: prǽ-pot-es (præpossum) vs præ-pó-tes (præpoto) → accented patterns are different and correct both, the non-accented word give `præ-pot-es`
 
+- `præteres` and 10 other forms of the rare verb prætero come into conflict with forms of prætereo and prætersum: `prætereris`, `præteres`, `præteri`, `præterimus`, `præteris`, `præterit`, `præterite`, `præteritis`, `præterito`, `præteritote`,`præteritur`. In all these cases, the hyphenation retained is `præ-ter-*`
+
 - `proderis`: pród-e-ris (prosum) vs pró-de-ris and pro-dé-ris (prodo) → accented patterns are partially different and correct both, the non-accented word give `prod-e-ris`
 
 - `prodes`: prod-es (prosum) vs pro-des (prodo) → `prod-es`
