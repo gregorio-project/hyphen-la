@@ -15145,7 +15145,7 @@ pseu-do-ca-li-dus
 Pseu-do-ca-to
 pseu-do-chris-ti-a-nus
 Pseu-do-chris-tus
-pseu-do-co-mi-ta-ten-ses
+pseu-do-com-i-ta-ten-ses
 pseu-do-cy-pe-ros
 pseu-do-cy-pi-rus
 Pseu-do-da-ma-sip-pus

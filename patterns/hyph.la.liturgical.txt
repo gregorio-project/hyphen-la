@@ -1031,6 +1031,7 @@
 .pro4s3tit
 .pro3u
 .pseu2d3a
+.pseudoco2m1
 .pseudo3s4
 .pseudó3s4
 .pseudo4s5t
