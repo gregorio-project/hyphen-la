@@ -678,6 +678,7 @@ presentStemForms_posse = {
    "possum","pot-es","pot-est","possumus","pot-estis","possunt", -- indicative present
    "possiem","possies","possiet", -- old forms of the subjunctive present
    "potisset", -- old form of the subjunctive imperfect
+   "pot-esto", -- only imperative form (Kühner-Holzweissig, p. 806)
    "posse","pot-esse" -- infinitve
    }
 
@@ -1800,10 +1801,16 @@ for line in io.lines() do
          if fourthField then
             invalidLine()
          end
-      elseif firstField == "possum" then
-         attachEndings("",presentStemForms_posse)
+      elseif firstField == "possum" or endsIn(firstField,"-possum") then
+         if firstField == "possum" then
+            stem = ""
+         else
+            stem = string.sub(firstField,1,-7)
+         end
+         attachEndings(stem,presentStemForms_posse)
          if thirdField then
-            if thirdField == "potuī" then
+            if firstField == "possum" and thirdField == "potuī"
+            or utf8substring(firstField,1,-7) == utf8substring(thirdField,1,-6) and endsIn(thirdField,"-potuī") then
                addPerfectStemForms(thirdField)
             else
                invalidField(thirdField)
@@ -2173,6 +2180,22 @@ for line in io.lines() do
          else
             invalidField(thirdField)
          end
+      -- noun ending in "-ēns"
+      elseif endsIn(firstField,"ēns") then
+         if firstField == "mēns" and thirdField == "mentis" then
+            addForm(firstField) -- nominative sg.
+            attachEndings("ment",nounEndings3_mixed)
+         elseif thirdField then
+            invalidLine()
+         elseif firstField == "parēns" then -- mixed or consonantal declension
+            root = "parent"
+            addForm(firstField) -- nominative sg.
+            attachEndings(root,nounEndings3_mixedAndConsonantal)
+         else -- mixed declension
+            root = utf8substring(firstField,1,-4).."ent"
+            addForm(firstField) -- nominative sg.
+            attachEndings(root,nounEndings3_mixed)
+         end
       -- noun ending in "-dō" or "-gō"
       elseif endsIn(firstField,"dō") or endsIn(firstField,"gō") then
          if thirdField == utf8substring(firstField,1,-2).."onis" then -- e.g. "Paphlagō"
@@ -2190,25 +2213,26 @@ for line in io.lines() do
             addForm(firstField) -- nominative sg.
             attachEndings(root,nounEndings3_consonantal)
          end
-      -- noun ending in "-ēns"
-      elseif endsIn(firstField,"ēns") then
-         if firstField == "mēns" and thirdField == "mentis" then
-            addForm(firstField) -- nominative sg.
-            attachEndings("ment",nounEndings3_mixed)
-         elseif thirdField then
-            invalidLine()
-         elseif firstField == "parēns" then -- mixed or consonantal declension
-            root = "parent"
-            addForm(firstField) -- nominative sg.
-            attachEndings(root,nounEndings3_mixedAndConsonantal)
-         else -- mixed declension
-            root = utf8substring(firstField,1,-4).."ent"
-            addForm(firstField) -- nominative sg.
-            attachEndings(root,nounEndings3_mixed)
-         end
       -- noun ending in "-iō"
       elseif endsIn(firstField,"iō") then
          if thirdField then
+            invalidLine()
+         else
+            root = firstField.."n"
+            addForm(firstField) -- nominative sg.
+            attachEndings(root,nounEndings3_consonantal)
+         end
+      -- noun ending in "-ō"
+      elseif endsIn(firstField,"ō") then
+         if endsIn(firstField,"rō") and thirdField == utf8substring(firstField,1,-2).."nis" then -- e.g. "carō"
+            root = utf8substring(firstField,1,-2).."n"
+            addForm(firstField) -- nominative sg.
+            attachEndings(root,nounEndings3_mixed)
+         elseif endsIn(firstField,"mō") and thirdField == utf8substring(firstField,1,-2).."inis" then -- e.g. "homō"
+            root = utf8substring(firstField,1,-2).."in"
+            addForm(firstField) -- nominative sg.
+            attachEndings(root,nounEndings3_consonantal)
+         elseif thirdField then
             invalidLine()
          else
             root = firstField.."n"
@@ -2233,8 +2257,8 @@ for line in io.lines() do
             addForm(firstField) -- nominative sg.
             attachEndings(root,nounEndings3_consonantal)
          end
-      elseif (endsIn(firstField,"ās") or endsIn(firstField,"īs")) and thirdField
-      and endsIn(thirdField,"tis") and utf8substring(firstField,1,-2) == utf8substring(thirdField,1,-4) then
+      -- noun ending in "-ās" or "-īs"
+      elseif (endsIn(firstField,"ās") or endsIn(firstField,"īs")) and thirdField == string.sub(firstField,1,-2).."tis" then
          root = utf8substring(thirdField,1,-3)
          if firstField == "abbās" then
             addForm(firstField) -- nominative sg.
@@ -2246,6 +2270,7 @@ for line in io.lines() do
          else
             attachEndings(root,nounEndings3_consonantal)
          end
+      -- noun ending in "-trīx"
       elseif endsIn(firstField,"trīx") then
          if thirdField then
             invalidLine()
@@ -2259,17 +2284,23 @@ for line in io.lines() do
       -- singular
       elseif endsIn(thirdField,"is") then
          root = string.sub(thirdField,1,-3)
-         if firstField == "bōs" and thirdField == "bovis" then
-            addForm("bōs") -- nominative sg.
-            addForm("bovis") -- genitive sg.
-            addForm("bovī") -- dative sg.
-            addForm("bovem") -- accusative sg.
-            addForm("bove") -- ablative sg.
-            addForm("bovēs") -- nominative/accusative pl.
-            addForm("bovum") -- genitive pl.
-            addForm("boum") -- genitive pl.
-            addForm("bōbus") -- dative/ablative pl.
-            addForm("būbus") -- dative/ablative pl.
+         if firstField == "bōs" and thirdField == "bovis"
+         or firstField == "sēmi-bōs" and thirdField == "sēmi-bovis" then
+            if firstField == "bōs" then
+               stem = ""
+            else
+               stem = utf8substring(firstField,1,-4)
+            end
+            addForm(stem.."bōs") -- nominative sg.
+            addForm(stem.."bovis") -- genitive sg.
+            addForm(stem.."bovī") -- dative sg.
+            addForm(stem.."bovem") -- accusative sg.
+            addForm(stem.."bove") -- ablative sg.
+            addForm(stem.."bovēs") -- nominative/accusative pl.
+            addForm(stem.."bovum") -- genitive pl.
+            addForm(stem.."boum") -- genitive pl.
+            addForm(stem.."bōbus") -- dative/ablative pl.
+            addForm(stem.."būbus") -- dative/ablative pl.
          -- mixed declension
          elseif (firstField == "faux" and thirdField == "faucis")
          or (firstField == "līs" and thirdField == "lītis")
@@ -2338,7 +2369,7 @@ for line in io.lines() do
          else
             root = utf8substring(firstField,1,-3).."in"
             addForm(firstField) -- nominative sg.
-            attachEndings(root,nounEndings3_consonantal)
+            attachEndings(root,nounEndings3_consonantalNeuter)
          end
       elseif not thirdField or utf8.len(thirdField) < 4 then
          invalidLine()
@@ -2777,6 +2808,7 @@ for line in io.lines() do
          addForm("sēmet-ipsum") -- accusative sg.
          addForm("sēmet-ipsam") -- accusative sg.
          addForm("sēmet-ipsōs") -- accusative pl.
+         addForm("sēmet-ipsās") -- accusative pl.
          addForm("sēmet-ipsō") -- ablative sg.
          addForm("sēmet-ipsā") -- ablative sg.
          addForm("sēmet-ipsīs") -- ablative pl.

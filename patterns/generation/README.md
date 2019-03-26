@@ -75,7 +75,7 @@ generated automatically.
 - Write *j* for every semivocalic *i*: `jam`, `jaciō`, `Gājus`, `jējūnium`.
   Also use *j* in the compounds of *jacĕre*: `ab-jiciō` (classical spelling:
   *abiciō*).
-- Use *u* and *v* according to the modern conventions: `vērus`, `laudāvī`,
+- Use *u* and *v* according to the modern conventions: `vērus`, `avārus`,
   `Ūrania`.
 - Write *æ* and *œ* for the diphthongs *ae* and *oe*: `cælum`, `tragœdia`.
 - Use hyphens to mark compound words: `ab-scindō`, `ē-jiciō`, `ob-œdiō`,
@@ -152,9 +152,9 @@ Examples:
   *-on*, or *-os*)
 - `D3` – masculine/feminine noun of the third declension; the third field
   contains the genitive; the genitive is left out for nouns ending in
-  *-dō/-dinis*, *gō/-ginis*, *-ēns/-entis*, *-iō/-iōnis*, *-is/-is*,
-  *-or/-ōris*, *-tās/-tātis*, *-trīx/-trīcis*; the third field contains the
-  accusative if this ends in *-im*.
+  *-ēns/-entis*, *-is/-is*, *-dō/-dinis*, *gō/-ginis*, *-iō/-iōnis*,
+  *-ō/-ōnis*, *-or/-ōris*, *-tās/-tātis*, *-trīx/-trīcis*; the third field
+  contains the accusative if this ends in *-im*.
 - `D3N` – neuter noun of the third declension; the third field contains the
   genitive; the genitive is left out for nouns ending in *-men/-minis*.
 - `D4` – masculine/feminine noun of the fourth declension (ending in *-us* or
@@ -183,7 +183,7 @@ Examples:
 #### Adjectives, pronouns, and declinable numerals
 
 Adjectives are either comparable (e. g. *longus, longior, longissimus*) or
-incomparable (e. g. *ūnicus*). Pronouns, declinable numerals and incomparable
+incomparable (e. g. *ūnicus*). Pronouns, declinable numerals, and incomparable
 adjectives are similar, but pronouns and numerals do not have adverbs.
 
 - `AC3`/`AI3` – comparable/incomparable adjective with three endings; if the

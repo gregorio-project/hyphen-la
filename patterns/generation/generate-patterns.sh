@@ -37,12 +37,12 @@ pat_start_finish[5]='5 11'
 pat_start_finish[6]='6 11'
 pat_start_finish[7]='7 11'
 
-good_bad_thres[1]='1 2 1'
+good_bad_thres[1]='2 3 1'
 good_bad_thres[2]='1 5 1'
 good_bad_thres[3]='1 6 1'
 good_bad_thres[4]='1 7 1'
-good_bad_thres[5]='1 7 1'
-good_bad_thres[6]='1 8 1'
+good_bad_thres[5]='1 8 1'
+good_bad_thres[6]='1 9 1'
 good_bad_thres[7]='1 9 1'
 
 # generate input from "index_verborum"
@@ -69,7 +69,8 @@ then
    rm -f $outputFile.1
    rm -f $outputFile.2
 
-   for i in 1 2 3 4 5 6 7; do
+   for i in 1 2 3 4 5 6 7
+   do
       # delete "pattmp" file
       rm -f pattmp.$i
 
