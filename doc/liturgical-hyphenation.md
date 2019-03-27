@@ -174,6 +174,10 @@ For each pair of conflicting words, the choice made for the patterns is indicate
 
 - `deuteris`: déu-te-ris (deuter) vs de-ú-te-ris and de-u-té-ris (deutor) → `de-u-te-ris`, `déu-te-ris`, `de-ú-te-ris` and `de-u-té-ris`
 
+- `intereris`: in-tér-e-ris (intersum) vs in-té-re-ris and in-te-ré-ris (intero) → `in-tér-e-ris`, `in-te-ré-ris` and `in-ter-e-ris`
+
+- `interes`: ín-ter-es (intersum) vs ín-te-res (intero) → `ín-ter-es` and `in-ter-es`
+
 - `languere`: lan-gu-é-re (languesco) vs lan-gué-re (langueo) → `lan-gue-re` and `lan-gué-re`
 
 - `langueris`: lan-gu-é-ris (languesco) vs lan-gué-ris (langueor) → `lan-gu-e-ris` and `lan-gu-é-ris`
