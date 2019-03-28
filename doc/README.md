@@ -23,12 +23,72 @@ An attempt has been made to summarize the liturgical hyphenation rules in [litur
 
 Until Vatian II council, the Vatican required texts to be hyphenated in the "medieval" (post-4th century CE) way, but after Vatican II this rule seems less strict, and Solesmes got an oral authorization to use the phonetical patterns, which were used before 4th century and are easier to read. Solesmes cautiously used the phonetical patterns in their recent books.
 
-## Bibliography
-- *Distinction des syllabes dans les mots latins*, Abbaye de Solesmes, in Études Grégoriennes XLII (2016)
-- *Computer Aided Hyphenation for Italian and Modern Latin*, Claudio Beccari, in TUGboat Volume 13.1 (1992), available on [tug.org](https://tug.org/TUGboat/tb13-1/tb34becc.pdf)
-- *Hyphenation Patterns for Ancient Greek and Latin*, Yannis Haralambous, in TUGboat Volume 13.4 (1992), available on [tug.org](https://tug.org/TUGboat/tb13-4/tb37hara-hyfgl.pdf)
-- *Some Remarks on Typesetting Classical Latin*, Claudio Beccari, in TUGboat Volume 15.1 (1994), available on [tug.org](https://tug.org/TUGboat/tb15-1/tb42becc-ancient.pdf)
-- *Greek and Latin hyphenation – Recent advances*, Claudio Beccari, in ArsTEXnica N° 18, 2014, availble on [guitex.org](http://www.guitex.org/home/images/ArsTeXnica/AT018/GreekLatinHyphens.pdf)
-- *Phonétique historique du latin*, Max Niedermann, 1940, an extract is reproduced [here](liturgical-hyphenation.md#Phonétique-historique-du-latin)
-- *Les mots latins*, François Martin, 1976
-- *Dictionnaire étymologique de la langue latine* by Ernout & Meillet, 1985
+## Bibliography ### Latin hyphenation
+- Abbaye de Solesmes, *Distinction des syllabes dans les mots latins*, in
+  Études Grégoriennes XLII (2016).
+- Claudio Beccari, *Computer Aided Hyphenation for Italian and Modern Latin*,
+  in TUGboat Volume 13.1 (1992), available on
+  [tug.org](https://tug.org/TUGboat/tb13-1/tb34becc.pdf).
+- Yannis Haralambous, *Hyphenation Patterns for Ancient Greek and Latin*, in
+  TUGboat Volume 13.4 (1992), available on
+  [tug.org](https://tug.org/TUGboat/tb13-4/tb37hara-hyfgl.pdf).
+- Claudio Beccari, *Some Remarks on Typesetting Classical Latin*, in TUGboat
+  Volume 15.1 (1994), available on
+  [tug.org](https://tug.org/TUGboat/tb15-1/tb42becc-ancient.pdf).
+- Claudio Beccari, *Greek and Latin hyphenation – Recent advances*, in
+  ArsTEXnica N° 18 (2014), available on
+  [guitex.org](http://www.guitex.org/home/images/ArsTeXnica/AT018/GreekLatinHyphens.pdf).
+- Max Niedermann, *Phonétique historique du latin*, 1940. An extract is
+  reproduced [here](liturgical-hyphenation.md#Phonétique-historique-du-latin).
+
+### Dictionaries
+- *Thesaurus Linguae Latinae (ThLL)*, 1900 ff. – The ThLL is the most
+  comprehensive dictionary of ancient Latin. It is monolingual Latin and
+  contains etymological notes as well as all known special forms of every word.
+  The ThLL is still incomplete. So far, it covers the letters A–M, O, P, and
+  parts of N and R.
+- Félix Gaffiot, [*Dictionnaire illustré
+  latin-français*](https://www.lexilogos.com/latin/gaffiot.php), 1934. – A very
+  comprehensive Latin-French dictionary of ancient Latin.
+- Karl Ernst Georges, [*Ausführliches lateinisch-deutsches
+  Handwörterbuch*](http://www.zeno.org/Georges-1913), 8th edition, 1913/1918. –
+  A comprehensive Latin-German dictionary of ancient Latin.
+- Charles du Cange et al., [*Glossarium mediæ et infimæ
+  Latinitatis*](http://ducange.enc.sorbonne.fr/), 1883–1887. – Outdated and
+  intended for historians rather than philologists, but still the only
+  dictionary covering the Latin of the entire Middle Ages.
+- [*Novum Glossarium Mediae Latinitatis (NGML)*](http://glossaria.eu/ngml/),
+  1957 ff. – A modern dictionary of medieval Latin within the period from 800
+  to 1200 with French translations, so far covering the letters L–O and parts
+  of P.
+- *Mittellateinisches Wörterbuch (MLW)*, 1959 ff. – A modern dictionary of the
+  medieval Latin of German-speaking territories up to the 13th century,
+  containing Latin explanations and German translations of every word. So far,
+  it covers the letters A–H and parts of I.
+- Henri Goelzer, *Le latin en poche. Dictionnaire latin-français*, 1928. –
+  Covers ancient and medieval Latin up to the Carolingian era.
+- Joseph Maria Stowasser, *Lateinisch-deutsches Schulwörterbuch*, several
+  editions (e. g. 1994). – This is a popular school dictionary in the
+  German-speaking countries. It does not only cover ancient, but also selected
+  medieval and Neo-Latin authors.
+- A Ernout/A. Meillet, *Dictionnaire étymologique de la langue latine*.
+  Reprint of the 4th edition (1959) revised by J. André, 1985. – An
+  etymological dictionary that has been kept up to date until relatively recent
+  times.
+- A. Walde/J. B. Hofmann, [*Lateinisches etymologisches
+  Wörterbuch*](https://archive.org/details/walde/), 3rd edition, 1938/1954. –
+  The most recent German-speaking etymological dictionary of Latin does not
+  only give the etymology as supposed by the author, but also shortly discusses
+  deviant opinions. Unfortunately, some articles are confused and difficult to
+  understand.
+- Ferdinand Jacob, [*Lexique étymologique
+  latin-français*](https://archive.org/stream/LexiqueEtymologiqueLatin-franais),
+  1883. – Outdated, but quite comprehensive.
+
+### Other aids
+- François Martin. *Les mots latins*, 1976.
+- [*Collatinus web*](https://outils.biblissima.fr/en/collatinus-web/). Online
+  lemmatiser and morphological analyser for Latin texts. – Very helpful, but
+  not free of errors and not always complete.
+- [*Grand dictionnaire Latin*](https://www.grand-dictionnaire-latin.com/). – Is
+  able to generate inflected forms quite reliably.
