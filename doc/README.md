@@ -23,7 +23,8 @@ An attempt has been made to summarize the liturgical hyphenation rules in [litur
 
 Until Vatian II council, the Vatican required texts to be hyphenated in the "medieval" (post-4th century CE) way, but after Vatican II this rule seems less strict, and Solesmes got an oral authorization to use the phonetical patterns, which were used before 4th century and are easier to read. Solesmes cautiously used the phonetical patterns in their recent books.
 
-## Bibliography ### Latin hyphenation
+## Bibliography
+### Latin hyphenation
 - Abbaye de Solesmes, *Distinction des syllabes dans les mots latins*, in
   Études Grégoriennes XLII (2016).
 - Claudio Beccari, *Computer Aided Hyphenation for Italian and Modern Latin*,
@@ -90,5 +91,5 @@ Until Vatian II council, the Vatican required texts to be hyphenated in the "med
 - [*Collatinus web*](https://outils.biblissima.fr/en/collatinus-web/). Online
   lemmatiser and morphological analyser for Latin texts. – Very helpful, but
   not free of errors and not always complete.
-- [*Grand dictionnaire Latin*](https://www.grand-dictionnaire-latin.com/). – Is
+- [*Grand dictionnaire latin*](https://www.grand-dictionnaire-latin.com/). – Is
   able to generate inflected forms quite reliably.
