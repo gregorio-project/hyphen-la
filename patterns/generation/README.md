@@ -157,6 +157,8 @@ Examples:
   contains the accusative if this ends in *-im*.
 - `D3N` – neuter noun of the third declension; the third field contains the
   genitive; the genitive is left out for nouns ending in *-men/-minis*.
+- `D3gr` – Greek noun of the third declension (only for plural forms ending in
+  *-es*)
 - `D4` – masculine/feminine noun of the fourth declension (ending in *-us* or
   *-ūs*)
 - `D4N` – neuter noun of the fourth declension (ending in *-ū*)

@@ -260,6 +260,8 @@ nounEndings3_consonantalNeuter = { -- e.g. "mūnus", nom./acc. sing. is left out
    "is","ī","e","a","um","ibus"}
 nounEndings3_consonantalPlural = { -- e.g. "majōrēs"
    "ēs","um","ibus"}
+nounEndings3_greekPlural = { -- e.g. "antipodes"
+   "es","um","ibus","as"}
 nounEndings3_mixedAndConsonantal = { -- e.g. "parēns", nom. sing. is left out
    "is","ī","em","e","ēs","ium","um","ibus","īs"}
 
@@ -569,7 +571,7 @@ presentStemEndingsPassiveImpersonal3M = {
 -- endings of the fourth conjugation
 presentStemEndingsActive4 = {
    "iō","īs","it","īmus","ītis","iunt", -- indicative present
-   "ī","īte","īto","ītōte","iuntō", -- imperative
+   "ī","īte","ītō","ītōte","iuntō", -- imperative
    "īre" -- infinitive present
    }
 
@@ -601,7 +603,7 @@ presentStemEndingsPassiveImpersonal4 = {
 -- forms of "esse"
 presentStemForms_esse = {
    "sum","es","est","sumus","estis","sunt", -- indicative present
-   "es","este","estō","estōte","suntō", -- imperative
+   "este","estō","estōte","suntō", -- imperative
    "esse" -- infinitve
    }
 
@@ -678,7 +680,7 @@ presentStemForms_posse = {
    "possum","pot-es","pot-est","possumus","pot-estis","possunt", -- indicative present
    "possiem","possies","possiet", -- old forms of the subjunctive present
    "potisset", -- old form of the subjunctive imperfect
-   "pot-esto", -- only imperative form (Kühner-Holzweissig, p. 806)
+   "pot-este","pot-estō","pot-estōte","possuntō", -- imperative
    "posse","pot-esse" -- infinitve
    }
 
@@ -2318,6 +2320,18 @@ for line in io.lines() do
             addForm(firstField) -- nominative sg.
             attachEndings(root,nounEndings3_consonantal)
          end
+      else
+         invalidLine()
+      end
+
+   -- greek masculine/feminine noun of the third declension
+   elseif secondField == "D3gr" then
+      if string.len(firstField) < 2 or not thirdField or fourthField then
+         invalidLine()
+      -- plural form ending in "-es" (with short e)
+      elseif endsIn(firstField,"es") and thirdField == string.sub(firstField,1,-3).."um" then
+         root = string.sub(firstField,1,-3)
+         attachEndings(root,nounEndings3_greekPlural)
       else
          invalidLine()
       end
