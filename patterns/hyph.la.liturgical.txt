@@ -1270,6 +1270,8 @@
 .supe2r1att
 .supe2r1átt
 .supe2r1au
+.superco2m3
+.supercó2m3
 .supe2r1ea
 .supé2r1ea
 .supe2r1éa
