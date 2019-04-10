@@ -158,7 +158,7 @@ Examples:
 - `D3N` – neuter noun of the third declension; the third field contains the
   genitive; the genitive is left out for nouns ending in *-men/-minis*.
 - `D3gr` – Greek noun of the third declension (only for plural forms ending in
-  *-es*)
+  *-es*); the third field contains the genitive
 - `D4` – masculine/feminine noun of the fourth declension (ending in *-us* or
   *-ūs*)
 - `D4N` – neuter noun of the fourth declension (ending in *-ū*)
@@ -223,7 +223,7 @@ participles, the declensed forms of nouns, adjectives (including comparatives,
 superlatives and adverbs), pronouns and numerals.
 
 #### Usage
-	lua5.3 flexura.lua [< inputfile] [> outputfile]
+	lua5.3 flexura.lua [option] [< inputfile] [> outputfile]
 
 The input file must have the word list format described above. If no input
 file is given, the standard input (terminal) is used for input; the input is
@@ -238,6 +238,10 @@ The word boundary in the compounds of *jacĕre* is replaced by a tilde:
 orthographical variants are generated; the *j* has to be omitted rather than
 replaced by *i* in words like *in-jiciō*.
 
+#### Options
+- `--enclitics` – generate a variant with the enclitic *-que* for all forms
+  except uninflectable words
+
 #### Irregular forms
 
 The following irregular forms are taken into account:
@@ -251,18 +255,23 @@ The following irregular forms are taken into account:
 - the forms of the following irregular verbs (word type `VI` or `VIintr`):
   *ajō*, *eō* and compounds, *ferō* and compounds, *fīō*, *in-quam*, *malō*,
   *nōlō*, *possum*, *quæsō*, *sum* and compounds, *volō*
+- the form *ad-juerō* (beside *ad-jūverō*) of *ad-juvāre*
+- the form *con-jēxit* (beside *con-jēcerit*) of *con-jicere*
+- the form *super-escit* (beside *super-erit*) of *super-esse*
+- the form *vesperēscit* (beside *vesperāscit*) of *vesperāscere*
 
 ##### Nouns
 
-- the genitive plural forms *deābus* and *fīliābus* (besides *deīs* and
+- the genitive plural forms *deābus* and *fīliābus* (beside *deīs* and
   *fīliīs*) of *dea* and *fīlia*
-- the plural forms *diī/dī* (besides *deī*) and *diīs/dīs* (besides *deīs*) of
+- the plural forms *diī/dī* (beside *deī*) and *diīs/dīs* (beside *deīs*) of
   *deus*
-- the ablative form *vespere* (besides *vesperō*) of *vesper*
+- the ablative form *vespere* (beside *vesperō*) of *vesper*
 - the accusative form *vulgum/volgum* of the neuter noun *vulgus/volgus*
-- the plural forms *loca* and *joca* (besides *locī* and *jocī*) of *locus* and *jocus*
+- the plural forms *loca* and *joca* (beside *locī* and *jocī*) of *locus* and
+  *jocus*
 - the defective forms of *vīs* (plural *vīrēs*)
-- the genitive plural form *boum* (besides *bovum*) and the dative/ablative
+- the genitive plural form *boum* (beside *bovum*) and the dative/ablative
   plural forms *bōbus* and *būbus* of *bōs*
 - the genitve plural form *vāsōrum* and the dative/ablative plural form *vāsīs*
   of *vās*
@@ -272,15 +281,16 @@ The following irregular forms are taken into account:
 
 ##### Adjectives and pronouns
 
-- the comparatives *jūnior* (besides *juvenior*), *melior*, *mājor*, *pējor*,
-  *plūs*, *vetustior* of *juvenis*, *bonus*, *māgnus*, *malus*, *multus*,
-  *vetus*
+- the comparatives *jūnior* (beside *juvenior*), *melior*, *mājor*, *minor*,
+  *pējor*, *plūs*, *vetustior* of *juvenis*, *bonus*, *māgnus*, *parvus*,
+  *malus*, *multus*, *vetus*
 - the superlatives *citimus*, *dēterrimus*, *dextumus/dextimus*, *extrēmus*,
-  *īnfimus/īmus*, *maximus*, *optimus*, *pessimus*, *plūrimus/plūrumus*,
-  *postrēmus/postumus*, *proximus*, *suprēmus*, *veterrimus* of *citer*,
-  *dēterior*, *dexter*, *exter/exterus*, *īnferus*, *māgnus*, *bonus*, *malus*,
-  *multus*, *posterus*, *propior*, *superus*, *vetus*
-- the adverbs *audācter* (besides *audāciter*), *bene*, *cito*, *difficulter*,
+  *īnfimus/īmus*, *maximus*, *minimus*, *optimus*, *pessimus*,
+  *plūrimus/plūrumus*, *postrēmus/postumus*, *proximus*, *suprēmus*,
+  *veterrimus* of *citer*, *dēterior*, *dexter*, *exter/exterus*, *īnferus*,
+  *māgnus*, *parvus*, *bonus*, *malus*, *multus*, *posterus*, *propior*,
+  *superus*, *vetus*
+- the adverbs *audācter* (beside *audāciter*), *bene*, *cito*, *difficulter*,
   *magis/mage*, *parum*, *rārenter*, *sollerter* of *audāx*, *bonus*, *citus*,
   *difficilis*, *māgnus*, *parvus*, *rārus*, *sollers*
 - the vocative masculine *mī* of *meus*

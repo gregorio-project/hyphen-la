@@ -20,9 +20,20 @@ end
 -- list of all generated forms
 outputlist = {}
 
+-- if all three enclitics are used, the "variatio.lua" script needs too much time
+-- enclitics = {"-que","-ne","-ve"}
+enclitics = {"-que"}
+
 function addForm(word)
-   if outputlist[word] == nil then
+   if not outputlist[word] then
       outputlist[word] = firstField
+      if secondField and attachEnclitics then -- enclitics are not attached to particles
+         for _, enclitic in ipairs(enclitics) do
+            if not endsIn(word,enclitic) then
+               outputlist[word..enclitic] = firstField
+            end
+         end
+      end
    elseif outputlist[word] ~= firstField and not endsIn(outputlist[word],"/"..firstField) then
       outputlist[word] = outputlist[word].."/"..firstField
    end
@@ -244,6 +255,8 @@ nounEndings2_greek_on = { "on","ī","ō","a","ōrum","īs" }
 -- endings of the nouns of the third declension
 nounEndings3_i = { -- e.g. "turris"
    "is","ī","im","ēs","ium","ibus","īs"}
+nounEndings3_i_greek = { -- e.g. "anastatis"
+   "is","ī","in","ēs","ium","ibus","īs"}
 nounEndings3_i_neuter = { -- e.g. "mare", nom./acc. sing. is left out
    "is","ī","ia","ium","ibus"}
 nounEndings3_i_plural = { -- e.g. "penātēs"
@@ -334,8 +347,8 @@ adjectiveEndings_is_e_afterFullVowel = { -- e.g. "tenuis"
 adjectiveEndings_ior_ius = { -- e.g. "altior"
    "ior","ius","iōris","iōrī","iōrem","iōre","iōrēs","iōra","iōrum","iōribus"}
 
-adjectiveEndings_jor_jus = { -- e.g. "pējor"
-   "jor","jus","jōris","jōrī","jōrem","jōre","jōrēs","jōra","jōrum","jōribus"}
+adjectiveEndings_or_us = { -- e.g. "pējor", "minor"
+   "or","us","ōris","ōrī","ōrem","ōre","ōrēs","ōra","ōrum","ōribus"}
 
 adjectiveEndings_greek_os_on = { "os","on","ī","ō","e","a","ōrum","īs","ōs" }
 
@@ -713,6 +726,9 @@ function generateVerbForms1_o(passiveEndings)
          invalidField(thirdField)
       else
          addPerfectStemForms(thirdField)
+         if firstField == "ad-juvō" and thirdField == "ad-jūvī" then
+            addForm("ad-juerō") -- old form of "ad-jūverō"
+         end
       end
    else
       addPerfectStemForms(root.."āvī")
@@ -807,6 +823,8 @@ function generateVerbForms3_o(passiveEndings)
          addForm(reducedRoot.."ēstōte") -- imperative pl. future
          addForm(reducedRoot.."ēstur") -- 3rd person sg. present indicative passive
          addForm(reducedRoot.."ēssētur") -- 3rd person sg. imperfect subjunctive passive
+      elseif firstField == "vesperāscō" then
+         addForm("vesperēscit") -- additional form
       end
       attachEndings(root,passiveEndings)
       attachEndings(root,participlePresentActiveEndingsE)
@@ -846,6 +864,9 @@ function generateVerbForms3M_io(passiveEndings)
    attachEndings(root.."iend",adjectiveEndings_us_a_um) -- gerundivum
    if thirdField then
       addPerfectStemForms(thirdField)
+      if firstField == "con-jiciō" and thirdField == "con-jēcī" then
+         addForm("con-jēxit") -- old form of "con-jēcerit"
+      end
    end
    if fourthField then
       addSupineStemForms(fourthField)
@@ -955,12 +976,12 @@ function generateComparativeAndSuperlative3(masculine,feminine)
       generateAdverb3("dextimus") -- adverb of second superlative
 
    elseif masculine == "māgnus" then
-      attachEndings("mā",adjectiveEndings_jor_jus) -- comparative (mājor)
+      attachEndings("māj",adjectiveEndings_or_us) -- comparative (mājor)
       attachEndings("maxim",adjectiveEndings_us_a_um) -- superlative (maximus)
       generateAdverb3("maximus") -- adverb of superlative
 
    elseif masculine == "malus" then
-      attachEndings("pē",adjectiveEndings_jor_jus) -- comparative (pējor)
+      attachEndings("pēj",adjectiveEndings_or_us) -- comparative (pējor)
       attachEndings("pessim",adjectiveEndings_us_a_um) -- superlative (pessimus)
       generateAdverb3("pessimus") -- adverb of superlative
 
@@ -969,6 +990,11 @@ function generateComparativeAndSuperlative3(masculine,feminine)
       attachEndings("plūrim",adjectiveEndings_us_a_um) -- superlative
       attachEndings("plūrum",adjectiveEndings_us_a_um) -- superlative
       -- adverb is "plūrimum" (= accusative)
+
+   elseif masculine == "parvus" then
+      attachEndings("min",adjectiveEndings_or_us) -- comparative (minor)
+      attachEndings("minim",adjectiveEndings_us_a_um) -- superlative (minimus)
+      generateAdverb3("minimus") -- adverb of superlative
 
    elseif endsIn(masculine,"-dicus") then
       root = string.sub(masculine,1,-5).."īcent"
@@ -1104,7 +1130,7 @@ function generatePositiveForms2(adjective)
       root = string.sub(adjective,1,-4)
       attachEndings(root,adjectiveEndings_ior_ius)
 
-   -- greek adjectives ending in "os/on"
+   -- Greek adjectives ending in "os/on"
    elseif string.len(adjective) > 3 and endsIn(adjective,"os") then
       root = string.sub(adjective,1,-3)
       attachEndings(root,adjectiveEndings_greek_os_on)
@@ -1120,7 +1146,7 @@ function generateComparativeAndSuperlative2(adjective)
    if string.len(adjective) > 4 and endsIn(adjective,"is") then
       root = string.sub(adjective,1,-3)
       if vowels[string.sub(root,-1)] and string.sub(root,-2) ~= "qu" and string.sub(root,-3) ~= "ngu" then
-         attachEndings(root,adjectiveEndings_jor_jus) -- comparative (e.g. "tenujor")
+         attachEndings(root.."j",adjectiveEndings_or_us) -- comparative (e.g. "tenujor")
       else
          attachEndings(root,adjectiveEndings_ior_ius) -- comparative
       end
@@ -1329,6 +1355,15 @@ function generateAdjectiveForms2()
    end
 end
 
+
+-- check for argument "--enclitics"
+if arg[1] then
+   if arg[1] == "--enclitics" then
+      attachEnclitics = true
+   else
+      error('Invalid argument "'..arg[1]..'".')
+   end
+end
 
 -- read input line by line
 linecount = 0
@@ -1854,6 +1889,9 @@ for line in io.lines() do
             attachEndingsVowelConsonant("prōd-","prō-",presentStemForms_esse)
          else
             attachEndings(root,presentStemForms_esse)
+            if root == "super-" then
+               addForm("super-escit") -- old form of "super-erit"
+            end
          end
          attachEndings(root.."s",participlePresentActiveEndingsE) -- participle: -sēns/-sentis
          if thirdField then
@@ -1963,13 +2001,13 @@ for line in io.lines() do
          elseif firstField == "fīlia" then
             addForm("fīliābus") -- alternative genitive plural
          end
-      elseif endsIn(firstField,"ē") then -- greek word
+      elseif endsIn(firstField,"ē") then -- Greek noun
          root = utf8substring(firstField,1,-2)
          attachEndings(root,nounEndings1_greek_e_es)
-      elseif endsIn(firstField,"ēs") then -- greek word
+      elseif endsIn(firstField,"ēs") then -- Greek noun
          root = utf8substring(firstField,1,-3)
          attachEndings(root,nounEndings1_greek_es_ae)
-      elseif endsIn(firstField,"ās") then -- greek word
+      elseif endsIn(firstField,"ās") then -- Greek noun
          root = utf8substring(firstField,1,-3)
          attachEndings(root,nounEndings1_greek_as_ae)
       elseif endsIn(firstField,"æ") then -- plurale tantum
@@ -1987,10 +2025,10 @@ for line in io.lines() do
    elseif secondField == "D2" then
       if fourthField then
          invalidLine()
-      elseif endsIn(firstField,"e͡us") then -- greek word
+      elseif endsIn(firstField,"e͡us") then -- Greek noun
          root = utf8substring(firstField,1,-5)
          attachEndings(root,nounEndings2_greek_eus)
-      elseif endsIn(firstField,"os") then -- greek word
+      elseif endsIn(firstField,"os") then -- Greek noun
          root = utf8substring(firstField,1,-3)
          attachEndings(root,nounEndings2_greek_os)
       elseif endsIn(firstField,"us") then
@@ -2052,10 +2090,10 @@ for line in io.lines() do
    elseif secondField == "D2N" then
       if thirdField or fourthField then
          invalidLine()
-      elseif endsIn(firstField,"os") then -- greek word
+      elseif endsIn(firstField,"os") then -- Greek noun
          root = utf8substring(firstField,1,-3)
          attachEndings(root,nounEndings2_greek_os_neuter)
-      elseif endsIn(firstField,"on") then -- greek word
+      elseif endsIn(firstField,"on") then -- Greek noun
          root = utf8substring(firstField,1,-3)
          attachEndings(root,nounEndings2_greek_on)
       elseif endsIn(firstField,"um") then
@@ -2092,9 +2130,13 @@ for line in io.lines() do
       elseif endsIn(firstField,"is") then
          if thirdField then
             -- i declension
-            if string.sub(thirdField,1,-2) == string.sub(firstField,1,-2) and endsIn(thirdField,"im") then
+            if thirdField == string.sub(firstField,1,-2).."m" then
                root = string.sub(firstField,1,-3)
                attachEndings(root,nounEndings3_i)
+            -- Greek accusative ending in "-in"
+            elseif thirdField == string.sub(firstField,1,-2).."n" then
+               root = string.sub(firstField,1,-3)
+               attachEndings(root,nounEndings3_i_greek)
             -- consonantal declension
             elseif beginWithSameLetter(firstField,thirdField)
             and endsIn(thirdField,"is") then
@@ -2324,7 +2366,7 @@ for line in io.lines() do
          invalidLine()
       end
 
-   -- greek masculine/feminine noun of the third declension
+   -- Greek masculine/feminine noun of the third declension
    elseif secondField == "D3gr" then
       if string.len(firstField) < 2 or not thirdField or fourthField then
          invalidLine()
