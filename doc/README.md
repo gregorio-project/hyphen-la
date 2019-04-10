@@ -54,6 +54,14 @@ Until Vatian II council, the Vatican required texts to be hyphenated in the "med
 - Karl Ernst Georges, [*Ausführliches lateinisch-deutsches
   Handwörterbuch*](http://www.zeno.org/Georges-1913), 8th edition, 1913/1918. –
   A comprehensive Latin-German dictionary of ancient Latin.
+- Henri Goelzer, *Le latin en poche. Dictionnaire latin-français*, 1928. –
+  Covers ancient and medieval Latin up to the Carolingian era.
+- Joseph Maria Stowasser, *Lateinisch-deutsches Schulwörterbuch*, several
+  editions (e. g. 1994). – This is a popular school dictionary in the
+  German-speaking countries. It does not only cover ancient, but also selected
+  medieval and Neo-Latin authors.
+
+### Dictionaries of medieval Latin
 - Charles du Cange et al., [*Glossarium mediæ et infimæ
   Latinitatis*](http://ducange.enc.sorbonne.fr/), 1883–1887. – Outdated and
   intended for historians rather than philologists, but still the only
@@ -66,12 +74,8 @@ Until Vatian II council, the Vatican required texts to be hyphenated in the "med
   medieval Latin of German-speaking territories up to the 13th century,
   containing Latin explanations and German translations of every word. So far,
   it covers the letters A–H and parts of I.
-- Henri Goelzer, *Le latin en poche. Dictionnaire latin-français*, 1928. –
-  Covers ancient and medieval Latin up to the Carolingian era.
-- Joseph Maria Stowasser, *Lateinisch-deutsches Schulwörterbuch*, several
-  editions (e. g. 1994). – This is a popular school dictionary in the
-  German-speaking countries. It does not only cover ancient, but also selected
-  medieval and Neo-Latin authors.
+
+### Etymological dictionaries
 - A Ernout/A. Meillet, *Dictionnaire étymologique de la langue latine*.
   Reprint of the 4th edition (1959) revised by J. André, 1985. – An
   etymological dictionary that has been kept up to date until relatively recent
@@ -86,8 +90,19 @@ Until Vatian II council, the Vatican required texts to be hyphenated in the "med
   latin-français*](https://archive.org/stream/LexiqueEtymologiqueLatin-franais),
   1883. – Outdated, but quite comprehensive.
 
+### Grammars
+- H. Rubenbauer/J. B. Hofmann, *Lateinische Grammatik*, 12th edition, revised
+  by R. Heine, 1995.
+- H. Petitmangin, [*Grammaire latine
+  (complète)*](https://archive.org/details/PetitmanginLatinGrammaire/), 37th
+  edition, revised by P.-N. Burtin and A. Pitou, 1956.
+- Rafael Kühner, *Ausführliche Grammtik der lateinischen Sprache*, 2nd edition,
+  vol. 1: [*Elementar-, Formen- und
+  Wortlehre*](https://archive.org/details/ausfhrlichegra01khuoft/) revised by
+  F. Holzweissig, 1912.
+
 ### Other aids
-- François Martin. *Les mots latins*, 1976.
+- François Martin, *Les mots latins*, 1976.
 - [*Collatinus web*](https://outils.biblissima.fr/en/collatinus-web/). Online
   lemmatiser and morphological analyser for Latin texts. – Very helpful, but
   not free of errors and not always complete.
