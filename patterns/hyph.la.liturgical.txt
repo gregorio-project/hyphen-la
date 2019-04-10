@@ -644,8 +644,13 @@
 .inu2a
 .inu2e
 .inu2i
-.i3n2ul
-.i4n3ulc
+.i5n4ul
+.í5n4ul
+.i5n4úl
+.i6n5ulc
+.i6n5úlc
+.i6n5ult
+.i6n5últ
 .inu2o
 .inu2u
 .i2o
