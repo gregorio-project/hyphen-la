@@ -170,7 +170,9 @@ For each pair of conflicting words, the choice made for the patterns is indicate
 
 - `ambi`: am-bi (the preposition) vs amb-i (ambio) → `amb-i`
 
-- `ambis`: am-bis (ambo) vs amb-is (ambio) → `amb-is`
+- `ambis`: am-bis (ambo) vs. In all these cases, the hyphenation retained is  amb-is (ambio) → `amb-is`
+
+- `comperi` and 16 other forms of compereo and comperio: `comperiens` `comperimus` `comperire` `comperirem` `comperiremus` `comperirent` `comperires` `comperiret` `comperiretis` `comperis` `comperit` `comperite` `comperitis` `comperito` `comperitote` `comperitur`. In all these cases, the hyphenation retained is `com-pe-r*`
 
 - `deuteris`: déu-te-ris (deuter) vs de-ú-te-ris and de-u-té-ris (deutor) → `de-u-te-ris`, `déu-te-ris`, `de-ú-te-ris` and `de-u-té-ris`
 
