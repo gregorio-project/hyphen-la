@@ -1391,7 +1391,8 @@
 .su6s5pen
 .su6s5pén
 .t2
-.ta2m3
+.ta2m3etsi.
+.ta2m3étsi.
 .te2r1i2u
 .terp2s
 .te2r1un

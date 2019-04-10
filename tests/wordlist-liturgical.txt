@@ -6255,7 +6255,6 @@ e-pi-pe-dos
 e-pi-pe-tros
 E-pi-pha-ne-a
 E-pi-pha-nes
-E-pi-pha-ni-a
 e-pi-pha-ni-a
 e-pi-pha-ni-æ
 E-pi-pha-ni-us
@@ -20851,7 +20850,7 @@ Sy-na-poth-nes-con-tes
 Sy-ro-phœ-nis-sa
 ta-be-scet
 ta-bu-is
-tam-en
+ta-men
 tam-et-si
 tan-gunt
 tan-gun-tur
