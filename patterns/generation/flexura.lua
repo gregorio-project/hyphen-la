@@ -20,9 +20,9 @@ end
 -- list of all generated forms
 outputlist = {}
 
--- if all three enclitics are used, the "variatio.lua" script needs too much time
--- enclitics = {"-que","-ne","-ve"}
-enclitics = {"-que"}
+-- if all three enclitics are used, the "variatio.lua" script needs much time
+enclitics = {"-que","-ne","-ve"}
+-- enclitics = {"-que"}
 
 function addForm(word)
    if not outputlist[word] then
@@ -2889,6 +2889,8 @@ for line in io.lines() do
          addForm("quotam-quam-que") -- accusative sg.
          addForm("quotō-quō-que") -- ablative sg.
          addForm("quotā-quā-que") -- ablative sg.
+      elseif firstField == "sub-ne-uter" then
+         attachEndings("sub-ne-",pronounForms_uter_utra_utrum)
       elseif firstField == "suus" then
          attachEndings("su",adjectiveEndings_us_a_um_withoutVocative)
          addForm("su|amet") -- nominative sg./accusative pl.

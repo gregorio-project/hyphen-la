@@ -15,7 +15,7 @@ planned:
 
 ## Generation of hyphenation patterns for classical Latin
 
-1. We maintain a list `index_verborum` of about 6000 Latin words without
+1. We maintain a list `index_verborum` of about 6500 Latin words without
 inflected forms and without hyphenations, but containing information about the
 inflection class and hyphens in compound words and with special orthographic
 conventions. The exact format of the word list is described below.

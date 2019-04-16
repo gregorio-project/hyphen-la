@@ -775,6 +775,9 @@ function removeUnwantedHyphens(input)
          elseif c == "~" then -- word boundary before "ji"
             output = output.."_"
             state = "beginning"
+         elseif vowels[c] then
+            output = output..c
+            state = "vowel"
          else
             output = output..c
             state = "normal"

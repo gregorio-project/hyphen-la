@@ -114,8 +114,7 @@ function contains_U_or_v(word) -- U/v are modern, V/u are classical
 end
 
 function containsDigraph(word)
-   if string.find(word,"Æ") or string.find(word,"æ") or string.find(word,"ǽ")
-   or string.find(word,"Œ") or string.find(word,"œ") then
+   if string.find(word,"Æ") or string.find(word,"æ") or string.find(word,"ǽ") or string.find(word,"Œ") or string.find(word,"œ") then
       return true
    else
       return false
@@ -123,8 +122,7 @@ function containsDigraph(word)
 end
 
 function containsDiphthong(word)
-   if string.find(word,"Au") or string.find(word,"au")
-   or string.find(word,"Eu") or string.find(word,"eu") then
+   if string.find(word,"Au") or string.find(word,"au") or string.find(word,"Eu") or string.find(word,"eu") then
       return true
    else
       return false
@@ -163,12 +161,10 @@ function splitHead(word)
       else
          tail = ""
       end
-   elseif utf8.len(word) > 2
-   and (c1 == "Æ" or c1 == "æ" or c1 == "Ǽ" or c1 == "ǽ" or c1 == "Œ" or c1 == "œ") and c2 == "·" then
+   elseif utf8.len(word) > 2 and (c1 == "Æ" or c1 == "æ" or c1 == "Ǽ" or c1 == "ǽ" or c1 == "Œ" or c1 == "œ") and c2 == "·" then
       head = c1..c2
       tail = string.sub(word,utf8.offset(word,3))
-   elseif utf8.len(word) > 3
-   and (c1 == "Œ" or c1 == "œ") and c2 == combiningAcute and thirdCharacter(word) == "·" then
+   elseif utf8.len(word) > 3 and (c1 == "Œ" or c1 == "œ") and c2 == combiningAcute and thirdCharacter(word) == "·" then
       head = c1..c2.."·"
       tail = string.sub(word,utf8.offset(word,4))
    elseif (c1 == "Œ" or c1 == "œ") and c2 == combiningAcute then
@@ -201,8 +197,7 @@ function splitHead(word)
    elseif utf8.len(word) > 2 and (c1 == "Q" or c1 == "q") and c2 == "u" then
       head = c1..c2
       tail = string.sub(word,3)
-   elseif utf8.len(word) > 2 and (c1 == "g" or c1 == "S" or c1 == "s")
-   and c2 == "u" and vowels[thirdCharacter(word)] then
+   elseif utf8.len(word) > 2 and (c1 == "g" or c1 == "S" or c1 == "s") and c2 == "u" and vowels[thirdCharacter(word)] then
       head = c1..c2
       tail = string.sub(word,3)
    else
@@ -451,7 +446,7 @@ function createVariants(word,use_j,use_Uv,useDigraphs,useMacrons,useBreves,digra
       local c, ending = splitHead(word)
       local endingVariants = createVariants(ending,use_j,use_Uv,useDigraphs,useMacrons,useBreves,digraphType,diphthongType)
 
-      if longVowels[c] or (utf8.len(c) == 2 and longVowels[string.sub(c,1,utf8.offset(c,2)-1)]) then
+      if longVowels[firstCharacter(c)] then
          -- variant without macron
          if not useMacrons or mixedDiacritics then
             if c == "Ā" then ch = "A"
@@ -632,8 +627,7 @@ function createVariants(word,use_j,use_Uv,useDigraphs,useMacrons,useBreves,digra
 end
 
 function addOutputForm(word)
-   if outputNon_ec_AccentVariants
-   or (not string.find(word,combiningAcute) and not string.find(word,"Ǽ") and not string.find(word,"ǽ")) then
+   if outputNon_ec_AccentVariants or (not string.find(word,combiningAcute) and not string.find(word,"Ǽ") and not string.find(word,"ǽ")) then
       local key = beginLowercase(string.gsub(word,"-",""))
       if outputList[key] == nil then
          outputList[key] = word
