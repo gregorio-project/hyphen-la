@@ -786,6 +786,8 @@ an-gus-ti-tas
 an-gus-to
 an-gus-tum
 an-gus-tus
+an-ti-spas-ti-cos
+an-ti-spas-tus
 An-to-nias-tri
 apias-ter
 apias-tra
@@ -826,6 +828,7 @@ Aris-to-te-les
 Aris-tra-tus
 ar-mi-lus-trium
 ar-mi-lus-trum
+as-cy-ron
 asi-nas-tra
 as-pa-la-thos
 As-pa-ra-gium
@@ -1083,8 +1086,8 @@ com-mons-tro
 com-pa-ves-co
 com-per-iis-ti
 com-per-iis-tis
-com-pe-ris-ti
-com-pe-ris-tis
+com-peris-ti
+com-peris-tis
 com-pes-co
 com-pin-gues-cam
 com-pin-gues-ca-mus
@@ -2409,7 +2412,6 @@ neg-le-gens
 neg-le-gen-tia
 neg-le-go
 Ne-mes-tri-nus
-nes-cio
 neu-ros-pas-ton
 neu-ros-pas-tos
 Ni-cos-tra-tus

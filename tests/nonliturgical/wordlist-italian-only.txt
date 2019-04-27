@@ -786,6 +786,8 @@ an-gu-sti-tas
 an-gu-sto
 an-gu-stum
 an-gu-stus
+an-ti-spa-sti-cos
+an-ti-spa-stus
 An-to-nia-stri
 apia-ster
 apia-stra
@@ -826,6 +828,7 @@ Ari-sto-te-les
 Ari-stra-tus
 ar-mi-lu-strium
 ar-mi-lu-strum
+ascy-ron
 asi-na-stra
 aspa-la-thos
 Aspa-ra-gium
@@ -1083,8 +1086,8 @@ com-mon-stro
 com-pa-ve-sco
 com-per-ii-sti
 com-per-ii-stis
-com-pe-ri-sti
-com-pe-ri-stis
+com-peristi
+com-peristis
 com-pe-sco
 com-pin-gue-scam
 com-pin-gue-sca-mus
@@ -2409,7 +2412,6 @@ ne-gle-gens
 ne-gle-gen-tia
 ne-gle-go
 Ne-me-stri-nus
-ne-scio
 neu-ro-spa-ston
 neu-ro-spa-stos
 Ni-co-stra-tus

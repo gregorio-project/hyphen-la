@@ -10,7 +10,7 @@ contain some erroneous hyphenations.
 ### wordlist-classical-only.txt
 
 Hyphenations suitable only for classical Latin; these are mainly hyphenations
-splitting *sc*, *sp*, or *st*, e.g. *hos-pes*, *cas-tra*, *dis-co*,
+splitting *gn*, *sc*, *sp*, or *st*, e.g. *hos-pes*, *cas-tra*, *dis-co*,
 *ta-bes-cet*, *sus-ci-pe*, *dig-nus*, *ves-ti-gia*.
 
 ### wordlist-italian-only.txt
