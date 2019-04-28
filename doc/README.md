@@ -50,16 +50,21 @@ Until Vatian II council, the Vatican required texts to be hyphenated in the "med
   parts of N and R.
 - Félix Gaffiot, [*Dictionnaire illustré
   latin-français*](https://www.lexilogos.com/latin/gaffiot.php), 1934. – A very
-  comprehensive Latin-French dictionary of ancient Latin.
+  comprehensive Latin-French dictionary of ancient Latin. There is also a
+  [revised edition](http://gerardgreco.free.fr/spip.php?article43&lang=fr) of
+  2016.
 - Karl Ernst Georges, [*Ausführliches lateinisch-deutsches
   Handwörterbuch*](http://www.zeno.org/Georges-1913), 8th edition, 1913/1918. –
   A comprehensive Latin-German dictionary of ancient Latin.
 - Henri Goelzer, *Le latin en poche. Dictionnaire latin-français*, 1928. –
   Covers ancient and medieval Latin up to the Carolingian era.
+- C. T. Lewis/C. Short, [*A latin
+  dictionary*](http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.04.0059),
+  1879. – A comprehensive Latin-English dictionary.
 - Joseph Maria Stowasser, *Lateinisch-deutsches Schulwörterbuch*, several
-  editions (e. g. 1994). – This is a popular school dictionary in the
-  German-speaking countries. It does not only cover ancient, but also selected
-  medieval and Neo-Latin authors.
+  editions (e. g. 1979, 1994, 2016). – This is a popular school dictionary in
+  the German-speaking countries. It does not only cover ancient Latin, but also
+  selected medieval and Neo-Latin authors.
 
 ### Dictionaries of medieval Latin
 - Charles du Cange et al., [*Glossarium mediæ et infimæ
@@ -96,8 +101,8 @@ Until Vatian II council, the Vatican required texts to be hyphenated in the "med
 - H. Petitmangin, [*Grammaire latine
   (complète)*](https://archive.org/details/PetitmanginLatinGrammaire/), 37th
   edition, revised by P.-N. Burtin and A. Pitou, 1956.
-- Rafael Kühner, *Ausführliche Grammtik der lateinischen Sprache*, 2nd edition,
-  vol. 1: [*Elementar-, Formen- und
+- Rafael Kühner, *Ausführliche Grammatik der lateinischen Sprache*, 2nd
+  edition, vol. 1: [*Elementar-, Formen- und
   Wortlehre*](https://archive.org/details/ausfhrlichegra01khuoft/) revised by
   F. Holzweissig, 1912.
 
