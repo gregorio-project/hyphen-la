@@ -187,12 +187,18 @@ end
 function attachPerfectEndings(stem,endings)
    for _, ending in pairs(endings) do
       attachEnding(stem,ending)
-      if endsIn(stem,"īv") and utf8.len(ending) > 2
-      and (utf8substring(ending,1,2) == "er" or utf8substring(ending,1,2) == "ēr") then
-         attachEnding(utf8substring(stem,1,-3).."i",ending)
-      elseif endsIn(stem,"v") and utf8.len(ending) > 2 and vowels[utf8substring(stem,-2,-2)]
-      and (utf8substring(ending,1,2) == "er" or utf8substring(ending,1,2) == "ēr"
-      or utf8substring(ending,1,2) == "is") then
+      -- short forms of v perfect
+      if endsIn(stem,"īv") and utf8.len(ending) > 2 then
+         if string.sub(ending,1,2) == "er" or utf8substring(ending,1,2) == "ēr" then
+            -- audiērunt < audīvērunt, audierō < audīverō, audieram < audīveram etc.
+            attachEnding(utf8substring(stem,1,-3).."i",ending)
+         elseif string.sub(ending,1,2) == "is" then
+            -- audīstī < audīvistī, audīssem < audīvissem etc.
+            attachEnding(utf8substring(stem,1,-2),utf8substring(ending,2))
+         end
+      elseif (endsIn(stem,"āv") or endsIn(stem,"ēv") or endsIn(stem,"ōv")) and utf8.len(ending) > 2
+      and (string.sub(ending,1,2) == "er" or utf8substring(ending,1,2) == "ēr" or string.sub(ending,1,2) == "is") then
+         -- laudāstī < laudāvistī, laudārunt < laudāvērunt, laudārō < laudāverō, etc.
          attachEnding(utf8substring(stem,1,-2),utf8substring(ending,2))
       end
    end
@@ -1994,8 +2000,19 @@ for line in io.lines() do
       if thirdField or fourthField then
          invalidLine()
       elseif endsIn(firstField,"a") then
-         root = string.sub(firstField,1,-2)
-         attachEndings(root,nounEndings1)
+         if firstField == "rēs-pūblica" then
+            addForm("rēs-pūblica") -- nominative sg.
+            addForm("reī-pūblicæ") -- genitive/dative sg.
+            addForm("rem-pūblicam") -- accusative sg.
+            addForm("rē-pūblicā") -- ablative sg.
+            addForm("rēs-pūblicæ") -- nominative pl.
+            addForm("rērum-pūblicārum") -- genitive pl.
+            addForm("rēbus-pūblicīs") -- dative/ablative pl.
+            addForm("rēs-pūblicās") -- accusative pl.
+         else
+            root = string.sub(firstField,1,-2)
+            attachEndings(root,nounEndings1)
+         end
          if firstField == "dea" then
             addForm("deābus") -- alternative genitive plural
          elseif firstField == "fīlia" then
@@ -2046,6 +2063,16 @@ for line in io.lines() do
             addForm("diīs") -- dative/ablative pl.
             addForm("dīs") -- dative/ablative pl.
             addForm("deōs") -- accusative pl.
+         elseif firstField == "rōs-marīnus" then
+            addForm("rōs-marīnus") -- nominative sg.
+            addForm("rōris-marīnī") -- genitive sg.
+            addForm("rōrī-marīnō") -- dative sg.
+            addForm("rōrem-marīnum") -- dative sg.
+            addForm("rōre-marīnō") -- ablative sg.
+            addForm("rōrēs-marīnī") -- nominative pl.
+            addForm("rōrum-marīnōrum") -- genitive pl.
+            addForm("rōribus-marīnīs") -- dative/ablative pl.
+            addForm("rōrēs-marīnōs") -- accusative pl.
          elseif endsIn(firstField,"ius") then
             root = string.sub(firstField,1,-4)
             attachEndings(root,nounEndings2_ius)
@@ -2078,6 +2105,11 @@ for line in io.lines() do
       elseif endsIn(firstField,"ī") then -- plurale tantum
          if thirdField then
             invalidLine()
+			elseif firstField == "trēs-virī" then
+				addForm("trēs-virī") -- nominative
+				addForm("trium-virōrum") -- genitive
+				addForm("tribus-virīs") -- dative/ablative
+				addForm("trēs-virōs") -- accusative
          else
             root = utf8substring(firstField,1,-2)
             attachEndings(root,nounEndings2_i_orum)
@@ -2097,7 +2129,15 @@ for line in io.lines() do
          root = utf8substring(firstField,1,-3)
          attachEndings(root,nounEndings2_greek_on)
       elseif endsIn(firstField,"um") then
-         if endsIn(firstField,"ium") then
+         if firstField == "jūs-jūrandum" then
+            addForm("jūs-jūrandum") -- nominative/accusative sg.
+            addForm("jūris-jūrandī") -- genitive sg.
+            addForm("jūrī-jūrandō") -- dative sg.
+            addForm("jūre-jūrandō") -- ablative sg.
+            addForm("jūra-jūranda") -- nominative/accusative pl.
+            addForm("jūrum-jūrandōrum") -- genitive pl.
+            addForm("jūribus-jūrandīs") -- dative/ablative pl.
+         elseif endsIn(firstField,"ium") then
             root = string.sub(firstField,1,-4)
             attachEndings(root,nounEndings2_ium)
          elseif endsIn(firstField,"jum") then
@@ -2106,6 +2146,21 @@ for line in io.lines() do
          else
             root = string.sub(firstField,1,-3)
             attachEndings(root,nounEndings2_um)
+            if firstField == "holus-ātrum" then
+               addForm("holeris-ātrī") -- alternative genitive sg.
+               addForm("holerī-ātrō") -- alternative dative sg.
+               addForm("holere-ātrō") -- alternative ablative sg.
+               addForm("holera-ātra") -- alternative nominative pl.
+               addForm("holerum-ātrōrum") -- alternative genitive pl.
+               addForm("holeribus-ātrīs") -- alternative dative/ablative pl.
+            elseif firstField == "olus-ātrum" then
+               addForm("oleris-ātrī") -- alternative genitive sg.
+               addForm("olerī-ātrō") -- alternative dative sg.
+               addForm("olere-ātrō") -- alternative ablative sg.
+               addForm("olera-ātra") -- alternative nominative pl.
+               addForm("olerum-ātrōrum") -- alternative genitive pl.
+               addForm("oleribus-ātrīs") -- alternative dative/ablative pl.
+            end
          end
       elseif endsIn(firstField,"us") then
          root = string.sub(firstField,1,-3)
@@ -2199,15 +2254,15 @@ for line in io.lines() do
                root = utf8substring(firstField,1,-3)
                attachEndings(root,nounEndings3_mixed)
             end
-         -- singular, genitive ending in "-ētis"
+         -- singular, genitive ending in "-ētis"/"-etis"
          elseif utf8substring(thirdField,1,-5) == utf8substring(firstField,1,-3)
          and (endsIn(thirdField,"ētis") or endsIn(thirdField,"etis")) then
             addForm(firstField) -- nominative sg.
             root = utf8substring(thirdField,1,-3)
             attachEndings(root,nounEndings3_consonantal)
-         -- singular, genitive ending in "-edis"
+         -- singular, genitive ending in "-ēdis"/"-edis"
          elseif utf8substring(thirdField,1,-5) == utf8substring(firstField,1,-3)
-         and endsIn(thirdField,"edis") then
+         and (endsIn(thirdField,"ēdis") or endsIn(thirdField,"edis")) then
             addForm(firstField) -- nominative sg.
             root = utf8substring(thirdField,1,-3)
             attachEndings(root,nounEndings3_consonantal)
@@ -2610,6 +2665,9 @@ for line in io.lines() do
          addForm("mēd") -- accusative/ablative
          addForm("mēmet") -- accusative/ablative
          addForm("mē-pte") -- accusative/ablative
+         addForm("me-ipsum") -- accusative
+         addForm("me-ipsam") -- accusative
+         addForm("me-ipsō") -- ablative
          addForm("mē-cum") -- "cum" + ablative
       elseif firstField == "hic" then
          addForm("hic") -- nominative sg.
@@ -2752,6 +2810,8 @@ for line in io.lines() do
          addForm("nēmine") -- ablative sg.
       elseif firstField == "ne-uter" then
          attachEndings("ne-",pronounForms_uter_utra_utrum)
+      elseif firstField == "nōn-nūllus" then
+         attachEndings("nōn-nūll",pronominalAdjectiveEndings)
       elseif firstField == "nōs" then
          addForm("nōs") -- nominative/accusative
          addForm("nōs-met") -- nominative/accusative
@@ -2861,14 +2921,19 @@ for line in io.lines() do
          addForm("sē") -- accusative/ablative
          addForm("sēsē") -- accusative/ablative
          addForm("sēmet") -- accusative/ablative
+         addForm("se-ipsum") -- accusative sg.
+         addForm("se-ipsam") -- accusative sg.
          addForm("sēmet-ipsum") -- accusative sg.
          addForm("sēmet-ipsam") -- accusative sg.
+         addForm("se-ipsōs") -- accusative pl.
+         addForm("se-ipsās") -- accusative pl.
          addForm("sēmet-ipsōs") -- accusative pl.
          addForm("sēmet-ipsās") -- accusative pl.
+         addForm("se-ipsō") -- ablative sg.
          addForm("sēmet-ipsō") -- ablative sg.
          addForm("sēmet-ipsā") -- ablative sg.
          addForm("sēmet-ipsīs") -- ablative pl.
-         addForm("sēpse") -- accusative/ablative
+         addForm("sē-pse") -- accusative/ablative
          addForm("sē-cum") -- "cum" + ablative
       elseif firstField == "quot-ennis" then
          attachEndings("quot-enn",adjectiveEndings_is_e)
@@ -2924,6 +2989,9 @@ for line in io.lines() do
          addForm("tē") -- accusative/ablative
          addForm("tēmet") -- accusative/ablative
          addForm("tēte") -- accusative/ablative
+         addForm("te-ipsum") -- accusative
+         addForm("te-ipsam") -- accusative
+         addForm("te-ipsō") -- ablative
          addForm("tē-cum") -- "cum" + ablative
       elseif firstField == "tōtus" then
          attachEndings("tōt",pronominalAdjectiveEndings)
