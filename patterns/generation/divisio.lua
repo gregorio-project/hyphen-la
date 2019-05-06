@@ -16,7 +16,7 @@ combiningAcute = utf8.char(769)
 vowels = createSet{"A","a","á","Ā","ā","E","e","Ē","ē","I","i","Ī","ī","í","O","o","Ō",
    "ō","U","u","ú","Ū","ū","Y","y","Ȳ","ȳ","Æ","æ","ǽ","Œ","œ"}
 
-vowelsNeedingCombiningAccent = createSet{"ā","ē","ī","ō","ū","ū","ȳ","œ"}
+vowelsNeedingCombiningAccent = createSet{"ā","ē","ī","ō","ū","ȳ","œ"}
 
 digraphs = createSet{"Æ","æ","Œ","œ"}
 
@@ -32,7 +32,7 @@ consonants = createSet{"B","b","C","c","D","d","F","f","G","g","H","h","J","j",
 voicelessStops = createSet{"p","t","c","k"}
 
 -- liquid consonants, called "(litterae) liquidae" in Latin
-liquidae = createSet{"L","l","R","r"}
+liquidae = createSet{"l","r"}
 
 function addHyphenation(hyphenatedWord,comment)
    print(hyphenatedWord..comment)
@@ -123,9 +123,9 @@ function classicalHyphenation(word)
          elseif c == "g" then
             store = c
             state = "potential gn"
-         elseif c == "b" or c == "d" then
+         elseif c == "b" or c == "d" or c == "f" then
             store = c
-            state = "potential muta cum liquida"
+            state = "potential liquid group"
          elseif consonants[c] then
             store = c
             state = "consonant"
@@ -168,9 +168,9 @@ function classicalHyphenation(word)
          elseif c == "g" then
             store = c
             state = "potential gn"
-         elseif c == "b" or c == "d" then
+         elseif c == "b" or c == "d" or c == "f" then
             store = c
-            state = "potential muta cum liquida"
+            state = "potential liquid group"
          elseif consonants[c] then
             store = c
             state = "consonant"
@@ -232,7 +232,7 @@ function classicalHyphenation(word)
          elseif c == "b" or c == "d" then
             output = output..store
             store = c
-            state = "potential muta cum liquida"
+            state = "potential liquid group"
          elseif c == "m" then
             output = output..store
             store = c
@@ -308,10 +308,10 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             state = "potential gn"
-         elseif c == "b" or c == "d" then
+         elseif c == "b" or c == "d" or c == "f" then
             output = output..store
             store = c
-            state = "potential muta cum liquida"
+            state = "potential liquid group"
          elseif consonants[c] then
             output = output..store
             store = c
@@ -342,11 +342,11 @@ function classicalHyphenation(word)
       elseif state == "potential aspirate" then
          if c == "h" then
             store = store..c
-            state = "potential muta cum liquida"
+            state = "potential liquid group"
          elseif liquidae[c] then
             output = output.."-"..store..c
             store = ""
-            state = "muta cum liquida"
+            state = "liquid group"
          elseif c == "s" then
             output = output..store
             store = c
@@ -389,7 +389,7 @@ function classicalHyphenation(word)
          elseif liquidae[c] then
             output = output.."-"..store..c
             store = ""
-            state = "muta cum liquida"
+            state = "liquid group"
          elseif firstVowelsOfDiphthongs[c] then
             output = output.."-"..store..c
             store = ""
@@ -405,7 +405,7 @@ function classicalHyphenation(word)
          elseif c == "d" then
             output = output..store
             store = c
-            state = "potential muta cum liquida"
+            state = "potential liquid group"
          elseif c == "m" then
             output = output..store
             store = c
@@ -417,12 +417,12 @@ function classicalHyphenation(word)
          else
             invalidWord(word)
          end
-      -- read "b", "d", "g", "ph", "th", or "ch"
-      elseif state == "potential muta cum liquida" then
+      -- read "b", "d", "g", "ph", "th", "ch", or "f"
+      elseif state == "potential liquid group" then
          if liquidae[c] then
             output = output.."-"..store..c
             store = ""
-            state = "muta cum liquida"
+            state = "liquid group"
          elseif c == "s" then
             output = output..store
             store = c
@@ -439,7 +439,7 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             state = "potential aspirate"
-         elseif c == "b" or c == "d" or c == "g" then
+         elseif c == "b" or c == "d" or c == "f" or c == "g" then
             output = output..store
             store = c
             -- the state stays the same
@@ -468,8 +468,8 @@ function classicalHyphenation(word)
          else
             invalidWord(word)
          end
-      -- read muta cum liquida
-      elseif state == "muta cum liquida" then
+      -- read liquid group
+      elseif state == "liquid group" then
          if firstVowelsOfDiphthongs[c] then
             output = output..c
             state = "potential diphthong"
@@ -529,11 +529,11 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             state = "potential aspirate"
-         elseif c == "d" then
+         elseif c == "d" or c == "f" then
             output = output..store
             store = c
-            state = "potential muta cum liquida"
-         elseif c == "f" or c == "n" or c == "x" then
+            state = "potential liquid group"
+         elseif c == "n" or c == "x" then
             output = output..store
             store = c
             state = "consonant"
@@ -575,7 +575,7 @@ function classicalHyphenation(word)
          elseif liquidae[c] then
             output = output.."-"..store..c
             store = ""
-            state = "muta cum liquida"
+            state = "liquid group"
          elseif c == "-" then
             output = output..store.."="
             store = ""
@@ -602,7 +602,7 @@ function classicalHyphenation(word)
             state = "potential aspirate"
          elseif c == "b" then
             store = c
-            state = "potential muta cum liquida"
+            state = "potential liquid group"
          elseif c == "l" or c == "m" then
             store = c
             state = "consonant"
@@ -681,10 +681,10 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             state = "potential aspirate"
-         elseif c == "b" or c == "d" or c == "g" then
+         elseif c == "b" or c == "d" or c == "f" or c == "g" then
             output = output..store
             store = c
-            state = "potential muta cum liquida"
+            state = "potential liquid group"
          elseif consonants[c] then
             output = output..store
             store = c
@@ -725,7 +725,7 @@ function classicalHyphenation(word)
    if state == "potential diphthong" or state == "vowel"
    or state == "potential su" or state == "potential ng"
    or state == "potential rh" or state == "potential aspirate"
-   or state == "potential muta cum liquida" or state == "consonant" then
+   or state == "potential liquid group" or state == "consonant" then
       output = output..store
 
       if traceStates then

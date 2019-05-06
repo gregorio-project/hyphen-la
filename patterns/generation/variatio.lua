@@ -487,7 +487,7 @@ function createVariants(word,use_j,use_Uv,useDigraphs,useMacrons,useBreves,digra
          end
       elseif shortVowels[c] then
          -- variant without breve
-         if not useBreves or mixedDiacritics then
+         if not useBreves or mixedDiacritics or mixedBreves then
             if c == "U" and not use_Uv then
                ch = "V"
             else
@@ -695,6 +695,7 @@ createTieVariants = true
 createAccentVariants = true
 outputNon_ec_AccentVariants = true
 mixedDiacritics = false
+mixedBreves = false
 
 -- read arguments from command line
 i = 1
@@ -720,6 +721,8 @@ while arg[i] do
       outputNon_ec_AccentVariants = false
    elseif arg[i] == "--mixed" then
       mixedDiacritics = true
+   elseif arg[i] == "--mixed-breves" then
+      mixedBreves = true
    else
       error('Invalid argument "'..arg[i]..'".')
    end
@@ -766,25 +769,28 @@ for line in io.lines() do
                               addVariantsToOutput(preparedWord,use_j,use_Uv,useDigraphs,createMacronVariants,createBreveVariants,"","")
                            else
                               -- (1) variant without macrons and breves
-                              addVariantsToOutput(preparedWord,use_j,use_Uv,useDigraphs,false,false,"plain","plain")
-                              -- (2) variant with ties on diphthongs, but without macrons and breves
-                              if createTieVariants and ((not useDigraphs and containsDigraph(word)) or containsDiphthong(word)) then
-                                 addVariantsToOutput(preparedWord,use_j,use_Uv,useDigraphs,false,false,"plain","tie")
+                              if containsLongVowel(word) or not mixedBreves then
+                                 addVariantsToOutput(preparedWord,use_j,use_Uv,useDigraphs,false,false,"plain","plain")
+                                 -- (2) variant with ties on diphthongs, but without macrons and breves
+                                 if createTieVariants and ((not useDigraphs and containsDigraph(word)) or containsDiphthong(word)) then
+                                    addVariantsToOutput(preparedWord,use_j,use_Uv,useDigraphs,false,false,"plain","tie")
+                                 end
                               end
-                              if createMacronVariants and containsLongVowel(word) then
-                                 -- (3) variant with macrons, but without breves
-                                    addVariantsToOutput(preparedWord,use_j,use_Uv,useDigraphs,true,false,"plain","plain")
+                              -- (3) variant with macrons, but without breves
+                              if createMacronVariants and containsLongVowel(word) and not mixedBreves then
+                                 addVariantsToOutput(preparedWord,use_j,use_Uv,useDigraphs,true,false,"plain","plain")
                                  -- (4) variant with macrons and with ties on diphthongs, but without breves
                                  if createTieVariants and ((not useDigraphs and containsDigraph(word)) or containsDiphthong(word)) then
                                     addVariantsToOutput(preparedWord,use_j,use_Uv,useDigraphs,true,false,"plain","tie")
                                  end
                               end
                               -- (5) variant with macrons even on digraphs, but without breves
-                              if createMacronVariants and useDigraphs then
+                              if createMacronVariants and not mixedBreves and useDigraphs then
                                  addVariantsToOutput(preparedWord,use_j,use_Uv,true,true,false,"macron","plain")
                               end
                               -- (6) variant with macrons even on digraphs and diphthongs, but without breves
-                              if createMacronVariants and ((not useDigraphs and containsDigraph(word)) or containsDiphthong(word)) then
+                              if createMacronVariants and not mixedBreves
+                              and ((not useDigraphs and containsDigraph(word)) or containsDiphthong(word)) then
                                  addVariantsToOutput(preparedWord,use_j,use_Uv,useDigraphs,true,false,"macron","macron")
                               end
                               if createBreveVariants and containsShortVowel(word) then

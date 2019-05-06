@@ -15,7 +15,7 @@ planned:
 
 ## Generation of hyphenation patterns for classical Latin
 
-1. We maintain a list `index_verborum` of about 6500 Latin words without
+1. We maintain a list `index_verborum` of about 7000 Latin words without
 inflected forms and without hyphenations, but containing information about the
 inflection class and hyphens in compound words and with special orthographic
 conventions. The exact format of the word list is described below.
@@ -82,10 +82,9 @@ generated automatically.
   `anim-ad-vertō`, `long-ævus`. Do not use hyphens if a prefix is assimilated
   to the following element of the compound or if a prefix is extended by an
   epenthesis (*d* or *s*): `abstrahō`, `assimils`, `afferō`, `difficilis`,
-  `occidō`, `sustulī`, `complūrēs`, `redhibeō`.  However, a hyphen is
-  necessary, when the second element begins with a vowel or with *fl* or *fr*
-  or when *neg* is followed by *l*: `com-edō`, `red-emptiō`, `neg-ōtium`,
-  `ef-flō`, `neg-legō`.
+  `efflō`, `occidō`, `sustulī`, `complūrēs`, `redhibeō`. However, a hyphen is
+  necessary, when the second element begins with a vowel or when *neg* is
+  followed by *l*: `com-edō`, `red-emptiō`, `neg-ōtium`, `neg-legō`.
 - Use an accented vowel (or a *combining acute accent* U+301 for vowels with
   macron) if an uninflectable word with at least two syllables has its accent
   on the last syllable: `ab-hínc`, `ad-hū́c`. Note: In other cases, the accent
@@ -278,6 +277,11 @@ The following irregular forms are taken into account:
 - the dative/ablative plural form ending in *-ubus* of *arcus*, *artus*, and
   *tribus*
 - the declensed forms of *domus*
+- the declensed forms of *holus-ātrum/holeris-ātrī*,
+  *jūs-jūrandum/jūris-jūrandī*, *māter-familiās/matris-familiās*,
+  *olus-ātrum/oleris-ātrī*, *pater-familiās/patris-familiās*,
+  *rēs-pūblica/reī-pūblicæ*, *rōs-marīnus/rōris-marīnī*,
+  *trēs-virī/trium-virōrum*
 
 ##### Adjectives and pronouns
 
@@ -285,11 +289,11 @@ The following irregular forms are taken into account:
   *pējor*, *plūs*, *vetustior* of *juvenis*, *bonus*, *māgnus*, *parvus*,
   *malus*, *multus*, *vetus*
 - the superlatives *citimus*, *dēterrimus*, *dextumus/dextimus*, *extrēmus*,
-  *īnfimus/īmus*, *maximus*, *minimus*, *optimus*, *pessimus*,
+  *īnfimus/īmus*, *maximus*, *minimus*, *optimus*, *permaximus*, *pessimus*,
   *plūrimus/plūrumus*, *postrēmus/postumus*, *proximus*, *suprēmus*,
   *veterrimus* of *citer*, *dēterior*, *dexter*, *exter/exterus*, *īnferus*,
-  *māgnus*, *parvus*, *bonus*, *malus*, *multus*, *posterus*, *propior*,
-  *superus*, *vetus*
+  *māgnus*, *parvus*, *bonus*, *permagnus*, *malus*, *multus*, *posterus*,
+  *propior*, *superus*, *vetus*
 - the adverbs *audācter* (beside *audāciter*), *bene*, *cito*, *difficulter*,
   *magis/mage*, *parum*, *rārenter*, *sollerter* of *audāx*, *bonus*, *citus*,
   *difficilis*, *māgnus*, *parvus*, *rārus*, *sollers*

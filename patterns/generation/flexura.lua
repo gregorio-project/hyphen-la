@@ -353,7 +353,7 @@ adjectiveEndings_is_e_afterFullVowel = { -- e.g. "tenuis"
 adjectiveEndings_ior_ius = { -- e.g. "altior"
    "ior","ius","iōris","iōrī","iōrem","iōre","iōrēs","iōra","iōrum","iōribus"}
 
-adjectiveEndings_or_us = { -- e.g. "pējor", "minor"
+adjectiveEndings_or_us = { -- e.g. "pejor", "minor"
    "or","us","ōris","ōrī","ōrem","ōre","ōrēs","ōra","ōrum","ōribus"}
 
 adjectiveEndings_greek_os_on = { "os","on","ī","ō","e","a","ōrum","īs","ōs" }
@@ -917,9 +917,9 @@ function generatePositiveForms3(masculine,feminine)
          attachEndings(root,adjectiveEndings_us_a_um)
       end
 
-   -- quammāgnuscumque
-   elseif masculine == "quam-māgnus-cum-que" and feminine == nil then
-      attachEndingsEnclitic("quam-māgn",adjectiveEndings_us_a_um,"cum-que")
+   -- quammagnuscumque
+   elseif masculine == "quam-magnus-cum-que" and feminine == nil then
+      attachEndingsEnclitic("quam-magn",adjectiveEndings_us_a_um,"cum-que")
 
    -- plērusque
    elseif masculine == "plērus-que" and feminine == nil then
@@ -981,13 +981,13 @@ function generateComparativeAndSuperlative3(masculine,feminine)
       generateAdverb3("dextumus") -- adverb of first superlative
       generateAdverb3("dextimus") -- adverb of second superlative
 
-   elseif masculine == "māgnus" then
-      attachEndings("māj",adjectiveEndings_or_us) -- comparative (mājor)
+   elseif masculine == "magnus" then
+      attachEndings("maj",adjectiveEndings_or_us) -- comparative (major)
       attachEndings("maxim",adjectiveEndings_us_a_um) -- superlative (maximus)
       generateAdverb3("maximus") -- adverb of superlative
 
    elseif masculine == "malus" then
-      attachEndings("pēj",adjectiveEndings_or_us) -- comparative (pējor)
+      attachEndings("pej",adjectiveEndings_or_us) -- comparative (pejor)
       attachEndings("pessim",adjectiveEndings_us_a_um) -- superlative (pessimus)
       generateAdverb3("pessimus") -- adverb of superlative
 
@@ -1001,6 +1001,10 @@ function generateComparativeAndSuperlative3(masculine,feminine)
       attachEndings("min",adjectiveEndings_or_us) -- comparative (minor)
       attachEndings("minim",adjectiveEndings_us_a_um) -- superlative (minimus)
       generateAdverb3("minimus") -- adverb of superlative
+
+   elseif masculine == "per-magnus" then -- no comparative
+      attachEndings("per-maxim",adjectiveEndings_us_a_um) -- superlative
+      generateAdverb3("per-maximus") -- adverb of superlative
 
    elseif endsIn(masculine,"-dicus") then
       root = string.sub(masculine,1,-5).."īcent"
@@ -1096,7 +1100,7 @@ function generateAdverb3(masculine,feminine)
       addForm("bene")
    elseif masculine == "citus" then
       addForm("cito") -- short o
-   elseif masculine == "māgnus" then
+   elseif masculine == "magnus" then
       addForm("magis")
       addForm("mage")
    elseif masculine == "parvus" then
@@ -2105,11 +2109,11 @@ for line in io.lines() do
       elseif endsIn(firstField,"ī") then -- plurale tantum
          if thirdField then
             invalidLine()
-			elseif firstField == "trēs-virī" then
-				addForm("trēs-virī") -- nominative
-				addForm("trium-virōrum") -- genitive
-				addForm("tribus-virīs") -- dative/ablative
-				addForm("trēs-virōs") -- accusative
+         elseif firstField == "trēs-virī" then
+            addForm("trēs-virī") -- nominative
+            addForm("trium-virōrum") -- genitive
+            addForm("tribus-virīs") -- dative/ablative
+            addForm("trēs-virōs") -- accusative
          else
             root = utf8substring(firstField,1,-2)
             attachEndings(root,nounEndings2_i_orum)
@@ -2356,8 +2360,9 @@ for line in io.lines() do
             addForm(firstField) -- nominative sg.
             attachEndings(root,nounEndings3_consonantal)
          end
-      -- noun ending in "-ās" or "-īs"
-      elseif (endsIn(firstField,"ās") or endsIn(firstField,"īs")) and thirdField == string.sub(firstField,1,-2).."tis" then
+      -- noun ending in "-ās/-ātis" or "-īs/-ītis"
+      elseif (endsIn(firstField,"ās") or endsIn(firstField,"īs"))
+      and thirdField == string.sub(firstField,1,-2).."tis" then
          root = utf8substring(thirdField,1,-3)
          if firstField == "abbās" then
             addForm(firstField) -- nominative sg.
@@ -2380,6 +2385,32 @@ for line in io.lines() do
          end
       elseif not thirdField or utf8.len(thirdField) < 4 then
          invalidLine()
+      elseif firstField == "māter-familiās" then
+         if thirdField == "mātris-familiās" then
+            addForm("māter-familiās") -- nominative sg.
+            addForm("mātris-familiās") -- genitive sg.
+            addForm("mātrī-familiās") -- dative sg.
+            addForm("mātrem-familiās") -- accusative sg.
+            addForm("mātre-familiās") -- ablative sg.
+            addForm("mātrēs-familiās") -- nominative/accusative pl.
+            addForm("mātrum-familiās") -- genitive pl.
+            addForm("mātribus-familiās") -- dative/ablative sg.
+         else
+            invalidField(thirdField)
+         end
+      elseif firstField == "pater-familiās" then
+         if thirdField == "patris-familiās" then
+            addForm("pater-familiās") -- nominative sg.
+            addForm("patris-familiās") -- genitive sg.
+            addForm("patrī-familiās") -- dative sg.
+            addForm("patrem-familiās") -- accusative sg.
+            addForm("patre-familiās") -- ablative sg.
+            addForm("patrēs-familiās") -- nominative/accusative pl.
+            addForm("patrum-familiās") -- genitive pl.
+            addForm("patribus-familiās") -- dative/ablative sg.
+         else
+            invalidField(thirdField)
+         end
       -- singular
       elseif endsIn(thirdField,"is") then
          root = string.sub(thirdField,1,-3)
@@ -2651,19 +2682,19 @@ for line in io.lines() do
          attachEndings("amb",pronounEndings_o_ae)
       elseif firstField == "ego" then
          addForm("ego") -- nominative
-         addForm("egomet") -- nominative
+         addForm("ego-met") -- nominative
          addForm("egō") -- nominative
-         addForm("egōmet") -- nominative
+         addForm("egō-met") -- nominative
          addForm("meī") -- genitive
          addForm("mihī") -- dative
-         addForm("mihīmet") -- dative
+         addForm("mihī-met") -- dative
          addForm("mihī-pte") -- dative
          addForm("mihi") -- dative
-         addForm("mihimet") -- dative
+         addForm("mihi-met") -- dative
          addForm("mihi-pte") -- dative
          addForm("mē") -- accusative/ablative
          addForm("mēd") -- accusative/ablative
-         addForm("mēmet") -- accusative/ablative
+         addForm("mē-met") -- accusative/ablative
          addForm("mē-pte") -- accusative/ablative
          addForm("me-ipsum") -- accusative
          addForm("me-ipsam") -- accusative
@@ -2799,7 +2830,7 @@ for line in io.lines() do
          addForm("mī") -- vocative masc.
          addForm("meō-pte") -- ablative sg.
          addForm("meā-pte") -- ablative sg.
-         addForm("meāmet") -- ablative sg.
+         addForm("meā-met") -- ablative sg.
          addForm("mīs") -- dative pl.
       elseif firstField == "nēmō" then
          addForm("nēmō") -- nominative sg.
@@ -2914,25 +2945,25 @@ for line in io.lines() do
          addForm("su|ī") -- genitive
          addForm("sibī") -- dative
          addForm("sibi") -- dative
-         addForm("sibīmet") -- dative
-         addForm("sibimet") -- dative
-         addForm("sibīmet-ipsīs") -- dative pl.
-         addForm("sibimet-ipsīs") -- dative pl.
+         addForm("sibī-met") -- dative
+         addForm("sibi-met") -- dative
+         addForm("sibī-met-ipsīs") -- dative pl.
+         addForm("sibi-met-ipsīs") -- dative pl.
          addForm("sē") -- accusative/ablative
          addForm("sēsē") -- accusative/ablative
-         addForm("sēmet") -- accusative/ablative
+         addForm("sē-met") -- accusative/ablative
          addForm("se-ipsum") -- accusative sg.
          addForm("se-ipsam") -- accusative sg.
-         addForm("sēmet-ipsum") -- accusative sg.
-         addForm("sēmet-ipsam") -- accusative sg.
+         addForm("sē-met-ipsum") -- accusative sg.
+         addForm("sē-met-ipsam") -- accusative sg.
          addForm("se-ipsōs") -- accusative pl.
          addForm("se-ipsās") -- accusative pl.
-         addForm("sēmet-ipsōs") -- accusative pl.
-         addForm("sēmet-ipsās") -- accusative pl.
+         addForm("sē-met-ipsōs") -- accusative pl.
+         addForm("sē-met-ipsās") -- accusative pl.
          addForm("se-ipsō") -- ablative sg.
-         addForm("sēmet-ipsō") -- ablative sg.
-         addForm("sēmet-ipsā") -- ablative sg.
-         addForm("sēmet-ipsīs") -- ablative pl.
+         addForm("sē-met-ipsō") -- ablative sg.
+         addForm("sē-met-ipsā") -- ablative sg.
+         addForm("sē-met-ipsīs") -- ablative pl.
          addForm("sē-pse") -- accusative/ablative
          addForm("sē-cum") -- "cum" + ablative
       elseif firstField == "quot-ennis" then
@@ -2958,12 +2989,12 @@ for line in io.lines() do
          attachEndings("sub-ne-",pronounForms_uter_utra_utrum)
       elseif firstField == "suus" then
          attachEndings("su",adjectiveEndings_us_a_um_withoutVocative)
-         addForm("su|amet") -- nominative sg./accusative pl.
+         addForm("su|a-met") -- nominative sg./accusative pl.
          addForm("su|a-pte") -- nominative sg./accusative pl.
-         addForm("su|īmet") -- genitive sg.
+         addForm("su|ī-met") -- genitive sg.
          addForm("su|om-pte") -- accusative sg.
-         addForm("su|ōmet") -- ablative sg.
-         addForm("su|āmet") -- ablative sg.
+         addForm("su|ō-met") -- ablative sg.
+         addForm("su|ā-met") -- ablative sg.
          addForm("su|ō-pte") -- ablative sg.
          addForm("su|ā-pte") -- ablative sg.
          addForm("su|īs-met") -- ablative pl.
@@ -2977,17 +3008,17 @@ for line in io.lines() do
       elseif firstField == "tū" then
          addForm("tū") -- nominative
          addForm("tūte") -- nominative
-         addForm("tūtemet") -- nominative
-         addForm("tūtimet") -- nominative
+         addForm("tūte-met") -- nominative
+         addForm("tūti-met") -- nominative
          addForm("tūtin") -- nominative
          addForm("tuī") -- genitive
-         addForm("tuīmet") -- genitive
+         addForm("tuī-met") -- genitive
          addForm("tibī") -- dative
-         addForm("tibīmet") -- dative
+         addForm("tibī-met") -- dative
          addForm("tibi") -- dative
-         addForm("tibimet") -- dative
+         addForm("tibi-met") -- dative
          addForm("tē") -- accusative/ablative
-         addForm("tēmet") -- accusative/ablative
+         addForm("tē-met") -- accusative/ablative
          addForm("tēte") -- accusative/ablative
          addForm("te-ipsum") -- accusative
          addForm("te-ipsam") -- accusative
