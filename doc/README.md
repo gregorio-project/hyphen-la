@@ -52,19 +52,24 @@ Until Vatian II council, the Vatican required texts to be hyphenated in the "med
   latin-français*](https://www.lexilogos.com/latin/gaffiot.php), 1934. – A very
   comprehensive Latin-French dictionary of ancient Latin. There is also a
   [revised edition](http://gerardgreco.free.fr/spip.php?article43&lang=fr) of
-  2016.
+  2016. The original version of 1934 marks long vowels in open syllables only,
+  whereas the revised edition marks all long vowels.
 - Karl Ernst Georges, [*Ausführliches lateinisch-deutsches
   Handwörterbuch*](http://www.zeno.org/Georges-1913), 8th edition, 1913/1918. –
   A comprehensive Latin-German dictionary of ancient Latin.
 - Henri Goelzer, *Le latin en poche. Dictionnaire latin-français*, 1928. –
   Covers ancient and medieval Latin up to the Carolingian era.
-- C. T. Lewis/C. Short, [*A latin
-  dictionary*](http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.04.0059),
+- C. T. Lewis/C. Short, [*A Latin
+  Dictionary*](http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.04.0059),
   1879. – A comprehensive Latin-English dictionary.
+- The *Oxford Latin Dictionary (OLD)*, 1968–1982. – A dictionary representing a
+  relatively recent stage of research, but only covering classical Latin.
 - Joseph Maria Stowasser, *Lateinisch-deutsches Schulwörterbuch*, several
   editions (e. g. 1979, 1994, 2016). – This is a popular school dictionary in
   the German-speaking countries. It does not only cover ancient Latin, but also
   selected medieval and Neo-Latin authors.
+- Albert Sleumer, *Kirchenlateinisches Wörterbuch*, 1926. – A Latin-German
+  dictionary dedicated to the Latin of the Vulgate and the liturgical books.
 
 ### Dictionaries of medieval Latin
 - Charles du Cange et al., [*Glossarium mediæ et infimæ
