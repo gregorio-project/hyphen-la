@@ -801,7 +801,6 @@ apo-crus-ti-cus
 Apo-laus-tus
 apol-li-na-ris-tæ
 Apos-co-peuon
-Apos-co-pe-von
 apo-sphra-gis-ma
 apos-ta-sia
 apos-ta-ta
@@ -854,7 +853,6 @@ aspe-xis-ti
 As-pha-li-tes
 as-phal-tion
 as-phal-tus
-as-pha-ra-gos
 as-pho-de-lus
 as-pi-dis
 as-pis
@@ -936,7 +934,7 @@ aus-tra-lis
 aus-tri
 aus-tri-fer
 aus-tri-nus
-aus-tro-af-ri-cus
+aus-tro-afri-cus
 aus-tro-no-tius
 aus-tro-no-tus
 ba-las-trum
@@ -2940,7 +2938,6 @@ rus-pa-ri
 Rus-pi-na
 rus-po
 rus-por
-sa-ges-trum
 sa-li-cas-trum
 sa-lig-neus
 sam-bu-cis-tria
@@ -3184,7 +3181,6 @@ us-piam
 us-tri-cu-la
 us-tri-na
 us-tri-num
-vaf-rum
 val-les-tria
 vas-pi-ce-tum
 vas-pi-cis

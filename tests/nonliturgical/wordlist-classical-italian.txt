@@ -1527,7 +1527,6 @@ amb-ive-ro
 amb-ive-runt
 ambivi
 am-bi-via
-Am-bi-vie
 am-bi-vii
 am-bi-viis
 amb-ivi-mus
@@ -2380,7 +2379,7 @@ ba-si-leum
 Bas-sa-reus
 be-ne-dic-tus
 be-ne-di-xit
-Be-nia-min
+Ben-ia-min
 Be-rœæ
 Be-rœam
 Be-rœen-sis
@@ -2714,8 +2713,6 @@ coc-ceus
 coc-ci-neus
 co-cus
 co-egi
-Cœ-le-sy-riæ
-Cœ-le-sy-riam
 cœ-nam
 Cœ-nan-ti-bus
 cœ-no-myia
@@ -5613,7 +5610,6 @@ fœ-te-res
 fœ-te-ret
 fœ-te-re-tis
 fœ-te-re-tur
-fœ-te-ris
 fœ-tes
 fœ-tet
 fœ-te-te
@@ -7914,7 +7910,6 @@ in-ter-ici-tur
 in-ter-iciunt
 in-ter-iciun-tor
 in-ter-iciun-tur
-in-ter-icun-to
 in-ter-ie-ce-ram
 in-ter-ie-ce-ra-mus
 in-ter-ie-ce-rant
@@ -10852,12 +10847,6 @@ pe-ri-cli-tor
 pe-ri-cu-lo-sus
 pe-ri-cu-lum
 per-ido-neus
-per-ieam
-per-iea-mus
-per-ieant
-per-ieas
-per-ieat
-per-iea-tis
 pe-rie-ba-mi-ni
 pe-rie-ba-mur
 pe-rie-ban-tur
@@ -10865,7 +10854,6 @@ pe-rie-bar
 pe-rie-ba-re
 pe-rie-ba-ris
 pe-rie-ba-tur
-per-iee
 pe-rie-mi-ni
 pe-rie-mur
 pe-rien-di
@@ -11537,19 +11525,6 @@ po-pul-neus
 por-ra-ceus
 porth-meus
 Porth-mos
-pos-fu-tu-ra
-pos-fu-tu-ræ
-pos-fu-tu-ram
-pos-fu-tu-ra-rum
-pos-fu-tu-ras
-pos-fu-tu-re
-pos-fu-tu-ri
-pos-fu-tu-ris
-pos-fu-tu-ro
-pos-fu-tu-ro-rum
-pos-fu-tu-ros
-pos-fu-tu-rum
-pos-fu-tu-rus
 Po-si-deum
 pos-sas-se
 pos-se
@@ -11940,19 +11915,6 @@ præ-pin-guis-si-mum
 præ-pin-guis-si-mus
 præ-pin-guium
 præ-pin-guius
-præ-pos-fu-tu-ra
-præ-pos-fu-tu-ræ
-præ-pos-fu-tu-ram
-præ-pos-fu-tu-ra-rum
-præ-pos-fu-tu-ras
-præ-pos-fu-tu-re
-præ-pos-fu-tu-ri
-præ-pos-fu-tu-ris
-præ-pos-fu-tu-ro
-præ-pos-fu-tu-ro-rum
-præ-pos-fu-tu-ros
-præ-pos-fu-tu-rum
-præ-pos-fu-tu-rus
 præ-pos-sas-se
 præ-pos-se
 præ-pos-sem
@@ -13513,7 +13475,6 @@ pro-di-ciis-si-mo-rum
 pro-di-ciis-si-mos
 pro-di-ciis-si-mum
 pro-di-ciis-si-mus
-pro-di-ciius
 pro-di-ci-mi-ni
 pro-di-ci-mur
 pro-di-ci-mus
@@ -15756,7 +15717,6 @@ sub-fu-tu-rus
 su-bia
 sub-ia-ceo
 sub-icio
-sub-ie
 sub-iec-tor
 sub-igi-to
 sub-igo
@@ -16094,8 +16054,6 @@ su-pe-ræ
 su-per-ædi-fi-ca-tio
 su-per-ædi-fi-cium
 su-per-ædi-fi-co
-su-per-af-fe-ro
-su-per-af-fluo
 su-per-ag-ge-ro
 su-per-al-li-go
 su-pe-ram
@@ -19267,6 +19225,7 @@ uni-ver-sus
 ur-ceum
 ur-ceus
 va-cuum
+va-frum
 va-po-reus
 va-riis
 ve-ho

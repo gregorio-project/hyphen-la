@@ -801,7 +801,6 @@ apo-cru-sti-cus
 Apo-lau-stus
 apol-li-na-ri-stæ
 Apo-sco-peuon
-Apo-sco-pe-von
 apo-sphra-gis-ma
 apo-sta-sia
 apo-sta-ta
@@ -854,7 +853,6 @@ aspe-xi-sti
 Aspha-li-tes
 asphal-tion
 asphal-tus
-aspha-ra-gos
 aspho-de-lus
 aspi-dis
 aspis
@@ -2940,7 +2938,6 @@ ru-spa-ri
 Ru-spi-na
 ru-spo
 ru-spor
-sa-ge-strum
 sa-li-ca-strum
 sa-li-gneus
 sam-bu-ci-stria
@@ -3184,7 +3181,6 @@ uspiam
 ustri-cu-la
 ustri-na
 ustri-num
-va-frum
 val-le-stria
 va-spi-ce-tum
 va-spi-cis
