@@ -238,8 +238,8 @@ orthographical variants are generated; the *j* has to be omitted rather than
 replaced by *i* in words like *in-jiciō*.
 
 #### Options
-- `--enclitics` – generate a variant with the enclitic *-que* for all forms
-  except uninflectable words
+- `--enclitics` – generate a variant with the enclitics *-ne*, *-que*, and
+  *-ve* for all forms except uninflectable words
 
 #### Irregular forms
 
@@ -453,6 +453,9 @@ vowels: *a͞e-dī-lĭs*, *la͞u-dăn-dǣ*, *la͞u-dăn-da͞e*, *ŏb-o͞e-dī-rĕ
   and without diacritical marks, e. g. *ci-vi-tas*, *ci-vi-tās*, *ci-vĭ-tas*,
   *ci-vĭ-tās*, *cī-vi-tas*, *cī-vi-tās*, *cī-vĭ-tas*, *cī-vĭ-tās* from input
   `cī-vi-tās`. Expect very long output when using this option!
+- `--mixed-breves` – generate variants with all possible combinations of short
+  vowels with and without breves, e. g. *co-rō-na*, *co-rō-nă*, *cŏ-rō-na*,
+  *cŏ-rō-nă* from input `co-rō-na`.
 
 ### `generate-patgen-input.sh`
 

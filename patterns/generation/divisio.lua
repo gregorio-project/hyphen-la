@@ -13,12 +13,12 @@ end
 combiningAcute = utf8.char(769)
 
 -- digraphs with macrons are not needed, as diphthongs are always long
-vowels = createSet{"A","a","á","Ā","ā","E","e","Ē","ē","I","i","Ī","ī","í","O","o","Ō",
-   "ō","U","u","ú","Ū","ū","Y","y","Ȳ","ȳ","Æ","æ","ǽ","Œ","œ"}
+vowels = createSet{"A","a","á","Ā","ā","E","e","é","Ē","ē","I","i","í","Ī","ī",
+   "O","o","ó","Ō","ō","U","u","ú","Ū","ū","Y","y","ý","Ȳ","ȳ","Æ","æ","ǽ","Œ","œ"}
 
 vowelsNeedingCombiningAccent = createSet{"ā","ē","ī","ō","ū","ȳ","œ"}
 
-digraphs = createSet{"Æ","æ","Œ","œ"}
+digraphs = createSet{"Æ","æ","ǽ","Œ","œ"}
 
 -- possible diphthongs are "au" and "eu", macrons are not used
 firstVowelsOfDiphthongs = createSet{"A","a","E","e"}
@@ -533,7 +533,7 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             state = "potential liquid group"
-         elseif c == "n" or c == "x" then
+         elseif c == "j" or c == "n" or c == "x" then
             output = output..store
             store = c
             state = "consonant"

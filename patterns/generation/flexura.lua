@@ -115,6 +115,28 @@ function beginWithSameLetter(wordA,wordB)
    end
 end
 
+function containsAccent(word)
+   if string.find(word,combiningAcute) or string.find(word,"á") or string.find(word,"é") or string.find(word,"í")
+   or string.find(word,"ó") or string.find(word,"ú") or string.find(word,"ý") or string.find(word,"ǽ") then
+      return true
+   else
+      return false
+   end
+end
+
+function removeAccent(word)
+   local tmp = string.gsub(word,combiningAcute,"")
+   tmp = string.gsub(tmp,"á","a")
+   tmp = string.gsub(tmp,"é","e")
+   tmp = string.gsub(tmp,"í","i")
+   tmp = string.gsub(tmp,"ó","o")
+   tmp = string.gsub(tmp,"ú","u")
+   tmp = string.gsub(tmp,"ý","y")
+   tmp = string.gsub(tmp,"ǽ","æ")
+   return tmp
+end
+
+
 -- adjectives with consonantal declension
 adjectivesConsonantalDeclension = createSet{"compos","com-pos","dīves",
    "particeps","parti-ceps","pauper","prīnceps","prīn-ceps","sōspes",
@@ -140,6 +162,8 @@ function attachEnding(root,ending)
       addForm(root.."|"..ending)
    elseif utf8.len(root) > 2 and utf8substring(root,-3) == "īn-" and c ~= "f" and c ~= "s" then
       addForm(utf8substring(root,1,-4).."in-"..ending)
+	elseif containsAccent(root) and (ending == "ōrum" or ending == "ārum") then -- for "parascévē"
+		addForm(removeAccent(root)..ending)
    else
       addForm(root..ending)
    end
