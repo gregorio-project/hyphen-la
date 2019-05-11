@@ -22004,6 +22004,7 @@ tran-se-run-tur
 trans-e-un-di
 trans-e-un-do
 trans-e-un-dum
+trans-e-un-dus
 trans-e-unt
 trans-e-un-ter
 trans-e-un-to
@@ -22324,7 +22325,6 @@ tran-si-lu-it
 trans-i-mi-ni
 trans-i-mur
 trans-i-mus
-trans-in-dus
 trans-in-tor
 trans-in-tur
 trans-i-re

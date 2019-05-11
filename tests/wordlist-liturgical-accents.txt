@@ -22052,6 +22052,7 @@ transerúntur
 transeúndi
 transeúndo
 transeúndum
+transeúndus
 tránseunt
 transeúnter
 transeúnto
@@ -22374,7 +22375,6 @@ transíluit
 transímini
 transímur
 transímus
-transíndus
 transíntor
 transíntur
 transíre
