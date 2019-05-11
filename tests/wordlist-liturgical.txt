@@ -5861,6 +5861,9 @@ dis-ten-tus
 dis-ter-mi-no
 dis-te-ro
 dis-ti-chon
+di-stil-lo
+di-stil-la-ti-o
+di-sti-mu-lo
 di-stinc-ti-o
 di-stinc-tus
 dis-ti-ne-o
@@ -19834,7 +19837,7 @@ su-per-cu-ro
 su-per-cur-ro
 su-per-da-tus
 su-per-de-li-go
-su-per-des-til-lo
+su-per-de-stil-lo
 su-per-di-co
 su-per-di-mi-di-us
 su-per-do

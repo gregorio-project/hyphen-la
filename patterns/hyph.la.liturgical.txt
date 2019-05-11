@@ -437,6 +437,10 @@
 .dispé2r3
 .di5s4ta
 .di5s4tá
+.di5s4till
+.di5s4tíll
+.di5s4tim
+.di5s4tím
 .di5s4tin
 .di5s4tín
 .di6s5tine
@@ -1289,6 +1293,7 @@
 .supe2r1au
 .superco2m3
 .supercó2m3
+.superde3s2t
 .supe2r1ea
 .supé2r1ea
 .supe2r1éa
