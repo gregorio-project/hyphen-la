@@ -721,6 +721,10 @@
 .ob3s2q
 .ob5st
 .ób5st
+.ob6s3trud
+.ob6s3trúd
+.ob6s3trus
+.ob6s3trús
 .p2
 .pæ2n3ins
 .pæ2n3íns
