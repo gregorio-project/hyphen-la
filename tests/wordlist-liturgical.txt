@@ -1,4 +1,3 @@
-
 a-a
 ab
 a-ba-cus
@@ -5400,6 +5399,7 @@ de-struc-tor
 de-struc-tu-ra
 de-struc-tus
 de-stru-o
+de-su-bu-lo
 de-sum
 de-su-mus
 de-sunt
@@ -5861,8 +5861,8 @@ dis-ten-tus
 dis-ter-mi-no
 dis-te-ro
 dis-ti-chon
-di-stil-lo
 di-stil-la-ti-o
+di-stil-lo
 di-sti-mu-lo
 di-stinc-ti-o
 di-stinc-tus
@@ -8801,6 +8801,8 @@ in-struc-tu-ra
 in-struc-tus
 in-stru-men-tum
 in-stru-o
+in-su-bu-lo
+in-su-bu-lum
 in-sum
 in-su-mus
 in-sunt
@@ -19362,7 +19364,8 @@ sub-ti-lis
 sub-tra-ho
 sub-tus
 su-bu-la
-sub-ul-cus
+su-bul-cus
+su-bu-lo
 sub-un-gunt
 sub-un-gun-tur
 sub-ur-ba-num

@@ -1251,9 +1251,8 @@
 .subte2r3h
 .subte2r3s4tr
 .su3b4ul
+.su3b4úl
 .sú3b4ul
-.su4b5ulc
-.su4b5ult
 .supe2r1a2b3l
 .supe2r1á2b3l
 .supe2r1a2b3n

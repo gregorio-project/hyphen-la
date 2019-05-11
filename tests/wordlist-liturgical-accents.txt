@@ -5479,6 +5479,7 @@ destrúctor
 destructúra
 destrúctus
 déstruo
+desúbulo
 desum
 désumus
 desunt
@@ -5956,8 +5957,8 @@ disténtus
 distérmino
 dístero
 dístichon
-distíllo
 distillátio
+distíllo
 distímulo
 distínctio
 distínctus
@@ -8876,6 +8877,8 @@ instructúra
 instrúctus
 instruméntum
 ínstruo
+insúbulo
+insúbulum
 insum
 ínsumus
 insunt
@@ -19379,6 +19382,7 @@ súbtraho
 subtus
 súbula
 subúlcus
+súbulo
 subúngunt
 subungúntur
 suburbánum
