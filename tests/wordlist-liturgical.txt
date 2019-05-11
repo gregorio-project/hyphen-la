@@ -3835,8 +3835,6 @@ coc-ci-ne-us
 co-cis-tro
 co-cus
 co-e-gi
-Cœ-le-sy-ri-æ
-Cœ-le-sy-ri-am
 cœ-nam
 Cœ-nan-ti-bus
 cœ-no-my-i-a
