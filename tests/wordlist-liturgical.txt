@@ -4083,10 +4083,10 @@ com-per-e-as
 com-per-e-at
 com-per-e-a-tis
 com-per-e-gri-nus
-com-per-en-di-na-ti-o
-com-per-en-di-na-tus
-com-per-en-di-no
-com-per-en-di-nus
+com-pe-ren-di-na-ti-o
+com-pe-ren-di-na-tus
+com-pe-ren-di-no
+com-pe-ren-di-nus
 com-per-e-o
 com-pe-re-ram
 com-pe-re-ra-mus
@@ -13484,9 +13484,9 @@ per-e-gri-na-ti-o
 per-e-gri-ni-tas
 per-e-gri-nus
 per-emp-to
-per-en-di-e
-per-en-di-na-ti-o
-per-en-di-nus
+pe-ren-di-e
+pe-ren-di-na-ti-o
+pe-ren-di-nus
 per-en-ne
 per-en-nis
 per-en-ni-ser-vus

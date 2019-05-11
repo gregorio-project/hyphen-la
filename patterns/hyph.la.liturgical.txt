@@ -301,6 +301,8 @@
 .có2m3it
 .compe2r3
 .compé2r3
+.compe3r4en
+.compe3r4én
 .compe3r4er
 .compé3r4er
 .compe3r4ér
@@ -761,8 +763,6 @@
 .pe2r1el
 .pe2r1em
 .pe2r1ém
-.pe4r5end
-.pe4r5énd
 .pe4r3enn
 .pe4r3énn
 .pe2r3eo
