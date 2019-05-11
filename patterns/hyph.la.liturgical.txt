@@ -1422,8 +1422,6 @@
 .trán2s1
 .trans1a2b1
 .trans1á2b1
-.tran3s2acin
-.tran3s2acín
 .trans1a2d1
 .trans1á2d1
 .tran3s2cr

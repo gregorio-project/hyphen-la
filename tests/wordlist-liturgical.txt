@@ -21671,7 +21671,7 @@ tra-can-te-us
 tra-ho
 trans-ab-e-o
 trans-ab-i-re
-Tran-sa-cin-cum
+Trans-a-cin-cum
 trans-ac-ti
 trans-ac-ti-o
 trans-ac-tor
