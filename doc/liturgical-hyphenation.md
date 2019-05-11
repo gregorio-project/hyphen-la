@@ -224,6 +224,8 @@ For each pair of conflicting words, the choice made for the patterns is indicate
 
 - `proditurus` and all his flected forms `proditur*`: prod-i-tú-rus (prodeo) vs pro-di-tú-rus (prodo) → `pro-di-tu-rus`, `pro-di-tú-rus` and `pro-di-tu-r*`
 
+- `subii`: `sub-i-i` (subeo) vs `su-bi-i` (subium) → `sub-i-i`
+
 - `supereris`: su-pé-re-ris (supero) vs su-pér-e-ris (supersum) → accented patterns are different and correct both, the non-accented word give `su-per-e-ris`
 
 - `superes`: sú-pe-res (supero) vs sú-per-es (supersum) → `su-per-es` and `sú-per-es`
