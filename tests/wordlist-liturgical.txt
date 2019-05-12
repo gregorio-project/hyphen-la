@@ -10143,9 +10143,9 @@ in-ter-i-ci-tor
 in-ter-i-ci-to-te
 in-ter-i-ci-tur
 in-ter-i-ci-unt
+in-ter-i-ci-un-to
 in-ter-i-ci-un-tor
 in-ter-i-ci-un-tur
-in-ter-i-cun-to
 in-ter-ie-ce-ram
 in-ter-ie-ce-ra-mus
 in-ter-ie-ce-rant
