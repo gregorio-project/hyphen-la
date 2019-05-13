@@ -59,6 +59,7 @@ Until Vatian II council, the Vatican required texts to be hyphenated in the "med
   A comprehensive Latin-German dictionary of ancient Latin.
 - Henri Goelzer, *Le latin en poche. Dictionnaire latin-français*, 1928. –
   Covers ancient and medieval Latin up to the Carolingian era.
+- Eugène Benoist et Henri Goelzer, *Nouveau dictionnaire Latin-Français*, 1934 (?) the most complete version of this dictionary published shortly after the death of the author.
 - C. T. Lewis/C. Short, [*A Latin
   Dictionary*](http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.04.0059),
   1879. – A comprehensive Latin-English dictionary.
