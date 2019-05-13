@@ -1200,6 +1200,7 @@
 .re5s2tic
 .re6s3ticu
 .re5s2til
+.re5s2tíl
 .re5s2tin
 .re5s2tín
 .re5s2tip
