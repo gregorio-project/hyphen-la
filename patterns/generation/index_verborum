@@ -102,6 +102,7 @@ abscīsus,AI3
 abscon-ditus,AI3
 abscon-dō,3,abscon-dī,abscon-ditum
 abscon-dō,3,abscon-didī,abscon-ditum
+absdō,1,absdidī
 ab-segmen,D3N
 ab-sentia,D1
 ab-sentīvus,AI3
@@ -133,7 +134,7 @@ abstollō,3
 abstractus,AI3
 abstrahō,3,abstrāxī,abstractum
 abstrūdō,3,abstrūsī,abstrūsum
-abs-truō,3
+abstruō,3
 abstrūsus,AI3
 ab-sūmēdō,D3
 ab-sūmō,3,ab-sūmpsī,ab-sūmptum
@@ -197,6 +198,7 @@ ad-eō,VI,ad-iī,ad-itum
 adeps,D3,adipis
 ad-equitō,1intr
 ad-errō,1intr
+ad-fluō,3intr,ad-flūxī
 Adgandestrius,D2
 ād-gnōscō,3,ād-gnōvī,ād-gnitum
 ad-gubernō,1
@@ -322,6 +324,7 @@ afferō,VI,attulī,allātum
 afficiō,3M,affēcī,affectum
 affirmō,1
 afflīgō,3,afflīxī,afflīctum
+affluō,3intr,afflūxī
 Agāvē,D1
 ager,D2,agrī
 agger,D3,aggeris
@@ -644,6 +647,11 @@ apo^scopeuōn,D3,apo^scopeuontis
 aposiōpēsis,D3
 apo-sphragi^sma,D1
 apo-splēnos,D2
+apo^stasia,D1
+apo^stata,D1
+apo^statātiō,D3
+apo^statō,1intr
+apo^statrīx,D3
 apo^stola,D1
 apo^stolātus,D4
 apo^stolus,D2
@@ -712,8 +720,8 @@ artus,D4
 arvignus,AI3
 arx,D3,arcis
 a-scendō,3,a-scendī,a-scēnsum
-Ascra,D1
-Ascræus,AI3
+A^scra,D1
+A^scræus,AI3
 a-scrībō,3,a-scrīpsī,a-scrīptum
 a^scyron,D2N
 a^spalathus,D2
@@ -1331,6 +1339,7 @@ con-clūdō,3,con-clūsī,con-clūsum
 con-cordia,D1
 con-cors,AI1,con-cordis
 con-cremō,1
+con-crēscō,3intr,con-crēvī,con-crētum
 con-crispō,1
 con-crispus,AI3
 con-cubius,AI3
@@ -1506,6 +1515,7 @@ crēbrēscō,3intr,crēbruī
 crēdō,3,crēdidī,crēditum
 creō,1
 crēscō,3intr,crēvī,crētum
+Cre^sphontēs,D1
 crībrō,1
 crīmen,D3N
 crīnis,D3
@@ -1582,6 +1592,7 @@ dē
 dea,D1
 dē-cēdō,3intr,dē-cessī,dē-cessum
 decem
+decem-mēstris,AI2
 decem-plex,AI1,decem-plicis
 dec-ennis,AI2
 dec-ennium,D2N
@@ -2083,6 +2094,7 @@ eho
 eho-dum
 eja
 ē-jiciō,3M,ē-jēcī,ē-jectum
+ē-lātīvus,AI3
 ē-lātus,AC3
 Ēlēis,AI1,Ēlēidis
 eleli^sphacus,D2
@@ -2258,6 +2270,7 @@ ev^angelizātor,D3
 ev^angelizō,1
 Ev^angelus,D2
 ē-veniō,4intr,ē-vēnī,ē-ventum
+ex-æstumō,1
 ex-æstuō,1
 ex-amb-iō,4
 ex-ambulō,1intr
@@ -2284,6 +2297,8 @@ ex-hibeō,2,ex-hibuī,ex-hibitum
 ex-igō,3,ex-ēgī,ex-āctum
 ex-iguus,AI3
 ex-in-āniō,4
+ex-īstimō,1
+ex-īstumō,1
 ex-ob-secrō,1intr
 ex^odium,D2N
 ex-olēscō,3intr,ex-olēvī,ex-olētum
@@ -3122,7 +3137,7 @@ Ireseum,D2N
 irre-mūnerābilis,AI2
 irre-mūnerātus,AI3
 irre-spīrābilis,AI2
-Isaac
+Īsaac
 Īsājās,D1
 īsodomos,AI2
 is,P
@@ -3681,6 +3696,7 @@ nucleus,D2
 nuculeus,D2
 nūllus,P
 num
+numerō,1
 Numistrānī,D2
 Numistrō,D3
 num-nam
@@ -3705,6 +3721,7 @@ ob-arō,1
 ob-arrātus,AI3
 ob-ātrātus,AI3
 ob-ātrēscō,3intr
+ob-brūtēscō,3intr,ob-brūtuī
 ob-dūre-faciō,3M
 ob-dūrō,1
 Ōbēd
@@ -3840,6 +3857,8 @@ occidō,3intr,occidī,occāsum
 occīdō,3,occīdī,occīsum
 occupō,1
 occurrō,3intr,occurrī,occursum
+Ōceanius,AI3
+Ōceanus,D2
 octāvus,N
 oct-ennis,AI2
 oct-ennium,D2N
@@ -3858,6 +3877,7 @@ octōgiēs
 octōgintā
 octōnī,N
 ōdī,VP,ōsum
+odōrō,1
 Œcle͡us,D2
 Œclīdēs,D1
 œcūmenē,D1
@@ -4377,6 +4397,7 @@ præ-ceps,AI1,præ-cipitis
 præ-ceptum,D2N
 præ-cipiō,3M,præ-cēpī,præ-ceptum
 præ-clārus,AI3
+præ-ex-īstimō,1
 præ-ficiō,3M,præ-fēcī,præ-fectum
 præ-gnāns,AI1
 præ-gnās,AI1,præ-gnātis
@@ -5086,6 +5107,7 @@ rēs,D5
 re-spectō,1
 re-spectus,D4
 re-spergō,3,re-spersī,re-spersum
+re-spergō,D3
 re-spersiō,D3
 re-spiciō,3M,re-spexī,re-spectum
 re-spīrāmen,D3N
@@ -5113,7 +5135,7 @@ re-stibilis,AI2
 resticula,D1
 resticulārius,D2
 resticulus,D2
-re-stīllō,1
+re-stillō,1
 re-stīnctiō,D3
 re-stinguō,3,re-stīnxī,re-stīnctum
 restiō,D3
@@ -5174,6 +5196,8 @@ Rūspina,D1
 rūspō,1
 rūtāceus,AI3
 Sadōc
+sagestrum,D2N
+sagum,D2N
 salignus,AI3
 salveō,2intr
 salvō,1
@@ -5417,6 +5441,7 @@ senex,AC1,senis
 senex,D3,senis
 sēnī,N
 septem
+septem-mēstris,AI2
 septem-vīc-ennis,AI2
 septen-decim
 septēnī,N
@@ -5621,7 +5646,7 @@ stāgnum,D2N
 stanneus,AI3
 stannum,D2N
 ste^gnus,AI3
-stīllō,1
+stillō,1
 stola,D1
 stomachus,D2
 strangulō,1
@@ -5641,6 +5666,7 @@ strīdeō,2intr,strīdī
 strīdō,3intr,strīdī
 stringō,3,strīnxī,strictum
 strōma,D3N,strōmatis
+struō,3,strūxī,strūctum
 Strȳmō,D3
 Strȳmonis,D3,Strȳmonidis
 Strȳmonius,AI3
@@ -5681,6 +5707,7 @@ sub-mōrōsus,AI3
 sub-ne-uter,P
 sub-obscēnus,AI3
 sub-ob-scūrus,AI3
+sub-odiōsus,AI3
 sub-ōrnō,1
 sub-rēpō,3,sub-rēpsī,sub-rēptum
 sub-rīdeō,2intr,sub-rīsī,sub-rīsum
@@ -5691,6 +5718,7 @@ sub-rogō,1
 sub-roveus,AI3
 sub-rubeō,2intr
 sub-rubeus,AI3
+sub-scrībō,3,sub-scrīpsī,sub-scrīptum
 sub-stantia,D1
 sub-stō,1intr
 sub-sultō,1intr
@@ -5725,6 +5753,8 @@ super-ad-spergō,3
 super-ad-stō,1intr,super-ad-stitī
 super-ad-ultus,AI3
 super-ædificō,1
+super-afferō,VI
+super-affluō,3intr
 super-aggerō,1
 super-alligō,1
 super-ambulō,1
@@ -5756,7 +5786,7 @@ super-cillum,D2N
 super-cinō,3
 super-con-tegō,3,super-con-tēxī
 super-currō,3
-super-dē-stīllō,1
+super-dē-stillō,1
 super-dīcō,3
 super-dī-midius,AI3
 super-ē-bulliō,4intr
@@ -5765,6 +5795,7 @@ super-efferō,VI
 super-efficiō,3Mintr
 super-effluō,3intr
 super-ē-gredior,3M
+super-ē-lātīvus,AI3
 super-ē-lātus,AI3
 super-ē-levō,1
 super-ē-micō,1
@@ -5798,6 +5829,7 @@ super-impendēns,AI1
 super-impōnō,3,super-imposuī,super-impositum
 super-in-cīdō,3
 super-in-cidō,3intr
+super-in-crēscō,3intr,super-in-crēvī
 super-in-cubō,1intr
 super-in-cumbō,3intr,super-in-cubuī
 super-in-dūcō,3,super-in-dūxī,super-in-ductum
@@ -5819,11 +5851,13 @@ super-jaceō,2intr
 super-jaciō,3M,super-jēcī,super-jactum
 super-jaciō,3M,super-jēcī,super-jectum
 super-jūmentārius,D2
+super-jungō,3
 super-lābor,3,super-lāpsus
 super-misceō,2
 super-nexīvus,AI3
 super-nōminō,1
 super-numerārius,AI3
+super-numerō,1
 supernus,AI3
 superō,1
 super-ob-ductus,AI3
@@ -5850,7 +5884,7 @@ super-spērō,1intr
 super-stāgnō,1intr
 super-sternō,3,super-strāvī,super-strātum
 super-stes,AI1,super-stitis
-super-stīllō,1
+super-stillō,1
 super-stitiō,D3
 super-stitiōsus,AI3
 super-stō,1,super-stetī
@@ -5922,6 +5956,7 @@ suprā
 suprā-lātiō,D3
 suprā-scandō,3
 suprā-scrībō,3
+suprā-struō,3
 supter
 surrēpō,3,surrēpsī,surrēptum
 surripiō,3M,surripuī,surreptum

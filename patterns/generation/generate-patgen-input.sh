@@ -17,7 +17,7 @@ rm -f $outputFile
 if sort -u -o index_verborum index_verborum
 then
    # generate inflected forms and store them
-   if lua5.3 flexura.lua < index_verborum | sort -u > index_formarum
+   if lua5.3 flexura.lua --enclitics < index_verborum | sort -u > index_formarum
    then
       # hyphenate forms and generate orthographic variants
       lua5.3 divisio.lua --suppress-hiatus < index_formarum | \
