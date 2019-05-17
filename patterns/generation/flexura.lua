@@ -96,11 +96,9 @@ liquidae = createSet{"L","l","R","r"}
 
 
 function endsInTwoConsonants(word)
-   if consonants[utf8substring(word,-1,-1)]
-   and consonants[utf8substring(word,-2,-2)]
-   and (consonants[utf8substring(word,-3,-3)]
-   or not mutae[utf8substring(word,-2,-2)]
-   or not liquidae[utf8substring(word,-1,-1)]) then
+   if consonants[string.sub(word,-1,-1)] and consonants[string.sub(word,-2,-2)]
+   and (consonants[string.sub(word,-3,-3)] or not mutae[string.sub(word,-2,-2)]
+   or not liquidae[string.sub(word,-1,-1)]) then
       return true
    else
       return false
@@ -162,8 +160,8 @@ function attachEnding(root,ending)
       addForm(root.."|"..ending)
    elseif utf8.len(root) > 2 and utf8substring(root,-3) == "īn-" and c ~= "f" and c ~= "s" then
       addForm(utf8substring(root,1,-4).."in-"..ending)
-	elseif containsAccent(root) and (ending == "ōrum" or ending == "ārum") then -- for "parascévē"
-		addForm(removeAccent(root)..ending)
+   elseif containsAccent(root) and (ending == "ōrum" or ending == "ārum") then -- for "parascévē"
+      addForm(removeAccent(root)..ending)
    else
       addForm(root..ending)
    end
@@ -218,12 +216,12 @@ function attachPerfectEndings(stem,endings)
             attachEnding(utf8substring(stem,1,-3).."i",ending)
          elseif string.sub(ending,1,2) == "is" then
             -- audīstī < audīvistī, audīssem < audīvissem etc.
-            attachEnding(utf8substring(stem,1,-2),utf8substring(ending,2))
+            attachEnding(string.sub(stem,1,-2),utf8substring(ending,2))
          end
       elseif (endsIn(stem,"āv") or endsIn(stem,"ēv") or endsIn(stem,"ōv")) and utf8.len(ending) > 2
       and (string.sub(ending,1,2) == "er" or utf8substring(ending,1,2) == "ēr" or string.sub(ending,1,2) == "is") then
          -- laudāstī < laudāvistī, laudārunt < laudāvērunt, laudārō < laudāverō, etc.
-         attachEnding(utf8substring(stem,1,-2),utf8substring(ending,2))
+         attachEnding(string.sub(stem,1,-2),utf8substring(ending,2))
       end
    end
 end
@@ -239,7 +237,7 @@ end
 
 function addPerfectStemFormsImpersonal(thirdPersonSingular)
    if endsIn(thirdPersonSingular,"it") then
-      stem = utf8substring(thirdPersonSingular,1,-3)
+      stem = string.sub(thirdPersonSingular,1,-3)
       attachPerfectEndings(stem,perfectStemEndingsImpersonal)
    else
       invalidField(thirdPersonSingular)
@@ -1557,7 +1555,7 @@ for line in io.lines() do
             invalidLine()
          end
       elseif endsIn(firstField,"or") then -- deponent verb
-         local c = utf8substring(firstField,-3,-3)
+         local c = string.sub(firstField,-3,-3)
          if not consonants[c] and c ~= "u" then
             invalidLine()
          else
@@ -1881,7 +1879,7 @@ for line in io.lines() do
          attachEndings(stem,presentStemForms_posse)
          if thirdField then
             if firstField == "possum" and thirdField == "potuī"
-            or utf8substring(firstField,1,-7) == utf8substring(thirdField,1,-6) and endsIn(thirdField,"-potuī") then
+            or string.sub(firstField,1,-7) == utf8substring(thirdField,1,-6) and endsIn(thirdField,"-potuī") then
                addPerfectStemForms(thirdField)
             else
                invalidField(thirdField)
@@ -2074,7 +2072,7 @@ for line in io.lines() do
          root = utf8substring(firstField,1,-5)
          attachEndings(root,nounEndings2_greek_eus)
       elseif endsIn(firstField,"os") then -- Greek noun
-         root = utf8substring(firstField,1,-3)
+         root = string.sub(firstField,1,-3)
          attachEndings(root,nounEndings2_greek_os)
       elseif endsIn(firstField,"us") then
          if thirdField then
@@ -2115,16 +2113,13 @@ for line in io.lines() do
             end
          end
       elseif endsIn(firstField,"r") then
-         if thirdField and utf8substring(thirdField,1,-2) == firstField
-         and endsIn(thirdField,"ī") then -- e.g. "puer"
+         if thirdField == firstField.."ī" then -- e.g. "puer"
             root = string.sub(firstField,1,-2)
             attachEndings(root,nounEndings2_r_ri)
             if firstField == "vesper" then
                addForm("vespere") -- alternative abl. sg.
             end
-         elseif thirdField
-         and utf8substring(thirdField,1,-3) == utf8substring(firstField,1,-3)
-         and endsIn(thirdField,"rī") then -- e.g. "ager"
+         elseif thirdField == string.sub(firstField,1,-3).."rī" then -- e.g. "ager"
             root = string.sub(firstField,1,-3)
             attachEndings(root,nounEndings2_er_ri)
          else
@@ -2151,10 +2146,10 @@ for line in io.lines() do
       if thirdField or fourthField then
          invalidLine()
       elseif endsIn(firstField,"os") then -- Greek noun
-         root = utf8substring(firstField,1,-3)
+         root = string.sub(firstField,1,-3)
          attachEndings(root,nounEndings2_greek_os_neuter)
       elseif endsIn(firstField,"on") then -- Greek noun
-         root = utf8substring(firstField,1,-3)
+         root = string.sub(firstField,1,-3)
          attachEndings(root,nounEndings2_greek_on)
       elseif endsIn(firstField,"um") then
          if firstField == "jūs-jūrandum" then
@@ -2256,7 +2251,7 @@ for line in io.lines() do
          -- "-īs/-ītis": mixed declension
          elseif utf8substring(thirdField,1,-5) == utf8substring(firstField,1,-3)
          and endsIn(thirdField,"ītis") then -- e.g. "Samnīs"
-            root = utf8substring(thirdField,1,-3)
+            root = string.sub(thirdField,1,-3)
             addForm(firstField) -- nominative sg.
             attachEndings(root,nounEndings3_mixed)
          else
@@ -2267,8 +2262,7 @@ for line in io.lines() do
          if not thirdField or utf8.len(thirdField) < 3 then
             invalidLine()
          -- singular, genitive ending in "-is"
-         elseif utf8substring(thirdField,1,-3) == utf8substring(firstField,1,-3)
-         and endsIn(thirdField,"is") then
+         elseif thirdField == utf8substring(firstField,1,-3).."is" then
             -- consonantal declension
             if firstField == "sēdēs" then
                root = utf8substring(firstField,1,-3)
@@ -2295,13 +2289,11 @@ for line in io.lines() do
             root = utf8substring(thirdField,1,-3)
             attachEndings(root,nounEndings3_consonantal)
          -- plural, genitive ending in "-ium" (i declension)
-         elseif utf8substring(thirdField,1,-4) == utf8substring(firstField,1,-3)
-         and endsIn(thirdField,"ium") then
+         elseif thirdField == utf8substring(firstField,1,-3).."ium" then
             root = utf8substring(firstField,1,-3)
             attachEndings(root,nounEndings3_i_plural)
          -- plural, genitive ending in "-um" (consonantal declension)
-         elseif utf8substring(thirdField,1,-3) == utf8substring(firstField,1,-3)
-         and endsIn(thirdField,"um") then
+         elseif thirdField == utf8substring(firstField,1,-3).."um" then
             root = utf8substring(firstField,1,-3)
             attachEndings(root,nounEndings3_consonantalPlural)
          else
@@ -2391,7 +2383,7 @@ for line in io.lines() do
          if firstField == "abbās" then
             addForm(firstField) -- nominative sg.
          else
-            addForm(utf8substring(firstField,1,-2)..combiningAcute.."s") -- nominative sg. with accent
+            addForm(string.sub(firstField,1,-2)..combiningAcute.."s") -- nominative sg. with accent
          end
          if firstField == "optimās" then
             attachEndings(root,nounEndings3_mixedAndConsonantal)
@@ -2403,7 +2395,7 @@ for line in io.lines() do
          if thirdField then
             invalidLine()
          else
-            root = utf8substring(firstField,1,-2).."c"
+            root = string.sub(firstField,1,-2).."c"
             addForm(firstField) -- nominative sg.
             attachEndings(root,nounEndings3_consonantal)
          end
@@ -2498,34 +2490,22 @@ for line in io.lines() do
          addForm(firstField) -- nominative/accusative sg.
          attachEndings(root,nounEndings3_i_neuter)
       -- neuter noun ending in "-e"
-      elseif endsIn(firstField,"e") and thirdField
-      and utf8.len(thirdField) == utf8.len(firstField) + 1
-      and string.sub(thirdField,1,-3) == string.sub(firstField,1,-2)
-      and endsIn(thirdField,"is") then
+      elseif endsIn(firstField,"e") and thirdField == string.sub(firstField,1,-2).."is" then
          root = string.sub(firstField,1,-2)
          addForm(firstField) -- nominative/accusative
          attachEndings(root,nounEndings3_i_neuter)
       -- neuter noun ending in "-al"
-      elseif endsIn(firstField,"al") and thirdField
-      and utf8.len(thirdField) == utf8.len(firstField) + 2
-      and utf8substring(thirdField,1,-5) == string.sub(firstField,1,-3)
-      and endsIn(thirdField,"ālis") then
+      elseif endsIn(firstField,"al") and thirdField == string.sub(firstField,1,-3).."ālis" then
          root = string.sub(thirdField,1,-3)
          addForm(firstField) -- nominative/accusative
          attachEndings(root,nounEndings3_i_neuter)
       -- neuter noun ending in "-ar"
-      elseif endsIn(firstField,"ar") and thirdField
-      and utf8.len(thirdField) == utf8.len(firstField) + 2
-      and utf8substring(thirdField,1,-5) == string.sub(firstField,1,-3)
-      and endsIn(thirdField,"āris") then
+      elseif endsIn(firstField,"ar") and thirdField == string.sub(firstField,1,-3).."āris" then
          root = string.sub(thirdField,1,-3)
          addForm(firstField) -- nominative/accusative
          attachEndings(root,nounEndings3_i_neuter)
       -- plurale tantum ending in "-ia"
-      elseif endsIn(firstField,"ia") and thirdField
-      and utf8.len(thirdField) == utf8.len(firstField) + 1
-      and utf8substring(thirdField,1,-4) == string.sub(firstField,1,-3)
-      and endsIn(thirdField,"ium") then
+      elseif endsIn(firstField,"ia") and thirdField == string.sub(firstField,1,-3).."ium" then
          root = string.sub(firstField,1,-3)
          attachEndings(root,nounEndings3_i_neuterPlural)
       -- neuter noun ending in "-men"
@@ -2533,7 +2513,7 @@ for line in io.lines() do
          if thirdField then
             invalidLine()
          else
-            root = utf8substring(firstField,1,-3).."in"
+            root = string.sub(firstField,1,-3).."in"
             addForm(firstField) -- nominative sg.
             attachEndings(root,nounEndings3_consonantalNeuter)
          end
@@ -3118,7 +3098,7 @@ for line in io.lines() do
          addForm("mīlium") -- gen. plural
          addForm("mīlibus") -- dat/abl. plural
       elseif endsIn(firstField,"us") then
-         root = utf8substring(firstField,1,-3)
+         root = string.sub(firstField,1,-3)
          attachEndings(root,adjectiveEndings_us_a_um)
       elseif endsIn(firstField,"ī") then
          root = utf8substring(firstField,1,-2)
