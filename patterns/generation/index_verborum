@@ -235,6 +235,8 @@ ad-jūtor,D3
 ad-jūtōrium,D2N
 ad-jūtrīx,D3
 ad-juvō,1,ad-jūvī,ad-jūtum
+ad-levō,1
+ad-lēvō,1
 ad-luō,3,ad-luī
 ad-miniculum,D2N
 ad-mittō,3,ad-mīsī,ad-missum
@@ -243,6 +245,7 @@ ad-olēscō,3intr,ad-olēvī,ad-ultum
 Adonāi
 Adōne͡us,D2
 ad-optō,1
+adōreus,AI3
 ad-oriō,4,,ad-ortum
 ad-ōrō,1
 Adramyttēos,D2
@@ -388,6 +391,8 @@ ali-unde
 alīus-modī
 alius,P
 allelūjā
+allevō,1
+allēvō,1
 āllium,D2N
 alō,3,aluī,alitum
 alō,3,aluī,altum
@@ -479,6 +484,9 @@ amb-ūrō,3,amb-ussī,amb-ustum
 amīcitia,D1
 amīcus,AC3
 Aminadab
+Amīnæus,AI3
+Amīnēus,AI3
+Ammīnēus,AI3
 amnis,D3
 amō,1
 amœbæus,AI3
@@ -498,6 +506,7 @@ anchūsa,D1
 angi-portum,D2N
 angi-portus,D4
 angō,3,anxī
+angueus,AI3
 angustiæ,D1
 angustiō,1
 angusti-portum,D2N
@@ -640,6 +649,7 @@ apodytērium,D2N
 apolactizō,1
 Apollōnius,D2
 apomeli,D3,apomelitis
+apo-phōnēma,D3N,apo-phōnēmatis
 apopīras,D3,apopīratis
 apoplanēsis,D3
 ap^o^psis,D3
@@ -696,6 +706,7 @@ argūmentum,D2N
 argyr^aspides,D3gr,argyr^aspidum
 Argyripa,D1
 Arima^spus,D2
+aringus,D2
 ari^thmēticus,AI3
 ari^thmus,D2
 arma,D2N
@@ -771,6 +782,7 @@ A^stræus,D2
 a^stragalizontes,D3gr,a^stragalizontum
 a^stragalus,D2
 A^stragos,D2
+Astragus,D2
 A^stramītæ,D1
 A^stramīticus,AI3
 a-strangulō,1
@@ -828,6 +840,7 @@ aurātus,AI3
 auris,D3
 aurum,D2N
 au-spex,D3,au-spicis
+au-spicātus,AC3
 au-spicium,D2N
 au-spicō,1
 aut
@@ -917,6 +930,7 @@ būblārius,AI3
 būbulārius,AI3
 bulbus,D2
 būleuta,D1
+Būpor^thmos,D2
 Būra,D1
 Būris,D3,Būrin
 cadō,3intr,cecidī,cāsum
@@ -1178,6 +1192,7 @@ cis
 Cis-alpīnus,AI3
 cisium,D2N
 cis-marīnus,AI3
+Cispius,D2
 cis-rhēnānus,AI3
 Cissēis,D3,Cissēidis
 ci^sta,D1
@@ -1327,6 +1342,7 @@ comper-eō,VIintr,comper-iī
 comperiō,4,comperī,compertum
 complūrēs,AI2
 compos,AI1,compotis
+compostile,D3N,compostilis
 comprobō,1
 computō,1
 con-cædēs,D3,con-cædis
@@ -1428,6 +1444,7 @@ cōn-scrībō,3,cōn-scrīpsī,cōn-scrīptum
 cōn-scrīptiō,D3
 cōn-secō,1,cōn-secuī,cōn-sectum
 cōn-secrāneus,D2
+cōn-sequia,D1
 cōn-sīderō,1
 cōn-signō,1
 cōnsilium,D2N
@@ -1486,7 +1503,9 @@ contrārius,AI3
 con-trectō,1
 con-tubernālis,D3
 con-tubernium,D2N
+con-tueor,2,con-tuitus
 con-tumēlia,D1
+con-tumēliōsus,AC3
 cō-nūbiālis,AI2
 cō-nūbium,D2N
 cōnus,D2
@@ -1572,6 +1591,7 @@ cuspis,D3,cuspidis
 custōdēla,D1
 custōdia,D1
 custōs,D3,custōdis
+cȳaneus,AI3
 Cybistra,D2N
 cy^cnus,D2
 cy^gnus,D2
@@ -1839,6 +1859,7 @@ dis-parilis,AI2
 dis-parō,1
 dis-partiō,4
 dis-partiō,4,dis-partiī
+dis-pateō,2intr
 di-spectus,D4
 dis-pellō,3,dis-pulī,dis-pulsum
 dis-pendiōsus,AC3
@@ -1849,6 +1870,7 @@ dis-pennō,3,,dis-pēssum
 dis-pēnsātiō,D3
 dis-pēnsātor,D3
 dis-pēnsō,1
+dis-per-cutiō,3M
 dis-per-dō,3,dis-per-didī,dis-per-ditum
 dis-per-eō,VIintr,dis-per-iī
 di-spergō,3,di-spersī,di-spersum
@@ -1937,6 +1959,7 @@ dis-terminō,1
 di-sternō,3,di-strāvī,di-strātum
 di^stichon,D2N
 dī-stillō,1
+di-stimulō,1
 di-stīnctiō,D3
 di-stīnctus,D4
 dis-tineō,2,dis-tinuī,dis-tentum
@@ -2143,6 +2166,7 @@ epigramma,D3N,epigrammatis
 epigrammati^sta,D1
 epigrammi^sta,D1
 epinīcium,D2N
+epi-phōnēma,D3N,epi-phōnēmatis
 epi-rādion,D2N
 epi-rædium,D2N
 epi-rēdium,D2N
@@ -2159,6 +2183,7 @@ epi^stula,D1
 epi^stulicus,AI3
 epi-stȳlium,D2N
 epi-syn^alīphē,D1
+epitasis,D3
 epithalamium,D2N
 epitomārius,D2
 epitomatārius,D2
@@ -2166,6 +2191,7 @@ epitomē,D1
 epitomō,1
 Epitrepontes,D3gr,Epitrepontum
 epi^ūrus,D2
+Epōpe͡us,D2
 epulæ,D1
 eques,D3,equitis
 equester,AI3,equestris
@@ -2218,6 +2244,7 @@ Euhēmerus,D2
 Euhias,D3,Euhiadis
 euhœ
 Euhydrium,D2N
+Eumarus,D2
 eumēcēs,D3,eumēcis
 eumēces,D3N,eumēcis
 Eumēdēs,D3,Eumēdis
@@ -2229,16 +2256,23 @@ Eunomiānī,D2
 Euno^stīdæ,D1
 euœ
 eupatereia,D1
+eupelios,D2
 Euphronius,D2
+Euphrosyna,D1
+Euphrosynē,D1
+euphrosynum,D2N
 Euralium,D2N
 eureos,D2
+eu-rhy^thmia,D1
 euripicē,D1
 euro-aquilō,D3
 euro-auster,D2,euro-austrī
+euroborus,D2
 euronotus,D2
 Eurōpa,D1
 Eurōpæus,AI3
 Eurōpus,D2
+Euryanassa,D1
 Eurydamās,D3,Eurydamantis
 Eurymedōn,D3,Eurymedontis
 Eurymedūsa,D1
@@ -2270,6 +2304,7 @@ ev^angelizātor,D3
 ev^angelizō,1
 Ev^angelus,D2
 ē-veniō,4intr,ē-vēnī,ē-ventum
+ev^ōnymos,D2
 ex-æstumō,1
 ex-æstuō,1
 ex-amb-iō,4
@@ -2575,6 +2610,7 @@ hīnuleus,D2
 Hippe͡us,D2
 Hippōnax,D3,Hippōnactis
 hirundineus,AI3
+hispidus,AI3
 hister,D2,histrī
 Hi^ster,D2,Hi^strī
 hi^stōn,D3,hi^stōnis
@@ -2694,10 +2730,12 @@ in-ā-crēscō,3intr
 in-ad-fectātus,AI3
 in-æquālis,AI2
 in-affectātus,AI3
+in-ambulō,1intr
 in-āniō,4
 in-ānis,AI2
 in-a-spectus,AI3
 in-a-spicuus,AI3
+in-au-spicātus,AI3
 in-cēdō,3,in-cessī,in-cessum
 in-cendium,D2N
 in-cendō,3,in-cendī,in-cēnsum
@@ -3252,10 +3290,12 @@ lacer,AI3,lacera
 lacus,D4
 Læ^strȳgones,D3gr,Læ^strȳgonum
 Læ^strȳgonius,AI3
+lævō,1
 lāicus,D2
 Langobardī,D2
 langueō,2intr,languī
 languēscō,3intr,languī
+laqueus,D2
 larignus,AI3
 Latiālis,AI1,Latiālis
 Latiar,D3N,Latiāris
@@ -3289,8 +3329,10 @@ Leuco-æthiopes,D3gr,Leuco-æthiopum
 leucochrȳsos,D2
 leucocomis,AI2
 leucocōum,D2N
+leucogæus,AI3
 leucoion,D2N
 Leuconicus,AI3
+Leucopetra,D1
 leucophæātus,AI3
 leucophle^gmatia,D1
 leuc^ōpis,D3,leuc^ōpidis
@@ -3298,6 +3340,8 @@ leucopœcilos,D2
 Leu^ctra,D2N
 le|unculus,D2
 Leusaba,D1
+levō,1
+lēvō,1
 līber,AC3,lībera
 Līberālia,D3N,Līberālium
 liber,D2,librī
@@ -3635,6 +3679,7 @@ nēquior,AC2
 nē-quī-quam
 ne-sciō,4
 ne-sciō,4,ne-sciī
+Nessēus,AI3
 neu
 neuras,D3,neuradis
 neuricus,AI3
@@ -3647,7 +3692,7 @@ Neurus,D2
 ne-uter,P
 ne-uti-quam
 ne-uti-que
-Neutos,D2
+Neutos
 ne-utrālis,AI2
 ne-utrō
 ne-utrō-passīva,D2N
@@ -3729,6 +3774,7 @@ ob-ediēns,AI1
 obeli^scus,D2
 ob-eō,VI,ob-iī,ob-itum
 ob-eō,VI,ob-īvī,ob-itum
+ob-equitō,1
 ob-ēsus,AC3
 ob-ex,D3,ob-icis
 ob-hærēscō,3intr,ob-hæsī,ob-hæsum
@@ -3749,8 +3795,11 @@ ob-lātrātrīx,D3
 ob-lātrō,1
 ob-līcus,AI3
 ob-linō,3,ob-lēvī,ob-litum
+ob-līquitās,D3
 ob-līquus,AI3
 ob-mordeō,2
+ob-murmurō,1
+ob-noxiōsus,AI3
 ob-nūbō,3,ob-nūpsī,ob-nūptum
 ob-œdiēns,AI1
 ob-œdiō,4intr
@@ -3823,6 +3872,7 @@ obstrūdulentus,AI3
 ob-struō,3,ob-strūxī,ob-strūctum
 obstrūsiō,D3
 ob-stupe-faciō,3M,ob-stupe-fēcī,ob-stupe-factum
+ob-stupe-fīō,VI
 ob-stupēscō,3intr,ob-stupuī
 ob-stupidus,AI3
 ob-sum,VI,ob-fuī,ob-futūrus
@@ -3833,6 +3883,7 @@ ob-trūdō,3,ob-trūsī,ob-trūsum
 ob-trūdulentus,AI3
 ob-truncō,1
 ob-trūsiō,D3
+ob-tueor,2
 ob-tūnsitās,D3
 ob-tūnsus,AC3
 ob-tūsitās,D3
@@ -3899,7 +3950,9 @@ opportūnus,AC3
 ops,D3,opis
 optimās,D3,optimātis
 opto^strōtum,D2N
+op-tueor,2
 ōrātor,D3
+orchēstra,D1
 ōrdinātus,AC3
 ōrdior,4,ōrsus
 ōrnō,1
@@ -4001,6 +4054,7 @@ per-agō,3,per-ēgī,per-āctum
 per-agrātiō,D3
 per-agrō,1
 per-amāns,AI1
+per-amārus,AI3
 per-ambulō,1
 per-amīcus,AI3
 per-amœnus,AI3
@@ -4024,6 +4078,7 @@ per-audiō,4
 per-bacchor,1
 Percennius,D2
 per-cipiō,3M,per-cēpī,per-ceptum
+per-cutiō,3M,per-cussī,per-cussum
 per-dignus,AI3
 per-dō,3,per-didī,per-ditum
 per-dūcō,3,per-dūxī,per-ductum
@@ -4274,11 +4329,13 @@ pharmaceutria,D1
 Pha^tnē,D1
 Phenenna,D1
 Phīsōn,D3,Phīsonis
+Phōcēus,AI3
 Phœnīca,D1
 Phœnīceus,AI3
 Phœnīcius,AI3
 Phœnissa,D1
 Phœnīx,D3,Phœnīcis
+phōnēma,D3N,phōnēmatis
 Phōsphoros,D2
 Phōsphorus,D2
 piget,2,pigitum
@@ -4323,6 +4380,8 @@ populus,D2
 pōpulus,D2
 porrāceus,AI3
 porrus,D2
+por^thme͡us,D2
+por^thmos,D2
 porticus,D4
 pōscō,3,popōscī
 possum,VI,potuī
@@ -4403,6 +4462,7 @@ præ-gnāns,AI1
 præ-gnās,AI1,præ-gnātis
 præ-jaciō,3M
 præ-jiciō,3M
+præ-jūdicō,1
 præ-mōnstrātiō,D3
 præ-possum,VI,præ-potuī
 præ-potēns,AI1
@@ -4591,6 +4651,7 @@ pro-fugiō,3M,pro-fūgī,pro-fugitum
 prō-gnātus,AI3
 pro-in
 pro-inde
+prō-jiciō,3M,prō-jēcī,prō-jectum
 prō-mīsceō,2,,prō-mīxtum
 prō-mīscus,AI3
 prō-mīscuus,AI3
@@ -4704,6 +4765,7 @@ pūlejātum,D2N
 pūlejātus,AI3
 pūlejum,D2N
 pullejāceus,AI3
+pūmiceus,AI3
 pungō,3,pupugī,pūnctum
 puppis,D3,puppim
 pūrgō,1
@@ -4838,6 +4900,7 @@ quernus,AI3
 queror,3,questus
 Querquētulānus,D2
 querquētum,D2N
+querqueus,AI3
 querquus,D4
 querulus,AC3
 questiō,D3
@@ -5211,6 +5274,8 @@ sandaraceus,AI3
 sandaracha,D1
 sandaracinus,AI3
 sanguis,D3,sanguinis
+sangui-sūga,D1
+sangui-sūgia,D1
 Sapphicus,AI3
 Sapphō
 Sarāpīa,D2N
@@ -5675,6 +5740,7 @@ suāvis,AC2
 sub-ab-surdus,AI3
 sub-aquāneus,AI3
 sub-asper,AI3,sub-aspera
+sub-blandior,4
 sub-crassulus,AI3
 sub-crispus,AI3
 sub-croceus,AI3
@@ -5701,6 +5767,7 @@ subium,D2N
 sub-jaceō,2intr,sub-jacuī
 sub-jiciō,3M,sub-jēcī,sub-jectum
 Sub-laqueum,D2N
+sub-levō,1
 sub-līmis,AC2
 sub-magister,D2,sub-magistrī
 sub-mōrōsus,AI3
@@ -5782,6 +5849,7 @@ super-bi-tertius,AI3
 superbus,AC3
 super-cadō,3intr,super-cecidī
 super-cælestis,AI2
+super-ciliōsus,AC3
 super-cillum,D2N
 super-cinō,3
 super-con-tegō,3,super-con-tēxī
@@ -5870,6 +5938,7 @@ super-operor,1
 super-ōrdinō,1
 super-pendēns,AI1
 super-pōnō,3,super-posuī,super-positum
+super-prō-jiciō,3M
 super-rādō,3,super-rāsī,super-rāsum
 super-rīdeō,2intr
 super-ruō,3
@@ -6823,6 +6892,7 @@ verbereus,AI3
 vereor,2,veritus
 Vergilius,D2
 vērī-similis,AI2
+verni-roseus,AI3
 vērus,AI3
 vesperāscō,3intr,vesperāvī
 vesper,D2,vesperī
@@ -6875,6 +6945,7 @@ xy^stra,D1
 xy^stus,D2
 Zaleucus,D2
 Zebedæus,D2
+Zebedeus,D2
 zeu^gma,D3N,zeu^gmatis
 Zōroa^strēs,D3,Zōroa^stris
 Zōroa^strēus,AI3

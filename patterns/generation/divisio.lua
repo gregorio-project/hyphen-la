@@ -585,7 +585,10 @@ function classicalHyphenation(word)
          end
       -- read "ngu" or "su"; vowel may follow and lead to a nonsyllabic u
       elseif state == "potential nonsyllabic u" then
-         if vowels[c] then
+         if firstVowelsOfDiphthongs[c] then
+            output = output..c
+            state = "potential diphthong"
+         elseif vowels[c] then
             output = output..c
             state = "vowel"
          elseif c == "s" then
