@@ -229,7 +229,7 @@ function classicalHyphenation(word)
             output = output..store
             store = c
             state = "potential aspirate"
-         elseif c == "b" or c == "d" then
+         elseif c == "b" or c == "d" or c == "g" then
             output = output..store
             store = c
             state = "potential liquid group"

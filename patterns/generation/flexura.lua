@@ -2040,9 +2040,11 @@ for line in io.lines() do
             attachEndings(root,nounEndings1)
          end
          if firstField == "dea" then
-            addForm("deābus") -- alternative genitive plural
+            addForm("deābus") -- alternative ablative plural
+         elseif firstField == "famula" then
+            addForm("famulābus") -- alternative ablative plural
          elseif firstField == "fīlia" then
-            addForm("fīliābus") -- alternative genitive plural
+            addForm("fīliābus") -- alternative ablative plural
          end
       elseif endsIn(firstField,"ē") then -- Greek noun
          root = utf8substring(firstField,1,-2)

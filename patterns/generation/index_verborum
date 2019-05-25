@@ -245,6 +245,8 @@ ad-olēscō,3intr,ad-olēvī,ad-ultum
 Adonāi
 Adōne͡us,D2
 ad-optō,1
+ador,D3N,adoris
+ador,D3N,adōris
 adōreus,AI3
 ad-oriō,4,,ad-ortum
 ad-ōrō,1
@@ -286,6 +288,9 @@ ad-ūnō,1
 ad-urgeō,2
 ad-ūrō,3,ad-ussī,ad-ustum
 ad-ūs-que
+ad-vehō,3,ad-vēxī,ad-vectum
+ad-vena,D1
+ad-veniō,4intr,ad-vēnī,ad-ventum
 ad-vesperāscit,3,ad-vesperāvit
 adytum,D2N
 ædēs,D3,ædis
@@ -697,6 +702,7 @@ archārius,AI3
 arch^iere͡us,D2
 arcus,D4
 ārdeō,2,ārsī,ārsum
+ārdēscō,3intr,ārsī
 ārdor,D3
 arduus,AC3
 arēnāceus,AI3
@@ -940,6 +946,8 @@ cædō,3,cecīdī,cæsum
 cælestis,AI2
 cælum,D2N
 cæna,D1
+cæremōnia,D1
+cærimōnia,D1
 Cæsennius,AI3
 cæspes,D3,cæspitis
 cæspiticius,AI3
@@ -1590,6 +1598,8 @@ cuspidō,1
 cuspis,D3,cuspidis
 custōdēla,D1
 custōdia,D1
+custōdiō,4
+custōdiō,4,custōdiī
 custōs,D3,custōdis
 cȳaneus,AI3
 Cybistra,D2N
@@ -1772,6 +1782,7 @@ differō,VI,dis-tulī,dī-lātum
 difficilis,AC2
 difficultās,D3
 diffīdō,3intr,diffīsus
+dī-gerō,3,dī-gessī,dī-gestum
 dignitās,D3
 dī-gnōscō,3,dī-gnōvī
 dignus,AI3
@@ -2196,6 +2207,7 @@ epulæ,D1
 eques,D3,equitis
 equester,AI3,equestris
 equitātus,D4
+equitō,1
 equus,D2
 Erasi^stratus,D2
 Erechthe͡us,D2
@@ -2309,6 +2321,7 @@ ex-æstumō,1
 ex-æstuō,1
 ex-amb-iō,4
 ex-ambulō,1intr
+ex-ardēscō,3intr,ex-ārsī,ex-ārsum
 ex-asperō,1
 ex-audiō,4
 ex-cēdō,3,ex-cessī,ex-cessum
@@ -2427,6 +2440,7 @@ fāma,D1
 famēs,D3,famis
 familia,D1
 familiāris,AI2
+famula,D1
 fānum,D2N
 far,D3N,farris
 farrāceus,AI3
@@ -2508,6 +2522,9 @@ frigō,3intr
 friguttiō,4intr
 fringuliō,4intr
 fringultiō,4intr
+frīxō,1
+frīxōrius,AI3
+frīxūra,D1
 frondeus,AI3
 frōns,D3,frondis
 frōns,D3,frontis
@@ -2711,6 +2728,7 @@ imber,D3,imbris
 impediō,4
 impediō,4,impediī
 imperātor,D3
+imperium,D2N
 imper-jūrātus,AI3
 imperō,1
 impetus,D4
@@ -3170,6 +3188,7 @@ iōta
 Īphigenīa,D1
 Īphis,D3,Īphidis
 ipse,P
+īrāscō,3,īrātus
 īrenācius,D2
 Ireseum,D2N
 irre-mūnerābilis,AI2
@@ -4001,6 +4020,7 @@ palūster,AI3,palūstris
 Panopē,D1
 Paphlagō,D3,Paphlagonis
 Paphlagonia,D1
+paradīsus,D2
 pār,AI1,paris
 para^scévē,D1
 parasīta,D1
@@ -4263,6 +4283,7 @@ per-sciēns,AI1
 per-scrībō,3,per-scrīpsī,per-scrīptum
 per-scrūtō,1
 Persēius,AI3
+per-sequor,3,per-secūtus
 Persēus,AI3
 Perse͡us,D2
 Persīdæ,D1
@@ -4326,6 +4347,7 @@ petō,3,petīvī,petītum
 peucedanos,D2
 peucedanum,D2N
 pharmaceutria,D1
+pha^sganion,D2N
 Pha^tnē,D1
 Phenenna,D1
 Phīsōn,D3,Phīsonis
@@ -4343,6 +4365,7 @@ piget,2,piguit
 pignus,D3,pigneris
 pignus,D3,pignoris
 Pīnārius,AI3
+pinguēdō,D3
 pinguis,AC2
 Pīræe͡us,D2
 Pīræus,AI3
@@ -5034,6 +5057,7 @@ ræda,D1
 rædārius,D2
 rāmāle,D3N,rāmālis
 rāmes,D3,rāmitis
+Ramessēs
 rāmex,D3,rāmicis
 rāmus,D2
 rapiō,3M,rapuī,raptum
@@ -5041,6 +5065,8 @@ rārus,AC3
 rāster,D2,rāstrī
 rāstrārius,AI3
 rāstrum,D2N
+re-cēnseō,2,re-cēnsuī,re-cēnsītum
+re-cēnseō,2,re-cēnsuī,re-cēnsum
 re-ciperō,1
 re-cipiō,3M,re-cēpī,re-ceptum
 re-citō,1
@@ -5255,6 +5281,8 @@ rubēscō,3intr,rubuī
 rūpēs,D3,rūpis
 rūpeus,AI3
 rūrestris,AI2
+rūrsum
+rūrsus
 Rūspina,D1
 rūspō,1
 rūtāceus,AI3
@@ -5280,6 +5308,7 @@ Sapphicus,AI3
 Sapphō
 Sarāpīa,D2N
 sarmentīcius,AI3
+sartāgō,D3
 sat
 sat-agitō,1intr
 sat-agius,AI3
@@ -5872,6 +5901,7 @@ super-ē-mineō,2
 super-ē-morior,3M
 super-ē-natō,1
 super-eō,VI
+super-equitō,1intr
 super-ē-rogō,1
 super-ē-volō,1
 super-ex-altō,1
@@ -6866,6 +6896,7 @@ vafrāmentum,D2N
 Vagennī,D2
 Vagiennī,D2
 vagi-pennis,AI2
+valdē
 valēscō,3intr,valuī
 vās,D3N,vāsis
 vaspicētum,D2N
@@ -6894,6 +6925,9 @@ Vergilius,D2
 vērī-similis,AI2
 verni-roseus,AI3
 vērus,AI3
+vēsīca,D1
+vēsīcō,1intr
+vēsīcula,D1
 vesperāscō,3intr,vesperāvī
 vesper,D2,vesperī
 vesperna,D1

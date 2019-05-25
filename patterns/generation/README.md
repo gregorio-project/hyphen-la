@@ -261,8 +261,8 @@ The following irregular forms are taken into account:
 
 ##### Nouns
 
-- the genitive plural forms *deābus* and *fīliābus* (beside *deīs* and
-  *fīliīs*) of *dea* and *fīlia*
+- the ablative plural forms *deābus*, *famulābus*, and *fīliābus* (beside
+  *deīs*, *famulīs*, and *fīliīs*) of *dea*, *famula*, and *fīlia*
 - the plural forms *diī/dī* (beside *deī*) and *diīs/dīs* (beside *deīs*) of
   *deus*
 - the ablative form *vespere* (beside *vesperō*) of *vesper*
