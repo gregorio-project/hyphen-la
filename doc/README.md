@@ -17,11 +17,84 @@ A good hyphenation system should consider the following criteria:
 
 All these criteria conflict with each other, and a balance is difficult to find.
 
-## Hyphenation in liturgical texts
+## Hyphenation styles
+
+Our patterns support three different hyphenation styles of Latin: *classical*,
+*modern*, and *liturgical*.
+
+### Classical hyphenation
+
+The hyphenation rules are based on classical Latin phonology and etymology.
+This hyphenation style should be used
+- for editions of classical Latin texts,
+- for dictionaries and grammars of classical Latin,
+- for educational material if no Italian pronuncation is used,
+- for any Latin text if the traditional German or Slavic pronunciation of Latin
+  is used.
+
+See [classical-hyphenation.md](classical-hyphenation.md) for details.
+
+### Modern hyphenation
+
+The hyphenation rules are based on Italian phonetics and typographic tradition.
+This hyphenation style should be used
+- for editions of medieval and modern Latin texts if the Italian or a similar
+  pronunciation is used,
+- for educational material in Italy if the classical hyphenation style is not
+  preferred,
+- for liturgical texts if Italian pronunciation is used and a rather
+  traditional typography is preferred (opposed to the liturgical style),
+- for non-liturgical ecclesiastical documents.
+
+See [modern-hyphenation.md](modern-hyphenation.md) for details.
+
+### Liturgical hyphenation
+
+The hyphenation rules are based on Italian phonetics, but more consequently
+than in the modern hyphenation style. This hyphenation style should be used
+- for liturgical texts if Italian pronunciation is used.
 
 An attempt has been made to summarize the liturgical hyphenation rules in [liturgical-hyphenation.md](liturgical-hyphenation.md), which gives also considerations on diphthongs, homographs and words for which the hyphenation is not certain.
 
-Until Vatian II council, the Vatican required texts to be hyphenated in the "medieval" (post-4th century CE) way, but after Vatican II this rule seems less strict, and Solesmes got an oral authorization to use the phonetical patterns, which were used before 4th century and are easier to read. Solesmes cautiously used the phonetical patterns in their recent books.
+Until Vatican II council, the Vatican required texts to be hyphenated in the
+“medieval” (post-4th century CE) way, but after Vatican II this rule seems less
+strict, and Solesmes got an oral authorization to use the phonetical patterns,
+which are more similar to the classical ones and are easier to read. Solesmes
+cautiously used the phonetical patterns in their recent books.
+
+### Comparison of the three hyphenation styles
+
+The following examples show some typical differences between the three styles.
+- *magnus*
+    - *classical*: `mag-nus` based on classical phonology
+    - *modern* and *liturgical*: `ma-gnus` based on Italian phonetics
+- *crescit*
+    - *classical*: `cres-cit` based on classical phonology
+    - *modern* and *liturgical*: `cre-scit` based on Italian phonetics
+- *cresco*
+    - *classical*: `cres-co` based on classical phonology
+    - *modern*: `cre-sco` based on Italian typographic tradition
+    - *liturgical*: `cres-co` based on Italian phonetics
+- *hostis*
+    - *classical*: `hos-tis` based on classical phonology
+    - *modern*: `ho-stis` based on Italian typographic tradition
+    - *liturgical*: `hos-tis` based on Italian phonetics
+- *vesper*
+    - *classical*: `ves-per` based on classical phonology
+    - *modern*: `ve-sper` based on Italian typographic tradition
+    - *liturgical*: `ves-per` based on Italian phonetics
+- *longaevus*
+    - *classical*: `long-ae-vus` based on etymology
+    - *modern* and *liturgical*: `lon-gae-vus` based on Italian phonetics
+- *decennis*
+    - *classical*: `dec-en-nis` based on etymology
+    - *modern* and *liturgical*: `de-cen-nis` based on Italian phonetics
+- *neglego*
+    - *classical*: `neg-le-go` based on etymology
+    - *modern* and *liturgical*: `ne-gle-go` based on Italian phonetics
+- *discedo*
+    - *classical*: `dis-ce-do` based on etymology
+    - *modern* and *liturgical*: `di-sce-do` based on Italian phonetics
 
 ## Bibliography
 ### Latin hyphenation
@@ -111,9 +184,13 @@ Until Vatian II council, the Vatican required texts to be hyphenated in the "med
   edition, vol. 1: [*Elementar-, Formen- und
   Wortlehre*](https://archive.org/details/ausfhrlichegra01khuoft/) revised by
   F. Holzweissig, 1912.
+- Leumann/Hofmann/Szantyr, *Lateinische Grammatik*, vol. 1: *Lateinische Laut-
+  und Formenlehre* by Manu Leumann. Handbuch der Altertumswissenschaft, 2.
+  Abteilung, 2. Teil, 1. Band, 1977.
 
 ### Other aids
 - François Martin, *Les mots latins*, 1976.
+- Rüdiger Fischer, *Lateinische Wortkunde*, 4th edition, 2007.
 - [*Collatinus web*](https://outils.biblissima.fr/en/collatinus-web/). Online
   lemmatiser and morphological analyser for Latin texts. – Very helpful, but
   not free of errors and not always complete.

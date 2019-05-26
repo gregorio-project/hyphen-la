@@ -7,8 +7,8 @@ it contains a short vowel). In cases of conflict between these two principles,
 priority is given to etymology.
 
 Stop consonants (*b*, *p*, *d*, *t*, *g*, *c*) followed by liquid consonants
-(*l*, *r*) play a special role in Latin metrics. Such a combination of
-consonants is called a *muta cum liquida*.
+(*l*, *r*) play a special role in Latin metrics. We call these combinations
+*liquid groups*. Additionally, *fl* and *fr* count as liquid groups.
 
 ## General rules
 
@@ -23,18 +23,19 @@ they are semivowels.
 	  *no-vem*), *uī-uō* (= *vī-vō*), *par-uus* (= *par-vus*)
 
 2. If two consonants occur between two vowels, the hyphenation point is before
-the two consonants in case of a *muta cum liquida*; the hyphenation point is
-between the consonants in other cases.
-	- *pū-blicus*, *nu-cleus*, *fe-bris*, *qua-drum*, *mi-grō*
+the two consonants in case of a liquid group; the hyphenation point is between
+the consonants in other cases.
+	- *pū-blicus*, *nu-cleus*, *fe-bris*, *qua-drum*, *mi-grō*, *pa-tris*,
+	  *va-fra*
 	- *om-nis*, *prop-ter*, *ag-men*, *scrīp-sī*, *māg-nus*, *crēs-cit*,
 	  *dis-cō*, *ves-per*, *iūs-tus*, *tēc-tum*, *pos-se*, *il-le*, *dex-ter*,
 	  *Les-bos*
 
 3. If three or more consonants occur between two vowels, the hypenation point
-is before the last but one consonant if the group ends in a *muta cum liquida*;
+is before the last but one consonant if the group ends in a liquid group;
 otherwise, the hyphenation point is before the last consonant.
 	- *tem-plum*, *mem-brum*, *As-cra*, *as-plēnos*, *cas-tra*, *spec-trum*,
-	  *scēp-trum*, *Thes-prōtia*, *tōns-trīx*, *mulc-trum*
+	  *scēp-trum*, *Thes-prōtia*, *tōns-trīx*, *mulc-trum*, *īn-frā*
 	- *sānc-tus*, *temp-tō*
 
 4. If *u* is a semivowel after *q*, *ng* or *s*, the hyphenation point is
@@ -72,7 +73,8 @@ enclitics is a hyphenation point.
 	  *anim-advertō*, *long-aevus*, *quant-opere*, *post-eā*, *soll-ers*,
 	  *sept-ennis*
 	- *co-emō*, *co-ēgī*, *de-esse*, *tri-ennium*, *ne-uter*, *ali-unde*
-	- *ob-linō*, *sub-līmis*, *ab-ripiō*, *ob-ruō*
+	- *ob-linō*, *sub-līmis*, *ab-ripiō*, *ob-ruō*, *dis-cēdō*, *dis-cordia*,
+	  *trāns-cīdō*, *trāns-currō*
 	- *dē-struō*, *re-splendeō*, *re-spice*, *re-stituō*, *haru-spex*,
 	  *lecti-sternium*
 	- *ob-strepō*, *cōn-spiciō*, *ab-scindō*, *post-hāc*
@@ -89,15 +91,15 @@ hyphenation point is after the epenthesis.
 	- *neg-legō*, *neg-ōtium*
 	- *sus-cipiō*, *sus-pendō*, *sus-tineō*
 
-3. When a common letter has fallen away at the word boundary, the hyphenation
+3. Where a common letter has fallen away at the word boundary, the hyphenation
 point is before the remaining letter.
 	- *trān-scrībō* (< *trāns* + *scrībō*)
-	- *dī-stringō* (< *dis* + *stringō*)
+	- *di-stringō* (< *dis* + *stringō*)
 	- *ant-eā* (< *ante* + *eā*)
 
-4. If the first element of the compound ends in a *muta cum liquida*, in *gn*,
-or in *qu*, the word boundary is no hyphenation point for phonetic reasons. The
-word is hyphenated according to the general rules in this case. A possible
+4. If the first element of the compound ends in a liquid group, in *gn*, or in
+*qu*, the word boundary is no hyphenation point for phonetic reasons. The word
+is hyphenated according to the general rules in this case. A possible
 hyphenation point after the first letter of the second element is suppressed.
 	- *qua-dran-gu-lus* (not *quadr-angulus*)
 	- *māg-nope-re* (not *māgn-opere* or *māgno-pere*), *māg-nani-mus* (not
@@ -109,6 +111,60 @@ word are never separated.
 	- *astrin-gō* (not *a-stringō*), *asper-gēs* (not *a-spergēs*)
 	- *abī* (imperative of *ab-īre*, not *ab-ī*)
 	- *dēmō* (< *dē* + *ēmō*, not *d-ēmō*)
+
+## Homographs
+
+Our hyphenation patterns suppress incompatible hyphen points in homographs.
+
+Examples:
+- `absci-di` (`abs-ci-di` < *abs-cīdō*` vs ab-sci-di` < *ab-scindō*)
+- `discen-do` (`dis-cen-do` < *discō*` vs di-scen-do` < *di-scendō*)
+- `perae-que` (`pe-rae-que` < *pēra* + *que* vs `per-ae-que` < *per-æquē*)
+- `peritur` (`pe-ri-tur` < *perior* vs `per-itur` < *per-eō*)
+- `potes` (`po-tes` < *potis* vs `pot-es` < *possum*)
+- `uolui` (`uo-lui` < *volō* vs *uol-ui* < *volvō*)
+- `veniens` (`ve-ni-ens` < *veniō* vs `ven-iens` < *vēn-eō*)
+
+## Orthographic variants
+
+The hyphenation patterns for classical Latin support the following orthographic
+variants:
+- acute accents marking the stressed syllable: *ágmen*, *amícus*, *ímpetus*
+- *i* or *j* for consonantic I: *ieiunium*/*jejunium*
+- *u* or *v* for consonantic V: *uiuere*/*vivere*
+- *U* or *V* for vocalic V: *Urania*/*Vrania*
+- *ae* or *æ* for diphthong AE: *aedilis*/*ædilis*
+- *oe* or *œ* for diphthong OE: *coetus*/*cœtus*
+- ties (`U+361`) marking diphthongs: *a͡edilis*, *co͡etus*, *la͡udare*, *se͡u*
+- macrons marking long vowels: *cīvitās*
+- macrons marking long vowels and diphtongs: *a͞edīlis*/*ǣdīlis*,
+  *obo͞edīre*/*obœ̄dīre*, *la͞udāre* (using `U+35E` for two character diphthongs)
+- macrons marking long vowels and breves marking short vowels: *cīvĭtās*,
+  *vīvĕrĕ*, *ĭmpĕtŭs*
+- acute accents (`U+301`) combined with macros and breves: *amī́cus*/*ămī́cŭs*,
+  *ĭ́mpĕtŭs*
+
+## Supported characters
+
+The following characters are supported by the hyphenation patterns for
+classical Latin:
+- `A`–`Z`, `a`–`z`
+- `Æ`/`U+C6`, `æ`/`U+E6`, `Œ`/`U+152`, `œ`/`U+153`
+- `Á`/`U+C1`, `á`/`U+E1`, `É`/`U+C9`, `é`/`U+E9`, `Í`/`U+CD`, `í`/`U+ED`,
+  `Ó`/`U+D3`, `ó`/`U+F3`, `Ú`/`U+DA`, `ú`/`U+FA`, `Ý`/`U+DD`, `ý`/`U+FD`
+- `Ǽ`/`U+1FC`, `ǽ`/`U+1FD`
+- `Ā`/`U+100`, `ā`/`U+101`, `Ē`/`U+112`, `ē`/`U+113`, `Ī`/`U+12A`, `ī`/`U+12B`,
+  `Ō`/`U+14C`, `ō`/`U+14D`, `Ū`/`U+16A`, `ū`/`U+16B`, `Ȳ`/`U+232`, `ȳ`/`U+233`
+- `Ǣ`/`U+1E2`, `ǣ`/`U+1E3`
+- `Ă`/`U+102`, `ă`/`U+103`, `Ĕ`/`U+114`, `ĕ`/`U+115`, `Ĭ`/`U+12C`, `ĭ`/`U+12D`,
+  `Ŏ`/`U+14E`, `ŏ`/`U+14F`, `Ŭ`/`U+16C`, `ŭ`/`U+16D`
+- combining acute accent: `U+301`
+- tie (combining double inverted breve): `U+361`
+- combining macron: `U+304`
+- combinong double macron: `U+35E`
+- combining breve: `U+306`
+
+For compatibility with *pdftex* and *ptex*, there is also a *ec* variant of the patterns supporting only the first three groups of characters of this list.
 
 ## Commented collection of Latin hyphenation rules from literature
 
@@ -171,7 +227,7 @@ par position dans la vieille poésie classique.
 
 #### Source
 
-Max Niedermann: *Phonétique historique du latin*, Paris 1940.
+Max Niedermann, *Phonétique historique du latin*, Paris 1940.
 
 The book is in the public domain in all countries but France, in which this
 document can be considered with the quote exception to *droit d’auteur*.
@@ -230,7 +286,7 @@ beruht nicht auf lebendiger Sprachbeobachtung, sondern auf mechanischer
 
 #### Source
 
-Rubenbauer/Hofmann: *Lateinische Grammatik*, Bamberg/München <sup>12</sup>1995,
+Rubenbauer/Hofmann, *Lateinische Grammatik*, Bamberg/München <sup>12</sup>1995,
 p. 5 s.
 
 #### Comment
@@ -306,9 +362,9 @@ Aussprache proklitisch an ihre Nomen angelehnt.
 
 #### Source
 
-Leumann/Hofmann/Szantyr: *Lateinische Grammatik*, 1. Band: *Lateinische Laut-
-und Formenlehre*. Handbuch der Altertumswissenschaft, 2.  Abteilung, 2.
-Teil, 1. Band, München 1977, p. 21 ss.
+Leumann/Hofmann/Szantyr, *Lateinische Grammatik*, vol. 1: *Lateinische Laut-
+und Formenlehre* by Manu Leumann. Handbuch der Altertumswissenschaft, 2.
+Abteilung, 2. Teil, 1. Band, München 1977, p. 21 ss.
 
 #### Comment
 
@@ -364,7 +420,7 @@ lingua (*sce-ptrum, dra-chma, cy-cnus, i-sthmus, rhy-thmus, A-ri-sto-te-les*
 
 #### Source
 
-Raffaello Farina/Nino Marinone: *Metodologia*. Guida pratica alle
+Raffaello Farina/Nino Marinone, *Metodologia*. Guida pratica alle
 esercitazioni di seminario e alle tesi di laurea per le discipline umanistiche,
 Torino 1979, p. 90 s.
 
@@ -378,14 +434,14 @@ between vowels. The second and the fourth rule are also applied without any
 restriction.
 
 The third rule is somewhat broader than corresponding rules stated elsewhere in
-literature. The hyphenation patterns for classical Latin only treat *p b t d c
-g* followed by *r* or *l* as indivisible. The rules of classical Latin metrics
-do not require to treat *fr* and *fl* the same way. Concerning *gn*, it should
-be emphasized that the Latin grammar of *Leumann/Hofmann/Szantyr*, to which the
-*Metodologia* refers, mentions the hyphenation *sta-gna* as an exception found
-in one inscription and does not at all recommend to treat *gn* as indivisable.
-To be consistent, our patterns for classical Latin hyphenate
-*stag-num/stag-na*.
+literature, which do not mention *fl*, *fr*, and *gn*. We have decided to
+follow the rule of the *Metodologia* concerning *fl* and *fr* for the rare
+words containing these groups, which is supported by a footnote in W. A. Allens
+*Vox Latina* (p. 90, footnote 1). Concerning *gn*, it should be emphasized that
+the Latin grammar of *Leumann/Hofmann/Szantyr*, to which the *Metodologia*
+refers, mentions the hyphenation *sta-gna* as an exception found in one
+inscription and does not at all recommend to treat *gn* as indivisable. To be
+consistent, our patterns for classical Latin hyphenate *stag-num/stag-na*.
 
 As far as compound words are concerned, our patterns for classical Latin treat
 those more or less like proposed by the fifth rule, but with some more weight

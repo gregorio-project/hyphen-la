@@ -2,7 +2,7 @@
 
 The rules used by the hyphenation patterns for medieval and modern Latin are
 based on the hyphenation rules of modern Italian. The basic rule is to put the
-hyphenation point before the largest group of consonants that can occur at the
+hyphenation point before the largest group of consonants that may occur at the
 beginning of a Latin word. Furthermore, etymology is respected to some extent.
 
 ## General rules
@@ -21,9 +21,9 @@ they are semivowels.
 the two consonants in case of *bl*, *cl*, *fl*, *gl*, *pl*, *br*, *cr*, *dr*,
 *fr*, *gr*, *pr*, *tr*, *gn*, *sc*, *sp*, *sq*, and *st*; the hyphenation point
 is between the consonants in other cases.
-	- *pu-blicus*, *nu-cleus*, *fe-bris*, *qua-drum*, *mi-gro*, *pa-tris*
-	- *ma-gnus*
-	- *cre-scit*, *di-sco*, *ve-sper*, *iu-stus*
+	- *pu-blicus*, *nu-cleus*, *fe-bris*, *qua-drum*, *mi-gro*, *pa-tris*,
+	  *va-fra*
+	- *ma-gnus*, *cre-scit*, *di-sco*, *ve-sper*, *iu-stus*
 	- *om-nis*, *prop-ter*, *ag-men*, *scrip-si*, *tec-tum*, *pos-se*, *il-le*,
 	  *dex-ter*, *At-las*, *Les-bos*
 
@@ -33,7 +33,7 @@ is before the last but two consonant if the group ends in *sch*, *scr*, *spl*,
 consonant, if the group ends in one of the pairs mentioned in the second rule;
 otherwise, the hyphenation point is before the last consonant.
 	- *The-sprotia*, *ca-stra*, *ton-strix*
-	- *tem-plum*, *mem-brum*, *spec-trum*, *scep-trum*, *mulc-trum*
+	- *tem-plum*, *mem-brum*, *spec-trum*, *scep-trum*, *mulc-trum*, *in-fra*
 	- *sanc-tus*, *temp-to*
 
 4. If *u* is a semivowel after *(s)q*, *ng* or *s*, the hyphenation point is
@@ -68,8 +68,10 @@ between them.
 1. The word boundary of compound words including prefixed words and words with
 enclitics is a hyphenation point. This does not apply to the enclitics *ce* and
 *pte*.
+	- *ad-est*, *ab-undat*, *per-eo*, *trans-eo*, *sub-igo*, *amb-iguus*,
+	  *ob-oedire*, *com-edo*, *ind-ipiscor*, *ind-uo*, *pot-est*, *anim-adverto*
 	- *co-emo*, *co-egi*, *de-esse*, *tri-ennium*, *ne-uter*, *ali-unde*
-	- *ob-lino*, *sub-limis*, *ab-ripio*, *ob-ruo*
+	- *ob-lino*, *sub-limis*, *ab-ripio*, *ob-ruo*, *dis-cordia*, *trans-curro*
 	- *de-struo*, *re-splendeo*, *re-spice*, *re-stituo*, *haru-spex*,
 	  *lecti-sternium*
 	- *ob-strepo*, *con-spicio*, *ab-scindo*, *post-hac*
@@ -77,21 +79,22 @@ enclitics is a hyphenation point. This does not apply to the enclitics *ce* and
 	- *hu-iu-sce* (not *huius-ce*), *suop-te* (not *suo-pte*), *nostrap-te* (not
 	  *nostra-pte*)
 
-2. If the first element of a compound ends in a consonant (including *qu*) and
-the second element begins with a vowel, the word boundary is ignored. The word
-is hyphenated according to the general rules. A possible hyphenation point
-after the first letter of the second element is suppressed.
-	- *adest* (not *ad-est*), *abun-dat* (not *ab-undat*), *pe-reo* (not
-	  *per-eo*), *tran-seo* (not *trans-eo*), *su-bi-go* (not *sub-igo*),
-	  *am-bi-guus* (not *amb-iguus*), *oboe-di-re* (not *ob-oedire*), *co-me-do*
-	  (not *com-edo*), *in-di-pi-scor* (not *ind-ipiscor*), *in-duo* (not
-	  *ind-uo*), *abi* (imperative of *ab-ire*, not *ab-i*)
-	- *po-test* (not *pot-est*), *ani-mad-ver-to* (not *anim-adverto*),
-	  *lon-gae-vus* (not *long-aevus*), *quan-tope-re* (not *quant-opere* or
-	  *quanto-pere*), *pos-tea* (not *post-ea*), *sol-lers* (not *soll-ers*),
-	  *sep-ten-nis* (*sept-ennis*), *qua-dran-gu-lus* (not *quadr-angulus*),
-	  *mag-nope-re* (not *magn-opere* or *magno-pere*), *mag-nani-mus* (not
-	  *magn-animus* or *magna-nimus*), *quin-quen-nium* (not *quinqu-ennium*)
+2. If the first element of a compound ends in two consonants or in *qu* and the
+second element begins with a vowel, the word boundary is ignored. The word is
+hyphenated according to the general rules. A possible hyphenation point after
+the first letter of the second element is suppressed. The same rule holds if
+the first element ends in *s* and the second element begins with *c* followed
+by a soft vowel.
+	- *qua-dran-gu-lus* (not *quadr-angulus*)
+	- *mag-nope-re* (not *magn-opere* or *magno-pere*), *mag-nani-mus* (not
+	  *magn-animus* or *magna-nimus*)
+	- *lon-gae-vus* (not *long-aevus*)
+	- *quan-tope-re* (not *quant-opere* or *quanto-pere*)
+	- *pos-tea* (not *post-ea*)
+	- *sol-lers* (not *soll-ers*)
+	- *sep-ten-nis* (*sept-ennis*)
+	- *quin-quen-nium* (not *quinqu-ennium*)
+	- *di-sce-do* (not *dis-cedo*), *tran-sci-di* (not *trans-ci-do*)
 
 3. If an epenthesis (*d*, *g*, or *s*) occurs at the word boundary, the word
 boundary is ignored. The word is hyphenated according to the general rules. A
@@ -109,9 +112,10 @@ suppressed.
 	- *su-sci-pio* (not *sus-cipio*), *su-spen-do* (not *sus-pendo*),
 	  *su-sti-neo* (not *sus-tineo*)
 
-4. When a common letter has fallen away at the word boundary, the word boundary
-is ignored. The word is hyphenated according to the general rules. A possible
-hyphenation point after the first letter of the second element is suppressed.
+4. Where a common letter has fallen away at the word boundary, the word
+boundary is ignored. The word is hyphenated according to the general rules. A
+possible hyphenation point after the first letter of the second element is
+suppressed.
 	- *tran-scribo* (< *trans* + *scribo*)
 	- *di-stringo* (< *dis* + *stringo*)
 	- *an-tea* (< *ante* + *ea*)

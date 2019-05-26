@@ -9,7 +9,7 @@ This directory contains three sets of Latin hyphenation patterns:
 - `hyph.la.phonetic.txt` contains the patterns for medieval and modern Latin
   considering the Italian pronunciation and Italian typographic rules
 
-See [doc](../doc/) folder for more on the respective hyphenation rules used.
+See [doc](../doc/) folder for more on the respective hyphenation rules used and how to choose between the three.
 
 
 ## Patterns elaboration
