@@ -94,7 +94,7 @@ by a soft vowel.
 	- *sol-lers* (not *soll-ers*)
 	- *sep-ten-nis* (*sept-ennis*)
 	- *quin-quen-nium* (not *quinqu-ennium*)
-	- *di-sce-do* (not *dis-cedo*), *tran-sci-di* (not *trans-ci-do*)
+	- *di-sce-do* (not *dis-cedo*), *tran-sci-do* (not *trans-cido*)
 
 3. If an epenthesis (*d*, *g*, or *s*) occurs at the word boundary, the word
 boundary is ignored. The word is hyphenated according to the general rules. A
@@ -124,3 +124,4 @@ suppressed.
 5. For typographic reasons, single letters at the beginning or the end of a
 word are never separated.
 	- *astrin-go* (not *a-stringo*), *asper-ges* (not *a-sperges*)
+	- *abi* (imperative of *ab-ire*, not *ab-i*)

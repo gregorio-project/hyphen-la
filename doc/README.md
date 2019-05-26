@@ -7,13 +7,17 @@ This directory contains some documentation about Latin hyphenation.
 Several aspects of the Latin language make hyphenation consensus difficult to find. The main difficulty is that Latin has been written and pronounced in various ways in different times and places, and thus has been hyphenated in different ways.
 
 A good hyphenation system should consider the following criteria:
-
-- _usage:_ when people are used to a certain hyphenation, any other hyphenation will look strange
-- _phonology:_ hyphenation should make sense in syllable segmentation, based on phonology
+- _usage:_ when people are used to a certain hyphenation, any other hyphenation
+  will look strange
+- _phonology:_ hyphenation should make sense in syllable segmentation, based on
+  phonology
 - _grammar:_ it should also respect grammar
-- _etymology:_ etymology can also be a criteria in some cases
-- _typography:_ some hyphenations that would make sense for other criteria don't from a typographical point of view (typically after the first letter or before the last one)
-- _type of text:_ a chant is not hyphenated the same way as a regular text (quon-i-am in chant, quon-iam in prose)
+- _etymology:_ etymology can also be a criterion in some cases
+- _typography:_ some hyphenations that would make sense for other criteria
+  don’t from a typographical point of view (typically after the first letter or
+  before the last one)
+- _type of text:_ a chant is not hyphenated the same way as a regular text
+  (`quon-i-am` in chant, `quon-iam` in prose)
 
 All these criteria conflict with each other, and a balance is difficult to find.
 
@@ -34,7 +38,7 @@ This hyphenation style should be used
 
 See [classical-hyphenation.md](classical-hyphenation.md) for details.
 
-### Modern hyphenation
+### Modern (and medieval) hyphenation
 
 The hyphenation rules are based on Italian phonetics and typographic tradition.
 This hyphenation style should be used
@@ -85,7 +89,8 @@ The following examples show some typical differences between the three styles.
     - *liturgical*: `ves-per` based on Italian phonetics
 - *longaevus*
     - *classical*: `long-ae-vus` based on etymology
-    - *modern* and *liturgical*: `lon-gae-vus` based on Italian phonetics
+    - *modern*: `lon-gae-vus` based on Italian phonetics
+    - *liturgical*: *lon-gæ-vus` based on Italian phonetics
 - *decennis*
     - *classical*: `dec-en-nis` based on etymology
     - *modern* and *liturgical*: `de-cen-nis` based on Italian phonetics

@@ -114,15 +114,16 @@ word are never separated.
 
 ## Homographs
 
-Our hyphenation patterns suppress incompatible hyphen points in homographs.
+Our hyphenation patterns suppress incompatible hyphenation points in
+homographs.
 
 Examples:
-- `absci-di` (`abs-ci-di` < *abs-cīdō*` vs ab-sci-di` < *ab-scindō*)
-- `discen-do` (`dis-cen-do` < *discō*` vs di-scen-do` < *di-scendō*)
+- `absci-di` (`abs-ci-di` < *abs-cīdō* vs `ab-sci-di` < *ab-scindō*)
+- `discen-do` (`dis-cen-do` < *discō* vs `di-scen-do` < *di-scendō*)
 - `perae-que` (`pe-rae-que` < *pēra* + *que* vs `per-ae-que` < *per-æquē*)
 - `peritur` (`pe-ri-tur` < *perior* vs `per-itur` < *per-eō*)
 - `potes` (`po-tes` < *potis* vs `pot-es` < *possum*)
-- `uolui` (`uo-lui` < *volō* vs *uol-ui* < *volvō*)
+- `uolui` (`uo-lui` < *volō* vs `uol-ui` < *volvō*)
 - `veniens` (`ve-ni-ens` < *veniō* vs `ven-iens` < *vēn-eō*)
 
 ## Orthographic variants
@@ -161,7 +162,7 @@ classical Latin:
 - combining acute accent: `U+301`
 - tie (combining double inverted breve): `U+361`
 - combining macron: `U+304`
-- combinong double macron: `U+35E`
+- combining double macron: `U+35E`
 - combining breve: `U+306`
 
 For compatibility with *pdftex* and *ptex*, there is also a *ec* variant of the patterns supporting only the first three groups of characters of this list.
