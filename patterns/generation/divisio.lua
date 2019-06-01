@@ -435,7 +435,7 @@ function classicalHyphenation(word)
             output = output.."-"..store..c
             store = ""
             state = "vowel"
-         elseif c == "t" then
+         elseif c == "p" or c == "t" then
             output = output..store
             store = c
             state = "potential aspirate"
@@ -725,10 +725,10 @@ function classicalHyphenation(word)
    end
 
    -- return the hyphenated word if a final state was reached
-   if state == "potential diphthong" or state == "vowel"
-   or state == "potential su" or state == "potential ng"
-   or state == "potential rh" or state == "potential aspirate"
-   or state == "potential liquid group" or state == "consonant" then
+   if state == "potential diphthong" or state == "vowel" or state == "potential su"
+   or state == "potential ng" or state == "potential gn" or state == "potential rh"
+   or state == "potential aspirate" or state == "potential liquid group"
+   or state == "consonant" then
       output = output..store
 
       if traceStates then

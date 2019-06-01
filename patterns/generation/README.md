@@ -47,6 +47,7 @@ corrected by putting the erroneously hyphenated word in the input list.
 ## Format of the word list `index_verborum`
 
 Every line of the word list may contain up to four fields divided by commas.
+White space and following characters are treated as comments.
 
 The **first field** contains a Latin word as written in a dictionary (normally,
 the first person present indicative active for verbs, the nominative singular

@@ -1402,6 +1402,7 @@ linecount = 0
 for line in io.lines() do
    linecount = linecount + 1
    wholeLine = line
+   line = string.gsub(line,"%s.*","") -- remove comment
    i = string.find(line,",")
 
    if i == nil then
