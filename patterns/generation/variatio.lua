@@ -13,7 +13,7 @@ combiningMacron = utf8.char(772)
 combiningTie = utf8.char(865)
 combiningDoubleMacron = utf8.char(862)
 
-function createSet (list)
+function createSet(list)
    local set = {}
    for _, l in ipairs(list) do
       set[l] = true
@@ -685,6 +685,29 @@ function addVariantsToOutput(word,use_j,use_Uv,useDigraphs,useMacrons,useBreves,
    end
 end
 
+romanSymbols = {"I","V","X","L","C","D","M"}
+romanValues = {1,5,10,50,100,500,1000}
+
+function romanNumeral(number)
+   local roman = ""
+   for i = 7, 1, -1 do
+      while number-romanValues[i] >= 0 do
+         roman = roman..romanSymbols[i]
+         number = number-romanValues[i]
+      end
+      if (i == 7 or i == 6) and number-romanValues[i] >= -100 then
+         roman = roman..romanSymbols[5]..romanSymbols[i]
+         number = number-romanValues[i]+100
+      elseif (i == 5 or i == 4) and number-romanValues[i] >= -10 then
+         roman = roman..romanSymbols[3]..romanSymbols[i]
+         number = number-romanValues[i]+10
+      elseif (i == 3 or i == 2) and number-romanValues[i] == -1 then
+         roman = roman..romanSymbols[1]..romanSymbols[i]
+         number = number-romanValues[i]+1
+      end
+   end
+   return roman
+end
 
 create_j_variants = true
 create_v_variants = true
@@ -723,6 +746,17 @@ while arg[i] do
       mixedDiacritics = true
    elseif arg[i] == "--mixed-breves" then
       mixedBreves = true
+   elseif arg[i] == "--roman-numerals" then
+      local numeral
+      for k = 1, 3000 do
+         numeral = romanNumeral(k)
+         if string.len(numeral) > 1 then
+            addOutputForm(numeral)
+            if string.sub(numeral,-1) == "I" then
+               addOutputForm(string.sub(numeral,1,-2).."J") -- spelling variant
+            end
+         end
+      end
    else
       error('Invalid argument "'..arg[i]..'".')
    end

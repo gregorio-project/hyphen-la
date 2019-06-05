@@ -21,7 +21,7 @@ then
    then
       # hyphenate forms and generate orthographic variants
       lua5.3 divisio.lua --suppress-hiatus < index_formarum | \
-      lua5.3 variatio.lua $1 | \
+      lua5.3 variatio.lua --roman-numerals $1 | \
       # "LC_ALL=C" is necessary for a defined order of the "combining double
       # inverted breve" (tie, U+361) and the "combining double macron" (U+35E).
       LC_ALL=C sort | \

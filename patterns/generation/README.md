@@ -457,6 +457,8 @@ vowels: *a͞e-dī-lĭs*, *la͞u-dăn-dǣ*, *la͞u-dăn-da͞e*, *ŏb-o͞e-dī-rĕ
 - `--mixed-breves` – generate variants with all possible combinations of short
   vowels with and without breves, e. g. *co-rō-na*, *co-rō-nă*, *cŏ-rō-na*,
   *cŏ-rō-nă* from input `co-rō-na`.
+- `--roman-numerals` – output Roman numerals with more than one character up to
+  3000
 
 ### `generate-patgen-input.sh`
 
