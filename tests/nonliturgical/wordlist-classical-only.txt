@@ -3136,8 +3136,6 @@ su-per-ex-sis-to
 su-per-flo-res-co
 su-per-fuis-ti
 su-per-fuis-tis
-su-per-iis-ti
-su-per-iis-tis
 su-per-in-cres-co
 su-per-ind-uis-ti
 su-per-ind-uis-tis
@@ -3147,8 +3145,6 @@ su-per-in-ie-cis-ti
 su-per-in-ie-cis-tis
 su-per-in-stra-vis-ti
 su-per-in-stra-vis-tis
-su-per-ivis-ti
-su-per-ivis-tis
 su-per-mis-ceo
 su-per-nas-cor
 su-per-pos-tu-la-tio

@@ -836,7 +836,6 @@ adi-pi-bus
 adi-pis
 adi-pum
 ad-itus
-ad-iu
 ad-iu-bi-lo
 ad-iu-di-ca-tio
 ad-iu-di-ca-tus
@@ -5704,9 +5703,9 @@ fu-tu-ro-rum
 fu-tu-ros
 fu-tu-rum
 fu-tu-rus
-Ga-ia
-Ga-ia-nus
-Ga-ius
+Gaia
+Gaia-nus
+Gaius
 gal-ba-neus
 gal-bi-neus
 gal-li-na-ceus

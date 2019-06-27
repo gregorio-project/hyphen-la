@@ -3136,8 +3136,6 @@ su-per-ex-si-sto
 su-per-flo-re-sco
 su-per-fui-sti
 su-per-fui-stis
-su-per-ii-sti
-su-per-ii-stis
 su-per-in-cre-sco
 su-per-ind-ui-sti
 su-per-ind-ui-stis
@@ -3147,8 +3145,6 @@ su-per-in-ie-ci-sti
 su-per-in-ie-ci-stis
 su-per-in-stra-vi-sti
 su-per-in-stra-vi-stis
-su-per-ivi-sti
-su-per-ivi-stis
 su-per-mi-sceo
 su-per-na-scor
 su-per-po-stu-la-tio
