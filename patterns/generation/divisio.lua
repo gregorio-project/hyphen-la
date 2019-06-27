@@ -1,4 +1,4 @@
-function createSet (list)
+function createSet(list)
    local set = {}
    for _, l in ipairs(list) do
       set[l] = true

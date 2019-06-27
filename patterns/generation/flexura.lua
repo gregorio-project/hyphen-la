@@ -368,10 +368,6 @@ adjectiveEndings_is_e = { -- e.g. "brevis"
    "is","e","ī","em","ēs","ia","ium","ibus","īs"}
    -- "īs" is a variant of "ēs" for the accusative plural
 
-adjectiveEndings_is_e_afterFullVowel = { -- e.g. "tenuis"
-   "is","e","ī","em","ēs","ja","jum","ibus","īs"}
-   -- "īs" is a variant of "ēs" for the accusative plural
-
 adjectiveEndings_ior_ius = { -- e.g. "altior"
    "ior","ius","iōris","iōrī","iōrem","iōre","iōrēs","iōra","iōrum","iōribus"}
 
@@ -1151,11 +1147,7 @@ function generatePositiveForms2(adjective)
    -- adjectives of the third declension ending in "is/e"
    elseif string.len(adjective) > 4 and endsIn(adjective,"is") then
       root = string.sub(adjective,1,-3)
-      if vowels[string.sub(root,-1)] and string.sub(root,-2) ~= "qu" and string.sub(root,-3) ~= "ngu" then
-         attachEndings(root,adjectiveEndings_is_e_afterFullVowel)
-      else
-         attachEndings(root,adjectiveEndings_is_e)
-      end
+      attachEndings(root,adjectiveEndings_is_e)
 
    -- adjectives of the third declension ending in "ior/ius"
    elseif string.len(adjective) > 3 and endsIn(adjective,"ior") then
@@ -1177,11 +1169,7 @@ function generateComparativeAndSuperlative2(adjective)
    -- adjectives of the third declension ending in "is/e"
    if string.len(adjective) > 4 and endsIn(adjective,"is") then
       root = string.sub(adjective,1,-3)
-      if vowels[string.sub(root,-1)] and string.sub(root,-2) ~= "qu" and string.sub(root,-3) ~= "ngu" then
-         attachEndings(root.."j",adjectiveEndings_or_us) -- comparative (e.g. "tenujor")
-      else
-         attachEndings(root,adjectiveEndings_ior_ius) -- comparative
-      end
+      attachEndings(root,adjectiveEndings_ior_ius) -- comparative
       if adjectivesSuperlative_limus[adjective] then
          attachEndings(root.."lim",adjectiveEndings_us_a_um) -- superlative
          generateAdverb3(root.."limus") -- adverb of superlative
@@ -2687,6 +2675,8 @@ for line in io.lines() do
       elseif firstField == "ambō" then
          addForm("ambō") -- nominative
          attachEndings("amb",pronounEndings_o_ae)
+      elseif firstField == "cūjus" then
+         attachEndings("cūj",adjectiveEndings_us_a_um_withoutVocative)
       elseif firstField == "ego" then
          addForm("ego") -- nominative
          addForm("ego-met") -- nominative
@@ -2973,6 +2963,8 @@ for line in io.lines() do
          addForm("sē-met-ipsīs") -- ablative pl.
          addForm("sē-pse") -- accusative/ablative
          addForm("sē-cum") -- "cum" + ablative
+      elseif firstField == "quōjus" then
+         attachEndings("quōj",adjectiveEndings_us_a_um_withoutVocative)
       elseif firstField == "quot-ennis" then
          attachEndings("quot-enn",adjectiveEndings_is_e)
       elseif firstField == "quotus" then
