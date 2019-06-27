@@ -90,7 +90,7 @@ The following examples show some typical differences between the three styles.
 - *longaevus*
     - *classical*: `long-ae-vus` based on etymology
     - *modern*: `lon-gae-vus` based on Italian phonetics
-    - *liturgical*: *lon-gæ-vus` based on Italian phonetics
+    - *liturgical*: `lon-gæ-vus` based on Italian phonetics
 - *decennis*
     - *classical*: `dec-en-nis` based on etymology
     - *modern* and *liturgical*: `de-cen-nis` based on Italian phonetics
