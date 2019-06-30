@@ -518,6 +518,9 @@ ambrosius,AI3
 Ambrosius,D2
 Ambrysus,D2
 ambūbāia,D1
+ambūbāja,D1	Goelzer
+ambūbēia,D1
+ambūbēja,D1	Goelzer
 ambulācrum,D2N
 ambulātiō,D3
 ambulātor,D3
@@ -728,8 +731,8 @@ apud
 Āpulēius,AI3
 aqua,D1
 aquālium,D2N
-Aquilēia,D1
-Aquilēiēnsis,AI2
+Aquilēja,D1
+Aquilējēnsis,AI2
 Arabes,D3gr,Arabum
 Arabs,AI1,Arabis
 Ara^chnē,D1
@@ -994,9 +997,10 @@ blasphēmātrīx,D3
 blasphēmium,D2N
 blasphēmus,AI3
 Boanērges	Mc 3,17
-bōia,D1	utrum "ō" (ThLL, OLD, Georges) an "ŏ" (Lewis/Short, Gaffiot 2016)?
 Boī,D2
 Boiī,D2
+bōja,D1	utrum "ō" (ThLL, OLD, Georges) an "ŏ" (Lewis/Short, Gaffiot 2016)?
+Bojī,D2	Goelzer
 boni-loquium,D2N
 bonus,AC3
 borēus,AI3
@@ -1047,6 +1051,10 @@ Cainan	Lc 3,36
 caiō,1	utrum "ā" (Lewis/Short, Georges) an "ă" (ThLL, OLD, Gaffiot 2016)?
 Cāius,D2
 Cāja,D1
+cajātiō,D3	Goelzer
+Cājēta,D1	Goelzer
+Cājētē,D1	Goelzer
+cajō,1	Goelzer
 Cājus,D2
 calami^scus,D2
 Calamis,D3,Calamidis
@@ -1122,7 +1130,7 @@ cata^sceua,D1
 cata-strōma,D1
 cata-stropha,D1
 cata-strophē,D1
-catēia,D1	utrum "ē" (ThLL, Lewis/Short, Georges) an "ĕ" (OLD, Gaffiot 2016)?
+catēja,D1	utrum "ē" (ThLL, Lewis/Short, Georges) an "ĕ" (OLD, Gaffiot 2016)?
 Cauneus,AI3
 Caunius,AI3
 causa,D1
@@ -1803,12 +1811,11 @@ de-in-ceps
 de-inde
 Dēīonidēs,D1
 Dēiopēa,D1
-Dēiotariānus,AI3
-Dēiotarus,D2
 dei-para,D1
 Dēiphobus,D2
 deitās,D3
 deivus,AI3
+Dējanīra,D1	Gaffiot 2016, Goelzer
 dē-jectiō,D3
 dē-jectiuncula,D1
 dē-jectō,1
@@ -1818,6 +1825,8 @@ dē-jectus,D4
 dē-jerātiō,D3
 dē-jerō,1
 dē-jiciō,3M,dē-jēcī,dē-jectum
+Dējotariānus,AI3
+Dējotarus,D2
 dē-jugis,AI2
 dē-jugō,1
 dē-jungō,3
@@ -2849,6 +2858,7 @@ gracilis,AC2
 Grāiocelī,D2
 Grāius,AI3
 Grāju-gena,D1
+Grājus,AI3	Goelzer
 gravis,AC2
 Gytheātēs,D1
 Gythēum,D2N
@@ -3673,7 +3683,8 @@ lectus,D2
 legiō,D3
 lēgis-lātor,D3
 lēgis-perītus,D2
-lēgulēius,D2
+lēgulēius,D2	Lewis/Short: "lēgŭlēïus"
+lēgulējus,D2	Goelzer
 leio^strea,D1
 lepas,D3,lepadis
 Le^sbiacus,AI3
@@ -5565,7 +5576,7 @@ rādīx,D3,rādīcis
 rādō,3,rāsī,rāsum
 ræda,D1
 rædārius,D2
-raia,D1
+raja,D1	Goelzer
 rāmāle,D3N,rāmālis
 rāmes,D3,rāmitis
 Ramessēs	Ex 1,11
@@ -5826,8 +5837,8 @@ rūrsus
 Rūspina,D1
 rūspō,1
 rūtāceus,AI3
-sabaia,D1
-sabaiārius,D2
+sabaja,D1
+sabajārius,D2
 Sadōc	Mt 1,14
 sagestrum,D2N
 sagum,D2N
@@ -5924,6 +5935,7 @@ secundus,N
 secūris,D3,secūrim
 secus
 secūtulēius,AI3
+secūtulējus,AI3	Goelzer
 sed
 sēd
 sēdātiō,D3
@@ -6730,6 +6742,7 @@ tantum-modo
 tantus-dem,P
 tantus,P
 Tarpēius,AI3
+Tarpējus,AI3	Goelzer
 taxeus,AI3
 taxicus,AI3
 taxus,D2
@@ -7532,8 +7545,10 @@ Vējentō,D3
 Vējī,D2
 Vē-jovis,D3
 Vējus,AI3
+Vējus,AI3	Goelzer
 vel
 Vellēius,AI3
+Vellējus,D2	Goelzer
 vel-ut
 vel-utī
 vēn-dō,3,vēn-didī,vēn-ditum
