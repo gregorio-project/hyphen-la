@@ -4,7 +4,7 @@ The patterns for liturgical Latin `hyph.la.liturgical.txt` have been written by
 hand. They are improved continuously.
 
 The patterns for classical Latin `hyph.la.classical.txt` and the Italian style
-patterns for medieval and modern Latin `hyph.la.phonetic.txt` have also been
+patterns for medieval and modern Latin `hyph.la.modern.txt` have also been
 written by hand, but have been unmaintained for several years.
 
 Because of some deficiencies of the existing patterns, we are going to create

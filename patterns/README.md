@@ -3,10 +3,10 @@
 This directory contains three sets of Latin hyphenation patterns:
 
 - `hyph.la.liturgical.txt` contains the patterns for hyphenation of liturgical
-  Latin (used by recent Solesmes books), it is the most tested set of patterns
+  Latin (used by recent Solesmes books)
 - `hyph.la.classical.txt` contains the patterns for classical Latin considering
   etymology
-- `hyph.la.phonetic.txt` contains the patterns for medieval and modern Latin
+- `hyph.la.modern.txt` contains the patterns for medieval and modern Latin
   considering the Italian pronunciation and Italian typographic rules
 
 See [doc](../doc/) folder for more on the respective hyphenation rules used and how to choose between the three.

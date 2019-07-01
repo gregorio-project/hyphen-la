@@ -52,7 +52,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument('-t', '--text-type', choices = ['chant', 'prose'],
                     help='text type',
                     default=config['DEFAULT']['type'], dest='type')
-parser.add_argument('-m', '--hyphen-mode', choices = ['liturgical', 'phonetic', 'etymology'],
+parser.add_argument('-m', '--hyphen-mode', choices = ['liturgical', 'modern', 'classical'],
                     help='Hyphenation mode',
                     default=config['DEFAULT']['mode'], dest='mode')
 parser.add_argument('-c', '--hyphen-char',
