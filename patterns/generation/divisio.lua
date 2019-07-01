@@ -347,6 +347,10 @@ function classicalHyphenation(word)
             output = output.."-"..store..c
             store = ""
             state = "liquid group"
+         elseif c == "q" then
+            output = output..store.."-"..c
+            store = ""
+            state = "potential qu"
          elseif c == "s" then
             output = output..store
             store = c
