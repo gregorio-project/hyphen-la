@@ -44,6 +44,12 @@ list and the scripts mentioned above.
 [tests/nonliturgical](../../tests/nonliturgical) directory. Every error can be
 corrected by putting the erroneously hyphenated word in the input list.
 
+The steps 2 to 5 are executed by the `generate-patterns.sh` script. The
+`publish-patterns.sh` script is used to move the generated patterns to the
+correct directories.
+
+All scripts are documented in a [separate file](scripts.md).
+
 ## Format of the word list `index_verborum`
 
 Every line of the word list may contain up to four fields divided by commas.
