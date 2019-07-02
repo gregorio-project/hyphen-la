@@ -3927,6 +3927,7 @@ mercēs,D3,mercēdis
 merdāceus,AI3
 merda,D1
 merdāleus,AI3
+mergō,3,mersī,mersum
 meritus,AC3
 mesoleucos,D2
 meso-sphærus,AI3
@@ -6397,6 +6398,7 @@ sub-līmis,AC2
 sub-linguius,AI3
 sub-magister,D2,sub-magistrī
 sub-mējō,1intr
+sub-mergō,3,sub-mersī,sub-mersum
 sub-mōrōsus,AI3
 sub-ne-uter,P
 sub-obscēnus,AI3
@@ -6427,6 +6429,7 @@ Suēbus,AI3
 suēscō,3,suēvī,suētum
 Suionēs,D3,Suionum
 suī,P
+summergō,3,summersī,summersum
 summōrōsus,AI3
 summus,AI3
 sum,VI,fuī,futūrus
