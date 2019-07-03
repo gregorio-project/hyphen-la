@@ -14,7 +14,7 @@ A small Python script which tracks duplicated and invalid patterns in a pattern 
 
 #### Usage
 
-Type `python3 checkPatterns.py path/to/pattern/file.txt`, or, more simply, use `make check_x` in the main directory show the errors, where `x` can be: `all`, `classical`, `phonetic`, or `liturgical`.
+Type `python3 checkPatterns.py path/to/pattern/file.txt`, or, more simply, use `make check_x` in the main directory show the errors, where `x` can be: `all`, `classical`, `modern`, or `liturgical`.
 
 
 ## Syllabifier script
@@ -30,9 +30,12 @@ See `./syllabify.py -h` for all options.
 
 ## Test patterns
 
-The script `test.py` can automatically test the patterns in the `patterns` folder against the list of words in the `tests` folder.
+The scripts `test.py` (for liturgical Latin), `test-classical.py` (for
+classical Latin), and `test-classical-ec.py` (for EC/T1 encoded classical
+Latin) can automatically test the patterns in the `patterns` folder against the
+list of words in the `tests` folder.
 
 #### Usage
 
-Type `python3 test.py`, or, more simply, use `make test` in the main directory.
-
+Go to the main directory and call `scripts/test.py`,
+`scripts/test-classical.py`, or `scripts/test-classical-ec.py`. For liturgical Latin it is also possible to use `make test`.

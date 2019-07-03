@@ -6,6 +6,9 @@ This directory contains three sets of Latin hyphenation patterns:
   Latin (used by recent Solesmes books)
 - `hyph.la.classical.txt` contains the patterns for classical Latin considering
   etymology
+- `hyph.la.classical.ec.txt` contains the patterns for classical Latin
+  considering etymology, using a reduced character set adapted for EC/T1 font
+  encoding
 - `hyph.la.modern.txt` contains the patterns for medieval and modern Latin
   considering the Italian pronunciation and Italian typographic rules
 
