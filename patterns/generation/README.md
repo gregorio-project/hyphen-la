@@ -3,15 +3,15 @@
 The patterns for liturgical Latin `hyph.la.liturgical.txt` have been written by
 hand. They are improved continuously.
 
-The patterns for classical Latin `hyph.la.classical.txt` and the Italian style
-patterns for medieval and modern Latin `hyph.la.modern.txt` have also been
-written by hand, but have been unmaintained for several years.
+The patterns for medieval and modern Latin `hyph.la.modern.txt` have also been
+written by hand. They are currently unmaintained.
 
-Because of some deficiencies of the existing patterns, we are going to create
-improved patterns for classical Latin. The new patterns shall support marks for
-long and short vowels (macrons and breves, e. g. *lĭnguă Lătīnă*) as long and
-short vowels are important for classical Latin. The following workflow is
-planned:
+The original version of the patterns for classical Latin
+`hyph.la.classical.txt` have also been written by hand. Because of some
+deficiencies of the old patterns, we have created improved patterns for
+classical Latin using *patgen*. The new patterns support marks for long and
+short vowels (macrons and breves, e. g. *lĭnguă Lătīnă*) as long and short
+vowels are important for classical Latin. We use the following workflow.
 
 ## Generation of hyphenation patterns for classical Latin
 
@@ -23,7 +23,7 @@ conventions. The exact format of the word list is described below.
 2. Run the script `flexura.lua` on this list, which creates all possible
 inflected forms, for example *laudō, laudās, laudat, …, laudābō, …, laudāvī, …,
 laudātus, laudāta, laudātum, …* from input `laudō`. These forms are stored in
-`index_formarum`.
+the file `index_formarum`.
 
 3. Run the script `divisio.lua` on the output of step 2 to hyphenate all the
 forms according to the basic rules. This is easy as the input list uses *i* and

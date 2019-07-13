@@ -55,7 +55,7 @@ consonants *c*, *p*, *r*, and *t*, respectively.
 6. For typographic reasons, single vowels at the beginning or the end of a word
 are never separated.
 	- *ācer* (not *ā-cer*), *atrōx* (not *a-trōx*), *Atlās* (not *A-tlās*),
-	  *equus* (not *e-quus*), *ovis* (not *o-vis*) *ædēs* (not *æ-dēs*, but
+	  *equus* (not *e-quus*), *ovis* (not *o-vis*), *ædēs* (not *æ-dēs*, but
 	  without digraph *ae-dēs*)
 	- *fī-liī* (not *fīli-ī*), *proe-lia* (not *proeli-a*), *luō* (not *lu-ō*)
 
@@ -138,7 +138,7 @@ variants:
 - *oe* or *œ* for diphthong OE: *coetus*/*cœtus*
 - ties (`U+361`) marking diphthongs: *a͡edilis*, *co͡etus*, *la͡udare*, *se͡u*
 - macrons marking long vowels: *cīvitās*
-- macrons marking long vowels and diphtongs: *a͞edīlis*/*ǣdīlis*,
+- macrons marking long vowels and diphthongs: *a͞edīlis*/*ǣdīlis*,
   *obo͞edīre*/*obœ̄dīre*, *la͞udāre* (using `U+35E` for two character diphthongs)
 - macrons marking long vowels and breves marking short vowels: *cīvĭtās*,
   *vīvĕrĕ*, *ĭmpĕtŭs*
