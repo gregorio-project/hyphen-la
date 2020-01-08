@@ -1221,8 +1221,8 @@
 .sa2t1ág
 .sati2s1
 .sa3ul.
-.se2d1it
-.se2d1ít
+.se2d1iti
+.se2d1íti
 .seme2t3ip
 .semiam2b3
 .semi3s4p

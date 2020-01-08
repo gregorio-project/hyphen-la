@@ -18682,6 +18682,7 @@ se-de-cim
 se-de-o
 se-des
 se-di-le
+se-dit
 sed-i-ti-o
 sed-i-ti-o-na-ri-us
 sed-i-ti-o-nor
