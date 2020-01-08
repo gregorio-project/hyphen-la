@@ -519,8 +519,9 @@
 .i3bú
 .i3co
 .i3có
-.i2d1eo.
-.í2d1eo.
+.i2d1eo
+.í2d1eo
+.i2d1eó
 .i2d1ipsum.
 .i2d1ípsum.
 .i2e
