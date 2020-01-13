@@ -7677,6 +7677,7 @@ i-dem
 i-den-ti-dem
 i-den-ti-tas
 id-e-o
+id-e-o-que
 I-di-cra
 I-di-mum
 i-di-o-gra-phus
@@ -18682,6 +18683,7 @@ se-de-cim
 se-de-o
 se-des
 se-di-le
+se-dit
 sed-i-ti-o
 sed-i-ti-o-na-ri-us
 sed-i-ti-o-nor

@@ -7746,6 +7746,7 @@ idem
 idéntidem
 idéntitas
 ídeo
+ideóque
 Idicra
 Idimum
 idiógraphus
@@ -18696,6 +18697,7 @@ sédecim
 sédeo
 sedes
 sedíle
+sedit
 sedítio
 seditionárius
 seditiónor
