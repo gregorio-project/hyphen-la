@@ -121,11 +121,12 @@ The following examples show some typical differences between the three styles.
   reproduced [here](liturgical-hyphenation.md#Phonétique-historique-du-latin).
 
 ### Dictionaries
-- *Thesaurus Linguae Latinae (ThLL)*, 1900 ff. – The ThLL is the most
-  comprehensive dictionary of ancient Latin. It is monolingual Latin and
-  contains etymological notes as well as all known special forms of every word.
-  The ThLL is still incomplete. So far, it covers the letters A–M, O, P, and
-  parts of N and R.
+- [*Thesaurus Linguae Latinae
+  (ThLL)*](https://www.thesaurus.badw.de/tll-digital/tll-open-access.html),
+  1900 ff. – The ThLL is the most comprehensive dictionary of ancient Latin. It
+  is monolingual Latin and contains etymological notes as well as all known
+  special forms of every word. The ThLL is still incomplete. So far, it covers
+  the letters A–M, O, P, and parts of N and R.
 - Félix Gaffiot, [*Dictionnaire illustré
   latin-français*](https://www.lexilogos.com/latin/gaffiot.php), 1934. – A very
   comprehensive Latin-French dictionary of ancient Latin. There is also a
@@ -137,7 +138,9 @@ The following examples show some typical differences between the three styles.
   A comprehensive Latin-German dictionary of ancient Latin.
 - Henri Goelzer, *Le latin en poche. Dictionnaire latin-français*, 1928. –
   Covers ancient and medieval Latin up to the Carolingian era.
-- Eugène Benoist et Henri Goelzer, *Nouveau dictionnaire Latin-Français*, 1934 (?) the most complete version of this dictionary published shortly after the death of the author.
+- Eugène Benoist et Henri Goelzer, *Nouveau dictionnaire Latin-Français*, 1934
+  (?). – The most complete version of this dictionary published shortly after
+  the death of the author.
 - C. T. Lewis/C. Short, [*A Latin
   Dictionary*](http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.04.0059),
   1879. – A comprehensive Latin-English dictionary.
