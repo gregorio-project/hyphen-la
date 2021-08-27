@@ -255,6 +255,16 @@ function addSupineStemForms(supine)
    end
 end
 
+function addSupineStemFormsWithoutPFA(supine)
+   if endsIn(supine,"um") then
+      local stem = string.sub(supine,1,-3)
+      attachEndings(stem,adjectiveEndings_us_a_um) -- perfect passive particple
+      addForm(stem.."ū") -- second supine
+   else
+      invalidField(supine)
+   end
+end
+
 
 -- endings of the nouns of the first declension
 nounEndings1 = { "a","æ","am","ā","ārum","īs","ās" }
@@ -603,6 +613,18 @@ presentStemEndingsPassiveImpersonal3M = {
    "erētur", -- subjunctive imperfect
    "iētur" -- future
    }
+
+presentStemEndings_oriri = {
+   "ior","eris","itur","imur","iminī","iuntur", -- indicative present
+   "iāris","iāre","iātur","iāmur","iāminī","iantur", -- subjunctive present
+   "ere","itor","iuntor", -- imperative
+   "īrī" --infinitive, different from 3M
+   }
+
+addEndings(presentStemEndings_oriri,"iē",imperfectEndingsIndicativePassive)
+addEndings(presentStemEndings_oriri,"e",imperfectEndingsSubjunctivePassive)
+addEndings(presentStemEndings_oriri,"ī",imperfectEndingsSubjunctivePassive) -- alternative
+addEndings(presentStemEndings_oriri,"i",futureEndingsPassive_a_e)
 
 
 -- endings of the fourth conjugation
@@ -1585,18 +1607,36 @@ for line in io.lines() do
          generateVerbForms3M_io(presentStemEndingsPassive3M)
       elseif string.sub(firstField,-3) == "ior" then
          root = string.sub(firstField,1,-4)
-         attachEndings(root,presentStemEndingsPassive3M)
+         if root == "or" then -- orīrī
+            attachEndings(root,presentStemEndings_oriri)
+         else
+            attachEndings(root,presentStemEndingsPassive3M)
+         end
          attachEndings(root.."i",participlePresentActiveEndingsE)
          attachEndings(root.."iend",adjectiveEndings_us_a_um) -- gerundivum
-         if thirdField then
-            if endsIn(thirdField,"us") then
-               addSupineStemForms(string.sub(thirdField,1,-2).."m")
+         if fourthField then -- contains the PFA in rare cases
+            if endsIn(fourthField,"ūrus") then
+               attachEndings(string.sub(fourthField,1,-3),adjectiveEndings_us_a_um)
+               if thirdField then
+                  if endsIn(thirdField,"us") then
+                     addSupineStemFormsWithoutPFA(string.sub(thirdField,1,-2).."m")
+                  else
+                     invalidField(thirdField)
+                  end
+               else
+                  invalidLine()
+               end
             else
-               invalidField(thirdField)
+               invalidLine()
             end
-         end
-         if fourthField then
-            invalidLine()
+         else
+            if thirdField then
+               if endsIn(thirdField,"us") then
+                  addSupineStemForms(string.sub(thirdField,1,-2).."m")
+               else
+                  invalidField(thirdField)
+               end
+            end
          end
       else
          invalidField(firstField)

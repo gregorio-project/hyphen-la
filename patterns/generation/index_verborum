@@ -468,13 +468,12 @@ amb-arvālis,AI2
 amb-axium,D2N
 ambe-cīsus,D4
 amb-edō,3,amb-ēdī,amb-ēsum
-Ambiānēnsēs,D3,Ambiānēnsium
+Ambiānēnsis,AI2
 Ambiānī,D2
 Ambiātīnus,AI3
 Ambibariī,D2
 ambi-dēns,AI1
 ambi-dexter,AI3,ambi-dextra
-amb-iectus,AI3
 ambi-egnus,AI3
 amb-ienter
 ambi-fārius,AI3
@@ -506,6 +505,7 @@ Ambivaritī,D2
 ambi-vium,D2N
 Ambivius,D2
 ambix,D3,ambīcis
+amb-jectus,AI3
 ambligōnius,AI3
 amblygōnius,AI3
 ambō,P
@@ -1659,7 +1659,7 @@ con-versātiō,D3
 con-vertō,3,con-vertī,con-versum
 con-vortō,3,con-vortī,con-vorsum
 co-ōrdinātiō,D3
-co-orior,3M,co-ortus
+co-orior,4,co-ortus
 co-ōrnō,1
 co-ortus,D4
 cōpia,D1
@@ -1887,7 +1887,7 @@ dē-sum,VI,dē-fuī,dē-futūrus
 dēterior,AC2
 Deucaliōn,D3,Deucaliōnis
 Deucaliōnēus,AI3
-Deuel	Num 1,14
+Deuel	Num 1,14 Nova Vulgata
 Deultum,D2N
 de-ungō,3
 de-ūnx,D3,de-ūncis
@@ -2246,7 +2246,8 @@ du-centiēs
 du-centī,N
 dūcō,3,dūxī,ductum
 dū-dum
-Duel	Num 1,14
+Duel	Num 1,14 Clementina
+Duhel	Num 1,14 Vulgata
 dulcis,AC2
 dum
 duo-deca-jugum,D2N
@@ -4002,6 +4003,7 @@ mōnstrum,D2N
 mōnstruōsus,AC3
 montānus,AI3
 mor^phnos,D2
+mōs,D3,mōris
 Mōsēius,AI3
 Mōsēs,D3,Mōsis
 Mōȳsēs,D3,Mōȳsis
@@ -4392,6 +4394,7 @@ op-tueor,2
 orchēstra,D1
 ōrdinātus,AC3
 ōrdior,4,ōrsus
+orior,3M,ortus,oritūrus
 Ōrīthyia,D1
 ōrnō,1
 Orphe͡us,D2
@@ -7557,7 +7560,7 @@ Vellēius,AI3
 Vellējus,D2	Goelzer
 vel-ut
 vel-utī
-vēn-dō,3,vēn-didī,vēn-ditum
+vēn-dō,3,vēn-didī,vēn-ditum	< vēnum-dō, utrum "ē" (Georges) an "ĕ" (Gaffiot 2016, Lewis/Short)?
 vēn-eō,VIintr,vēn-iī
 veniō,4intr,vēnī,ventum
 venter,D3,ventris
