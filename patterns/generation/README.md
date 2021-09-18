@@ -69,7 +69,8 @@ nouns, it contains the genitive or the accusative and for some adjectives the
 feminine form or the genitve, as described below.
 
 The **fourth field** contains the supine for active verbs, but only if this
-form is irregular.
+form is irregular, and the future participle for deponent verbs if its stem
+is different from the stem of the perfect passive participle.
 
 ### Orthographic conventions
 
@@ -140,6 +141,7 @@ Examples:
 	vereor,2,veritus
 	ūtor,3,ūsus
 	patior,3M,passus
+	orior,3M,ortus,oritūrus
 	partior,4
 	ab-scindō,3,ab-scidī,ab-scissus
 	ex-audiō,4
