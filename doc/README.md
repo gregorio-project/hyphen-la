@@ -87,6 +87,10 @@ The following examples show some typical differences between the three styles.
     - *classical*: `ves-per` based on classical phonology
     - *modern*: `ve-sper` based on Italian typographic tradition
     - *liturgical*: `ves-per` based on Italian phonetics
+- *presbyter*
+    - *classical*: `pres-by-ter` based on classical phonology
+    - *modern*: `pre-sby-ter` based on Italian typographic tradition
+    - *liturgical*: `pres-by-ter` based on Italian phonetics
 - *longaevus*
     - *classical*: `long-ae-vus` based on etymology
     - *modern*: `lon-gae-vus` based on Italian phonetics
@@ -116,7 +120,7 @@ The following examples show some typical differences between the three styles.
   [tug.org](https://tug.org/TUGboat/tb15-1/tb42becc-ancient.pdf).
 - Claudio Beccari, *Greek and Latin hyphenation – Recent advances*, in
   ArsTEXnica N° 18 (2014), available on
-  [guitex.org](http://www.guitex.org/home/images/ArsTeXnica/AT018/GreekLatinHyphens.pdf).
+  [guitex.org](https://arstexnica.guitex.org/article/view/149/141).
 - Max Niedermann, *Phonétique historique du latin*, 1940. An extract is
   reproduced [here](liturgical-hyphenation.md#Phonétique-historique-du-latin).
 
@@ -126,11 +130,11 @@ The following examples show some typical differences between the three styles.
   1900 ff. – The ThLL is the most comprehensive dictionary of ancient Latin. It
   is monolingual Latin and contains etymological notes as well as all known
   special forms of every word. The ThLL is still incomplete. So far, it covers
-  the letters A–M, O, P, and parts of N and R.
+  the letters A–M, O, P, R, and parts of N.
 - Félix Gaffiot, [*Dictionnaire illustré
   latin-français*](https://www.lexilogos.com/latin/gaffiot.php), 1934. – A very
   comprehensive Latin-French dictionary of ancient Latin. There is also a
-  [revised edition](http://gerardgreco.free.fr/spip.php?article43&lang=fr) of
+  [revised edition](http://gerardgreco.free.fr/spip.php?article12&lang=fr) of
   2016. The original version of 1934 marks long vowels in open syllables only,
   whereas the revised edition marks all long vowels.
 - Karl Ernst Georges, [*Ausführliches lateinisch-deutsches

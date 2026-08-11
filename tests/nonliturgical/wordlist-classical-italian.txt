@@ -14366,7 +14366,6 @@ pseu-do-pa-tum
 pseu-do-pe-rip-te-rus
 Pseu-do-phi-lip-pus
 pseu-do-pho-rum
-pseu-do-pres-by-ter
 pseu-do-pro-phe-ta
 pseu-do-pro-phe-tia
 pseu-do-pro-phe-ti-cus

@@ -2908,6 +2908,7 @@ Pseu-do-chris-tus
 pseu-do-epis-co-pus
 pseu-do-ma-gis-ter
 pseu-do-pas-tor
+pseu-do-pres-by-ter
 pug-na
 pug-neus
 pul-las-tra

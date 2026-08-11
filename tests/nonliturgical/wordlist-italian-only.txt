@@ -801,7 +801,7 @@ apo-cru-sti-cus
 Apo-lau-stus
 apol-li-na-ri-stæ
 Apo-sco-peuon
-apo-sphra-gis-ma
+apo-sphra-gi-sma
 apo-sta-sia
 apo-sta-ta
 apo-sta-ta-tio
@@ -2908,6 +2908,7 @@ Pseu-do-chri-stus
 pseu-do-epi-sco-pus
 pseu-do-ma-gi-ster
 pseu-do-pa-stor
+pseu-do-pre-sby-ter
 pu-gna
 pu-gneus
 pul-la-stra

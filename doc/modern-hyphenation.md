@@ -3,7 +3,8 @@
 The rules used by the hyphenation patterns for medieval and modern Latin are
 based on the hyphenation rules of modern Italian. The basic rule is to put the
 hyphenation point before the largest group of consonants that may occur at the
-beginning of a Latin word. Furthermore, etymology is respected to some extent.
+beginning of a Latin or Italian word. Furthermore, etymology is respected to
+some extent.
 
 ## General rules
 
@@ -19,18 +20,19 @@ they are semivowels.
 
 2. If two consonants occur between two vowels, the hyphenation point is before
 the two consonants in case of *bl*, *cl*, *fl*, *gl*, *pl*, *br*, *cr*, *dr*,
-*fr*, *gr*, *pr*, *tr*, *gn*, *sc*, *sp*, *sq*, and *st*; the hyphenation point
+*fr*, *gr*, *pr*, *tr*, *gn*, and *s* + any consonant; the hyphenation point
 is between the consonants in other cases.
 	- *pu-blicus*, *nu-cleus*, *fe-bris*, *qua-drum*, *mi-gro*, *pa-tris*,
 	  *va-fra*
-	- *ma-gnus*, *cre-scit*, *di-sco*, *ve-sper*, *iu-stus*
+	- *ma-gnus*, *cre-scit*, *di-sco*, *ve-sper*, *iu-stus*, *no-mi-sma*,
+	  *pre-sby-ter*
 	- *om-nis*, *prop-ter*, *ag-men*, *scrip-si*, *tec-tum*, *pos-se*, *il-le*,
 	  *dex-ter*, *At-las*, *Les-bos*
 
 3. If three or more consonants occur between two vowels, the hypenation point
 is before the last but two consonant if the group ends in *sch*, *scr*, *spl*,
 *spr*, or *str*; otherwise, the hyphenation point is before the last but one
-consonant, if the group ends in one of the pairs mentioned in the second rule;
+consonant if the group ends in one of the pairs mentioned in the second rule;
 otherwise, the hyphenation point is before the last consonant.
 	- *The-sprotia*, *ca-stra*, *ton-strix*
 	- *tem-plum*, *mem-brum*, *spec-trum*, *scep-trum*, *mulc-trum*, *in-fra*
