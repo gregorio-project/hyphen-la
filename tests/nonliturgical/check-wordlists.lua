@@ -66,7 +66,9 @@ end
 
 function containsNonItalianHyphenation(word)
    for i = 2, utf8.len(word)-3 do
-      if utf8substring(word,i,i+2) == "s-c"
+      if utf8substring(word,i,i+2) == "s-b"
+      or utf8substring(word,i,i+2) == "s-c"
+      or utf8substring(word,i,i+2) == "s-m"
       or utf8substring(word,i,i+2) == "s-p"
       or utf8substring(word,i,i+2) == "s-t" then
          return true
@@ -77,7 +79,9 @@ end
 
 function removeNonItalianHyphenation(word)
    for i = 2, utf8.len(word)-3 do
-      if utf8substring(word,i,i+2) == "s-c"
+      if utf8substring(word,i,i+2) == "s-b"
+      or utf8substring(word,i,i+2) == "s-c"
+      or utf8substring(word,i,i+2) == "s-m"
       or utf8substring(word,i,i+2) == "s-p"
       or utf8substring(word,i,i+2) == "s-t" then
          word = utf8substring(word,1,i-1).."-s"..utf8substring(word,i+2)
