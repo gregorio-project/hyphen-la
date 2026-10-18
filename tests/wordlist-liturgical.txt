@@ -2164,12 +2164,6 @@ amb-i-ge-ba-tur
 amb-i-ge-mi-ni
 amb-i-ge-mur
 amb-i-ge-mus
-am-bi-ge-ne-ra
-am-bi-ge-ne-re
-am-bi-ge-ne-ri
-am-bi-ge-ne-ri-bus
-am-bi-ge-ne-ris
-am-bi-ge-ne-rum
 amb-i-gens
 amb-i-gent
 amb-i-gen-te
