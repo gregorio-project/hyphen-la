@@ -35,7 +35,7 @@ def dotest(filename, allhyphens=True):
 		for line in f:
 			linenum += 1
 			line = line.strip()
-			line = re.sub('\s*\%.*', '', line)
+			line = re.sub(r'\s*\%.*', '', line)
 			base = line.replace('-', '')
 			if base in seenSegs and line != seenSegs[base][1]:
 				print('ERROR: line %d: test \'%s\' differs from test \'%s\' line %d in %s' % (linenum, line, seenSegs[base][1], seenSegs[base][0], seenSegs[base][2]), file=sys.stderr)
@@ -59,7 +59,7 @@ def dotest_accents(filename):
 	with open(filename, 'r') as f:
 		for line in f:
 			line = line.strip()
-			line = re.sub('\s*\%.*', '', line)
+			line = re.sub(r'\s*\%.*', '', line)
 			baseacc = line.replace('-', '').lower()
 			basenoacc = deacc(baseacc)
 			resacc = hyphenator.inserted(baseacc)

@@ -44,7 +44,7 @@ nbErrors = 0
 for pat in args.path:
     line += 1
     pat = pat.strip('\n')
-    if re.search('\s', pat):
+    if re.search(r'\s', pat):
         print('  line %d: pattern \'%s\' contains space' % (line, pat), file=sys.stderr)
         nbErrors += 1
     reducedPat = re.sub(r'\d', '', pat)
