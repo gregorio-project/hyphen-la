@@ -38,4 +38,4 @@ list of words in the `tests` folder.
 #### Usage
 
 Go to the main directory and call `scripts/test.py`,
-`scripts/test-classical.py`, or `scripts/test-classical-ec.py`. For liturgical Latin it is also possible to use `make test`.
+`scripts/test-classical.py`, or `scripts/test-classical-ec.py`. It is also possible to use `make test` (for the liturgical patterns) or `make test_classical`.

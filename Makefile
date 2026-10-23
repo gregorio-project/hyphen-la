@@ -30,5 +30,9 @@ check_modern:
 check_liturgical:
 	python3 scripts/checkPatterns.py patterns/hyph.la.liturgical.txt
 
+test_classical: hyph_la_classical.dic hyph_la_classical_ec.dic scripts/test-classical.py scripts/test-classical-ec.py
+	python3 scripts/test-classical.py
+	python3 scripts/test-classical-ec.py
+
 test: hyph_la_liturgical.dic scripts/test.py
 	python3 scripts/test.py
