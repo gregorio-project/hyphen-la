@@ -23,7 +23,7 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
 
-    Depends on pyphen: http://pyphen.org/
+    Depends on pyphen: https://pyphen.org/
     You also need the hyph_la_liturgical.dic file. To get it, get the
       hyphen-la project on https://github.com/gregorio-project/hyphen-la
       and run "make" in the "patterns" directory.

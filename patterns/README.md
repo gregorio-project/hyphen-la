@@ -43,7 +43,7 @@ It is best to find the most words that are in accordance with a rule in order to
 
 ## Format conversion
 
-The patterns are in the patgen format used by TeX. You can download them in other forms on the [webpage](http://gregorio-project.github.io/hyphen-la/), but if you want to convert them yourself:
+The patterns are in the patgen format used by TeX. You can download them in other forms on the [webpage](https://gregorio-project.github.io/hyphen-la/), but if you want to convert them yourself:
 
 ### libhyphen (LibreOffice, Adobe, etc.)
 
@@ -55,7 +55,7 @@ Run `make` in the main directory to do the conversion. Note that you must have `
 
 ### Javascript
 
-The patterns can be converted to the format used by [Hyphenator](http://mnater.github.io/Hyphenator/) and [hypher](https://github.com/bramstein/hypher) by using the [conversion page from Hyphenator](http://mnater.github.io/Hyphenator/compressor.html), after replacing new lines by space in the pattern files.
+The patterns can be converted to the format used by [Hyphenopoly](https://mnater.github.io/Hyphenatopoly/) and [hypher](https://github.com/bramstein/hypher) by using the [conversion page from Hyphenator](https://mnater.github.io/Hyphenator/compressor.html), after replacing new lines by space in the pattern files.
 
 ## Licence
 

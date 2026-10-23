@@ -146,7 +146,7 @@ The following examples show some typical differences between the three styles.
   (?). – The most complete version of this dictionary published shortly after
   the death of the author.
 - C. T. Lewis/C. Short, [*A Latin
-  Dictionary*](http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.04.0059),
+  Dictionary*](https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.04.0059),
   1879. – A comprehensive Latin-English dictionary.
 - The *Oxford Latin Dictionary (OLD)*, 1968–1982. – A dictionary representing a
   relatively recent stage of research, but only covering classical Latin.
@@ -166,10 +166,10 @@ The following examples show some typical differences between the three styles.
   1957 ff. – A modern dictionary of medieval Latin within the period from 800
   to 1200 with French translations, so far covering the letters L–O and parts
   of P.
-- *Mittellateinisches Wörterbuch (MLW)*, 1959 ff. – A modern dictionary of the
+- [*Mittellateinisches Wörterbuch (MLW)*](https://woerterbuchnetz.de/MLW/), 1959 ff. – A modern dictionary of the
   medieval Latin of German-speaking territories up to the 13th century,
   containing Latin explanations and German translations of every word. So far,
-  it covers the letters A–H and parts of I.
+  it covers the letters A–K and parts of S.
 
 ### Etymological dictionaries
 - A Ernout/A. Meillet, *Dictionnaire étymologique de la langue latine*.

@@ -13,7 +13,7 @@ echo -n "% title: Hyphenation patterns for classical Latin
 echo -n `date +%Y` | tee -a $TeXFile >> $TeXFileEC
 echo -n " Keno Wehr
 % notice: This file is part of the hyph-utf8 package.
-%     See http://www.hyphenation.org/tex for more information.
+%     See https://www.hyphenation.org/tex for more information.
 %     These patterns are also suitable for medieval and modern Latin if German
 %     or Slavic pronunciation is used.
 %     See https://github.com/gregorio-project/hyphen-la/tree/master/doc for
@@ -35,7 +35,7 @@ echo -n "% authors:
 %     contact: wehr (at) abgol.de
 % licence:
 %     name: MIT
-%     url:  http://opensource.org/licenses/MIT
+%     url:  https://opensource.org/licenses/MIT
 %     text: >
 %           Permission is hereby granted, free of charge, to any person
 %           obtaining a copy of this software and associated documentation
