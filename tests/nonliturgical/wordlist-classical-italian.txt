@@ -1549,8 +1549,8 @@ Am-bro-sie
 am-bro-sius
 Am-brus-sum
 Am-bry-sus
-am-bu-ba-ia
-am-bu-ba-iæ
+am-bu-baia
+am-bu-baiæ
 am-bu-la-bi-lis
 am-bu-la-crum
 am-bu-la-ti-lis
@@ -8746,7 +8746,7 @@ ire-na-ceus
 Ire-neus
 Ire-seum
 ir-re-spi-ra-bi-lis
-Isa-ias
+Isaias
 Iseum
 Iso-cra-teus
 iso-pleu-ron
@@ -14391,7 +14391,7 @@ pu-buis
 pu-le-ia-tum
 pu-le-ia-tus
 pu-le-ium
-pul-le-ia-ceus
+pul-leia-ceus
 pul-men-ta
 pul-men-tum
 pul-mo-na-ceus
