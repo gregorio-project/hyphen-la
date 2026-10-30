@@ -6982,6 +6982,7 @@ e-xor-ci-so
 e-xor-cis-ta
 e-xor-ci-zo
 e-xos-tra
+ex-pe-ri-men-tum
 ex-pin-gunt
 ex-pin-gun-tur
 ex-pun-gunt
@@ -17153,6 +17154,7 @@ pro-ma-gis-tro
 Pro-me-the-us
 pro-mons-tra
 prop-ni-ge-um
+pro-po-su-it
 prop-ter
 prop-ter-e-a
 pro-pun-gunt
@@ -22868,6 +22870,7 @@ vi-na-ce-um
 vi-na-ce-us
 vin-ce-us
 vin-dex
+Vin-do-bo-na
 vi-ne-us
 vi-ni-bu-is
 vi-o-la-ce-um

@@ -7060,6 +7060,7 @@ exorcíso
 exorcísta
 exorcízo
 exóstra
+experiméntum
 expíngunt
 expingúntur
 expúngunt
@@ -17151,6 +17152,7 @@ promagístro
 Promethéus
 promónstra
 propnigéum
+propósuit
 propter
 proptérea
 propúngunt
@@ -22926,6 +22928,7 @@ vináceum
 vináceus
 vínceus
 vindex
+Vindóbona
 víneus
 viníbuis
 violáceum

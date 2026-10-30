@@ -5279,6 +5279,7 @@ exo-dium
 exo-dus
 exor-ci-so
 exor-ci-zo
+ex-pe-ri-men-tum
 ex-pin-gunt
 ex-pin-gun-tur
 ex-pun-gunt
@@ -14148,6 +14149,7 @@ pro-fu-tu-rus
 pro-icio
 Pro-me-theus
 prop-ni-geum
+pro-po-suit
 prop-ter
 prop-ter-ea
 pro-pun-gunt
@@ -19454,6 +19456,7 @@ vi-na-ceum
 vi-na-ceus
 vin-ceus
 vin-dex
+Vin-do-bo-na
 vi-neus
 vi-ni-buis
 vio-la-ceum
