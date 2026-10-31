@@ -289,7 +289,6 @@ ab-sta-re
 ab-sta-rem
 ab-sta-re-mus
 ab-sta-rent
-ab-sta-ren-tur
 ab-sta-res
 ab-sta-ret
 ab-sta-re-tis
