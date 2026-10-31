@@ -556,7 +556,6 @@ ab-stra-hunt
 ab-stra-hun-to
 ab-stra-hun-tor
 ab-stra-hun-tur
-ab-stra-xe
 ab-stra-xe-ram
 ab-stra-xe-ra-mus
 ab-stra-xe-rant

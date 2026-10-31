@@ -556,7 +556,6 @@ abs-tra-hunt
 abs-tra-hun-to
 abs-tra-hun-tor
 abs-tra-hun-tur
-abs-tra-xe
 abs-tra-xe-ram
 abs-tra-xe-ra-mus
 abs-tra-xe-rant
