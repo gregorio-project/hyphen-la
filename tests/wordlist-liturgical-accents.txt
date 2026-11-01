@@ -2268,7 +2268,6 @@ ambívero
 ambivérunt
 ambívi
 ambívia
-Ambívie
 ambívii
 ambíviis
 ambívimus
@@ -2297,7 +2296,7 @@ Ambrácia
 Ambrónes
 ambrósia
 ambrosiáles
-Ambrósie
+ambrósie
 ambrósius
 Ambrússum
 Ambrýsus

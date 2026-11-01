@@ -2227,7 +2227,6 @@ amb-i-ve-ro
 amb-i-ve-runt
 amb-i-vi
 am-bi-vi-a
-Am-bi-vi-e
 am-bi-vi-i
 am-bi-vi-is
 amb-i-vi-mus
@@ -2256,7 +2255,7 @@ am-bri-ces
 Am-bro-nes
 am-bro-si-a
 am-bro-si-a-les
-Am-bro-si-e
+am-bro-si-e
 am-bro-si-us
 Am-brus-sum
 Am-bry-sus
