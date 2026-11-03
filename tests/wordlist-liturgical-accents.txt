@@ -13620,12 +13620,6 @@ períclitor
 periculósus
 perículum
 peridóneus
-perieam
-perieamus
-perieant
-perieas
-perieat
-perieatis
 periebámini
 periebámur
 periebántur
@@ -13633,13 +13627,6 @@ periébar
 periebáre
 periebáris
 periebátur
-periee
-perieim
-perieimus
-perieint
-perieis
-perieit
-perieitis
 periémini
 periémur
 periéndi
@@ -13665,7 +13652,6 @@ periére
 periéris
 períeris
 periétur
-perieunt
 périi
 períimus
 periíssem
@@ -13785,7 +13771,6 @@ periucúndus
 périugis
 periúntor
 periúntur
-periur
 periúro
 periúrus
 períveram
