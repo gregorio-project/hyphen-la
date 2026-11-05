@@ -194,9 +194,9 @@ end
 
 -- sort word lists
 
-classicalFile = "wordlist-classical-only.txt"
+classicalFile = "wordlist-classical.txt"
 classicalItalianFile = "wordlist-classical-italian.txt"
-italianFile = "wordlist-italian-only.txt"
+italianFile = "wordlist-italian.txt"
 
 sortFile(classicalFile)
 sortFile(classicalItalianFile)
@@ -205,7 +205,7 @@ sortFile(italianFile)
 
 -- read hyphenated words from word lists and store them in tables
 
-liturgicalFile = "../wordlist-liturgical.txt"
+liturgicalFile = "wordlist-liturgical.txt"
 liturgical = {}
 classical = {}
 italian = {}
@@ -336,9 +336,9 @@ for _, word in pairs(missingWords) do
    end
 end
 
-classicalFile = "candidates-classical-only.txt"
+classicalFile = "candidates-classical.txt"
 classicalItalianFile = "candidates-classical-italian.txt"
-italianFile = "candidates-italian-only.txt"
+italianFile = "candidates-italian.txt"
 
 deleteFile(classicalFile)
 deleteFile(classicalItalianFile)
