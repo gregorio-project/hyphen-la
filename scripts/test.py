@@ -1,16 +1,30 @@
 #!/usr/bin/env python3
 
 import pyphen
-import sys
 import re
+from argparse import ArgumentParser
 
-hyphenator = pyphen.Pyphen(filename='patterns/hyph_la_liturgical.dic',left=1,right=1)
+parser = ArgumentParser()
+parser.add_argument("--liturgical", action = "store_true")
+parser.add_argument("--classical", action = "store_true")
+parser.add_argument("--classical_ec", action = "store_true")
+parser.add_argument("--italian", action = "store_true")
+
+args = parser.parse_args()
+
+if args.classical:
+	hyphenator = pyphen.Pyphen(filename='patterns/hyph_la_classical.dic',left=2,right=2)
+elif args.classical_ec:
+	hyphenator = pyphen.Pyphen(filename='patterns/hyph_la_classical_ec.dic',left=2,right=2)
+elif args.italian:
+	hyphenator = pyphen.Pyphen(filename='patterns/hyph_la_modern.dic',left=2,right=2)
+else:
+	hyphenator = pyphen.Pyphen(filename='patterns/hyph_la_liturgical.dic',left=1,right=1)
+
 seenSegs = {}
 line = 0
-nbErrors = 0
 
 def comparenoncompletehyphens(original, obtained):
-	global nbErrors
 	i = 0
 	for c in obtained:
 		if c == '-':
@@ -18,18 +32,17 @@ def comparenoncompletehyphens(original, obtained):
 				i = i + 1
 		else:
 			if original[i] == '-':
-				nbErrors += 1
 				return False
 			else:
 				i = i + 1
 	return True
 
 def printError(wrong, correct, base):
-	print('%s 		%% %s  (not %s)' % (base, correct, wrong), file=sys.stderr)
+	print('%s 		%% %s  (not %s)' % (base, correct, wrong))
 
 def dotest(filename, allhyphens=True):
-	global hyphenator, seenSegs, nbErrors
-	print('differences in '+filename+':', file=sys.stderr)
+	global hyphenator, seenSegs
+	print('differences in '+filename+':')
 	linenum = 0
 	with open(filename, 'r') as f:
 		for line in f:
@@ -38,8 +51,7 @@ def dotest(filename, allhyphens=True):
 			line = re.sub(r'\s*\%.*', '', line)
 			base = line.replace('-', '')
 			if base in seenSegs and line != seenSegs[base][1]:
-				print('ERROR: line %d: test \'%s\' differs from test \'%s\' line %d in %s' % (linenum, line, seenSegs[base][1], seenSegs[base][0], seenSegs[base][2]), file=sys.stderr)
-				nbErrors += 1
+				print('ERROR: line %d: test \'%s\' differs from test \'%s\' line %d in %s' % (linenum, line, seenSegs[base][1], seenSegs[base][0], seenSegs[base][2]))
 			else:
 				seenSegs[base] = (linenum, line, filename)
 			new = hyphenator.inserted(base)
@@ -55,7 +67,7 @@ def deacc(accstr):
 
 def dotest_accents(filename):
 	global hyphenator
-	print('differences in '+filename+':\nresult without accent (correct) / result with accent (incorrect)', file=sys.stderr)
+	print('differences in '+filename+':\nresult without accent (correct) / result with accent (incorrect)')
 	with open(filename, 'r') as f:
 		for line in f:
 			line = line.strip()
@@ -67,10 +79,17 @@ def dotest_accents(filename):
 			if not resnoacc == deacc(resacc):
 				printError(resacc, resnoacc, baseacc)
 
-dotest('tests/wordlist-liturgical.txt')
-print('\n')
-dotest_accents('tests/wordlist-liturgical-accents.txt')
-print('\n')
+if args.classical or args.classical_ec:
+	dotest('tests/wordlist-classical-italian.txt')
+	print()
+	dotest('tests/wordlist-classical.txt')
+elif args.italian:
+	dotest('tests/wordlist-classical-italian.txt')
+	print()
+	dotest('tests/wordlist-italian.txt')
+else:
+	dotest('tests/wordlist-liturgical.txt')
 
-if nbErrors > 0:
-	sys.exit(1)
+print()
+dotest_accents('tests/wordlist-liturgical-accents.txt')
+print()
