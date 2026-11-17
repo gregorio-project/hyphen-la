@@ -13,11 +13,11 @@ The file [orberg.txt](orberg.txt) contains a list of etymological hyphenation po
 A list of words hyphenated according to the liturgical hyphenation style
 reviewed by Claudio Beccari, Solesmes Abbey, and Flavigny Abbey.
 
-### wordlist-liturgical-accents.txt
+### wordlist-classical-italian.txt
 
-A list of of accented words (without hyphenations). According to current usage
-in Catholic Church books, only words of more than two syllables carry an
-accent.
+Hyphenations suitable for the classical and the Italian hyphenation style,
+e. g.  *uni-cus*, *au-dio*, *in-imi-cus*, *crea-re*, *cor-po-reus*, *an-nus*,
+*sanc-tus*, *ab-sto*.
 
 ### wordlist-classical.txt
 
@@ -32,11 +32,12 @@ are mainly hyphenations not splitting *gn*, *sc*, *sp*, or *st*, e. g.
 *ho-spes*, *ca-stra*, *di-sco*, *ta-be-scet*, *su-sci-pe*, *di-gnus*,
 *ve-sti-gia*.
 
-### wordlist-classical-italian.txt
+### wordlist-accents.txt
 
-Hyphenations suitable for the classical and the Italian hyphenation style,
-e. g.  *uni-cus*, *au-dio*, *in-imi-cus*, *crea-re*, *cor-po-reus*, *an-nus*,
-*sanc-tus*, *ab-sto*.
+A list of of accented words (without hyphenations). According to current usage
+in Catholic Church books, only words of more than two syllables carry an
+accent. The accented words in this list are expected to be hyphenated the same
+way as the corresponding unaccented words.
 
 ### check-wordlists.lua
 

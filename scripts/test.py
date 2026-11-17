@@ -91,5 +91,5 @@ else:
 	dotest('tests/wordlist-liturgical.txt')
 
 print()
-dotest_accents('tests/wordlist-liturgical-accents.txt')
+dotest_accents('tests/wordlist-accents.txt')
 print()
