@@ -42,16 +42,15 @@ way as the corresponding unaccented words.
 ### check-wordlists.lua
 
 This script sorts all word lists mentioned above and checks
-- if there are any duplicates for any of the two hyphenation variants in the
-  word lists or in `wordlist-liturgical.txt`,
-- if the same words are taken into account for all three hyphenation variants
-  (classical, modern, and liturgical),
-- if there are missing or additional words compared to
-  `wordlist-liturgical.txt`.
+- if there are any duplicates in the word lists,
+- if the same words are taken into account for all three hyphenation styles
+  (liturgical, classical, and Italian),
+- if all words having at least three syllables in `wordlist-liturgical.txt`
+  are present with accent in `wordlist-accents.txt`.
 
 Furthermore, the scripts writes `candidates-*` files in case of missing
 hyphenations from `wordlist-liturgical.txt` prepared for the different
-hyphenation variants.
+hyphenation styles.
 
 #### Usage
 	lua5.3 check-wordlists.lua
