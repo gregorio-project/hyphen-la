@@ -1550,6 +1550,7 @@ adobrútio
 adóleo
 adoléscens
 adolésco
+Adonái
 Adónai
 Adonéus
 Adóneus
@@ -3046,6 +3047,8 @@ astríficus
 ástriger
 astríloquus
 astrilúcus
+astringére
+astríngere
 astríngo
 astríngunt
 astringúntur
@@ -3344,6 +3347,9 @@ cánneus
 Capanéus
 Cápeus
 Capharéus
+Capháreus
+Capharnáum
+Caphárnaum
 capilláceus
 capistrárius
 capístro
@@ -3436,8 +3442,8 @@ Chœrogrýllus
 chóreus
 Choréusæ
 chorocitharístria
-Chrismáte
-Chrísmate
+chrismáte
+chrísmate
 chrysoáspides
 cichoréum
 cineráceus
@@ -3656,8 +3662,8 @@ cœ́perant
 cœ́peras
 cœ́perat
 cœperátis
-cœ́pere
 cœpére
+cœ́pere
 cœ́perem
 cœperémini
 cœperémur
@@ -5219,6 +5225,7 @@ deurerémur
 deurerémus
 deurérent
 deureréntur
+deúrerer
 deurerére
 deureréris
 deuréres
@@ -6837,6 +6844,8 @@ exstinguéntis
 exstinguéntium
 exstinguéntur
 exstinguére
+exstinguére
+exstínguere
 exstinguérem
 exstinguerémini
 exstinguerémur
@@ -6971,12 +6980,12 @@ focáneus
 fœdárum
 fœ́dera
 fœderári
-fœ́dere
 fœdére
+fœ́dere
 fœ́deri
 fœdéribus
-fœ́deris
 fœdéris
+fœ́deris
 fœ́derum
 fœ́dior
 fœdióra
@@ -14924,8 +14933,8 @@ prætérerit
 præteréritis
 prætérero
 prætérerunt
-prǽteres
 prætéres
+prǽteres
 præterésse
 præteréssem
 præteressémus
@@ -14933,8 +14942,8 @@ præteréssent
 præterésses
 præterésset
 præteressétis
-prǽterest
 prætérest
+prǽterest
 præteréste
 præteréstis
 præterésto
@@ -15664,6 +15673,8 @@ próderet
 proderétis
 proderétur
 prodérimus
+prodéris
+próderis
 próderit
 prodéritis
 pródero
@@ -19288,6 +19299,8 @@ supérerat
 supererátis
 superére
 superérimus
+superéris
+supéreris
 supérerit
 superéritis
 supérero
