@@ -150,10 +150,7 @@ function readHyphenations(fileName,list,hyphenationStyle)
    local inputStream = assert(io.open(fileName,"r"))
    io.input(inputStream)
    for line in io.lines() do
-      local word = string.lower(string.gsub(line,"-",""))
-      --[[ We use the word without hyphens and in lowercase as key; the lower
-      function does not work for accented characters, so there may be
-      undetected duplicates beginning with an accented letter. ]]
+      local word = string.gsub(line,"-","")
       if list[word] then
          if hyphenationStyle == "liturgical" then
             print('Duplicate in file "'..fileName..'": '..list[word].."/"..line)

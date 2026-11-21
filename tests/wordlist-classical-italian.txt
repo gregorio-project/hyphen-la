@@ -1721,7 +1721,7 @@ an-gu-la-tim
 an-gu-la-tus
 an-gu-lo
 an-gu-lo-sus
-An-gu-lum
+an-gu-lum
 an-gu-lus
 an-gunt
 an-gun-tur
@@ -2343,7 +2343,7 @@ Be-rœæ
 Be-rœam
 Be-rœen-sis
 be-ta-ceus
-beth-le-hem
+Beth-le-hem
 Beu-dos
 bia
 bi-lin-gue
@@ -2479,7 +2479,7 @@ chlo-reus
 Chœ-ro-gryl-lus
 cho-reus
 Cho-reu-sæ
-Chris-ma-te
+chris-ma-te
 ci-cho-reum
 ci-ne-ra-ceus
 ci-ne-reum
@@ -4884,7 +4884,7 @@ epi-pe-dos
 epi-pe-tros
 Epi-pha-nea
 Epi-pha-nes
-Epi-pha-nia
+epi-pha-nia
 epi-pha-niæ
 Epi-pha-nius
 epi-pho-ne-ma
@@ -5935,7 +5935,7 @@ im-pin-gua-ve-ris
 im-pin-gua-ve-rit
 im-pin-gua-ve-ri-tis
 im-pin-gua-ve-ro
-Im-pin-gua-ve-runt
+im-pin-gua-ve-runt
 im-pin-gua-vi
 im-pin-gua-vi-mus
 im-pin-gua-vis-se
@@ -11060,7 +11060,6 @@ per-iu-cun-dus
 per-iu-gis
 pe-riun-tor
 pe-riun-tur
-per-iur
 per-iu-ro
 per-iu-rus
 per-ive-ram

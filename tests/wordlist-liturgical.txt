@@ -2500,7 +2500,7 @@ an-gu-la-tim
 an-gu-la-tus
 an-gu-lo
 an-gu-lo-sus
-An-gu-lum
+an-gu-lum
 an-gu-lus
 an-gunt
 an-gun-tur
@@ -3288,7 +3288,7 @@ Be-rœ-æ
 Be-rœ-am
 Be-rœ-en-sis
 be-ta-ce-us
-beth-le-hem
+Beth-le-hem
 Beu-dos
 bi-a
 bi-lin-gue
@@ -3519,7 +3519,7 @@ Chœ-ro-gryl-lus
 cho-re-us
 Cho-reu-sæ
 cho-ro-ci-tha-ris-tri-a
-Chris-ma-te
+chris-ma-te
 Chris-tus
 chry-so-as-pi-des
 ci-cho-re-um
@@ -5513,7 +5513,7 @@ deu-te-ri-os
 deu-te-ri-um
 deu-te-ri-us
 deu-te-ro
-deu-te-ro-no-mi-i
+Deu-te-ro-no-mi-i
 Deu-te-ro-no-mi-um
 deu-te-ro-rum
 deu-te-ros
@@ -7733,7 +7733,7 @@ im-pin-gua-ve-ris
 im-pin-gua-ve-rit
 im-pin-gua-ve-ri-tis
 im-pin-gua-ve-ro
-Im-pin-gua-ve-runt
+im-pin-gua-ve-runt
 im-pin-gua-vi
 im-pin-gua-vi-mus
 im-pin-gua-vis-se
@@ -10895,7 +10895,7 @@ i-re-na-ce-us
 I-re-ne-us
 I-re-se-um
 ir-re-spi-ra-bi-lis
-i-sa-i-as
+I-sa-i-as
 is-chi-as
 I-se-um
 I-so-cra-te-us
