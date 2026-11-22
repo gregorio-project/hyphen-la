@@ -2156,7 +2156,7 @@ ambitórum
 ambítos
 ambitóte
 Ambitrébius
-ámbitudo
+ambitúdo
 ambítum
 ámbitum
 ambítur
@@ -2814,7 +2814,7 @@ aspérgo
 áspergo
 aspéritas
 aspériter
-aspéritudo
+asperitúdo
 aspernábilis
 aspernaméntum
 aspernándus
@@ -2830,7 +2830,7 @@ aspérsio
 aspersórium
 aspérsum
 aspérsus
-ásperugo
+asperúgo
 Asphalítes
 aspháltion
 aspháltus
@@ -2857,7 +2857,7 @@ aspratúra
 asprédinis
 áspredo
 asprétum
-áspritudo
+aspritúdo
 aspuére
 aspúere
 áspuo
@@ -4852,7 +4852,7 @@ crispicapíllus
 críspio
 crispíre
 crispisúlcans
-críspitudo
+crispitúdo
 críspulus
 cróceus
 crotalístria
@@ -4899,10 +4899,10 @@ déerant
 déeras
 déerat
 deerátis
-déerimus
+deérimus
 déeris
 déerit
-déeritis
+deéritis
 déero
 déerunt
 deésse
@@ -5004,10 +5004,10 @@ depereúnte
 depereúntem
 depereúntes
 depereúnti
-deperéuntia
-deperéuntibus
+depereúntia
+depereúntibus
 depereúntis
-deperéuntium
+depereúntium
 déperi
 deperíbam
 deperibámus
@@ -5400,7 +5400,6 @@ diazéuxis
 Dicarchéus
 dichonéutus
 dichoréus
-díchoreus
 Dictynnéum
 didráchma
 Didýmeus
@@ -7215,7 +7214,7 @@ Hespéria
 Hespérides
 Hésperis
 Hespérius
-hésperugo
+hesperúgo
 Hésperus
 Heurésis
 héuretes
@@ -11012,7 +11011,6 @@ logéum
 loliáceus
 longǽvus
 longínquo
-lónginquo
 longivívax
 Lóngula
 Longulánus
@@ -12705,7 +12703,7 @@ ostreátus
 ostreósus
 óstreum
 óstria
-óstriago
+ostriágo
 ostriárium
 ostrícolor
 óstrifer
@@ -13105,9 +13103,7 @@ periéntium
 periéntum
 periéntur
 períerant
-périerant
 períerat
-périerat
 periére
 periéris
 períeris
@@ -20034,7 +20030,6 @@ supérlex
 supérligo
 superlímen
 superlimináre
-superlíminare
 superlimínium
 superlínio
 superlinítio
@@ -20624,7 +20619,7 @@ teuchítis
 téucria
 téucrion
 Téucrius
-Téurnia
+Teúrnia
 Teutána
 Teutáni
 Teutátes
@@ -21929,7 +21924,7 @@ véspero
 vespertílio
 vespertinális
 vespertínus
-vésperugo
+vesperúgo
 vésperus
 véspillo
 vestígia
