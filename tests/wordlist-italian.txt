@@ -583,6 +583,7 @@ ab-stra-xis-se-tis
 ab-stra-xi-sti
 ab-stra-xi-stis
 ab-stra-xit
+ab-stru-dam
 ab-stu-las
 ab-stu-le-ram
 ab-stu-le-ra-mus
@@ -1760,6 +1761,7 @@ Hy-da-spes
 Hy-da-speus
 hy-grem-pla-strum
 Hy-perm-ne-stra
+hy-po-ia-stius
 Hy-sta-spes
 hy-stri-co-sus
 hy-stri-cu-lus
@@ -2277,6 +2279,7 @@ ma-gni-fi-co
 ma-gni-fi-cus
 ma-gni-tu-do
 ma-gnus
+maiu-scu-lus
 ma-ni-fe-sta-vit
 ma-ni-fe-sten-tur
 Mar-spi-ter

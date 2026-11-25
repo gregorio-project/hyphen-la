@@ -583,6 +583,7 @@ abs-tra-xis-se-tis
 abs-tra-xis-ti
 abs-tra-xis-tis
 abs-tra-xit
+abs-tru-dam
 abs-tu-las
 abs-tu-le-ram
 abs-tu-le-ra-mus
@@ -1760,6 +1761,7 @@ Hy-das-pes
 Hy-das-peus
 hy-grem-plas-trum
 Hy-perm-nes-tra
+hy-po-ias-tius
 Hys-tas-pes
 hys-tri-co-sus
 hys-tri-cu-lus
@@ -2277,6 +2279,7 @@ mag-ni-fi-co
 mag-ni-fi-cus
 mag-ni-tu-do
 mag-nus
+maius-cu-lus
 ma-ni-fes-ta-vit
 ma-ni-fes-ten-tur
 Mars-pi-ter
@@ -2460,6 +2463,7 @@ ob-sis-to
 ob-so-les-co
 ob-sor-des-co
 ob-sti-pes-co
+obs-tru-dam
 obs-tru-da-mi-ni
 obs-tru-da-mur
 obs-tru-da-mus

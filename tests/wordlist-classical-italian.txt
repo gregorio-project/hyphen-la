@@ -1,3 +1,4 @@
+Aa-ron
 ab
 aba-cus
 ab-alie-no
@@ -978,7 +979,6 @@ ad-vo-lo
 ad-vol-vo
 ad-vor-sus
 ady-tum
-ae
 Ægeum
 Ægeus
 Ægia-leus
@@ -1032,15 +1032,14 @@ agro
 agrus
 Agyieus
 Agyl-leus
-ai
 aie
 ai-gleu-cos
 aio
 ait
-aiu
 Ala-theus
 al-bi-neus
 Al-ceus
+al-cyon
 al-cyo-neus
 Aleus
 ali-un-de
@@ -1749,8 +1748,8 @@ an-ti-stro-phe
 an-ti-stro-phos
 an-ti-stro-phus
 an-ti-theus
-ao
 Apha-reus
+aphye
 Api-da-neus
 apo-ca
 apo-ca-lyp-sis
@@ -2325,9 +2324,9 @@ au-spi-cor
 au-tem
 ave-na-ceus
 avium
-ay
 azy-mus
 Bac-cheus
+ba-iu-lo
 ba-li-neum
 bal-neum
 bal-sa-meus
@@ -2345,7 +2344,7 @@ Be-rœen-sis
 be-ta-ceus
 Beth-le-hem
 Beu-dos
-bia
+Bias
 bi-lin-gue
 bi-lin-guem
 bi-lin-gues
@@ -2382,8 +2381,11 @@ bi-lych-nis
 bi-tu-mi-neus
 blach-non
 blat-teus
+Ble-myes
 bli-teus
+boo
 bo-reus
+bo-tryi-tis
 boum
 bra-beum
 bra-beu-ta
@@ -2432,10 +2434,14 @@ car-bo-neus
 car-ce-reus
 car-di-neus
 ca-reum
+car-fia-thum
 ca-ri-ceus
 car-neus
 car-pi-neus
+Car-ræ
+Car-rhæ
 car-ti-la-gi-neus
+ca-ryi-tes
 ca-seum
 Ca-ta-bath-mos
 ca-ta-stro-ma
@@ -2465,11 +2471,15 @@ ceu
 Ceum
 Ceus
 Ceu-tro-nes
+Cey-cis
+Ceyx
 chal-ceus
 cha-mæ-daph-ne
 cha-mæ-leu-ce
 cha-mæ-peu-ce
 cha-meu-nia
+Cha-naan
+chaos
 Cha-ro-neus
 char-ta-ceus
 char-teus
@@ -2597,6 +2607,7 @@ Cle-vas
 cli-peum
 cli-peus
 cloa-ca
+Cloio
 clu-peus
 co-ad-do
 co-ad-eram
@@ -2919,7 +2930,7 @@ com-pe-re-ri-tis
 com-pe-re-ro
 com-pe-re-runt
 com-per-eun-da
-com-per-eun-dae
+com-per-eun-dæ
 com-per-eun-dam
 com-per-eun-da-rum
 com-per-eun-das
@@ -3206,6 +3217,14 @@ com-po-si-tus
 com-pos-ses-sor
 com-po-sui
 com-po-ta-tio
+com-po-tens
+com-po-ten-tem
+com-po-ten-tes
+com-po-ten-ti
+com-po-ten-tia
+com-po-ten-ti-bus
+com-po-ten-tis
+com-po-ten-tium
 com-po-tes
 com-po-tio
 com-po-tior
@@ -3769,6 +3788,8 @@ con-vo-co
 con-vo-lo
 con-vo-mo
 con-vul-ne-ro
+co-ope-rio
+co-op-to
 co-ria-ceus
 Co-rin-theus
 cor-neus
@@ -3789,6 +3810,7 @@ Cre-theus
 creth-mos
 Creu-sa
 cro-ceus
+Crom-myua-cris
 cru-ci-fi-xus
 cui
 cu-ius
@@ -3856,6 +3878,7 @@ de-es-set
 de-es-se-tis
 de-est
 de-fer-buis
+de-fiat
 de-frin-gunt
 de-frin-gun-tur
 de-fue-ram
@@ -4550,6 +4573,7 @@ dra-co-neus
 dra-con-teus
 drun-gum
 drun-gus
+Dryu-sa
 du-plex
 du-plum
 du-ra-teus
@@ -4564,7 +4588,6 @@ ec-cheu-ma
 ecu-leus
 eden-ta-neus
 edu-leus
-ee
 ef-fer-buis
 ef-fin-gunt
 ef-fin-gun-tur
@@ -4576,10 +4599,7 @@ egui
 eheu
 ei
 eia
-eie
-eio
 Eio-neus
-eiu
 eius
 elan-gue-ram
 elan-gue-ra-mus
@@ -4783,6 +4803,7 @@ em-phy-teu-ti-cus
 em-pleu-ros
 em-pneu-ma-to-sis
 emp-tor
+em-pyi-cus
 emun-gunt
 emun-gun-tur
 Eni-peus
@@ -4790,8 +4811,11 @@ en-rhyth-mi-cus
 en-theus
 enu-triet
 eo
-eoa
+Eoa
+eoad
 eo-rum
+eos
+Eous
 Epa-phra
 Epa-phras
 Epa-phro-di-to
@@ -5416,6 +5440,7 @@ ex-tin-guo
 ex-ti-spex
 ex-ti-spi-cium
 ex-tra-neus
+ex-tra-or-di-na-rius
 ex-un-gue
 ex-un-guem
 ex-un-gues
@@ -5450,7 +5475,6 @@ ex-un-guius
 ex-un-gu-lo
 ex-un-gunt
 ex-un-gun-tur
-ey
 fa-ba-ceus
 fac-tum
 fac-tus
@@ -5477,7 +5501,6 @@ fer-reus
 fer-ru-gi-neus
 fe-ru-la-ceus
 fe-ru-leus
-fia
 fiant
 fi-cul-nea
 fi-cul-neus
@@ -5682,6 +5705,8 @@ gau-dium
 gem-meus
 ge-ni-trix
 ge-nuit
+Geoa-ris
+ge-thyum
 Geu-dos
 geum
 geu-siæ
@@ -5701,13 +5726,13 @@ gra-mi-neus
 gram-ma-teus
 gran-di-neus
 gu-næ-ceum
-guu
 Gya-ra
 Gyes
 gy-næ-ceum
 gyp-seus
 Gy-theum
 ha-beat
+hae-mor-rhoia
 ha-lieus
 ha-lieu-ti-cus
 ha-li-pleu-mon
@@ -5738,13 +5763,15 @@ he-ri-na-ceus
 her-me-neu-ma
 Her-mio-neus
 her-neum
+he-roion
 heu
 Heu-re-sis
 heu-re-tes
 heus
 Hian-teus
 hia-re
-hie
+hie-mo
+hiems
 hie-ro-ny-mus
 hin-nu-leus
 hio
@@ -5761,6 +5788,7 @@ hor-reum
 hor-reus
 huic
 hu-ius
+hya-cin-thus
 hy-dreu-ma
 hy-dreus
 Hy-leus
@@ -5769,7 +5797,7 @@ hy-po-zeug-ma
 hy-po-zeu-xis
 Hyp-seus
 Hy-rieus
-ia
+Iaar
 iam
 iam-beus
 ia-neus
@@ -5779,6 +5807,7 @@ ich-neu-mon
 Ich-no-ba-tes
 ich-no-gra-phia
 Ich-nu-sa
+ich-thyo-col-la
 id
 Ida
 idæa
@@ -5799,6 +5828,7 @@ idem
 iden-ti-dem
 iden-ti-tas
 id-eo
+id-eo-que
 Idi-cra
 Idi-mum
 idio-gra-phus
@@ -6008,6 +6038,7 @@ in-aspi-cuus
 in-au-spi-ca-to
 in-au-spi-ca-tus
 in-car-neus
+in-choo
 in-cin-gu-lum
 in-cin-gunt
 in-cin-gun-tur
@@ -8713,6 +8744,7 @@ ire-na-ceus
 Ire-neus
 Ire-seum
 ir-re-spi-ra-bi-lis
+Isaac
 Isaias
 Iseum
 Iso-cra-teus
@@ -8879,11 +8911,14 @@ lan-gu-ria
 lan-gu-rium
 lan-gu-rus
 la-nu-gi-neus
+Lao-coon
+Lao-di-ce
 la-pi-deus
 lap-pa-ceus
 la-queus
 lar-veus
 Lat-mia-teus
+La-toius
 la-trans
 La-treus
 La-trin-gum
@@ -8960,7 +8995,7 @@ Leu-ni
 Leu-pi-tor-ga
 Leu-sa-ba
 Leu-si-nium
-lia
+Lia
 Li-buis
 li-lia-ceus
 li-ma-ceus
@@ -9198,11 +9233,13 @@ mur-rheus
 mu-sa-ra-neus
 Mu-seum
 Mu-seus
+myops
 myr-rheus
 myr-si-neum
 myr-ta-ceus
 myr-teus
 na-ti-vi-tas
+Nau-si-caa
 na-vi-gii
 nec
 nec-dum
@@ -9253,7 +9290,6 @@ ne-utro-de-fec-ti-vus
 ne-utro-pas-si-va
 ne-utro-pas-si-vo-rum
 ne-utrubi
-nia
 ni-gro-gem-meus
 Ni-leus
 Nin-gua-ria
@@ -9288,7 +9324,6 @@ Nyc-teus
 Nym-feum
 nym-pheum
 Ny-seus
-oa
 Oæ-neum
 ob
 ob-acer-bo
@@ -10136,13 +10171,13 @@ Ob-sia-nus
 ob-si-bi-lo
 ob-si-da-tus
 ob-si-deo
-Ob-si-diæ
 ob-si-dia-lis
 Ob-si-dia-nus
 ob-si-dio
 ob-si-dio-na-lis
 ob-si-dior
 ob-si-dium
+Ob-si-dius
 ob-si-do
 ob-sim
 ob-si-mus
@@ -10433,21 +10468,16 @@ oc-cur-ro
 oc-tan-gu-lus
 oc-ta-teu-chus
 oc-ta-vus
+oc-to-iu-gis
 ocu-leus
 odeum
-oe
 Œbreus
 Œcleus
 œcu-me-ni-ca
 Œneus
 of-frin-gunt
 of-frin-gun-tur
-oi
-oia
-oie
 Oi-leus
-oio
-oiu
 olea-ceus
 olea-gi-neus
 ole-ra-ceus
@@ -10462,7 +10492,6 @@ om-nis
 om-nium
 On-cheus
 onych-nus
-oo
 oper-ta-neus
 opor-tet
 op-pan-gunt
@@ -10482,10 +10511,8 @@ Orph-næus
 Orph-ne
 os-seus
 Otreus
-ou
 ovi-le
 ovis
-oy
 Pa-da-neus
 Pæ-du-ceus
 pæn-in-su-la
@@ -11388,6 +11415,7 @@ Peu-co-lis
 peu-me-ne
 peu-sis
 Pha-le-reus
+Pha-rao
 phar-ma-ceu-ti-cus
 phar-ma-ceu-tria
 Phe-geus
@@ -11406,6 +11434,7 @@ Phœ-ni-cen
 phœ-ni-ceus
 Phœ-ni-cis
 Pho-ro-neus
+Phraa-tes
 Phri-xeus
 Phry-xeus
 ph-thon-gum
@@ -11471,6 +11500,7 @@ Pi-ræeus
 Pi-si-theus
 pi-theus
 Pit-theus
+pi-tyu-sa
 plan-gum
 plan-gunt
 plan-gun-tur
@@ -14021,8 +14051,12 @@ pro-fu-tu-ro-rum
 pro-fu-tu-ros
 pro-fu-tu-rum
 pro-fu-tu-rus
+pro-iac-to
 pro-icio
+pro-iec-ti-bi-lis
+pro-iec-tum
 Pro-me-theus
+pro-œmium
 prop-ni-geum
 pro-po-suit
 prop-ter
@@ -14282,6 +14316,7 @@ pu-ni-ceus
 pur-pu-reus
 pu-teum
 pu-teus
+pye-lus
 Py-ra-meus
 Py-re-neus
 py-reum
@@ -14324,7 +14359,6 @@ quot-li-bet
 quo-tum
 quo-tus
 quo-us-que
-quu
 ra-meus
 Ra-teo-neum
 Ray-mun-dus
@@ -15336,7 +15370,6 @@ rhyth-mo-pœia
 rhyth-mu-lus
 rhyth-mus
 rhyt-mus
-ria
 rin-gun-tur
 Ri-pheus
 ro-beus
@@ -15413,6 +15446,7 @@ se-de-cim
 se-deo
 se-des
 se-di-le
+se-dit
 sed-itio-na-rius
 sed-itio-nor
 sed-itio-se
@@ -16856,7 +16890,7 @@ su-per-flue
 su-per-flui-tas
 su-per-fluo
 su-per-fluus
-su-per-foe-do
+su-per-fœ-do
 su-per-fo-ra-neus
 su-per-fo-re
 su-per-fo-ro
@@ -17494,6 +17528,7 @@ su-per-ito
 su-per-ito-te
 su-per-itur
 su-per-iu-men-ta-rius
+su-per-iun-go
 su-pe-rius
 su-per-la-bor
 su-per-la-cri-mo
@@ -18104,7 +18139,7 @@ Theu-to-ni
 Thoan-teus
 thu-reus
 Thy-reum
-tia
+Tia
 ti-lia-ceus
 Ti-ma-si-theus
 Ti-me-si-theus
@@ -18187,6 +18222,7 @@ tin-guor
 tin-guunt
 tin-guun-tur
 tin-nun-gu-lus
+Tium
 to-fa-ceus
 to-fi-neus
 to-reu-ma
@@ -19177,6 +19213,7 @@ tri-rhyth-mus
 tri-ti-cum
 Tri-to-pa-treus
 trium-pho
+Troius
 trul-leum
 trul-leus
 trych-nos
@@ -19355,7 +19392,6 @@ vol-vo
 Vo-ro-cin-gus
 vos-met-ip-sos
 Xe-no-phon-teus
-xia
 xy-lo-lych-nu-chus
 Za-leu-cus
 Ze-be-deus

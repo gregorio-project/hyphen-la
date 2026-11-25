@@ -41,7 +41,7 @@ generates a list of hyphenated words as needed by *patgen* by means of the word
 list and the scripts mentioned above.
 
 6. Check the patterns using test files in the
-[tests/nonliturgical](../../tests/nonliturgical) directory. Every error can be
+[tests/](../../tests/) directory. Every error can be
 corrected by putting the erroneously hyphenated word in the input list.
 
 The steps 2 to 5 are executed by the `generate-patterns.sh` script. The
