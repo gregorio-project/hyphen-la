@@ -1503,7 +1503,9 @@ adiútus
 ádiuva
 adiuvámen
 adiuvátio
+adiúvero
 ádiuvo
+adívero
 adívero
 adjício
 adlábor
@@ -1682,7 +1684,9 @@ aéneus
 æquóreus
 æráneus
 aéreus
+ǽreus
 aescúleus
+æscúleus
 Æsopéus
 Æstrǽum
 Ǽstria
@@ -1733,11 +1737,13 @@ alabástrum
 Alathéus
 albíneus
 Alcéus
+álcyon
 alcyonéus
 Áleus
 alicástrum
 aliquantísper
 aliúnde
+allelúia
 allelúja
 álneus
 Aloéus
@@ -2504,6 +2510,7 @@ antístrophus
 antítheus
 Antoniástri
 Apharéus
+áphye
 apiáster
 apiástra
 apiástrum
@@ -2631,6 +2638,7 @@ apózema
 apozýmo
 appíngunt
 appingúntur
+appropínquant
 appúngunt
 appungúntur
 apríneus
@@ -2831,6 +2839,7 @@ aspersórium
 aspérsum
 aspérsus
 asperúgo
+aspexísti
 Asphalítes
 aspháltion
 aspháltus
@@ -2986,6 +2995,7 @@ astérnere
 astétis
 astétur
 asthmáticus
+astipulári
 astíteram
 astiterámus
 astíterant
@@ -3031,6 +3041,8 @@ astrapǽa
 Ástrape
 astrátus
 ástreans
+astrepére
+astrépere
 ástrepo
 astrícte
 astríctio
@@ -3179,6 +3191,7 @@ astruxissétis
 astruxísti
 astruxístis
 astrúxit
+astupére
 átheus
 athlétam
 Atlantéus
@@ -3215,6 +3228,7 @@ avenáceus
 ávium
 azýmus
 Bacchéus
+báiulo
 balástrum
 balíneum
 bálneum
@@ -3283,6 +3297,7 @@ blasphémium
 blasphémo
 blasphémus
 blátteus
+Blémyes
 blíteus
 bóreus
 Bosporánus
@@ -3292,6 +3307,7 @@ Bósporus
 Bostrénus
 bostrychítis
 bóstrychus
+botryítis
 boustrophédon
 brabéum
 brabéuta
@@ -3362,10 +3378,12 @@ carbóneus
 carcéreus
 cardíneus
 cáreum
+carfiáthum
 caríceus
 cárneus
 carpíneus
 cartilagíneus
+caryítes
 cáseum
 Caspéria
 Caspíacus
@@ -3420,6 +3438,7 @@ Céstria
 cestrosphéndone
 cestrótus
 Céutrones
+Ceýcis
 Chærestrátus
 Chalástra
 chalcáspis
@@ -3429,6 +3448,7 @@ chamæléuce
 chamæpéuce
 chamæstrótus
 chaméunia
+Chánaan
 Charonéus
 chartáceus
 chárteus
@@ -3548,8 +3568,10 @@ circumvénio
 circumvérto
 circumvolútor
 circumvólvo
+cisalpínus
 Cisalpínus
 Císpius
+cisrhenánus
 Cisrhenánus
 citharístria
 citharœdórum
@@ -3566,6 +3588,7 @@ Cleostrátus
 clípeum
 clípeus
 cloáca
+Clóio
 clúpeus
 Clytæmnéstra
 coáddo
@@ -4599,7 +4622,7 @@ constratúros
 constratúrum
 constratúrus
 constrátus
-constravérams
+constráveram
 constraverámus
 constravérant
 constravéras
@@ -4623,6 +4646,8 @@ constravíssent
 constravísses
 constravísset
 constravissétis
+constravísti
+constravístis
 constrávit
 cónstrepo
 constrícte
@@ -4823,6 +4848,8 @@ cónvoco
 cónvolo
 cónvomo
 convúlnero
+coopério
+coópto
 coriáceus
 Coríntheus
 córneus
@@ -4855,6 +4882,7 @@ crispisúlcans
 crispitúdo
 críspulus
 cróceus
+Crommyúacris
 crotalístria
 crucifíxus
 cuiúspiam
@@ -4871,6 +4899,7 @@ cuprésseus
 cuspidáre
 cuspidátim
 cuspidátum
+cúspide
 cúspidis
 cúspido
 cyáneus
@@ -4918,6 +4947,7 @@ deésto
 deestóte
 defénstrix
 deférbuis
+defíat
 defríngunt
 defringúntur
 defrústror
@@ -5123,7 +5153,7 @@ destratúros
 destratúrum
 destratúrus
 destrátus
-destravérams
+destráveram
 destraverámus
 destravérant
 destravéras
@@ -5257,6 +5287,7 @@ deúrunt
 deurúnto
 deurúntor
 deurúntur
+deúsque
 deússeram
 deusserámus
 deússerant
@@ -5376,7 +5407,7 @@ deúteris
 deutérium
 deutérius
 déutero
-deuteronómii
+Deuteronómii
 Deuteronómium
 deuterórum
 déuteros
@@ -5390,6 +5421,7 @@ deútor
 deutúntor
 deutúntur
 déxtera
+diábolus
 diacastóreum
 diacentauréum
 dialéucos
@@ -5646,6 +5678,7 @@ distínguar
 distinguáre
 distinguáris
 distínguas
+distinguásse
 distínguat
 distinguátis
 distinguátur
@@ -5666,6 +5699,19 @@ distinguebátur
 distinguémini
 distinguémur
 distinguémus
+distinguénda
+distinguéndæ
+distinguéndam
+distinguendárum
+distinguéndas
+distinguénde
+distinguéndi
+distinguéndis
+distinguéndo
+distinguendórum
+distinguéndos
+distinguéndum
+distinguéndus
 distínguens
 distínguent
 distinguénte
@@ -5676,6 +5722,7 @@ distinguéntia
 distinguéntibus
 distinguéntis
 distinguéntium
+distinguéntum
 distinguéntur
 distinguére
 distínguere
@@ -5706,11 +5753,14 @@ distínguit
 distínguite
 distínguitis
 distínguito
+distínguitor
 distinguitóte
 distínguitur
 distínguo
 distínguor
 distínguunt
+distinguúnto
+distinguúntor
 distinguúntur
 distírpo
 distórtus
@@ -5808,6 +5858,7 @@ distratúros
 distratúrum
 distratúrus
 distrátus
+distráveram
 distravérams
 distraverámus
 distravérant
@@ -5832,6 +5883,8 @@ distravíssent
 distravísses
 distravísset
 distravissétis
+distravísti
+distravístis
 distrávit
 distravíti
 distravítis
@@ -5927,6 +5980,7 @@ Dosítheus
 drachmális
 dracóneus
 dracónteus
+Dryúsa
 duráteus
 durérer
 duréus
@@ -6044,6 +6098,7 @@ Eléuteti
 Eléutheræ
 Eléutheri
 eleuthéria
+Eleuthérii
 eleuthérium
 Eleuthérius
 Eleuthérnæ
@@ -6207,6 +6262,7 @@ emplástro
 emplástrum
 empléuros
 empneumatósis
+empýicus
 emúngunt
 emungúntur
 Enipéus
@@ -6214,7 +6270,9 @@ enrhýthmicus
 éntheus
 enútriet
 Eóa
+eóad
 eórum
+Eóus
 Epaphra
 Épaphras
 Epaphródito
@@ -6225,7 +6283,7 @@ ephebéum
 Ephráta
 Ephrátæ
 Ephrátam
-Ephratha
+Ephrátha
 Ephrathǽi
 Ephrathǽus
 Ephrée
@@ -6405,7 +6463,9 @@ ethnicális
 éthnice
 éthnicus
 étiam
+Éuagon
 eúax
+Éuazæ
 Eubáges
 Éubius
 Eubœ́a
@@ -6899,9 +6959,15 @@ extábuis
 extáre
 extemporáneus
 exterráneus
+extínguens
+extinguére
+extínguere
+extínguito
+extínguo
 extíspex
 extispícium
 extráneus
+extraordinárius
 exúngue
 exúnguem
 exúngues
@@ -6963,6 +7029,7 @@ férreus
 ferrugíneus
 feruláceus
 ferúleus
+ficúlnea
 ficúlneus
 filiástra
 filiástri
@@ -7154,6 +7221,8 @@ gáudium
 gémmeus
 génitrix
 génuit
+Geóaris
+géthyum
 géusiæ
 Giufitánus
 gláuceus
@@ -7173,6 +7242,7 @@ gynæcéum
 gýpseus
 Gythéum
 hábeat
+hæmorrhóia
 halicástrum
 haliéus
 haliéuticus
@@ -7208,6 +7278,7 @@ herináceus
 hermenéuma
 Hermionéus
 hérneum
+heroíon
 Herostrátus
 Hespéria
 Hespérides
@@ -7219,6 +7290,7 @@ Heurésis
 héuretes
 Hiantéus
 hiáre
+híemo
 Hierónymus
 hinnúleus
 hippéus
@@ -7269,6 +7341,7 @@ hóspitis
 hospítium
 hóspitor
 hóspitus
+hyacínthus
 Hydáspes
 Hydaspéus
 hydréuma
@@ -7277,6 +7350,7 @@ hygremplástrum
 Hýleus
 Hypermnéstra
 hypogéum
+hypoiástius
 hypozéugma
 hypozéuxis
 Hýpseus
@@ -7295,6 +7369,7 @@ ichnéumon
 Ichnóbates
 ichnográphia
 Ichnúsa
+ichthyocólla
 idǽa
 Idǽi
 Idǽus
@@ -7345,6 +7420,7 @@ Idumǽa
 íduus
 Idýia
 idýllium
+ieiúnium
 Iésus
 Ignátius
 ígneus
@@ -7577,6 +7653,7 @@ incárneus
 incastratúra
 incástro
 incespitátor
+ínchoo
 incíngulum
 incíngunt
 incingúntur
@@ -8345,7 +8422,7 @@ instratúros
 instratúrum
 instratúrus
 instrátus
-instravérams
+instráveram
 instraverámus
 instravérant
 instravéras
@@ -10360,6 +10437,7 @@ interstratúros
 interstratúrum
 interstratúrus
 interstrátus
+interstráveram
 interstravérams
 interstraverámus
 interstravérant
@@ -10384,6 +10462,8 @@ interstravíssent
 interstravísses
 interstravísset
 interstravissétis
+interstravísti
+interstravístis
 interstrávit
 intérstrepo
 interstríngo
@@ -10632,6 +10712,8 @@ irenáceus
 Irenéus
 Ireséum
 irrespirábilis
+Ísaac
+Isáias
 íschias
 Iséum
 Isocratéus
@@ -10690,6 +10772,7 @@ iungúntur
 iúreus
 iurisperítia
 iurisperítus
+iustítia
 Janúspater
 jejúnium
 justítia
@@ -10728,7 +10811,11 @@ languébitur
 languébo
 languébunt
 languefácio
+languémur
 languémus
+languéndi
+languéndo
+languéndum
 languénte
 languéntem
 languéntes
@@ -10737,6 +10824,8 @@ languéntia
 languéntibus
 languéntis
 languéntium
+languénto
+languéntum
 lángueo
 langúeram
 languerámus
@@ -10752,6 +10841,7 @@ languéres
 languéret
 languerétis
 languerétur
+languéri
 langúerim
 languérimus
 langúerint
@@ -10767,6 +10857,7 @@ languéscant
 languéscas
 languéscat
 languescátis
+languescátur
 languésce
 languescébam
 languescebámus
@@ -10774,12 +10865,14 @@ languescébant
 languescébas
 languescébat
 languescebátis
+languescebátur
 languescémus
 languescéndi
 languescéndo
 languescéndum
 languéscens
 languéscent
+languescénte
 languescéntem
 languescéntes
 languescénti
@@ -10787,6 +10880,7 @@ languescéntia
 languescéntibus
 languescéntis
 languescéntium
+languescéntum
 languéscere
 languescérem
 languescerémus
@@ -10794,9 +10888,11 @@ languéscerent
 languescéres
 languescéret
 languescerétis
+languescerétur
 languésces
 languéscet
 languescétis
+languescétur
 languéscimus
 languéscis
 languéscit
@@ -10804,6 +10900,7 @@ languéscite
 languéscitis
 languéscito
 languescitóte
+languéscitur
 languésco
 languéscunt
 languescúnto
@@ -10840,11 +10937,14 @@ langúria
 langúrium
 langúrus
 lanugíneus
+Laócoon
+Laódice
 lapídeus
 lappáceus
 láqueus
 lárveus
 Latmiatéus
+Latóius
 Látreus
 Latríngum
 láureus
@@ -11020,6 +11120,7 @@ longúrio
 longúrius
 lóreus
 lotástri
+lúibus
 lupináceus
 lustrábilis
 lústrago
@@ -11064,6 +11165,15 @@ magístro
 magnífico
 magníficus
 magnitúdo
+maióra
+maióre
+maiórem
+maióres
+maióri
+maióribus
+maióris
+maiórum
+maiúsculus
 Maléus
 málleus
 malváceus
@@ -11198,7 +11308,9 @@ mýrteus
 mystérium
 nascétur
 natívitas
+Nausícaa
 Naustáthmos
+navígii
 necessário
 necessaríus
 necessárius
@@ -11274,6 +11386,7 @@ núceus
 núcleus
 nucúleus
 Numístro
+núntiant
 Nyctéus
 nyctostratégus
 Nymféum
@@ -11459,6 +11572,7 @@ obiciebǽmus
 obiciébam
 obiciebámini
 obiciebámur
+obiciebámus
 obiciébant
 obiciebántur
 obiciébar
@@ -11700,6 +11814,7 @@ objiciebǽmus
 objiciébam
 objiciebámini
 objiciebámur
+objiciebámus
 objiciébant
 objiciebántur
 objiciébar
@@ -12636,6 +12751,7 @@ occúrro
 octángulus
 octatéuchus
 octávus
+octóiugis
 ocúleus
 odéum
 œcuménica
@@ -12714,7 +12830,7 @@ Ostrógothi
 Otréus
 ovíle
 Padáneus
-Paeducéus
+Pæducéus
 pænínsula
 palǽstra
 palǽstrica
@@ -12758,6 +12874,7 @@ pauxillísper
 pavonáceus
 pedáneus
 pedéstris
+peiórem
 pélleus
 pellíceus
 Peneléus
@@ -13390,6 +13507,7 @@ perstratúros
 perstratúrum
 perstratúrus
 perstrátus
+perstráveram
 perstravérams
 perstraverámus
 perstravérant
@@ -13660,6 +13778,7 @@ Peucoláus
 Péucolis
 péumene
 Phaleréus
+Phárao
 pharmacéuticus
 pharmacéutria
 Pherecléus
@@ -13681,6 +13800,7 @@ phœníceus
 Phœnícis
 Phoronéus
 Phósphoros
+Phraátes
 Phrixéus
 Phryxéus
 phthóngum
@@ -13787,6 +13907,7 @@ pistrinénsis
 pistrínum
 pistrínus
 Pitthéus
+pityúsa
 plangúntur
 Platanéus
 plaustrarátrum
@@ -13804,12 +13925,13 @@ plúmeus
 plúteum
 plúteus
 pneumáticus
+pneúmatis
 Pneumatómachi
 pœnárum
 pœníceus
 poética
-Poetnéum
-Polichnǽī
+Pœtnéum
+Polichnǽi
 pollíngunt
 pollingúntur
 Polydéuces
@@ -14176,6 +14298,7 @@ præiudicátus
 præiúdico
 præjício
 præligáneum
+prælóngum
 prælóngus
 prælónguum
 prælústris
@@ -15154,6 +15277,7 @@ prætrítos
 prætrítu
 prætrítum
 prætritúra
+praetritúræ
 prætrituræ
 prætritúram
 prætriturárum
@@ -15191,6 +15315,8 @@ prætrivíssent
 prætrivísses
 prætrivísset
 prætrivissétis
+praetrivísti
+praetrivístis
 prætrívit
 præúngunt
 præungúntur
@@ -16370,11 +16496,15 @@ profuturórum
 profutúros
 profutúrum
 profutúrus
+proiácto
 proício
+proiectíbilis
+proiéctum
 promagistrátu
 promagístro
 Promethéus
 promónstra
+proœ́mium
 propnigéum
 propósuit
 proptérea
@@ -16631,6 +16761,7 @@ pseudozmarágdus
 Ptéleum
 ptochéum
 Ptolemæéum
+público
 públicus
 púbuis
 púgneus
@@ -16650,6 +16781,7 @@ puníceus
 purpúreus
 púteum
 púteus
+pýelus
 Pyrámeus
 Pyrenéus
 pyréum
@@ -17461,6 +17593,8 @@ redúco
 redúlcero
 redúndo
 redúvia
+reexspectáre
+reexspécto
 reflámmo
 reflécto
 refléxio
@@ -17890,6 +18024,7 @@ semispáthium
 semisphérium
 semistrígium
 semunciárius
+semuncideúncis
 semuncídeunx
 semustulátus
 septemméstris
@@ -18480,6 +18615,7 @@ subterstratúros
 subterstratúrum
 subterstratúrus
 subterstrátus
+subterstráveram
 subterstravérams
 subterstraverámus
 subterstravérant
@@ -19948,6 +20084,7 @@ superinstratúros
 superinstratúrum
 superinstratúrus
 superinstrátus
+superinstráveram
 superinstravérams
 superinstraverámus
 superinstravérant
@@ -19973,6 +20110,7 @@ superinstravísses
 superinstravísset
 superinstravissétis
 superinstravísti
+superinstravístis
 superinstrávit
 superínstrepo
 superinstrúctus
@@ -20305,6 +20443,7 @@ superstratúros
 superstratúrum
 superstratúrus
 superstrátus
+superstráveram
 superstravérams
 superstraverámus
 superstravérant
@@ -20597,7 +20736,10 @@ Tegeéus
 Tegestrǽi
 tellústris
 telóneum
+temetípsum
 temporáneus
+ténebra
+ténebræ
 Téreus
 termíteus
 terréstris
@@ -21777,12 +21919,14 @@ trilóngum
 trilóngus
 triménstruus
 triméstris
+tripléxque
 trirhýthmus
 trispástos
 trispíthamus
 tríticum
 Tritopatréus
 triúmpho
+Tróius
 trúlleum
 trúlleus
 tubilústrium
@@ -21900,8 +22044,10 @@ univérsus
 ustrícula
 ustrína
 ustrínum
+vácuum
 valléstria
 vapóreus
+váriis
 vaspicétum
 váspicis
 velléreus
@@ -21955,12 +22101,14 @@ viscéreus
 vispéllio
 víspillo
 víteus
+vítia
 vitíneus
 vítreus
 vivére
 vívere
 vivífico
 Vorocíngus
+vosmetípsos
 Xenophontéus
 xylolychnúchus
 Zaléucus
