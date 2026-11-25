@@ -6259,7 +6259,6 @@ epícyclus
 Epícydes
 Epidámnus
 Epidáphna
-Epídaphna
 Epidáurum
 epidecticális
 epidemética
@@ -6294,7 +6293,7 @@ epimédion
 epímelas
 epiménia
 Epiménides
-epimérismos
+epimerísmos
 Epimethéus
 Epiméthis
 epímetrum
